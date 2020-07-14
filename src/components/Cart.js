@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import formatCurrency from '../utils/utils';
+import formatCurrency from '../helper/utils';
 import Fade from 'react-reveal/Fade';
 
 export default class Cart extends Component {
@@ -57,9 +57,12 @@ export default class Cart extends Component {
                                             <div>{item.title}</div>
                                             <div className="right">
                                                 {formatCurrency(item.price)} x {item.count}{" "}
-                                                <button className="button" onClick={() => this.props.removeFromCart(item)}>
+                                                <button
+                                                    className="button"
+                                                    onClick={() => this.props.removeFromCart(item)}
+                                                >
                                                     Remove
-                                    </button>
+                        </button>
                                             </div>
                                         </div>
                                     </li>)
