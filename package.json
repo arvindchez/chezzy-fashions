@@ -29,7 +29,7 @@
     "shortid": "^2.2.15"
   },
   "scripts": {
-    "server": "nodemon server.js",
+    "server": "env-cmd -f .env.development nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.4"
   }
 }
