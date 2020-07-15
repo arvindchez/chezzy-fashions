@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
+import emptyCart from '../images/emptycart.png';
 import { removeFromCart } from "../actions/cart";
 import { createOrder, clearOrder } from "../actions/order";
 import { FaShoppingBag } from 'react-icons/fa';
@@ -45,7 +46,7 @@ class Cart extends Component {
                 {cartItems.length === 0 ? (
                     <div>
                         <div className="cart cart-header">Cart is empty</div>
-                        <img src="/images/emptycart.png" height="80%" width="80%" alt="Cart is empty"></img>
+                        <img src={emptyCart} height="80%" width="80%" alt="Cart is empty"></img>
                     </div>
                 ) : (
                         <div className="cart cart-header">

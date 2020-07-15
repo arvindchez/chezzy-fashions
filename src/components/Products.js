@@ -6,6 +6,7 @@ import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/product";
 import { addToCart } from "../actions/cart";
+import Loading from './Loading'
 
 class Products extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Products extends Component {
             <div>
                 <Fade bottom cascade>
                     {!this.props.products ? (
-                        <div>Loading...</div>
+                        <div> <Loading /></div>
                     ) : (
                             <ul className="products">
                                 {this.props.products.map((product) => (

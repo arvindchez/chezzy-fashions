@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { filterProducts, sortProducts } from "../actions/product";
+import Loading from './Loading';
 
 class Filter extends Component {
     render() {
         return !this.props.filteredProducts ? (
-            <div>Loading...</div>
+            <div> <Loading /></div>
         ) : (
                 <div className="filter">
                     <div className="filter-result">
