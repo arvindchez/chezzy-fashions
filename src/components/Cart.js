@@ -6,6 +6,8 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { removeFromCart } from "../actions/cart";
 import { createOrder, clearOrder } from "../actions/order";
+import { FaShoppingBag } from 'react-icons/fa';
+
 
 class Cart extends Component {
     constructor(props) {
@@ -41,9 +43,13 @@ class Cart extends Component {
         return (
             <div>
                 {cartItems.length === 0 ? (
-                    <div className="cart cart-header">Cart is empty</div>
+                    <div>
+                        <div className="cart cart-header">Cart is empty</div>
+                        <img src="/images/emptycart.png" height="80%" width="80%" alt="Cart is empty"></img>
+                    </div>
                 ) : (
                         <div className="cart cart-header">
+                            <FaShoppingBag />{"  "}
                             You have {cartItems.length} in the cart{" "}
                         </div>
                     )}
@@ -111,7 +117,7 @@ class Cart extends Component {
                                             <div className="right">
                                                 {formatCurrency(item.price)} x {item.count}{" "}
                                                 <button
-                                                    className="button"
+                                                    className="button remove"
                                                     onClick={() => this.props.removeFromCart(item)}
                                                 >
                                                     Remove
@@ -128,16 +134,16 @@ class Cart extends Component {
                             <div className="cart">
                                 <div className="total">
                                     <div>
-                                        Total:{" "}
-                                        {formatCurrency(
-                                            cartItems.reduce((a, c) => a + c.price * c.count, 0)
-                                        )}
+                                        <strong>Total:{" "}
+                                            {formatCurrency(
+                                                cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                                            )}</strong>
                                     </div>
                                     <button
                                         onClick={() => {
                                             this.setState({ showCheckout: true });
                                         }}
-                                        className="button primary"
+                                        className="button proceed"
                                     >
                                         Proceed
                   </button>
@@ -149,43 +155,47 @@ class Cart extends Component {
                                         <form onSubmit={this.createOrder}>
                                             <ul className="form-container">
                                                 <li>
-                                                    <label>Email</label>
+                                                    <label>Email:</label>
                                                     <input
                                                         name="email"
                                                         type="email"
                                                         required
+                                                        placeholder="Your email"
                                                         onChange={this.handleInput}
                                                     ></input>
                                                 </li>
                                                 <li>
-                                                    <label>Name</label>
+                                                    <label>Name:</label>
                                                     <input
                                                         name="name"
                                                         type="text"
                                                         required
+                                                        placeholder="Your name"
                                                         onChange={this.handleInput}
                                                     ></input>
                                                 </li>
                                                 <li>
-                                                    <label>Phone</label>
+                                                    <label>Phone Number:</label>
                                                     <input
                                                         name="phone"
                                                         type="text"
                                                         required
+                                                        placeholder="Your phone number"
                                                         onChange={this.handleInput}
                                                     ></input>
                                                 </li>
                                                 <li>
-                                                    <label>Address</label>
+                                                    <label>Address:</label>
                                                     <input
                                                         name="address"
                                                         type="text"
                                                         required
+                                                        placeholder="Your address"
                                                         onChange={this.handleInput}
                                                     ></input>
                                                 </li>
                                                 <li>
-                                                    <button className="button primary" type="submit">
+                                                    <button className="button proceed" type="submit">
                                                         Checkout
                           </button>
                                                 </li>

@@ -10,7 +10,7 @@ class Filter extends Component {
                 <div className="filter">
                     <div className="filter-result">
                         {this.props.filteredProducts.length} Products
-        </div>
+                    </div>
                     <div className="filter-sort">
                         Order{" "}
                         <select
