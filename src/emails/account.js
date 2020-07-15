@@ -20,7 +20,7 @@ const sendWelcomeMail = (order) => {
 const composeEmail = (order) => {
 
     const orderDetails = order.cartItems.map((x) => (
-        `<div style="color: yellow >  ${x.count} ${" x "} ${x.title} </div>`
+        `<div><span style="color:orange;font-weight:bold">${x.count} ${" x "} ${x.title}</span></div>`
     ))
 
     return `<div>
@@ -43,7 +43,7 @@ const composeEmail = (order) => {
                 <div><strong>Date:</strong> ${convertToAppDate(order.createdAt)}</div>
             </li>
             <li>
-                <div><strong>Total:<span style="color: organge"> ${formatCurrency(order.total)}</span></strong></div>
+                <div><strong>Total:</strong><span style="color:blue;font-weight:bold">${formatCurrency(order.total)}</span></div>
             </li>
             <li>
                 <div><strong>Cart Items:<strong> ${orderDetails}</div>
