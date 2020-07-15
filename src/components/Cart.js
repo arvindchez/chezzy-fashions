@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { removeFromCart } from "../actions/cart";
+import { createOrder, clearOrder } from "../actions/order";
 
 class Cart extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Cart extends Component {
         this.state = {
             name: "",
             email: "",
+            phone: "",
             address: "",
             showCheckout: false,
         };
@@ -24,6 +26,7 @@ class Cart extends Component {
         const order = {
             name: this.state.name,
             email: this.state.email,
+            phone: this.state.phone,
             address: this.state.address,
             cartItems: this.props.cartItems,
             total: this.props.cartItems.reduce((a, c) => a + c.price * c.count, 0),
@@ -62,6 +65,10 @@ class Cart extends Component {
                                     <li>
                                         <div>Email:</div>
                                         <div>{order.email}</div>
+                                    </li>
+                                    <li>
+                                        <div>Phone:</div>
+                                        <div>{order.phone}</div>
                                     </li>
                                     <li>
                                         <div>Address:</div>
@@ -160,6 +167,15 @@ class Cart extends Component {
                                                     ></input>
                                                 </li>
                                                 <li>
+                                                    <label>Phone</label>
+                                                    <input
+                                                        name="phone"
+                                                        type="text"
+                                                        required
+                                                        onChange={this.handleInput}
+                                                    ></input>
+                                                </li>
+                                                <li>
                                                     <label>Address</label>
                                                     <input
                                                         name="address"
@@ -188,7 +204,8 @@ class Cart extends Component {
 
 export default connect(
     (state) => ({
+        order: state.order.order,
         cartItems: state.cart.cartItems,
     }),
-    { removeFromCart }
+    { removeFromCart, createOrder, clearOrder }
 )(Cart);
