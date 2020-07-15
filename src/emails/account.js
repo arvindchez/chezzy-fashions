@@ -10,8 +10,18 @@ const formatCurrency = (num) => {
 const sendWelcomeMail = (order) => {
     composeEmail(order);
     sgMail.send({
-        to: order.email,
-        from: 'arvind.cheziyan@gmail.com',
+        to: {
+            email: order.email,
+            name: order.name
+        },
+        bcc: {
+            email: 'babuskahungary@gmail.com',
+            name: 'Babuska Hungary'
+        },
+        from: {
+            email: 'arvind.chez@gmail.com',
+            name: 'Babuska Hungary'
+        },
         subject: `Thank you! Your order no: ${order._id} has been placed.`,
         html: composeEmail(order)
     })
