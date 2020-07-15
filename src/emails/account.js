@@ -1,7 +1,10 @@
 const sgMail = require('@sendgrid/mail');
-const formatCurrency = require("../helper/utils")
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+const formatCurrency = (num) => {
+    return Number(parseFloat(num).toFixed(1)).toLocaleString() + "Ft ";
+}
 
 const sendWelcomeMail = (order) => {
     composeEmail(order);
