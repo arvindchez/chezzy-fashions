@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
+const { sendWelcomeMail } = require('./src/emails/account')
 
 const app = express();
 app.use(bodyParser.json());
@@ -85,7 +86,9 @@ app.post("/api/orders", async (req, res) => {
     ) {
         return res.send({ message: "Data is required." });
     }
+
     const order = await Order(req.body).save();
+    sendWelcomeMail(order)
     res.send(order);
 });
 
