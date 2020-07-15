@@ -4,7 +4,7 @@ import logo from '../images/mail-icon.png';
 const About = () => {
     return (
         <div className="aboutus">
-            <a href="mailto:noemi.vida93@gmail.com" >
+            <a href="mailto:babuskahungary@gmail.com" >
                 <img src={logo} alt="mailto" />
             </a>
         </div>
