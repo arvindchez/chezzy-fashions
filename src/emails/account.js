@@ -1,4 +1,5 @@
 const sgMail = require('@sendgrid/mail');
+const { convertToAppDate } = require('../common/utils')
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -24,38 +25,29 @@ const composeEmail = (order) => {
 
     return `<div>
         <h3 style="color: green">Your order has been placed.</h3>
-        <h2>Order ${order._id}</h2>
+        <h2>Order Number: ${order._id}</h2>
         <ul>
             <li>
-                <div>Name:</div>
-                <div>${order.name}</div>
+                <div><strong>Name</strong>: ${order.name}</strong></div>
             </li>
             <li>
-                <div>Email:</div>
-                <div>${order.email}</div>
+                <div><strong>Email: ${order.email}</strong></div>
             </li>
             <li>
-                <div>Phone:</div>
-                <div>${order.phone}</div>
+                <div><strong>Phone: ${order.phone}</strong></div>
             </li>
             <li>
-                <div>Address:</div>
-                <div>${order.address}</div>
+                <div><strong>Address: ${order.address}</strong></div>
             </li>
             <li>
-                <div>Date:</div>
-                <div>${order.createdAt}</div>
+                <div><strong>Date: ${convertToAppDate(order.createdAt)}</strong></div>
             </li>
             <li>
-                <div>Total:</div>
-                <div>${formatCurrency(order.total)}</div>
+                <div><strong>Total: ${formatCurrency(order.total)}</strong></div>
             </li>
             <li>
-                <div>Cart Items:</div>
-                <div>
-                    ${orderDetails}
-                </div>
-            </li>
+                <div>Cart Items: ${orderDetails}</div>
+             </li>
         </ul>
     </div>`
 }

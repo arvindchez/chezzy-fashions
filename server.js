@@ -28,7 +28,7 @@ const Product = mongoose.model(
         image: String,
         price: Number,
         availableSizes: [String],
-    })
+    }, { timestamps: true })
 );
 
 app.get("/api/products", async (req, res) => {
