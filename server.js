@@ -7,11 +7,19 @@ const { sendWelcomeMail } = require('./src/emails/account')
 const app = express();
 app.use(bodyParser.json());
 
-app.use("/", express.static(__dirname + "/build"));
-app.get("/", (req, res) => res.sendFile(__dirname + "/build/index.html"));
+let staticPath = __dirname;
+let indexPath = __dirname;
+
+if (process.env.NODE_ENV === 'production') {
+    staticPath = staticPath + "/build";
+    indexPath = indexPath + "/build/index.html";
+}
+
+app.use("/", express.static(staticPath));
+app.get("/", (req, res) => res.sendFile(indexPath));
 
 mongoose.connect(
-    process.env.MONGODB_URL || "mongodb://localhost/babuska",
+    process.env.MONGODB_URL,
     {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -28,7 +36,11 @@ const Product = mongoose.model(
         image: String,
         price: Number,
         availableSizes: [String],
-    }, { timestamps: true })
+    },
+        {
+            timestamps: true,
+        }
+    )
 );
 
 app.get("/api/products", async (req, res) => {
@@ -40,6 +52,14 @@ app.post("/api/products", async (req, res) => {
     const newProduct = new Product(req.body);
     const savedProduct = await newProduct.save();
     res.send(savedProduct);
+});
+
+app.post("/api/bulkproducts", async (req, res) => {
+    Product.insertMany(req.body).then((data) => {
+        res.send(data)
+    }).catch((error) => {
+        res.send(error)
+    });
 });
 
 app.delete("/api/products/:id", async (req, res) => {
@@ -102,5 +122,5 @@ app.delete("/api/orders/:id", async (req, res) => {
     res.send(order);
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 app.listen(port, () => console.log("serve at http://localhost:5000"));
