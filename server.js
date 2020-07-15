@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
+const { sendWelcomeMail } = require('./src/emails/account')
 
 const app = express();
 app.use(bodyParser.json());
@@ -10,7 +11,7 @@ app.use("/", express.static(__dirname + "/build"));
 app.get("/", (req, res) => res.sendFile(__dirname + "/build/index.html"));
 
 mongoose.connect(
-    process.env.MONGODB_URL || "mongodb://localhost/chezzy-fashions",
+    process.env.MONGODB_URL || "mongodb://localhost/babuska",
     {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -27,7 +28,7 @@ const Product = mongoose.model(
         image: String,
         price: Number,
         availableSizes: [String],
-    })
+    }, { timestamps: true })
 );
 
 app.get("/api/products", async (req, res) => {
@@ -85,7 +86,9 @@ app.post("/api/orders", async (req, res) => {
     ) {
         return res.send({ message: "Data is required." });
     }
+
     const order = await Order(req.body).save();
+    sendWelcomeMail(order)
     res.send(order);
 });
 

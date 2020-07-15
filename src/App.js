@@ -17,9 +17,9 @@ class App extends React.Component {
               <Navbar />
             </header>
             <main>
-              <Route path="/contactus" component={About} />
-              <Route path="/admin" component={AdminScreen} />
-              <Route path="/" component={HomeScreen} exact />
+              <Route exact strict path="/contactus" component={About} />
+              <Route exact strict path="/admin" component={AdminScreen} />
+              <Route exact strict path="/" component={HomeScreen} />
             </main>
             <footer>Chez Corporation. All right is reserved.</footer>
           </div>
