@@ -177,6 +177,24 @@ footer {
   box-shadow: 0 9px #999;
 }
 
+.aboutus {
+  display: flex;
+}
+
+.aboutus div {
+  flex: 1;
+  width: 100%;
+  align-content: center;
+}
+
+.aboutus a {
+  width: 100%;
+}
+
+.aboutus img {
+  width: inherit;
+}
+
 /* Filter */
 
 .filter {
@@ -431,7 +449,7 @@ th {
 }
 
 .show-nav {
-  height: 100px;
+  height: 80px;
 }
 
 @media screen and (min-width: 768px) {

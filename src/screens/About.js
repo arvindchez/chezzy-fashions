@@ -3,11 +3,9 @@ import logo from '../images/mail-icon.png';
 
 const About = () => {
     return (
-        <div className="banner">
-            <h4>Contact Us</h4>
-            <p>For any inquiries please contact :</p>
+        <div className="aboutus">
             <a href="mailto:arvind.chez@gmail.com" >
-                <img border="0" src={logo} width="100" height="60" alt="" />
+                <img src={logo} alt="mailto" />
             </a>
         </div>
     )
