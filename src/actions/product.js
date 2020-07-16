@@ -1,17 +1,16 @@
 import { FETCH_PRODUCTS } from "../types";
-import { FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../types";
+import { FILTER_PRODUCTS_BY_COLOR, FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../types";
 
 export const fetchProducts = () => async (dispatch) => {
     const res = await fetch("/api/products");
     const data = await res.json();
-    console.log(data);
     dispatch({
         type: FETCH_PRODUCTS,
         payload: data,
     });
 };
 
-export const filterProducts = (products, size) => (dispatch) => {
+export const filterProductsBySize = (products, size) => (dispatch) => {
     dispatch({
         type: FILTER_PRODUCTS_BY_SIZE,
         payload: {
@@ -23,6 +22,20 @@ export const filterProducts = (products, size) => (dispatch) => {
         },
     });
 };
+
+export const filterProductsByColor = (products, color) => (dispatch) => {
+    dispatch({
+        type: FILTER_PRODUCTS_BY_COLOR,
+        payload: {
+            color: color,
+            items:
+                color === ""
+                    ? products
+                    : products.filter((x) => x.availableColours.indexOf(color) >= 0),
+        },
+    });
+};
+
 export const sortProducts = (filteredProducts, sort) => (dispatch) => {
     const sortedProducts = filteredProducts.slice();
     if (sort === "latest") {
