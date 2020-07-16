@@ -36,6 +36,7 @@ const Product = mongoose.model(
         image: String,
         price: Number,
         availableSizes: [String],
+        availableColours: [String],
     },
         {
             timestamps: true,

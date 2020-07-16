@@ -7,3 +7,5 @@ export const CREATE_ORDER = "CREATE_ORDER";
 export const CLEAR_ORDER = "CLEAR_ORDER";
 export const CLEAR_CART = "CLEAR_CART";
 export const FETCH_ORDERS = "FETCH_ORDERS";
+export const FILTER_PRODUCTS_BY_COLOR = "FILTER_PRODUCTS_BY_COLOR";
+
