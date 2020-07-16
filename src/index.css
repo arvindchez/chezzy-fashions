@@ -98,7 +98,7 @@ footer {
 
 .products li {
   flex: 0 1 29rem;
-  height: 47rem;
+  height: 40rem;
   padding: 1rem;
 }
 
@@ -107,11 +107,12 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: fit-content;
 }
 
 .product img {
-  max-width: 37rem;
-  max-height: 37rem;
+  max-width: 30rem;
+  max-height: 30rem;
 }
 
 .product-price {
@@ -122,11 +123,10 @@ footer {
 
 .product-price div, .product-price button {
   text-align: center;
-  flex: 1;
 }
 
 .product-price div {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .button {
@@ -146,7 +146,7 @@ footer {
   background-color: #e98706;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 4px #999;
 }
 
 .button.proceed {
@@ -158,7 +158,7 @@ footer {
   background-color: #3a9455;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 4px #999;
 }
 
 .button:hover {
@@ -171,10 +171,10 @@ footer {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #08458b;
+  background-color: #008488d4;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 4px #999;
 }
 
 .aboutus {
