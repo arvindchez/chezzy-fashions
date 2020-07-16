@@ -1,6 +1,7 @@
 import {
     FETCH_PRODUCTS,
     FILTER_PRODUCTS_BY_SIZE,
+    FILTER_PRODUCTS_BY_SEARCH,
     ORDER_PRODUCTS_BY_PRICE,
     FILTER_PRODUCTS_BY_COLOR,
 } from "../types";
@@ -11,6 +12,12 @@ export const productsReducer = (state = {}, action) => {
             return {
                 ...state,
                 size: action.payload.size,
+                filteredItems: action.payload.items,
+            };
+        case FILTER_PRODUCTS_BY_SEARCH:
+            return {
+                ...state,
+                search: action.payload.search,
                 filteredItems: action.payload.items,
             };
         case FILTER_PRODUCTS_BY_COLOR:

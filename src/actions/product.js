@@ -1,5 +1,5 @@
 import { FETCH_PRODUCTS } from "../types";
-import { FILTER_PRODUCTS_BY_COLOR, FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../types";
+import { FILTER_PRODUCTS_BY_COLOR, FILTER_PRODUCTS_BY_SEARCH, FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../types";
 
 export const fetchProducts = () => async (dispatch) => {
     const res = await fetch("/api/products");
@@ -7,6 +7,22 @@ export const fetchProducts = () => async (dispatch) => {
     dispatch({
         type: FETCH_PRODUCTS,
         payload: data,
+    });
+};
+
+export const searchProducts = (search) => async (dispatch) => {
+    const res = await fetch("/api/products");
+    const data = await res.json();
+
+    dispatch({
+        type: FILTER_PRODUCTS_BY_SEARCH,
+        payload: {
+            search: search,
+            items:
+                search === ""
+                    ? data
+                    : data.filter((x) => x.title.toLowerCase().includes(search.toLowerCase()))
+        },
     });
 };
 
@@ -51,7 +67,7 @@ export const sortProducts = (filteredProducts, sort) => (dispatch) => {
                     : 1
         );
     }
-    console.log(sortedProducts);
+
     dispatch({
         type: ORDER_PRODUCTS_BY_PRICE,
         payload: {
