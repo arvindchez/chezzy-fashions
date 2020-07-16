@@ -13,17 +13,54 @@ class Products extends Component {
         super(props);
         this.state = {
             product: null,
+            isColorSet: false,
+            isSizeSet: false,
+            setSize: "",
+            setColor: ""
         };
     }
     componentDidMount() {
         this.props.fetchProducts();
     }
+
     openModal = (product) => {
         this.setState({ product });
     };
+
     closeModal = () => {
-        this.setState({ product: null });
+        this.setState({
+            product: null,
+            isColorSet: false,
+            isSizeSet: false,
+            setSize: "",
+            setColor: ""
+        });
     };
+
+    addSelectedColor = (color) => {
+        let { product } = this.state;
+        let temp = { ...product }
+        temp.selectedColor = color;
+
+        this.setState({
+            product: temp,
+            isColorSet: true,
+            setColor: color
+        })
+    };
+
+    addSelectedSize = (size) => {
+        let { product } = this.state;
+        let temp = { ...product }
+        temp.selectedSize = size;
+
+        this.setState({
+            product: temp,
+            isSizeSet: true,
+            setSize: size
+        })
+    };
+
     render() {
         const { product } = this.state;
         return (
@@ -46,7 +83,17 @@ class Products extends Component {
                                                 </div>
                                                 <div className="addtocart-bottom">
                                                     <button
-                                                        onClick={() => this.props.addToCart(product)}
+                                                        onClick={() => {
+                                                            if (product.availableColours.length > 0) {
+                                                                product.selectedColor = product.availableColours[0]
+                                                            }
+
+                                                            if (product.availableSizes.length > 0) {
+                                                                product.selectedSize = product.availableSizes[0]
+                                                            }
+
+                                                            this.props.addToCart(product)
+                                                        }}
                                                         className="button primary">
                                                         Add To Cart
                                                 </button>
@@ -73,25 +120,58 @@ class Products extends Component {
                                         </p>
                                         <p>{product.description}</p>
                                         <p>
-                                            Avaiable Sizes:{" "}
+                                            <label> Avaiable Sizes:{" "}</label>
                                             {product.availableSizes.map((x) => (
                                                 <span>
                                                     {" "}
-                                                    <button className="button">{x}</button>
+                                                    {this.state.isSizeSet && this.state.setSize === x ?
+                                                        < button
+                                                            onClick={() => { this.addSelectedSize(x); }}
+                                                            className="button selected"> {x}
+                                                        </button> :
+                                                        < button
+                                                            onClick={() => { this.addSelectedSize(x); }}
+                                                            className="button"> {x}
+                                                        </button>
+                                                    }
+                                                </span>
+                                            ))}
+                                        </p>
+                                        <p>
+                                            <label> Avaiable Colours:{" "}</label>
+                                            {product.availableColours.map((x) => (
+                                                <span>
+                                                    {" "}
+                                                    {this.state.isColorSet && this.state.setColor === x ?
+                                                        < button
+                                                            onClick={() => { this.addSelectedColor(x); }}
+                                                            className="button selected"> {x}
+                                                        </button> :
+                                                        < button
+                                                            onClick={() => { this.addSelectedColor(x); }}
+                                                            className="button"> {x}
+                                                        </button>
+                                                    }
                                                 </span>
                                             ))}
                                         </p>
                                         <div className="product-price">
-                                            <div>{formatCurrency(product.price)}</div>
+                                            <label>Price: {formatCurrency(product.price)}</label>
                                             <button
                                                 className="button primary"
                                                 onClick={() => {
+
+                                                    if (!this.state.isColorSet && product.availableColours.length > 0) {
+                                                        product.selectedColor = product.availableColours[0]
+                                                    }
+
+                                                    if (!this.state.isSizeSet && product.availableSizes.length > 0) {
+                                                        product.selectedSize = product.availableSizes[0]
+                                                    }
+
                                                     this.props.addToCart(product);
                                                     this.closeModal();
-                                                }}
-                                            >
-                                                Add To Cart
-                    </button>
+                                                }}>Add To Cart</button>
                                         </div>
                                     </div>
                                 </div>

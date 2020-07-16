@@ -21,9 +21,11 @@ class Cart extends Component {
             showCheckout: false,
         };
     }
+
     handleInput = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     };
+
     createOrder = (e) => {
         e.preventDefault();
         const order = {
@@ -34,11 +36,15 @@ class Cart extends Component {
             cartItems: this.props.cartItems,
             total: this.props.cartItems.reduce((a, c) => a + c.price * c.count, 0),
         };
+
+        this.setState({ showCheckout: false })
         this.props.createOrder(order);
     };
+
     closeModal = () => {
         this.props.clearOrder();
     };
+
     render() {
         const { cartItems, order } = this.props;
         return (
@@ -51,7 +57,9 @@ class Cart extends Component {
                 ) : (
                         <div className="cart cart-header">
                             <FaShoppingBag />{"  "}
-                            You have {cartItems.length} in the cart{" "}
+                            You have {cartItems.length}
+                            {cartItems.length > 1 ?
+                                " items" : " item"} in the cart{" "}
                         </div>
                     )}
 
@@ -94,7 +102,7 @@ class Cart extends Component {
                                         <div>
                                             {order.cartItems.map((x) => (
                                                 <div>
-                                                    {x.count} {" x "} {x.title}
+                                                    {x.count} {" x "} {x.title} {"(Size/Colour -"} {x.selectedSize} {"/"} {x.selectedColor}{")"}
                                                 </div>
                                             ))}
                                         </div>
@@ -145,9 +153,7 @@ class Cart extends Component {
                                             this.setState({ showCheckout: true });
                                         }}
                                         className="button proceed"
-                                    >
-                                        Proceed
-                  </button>
+                                    >Proceed</button>
                                 </div>
                             </div>
                             {this.state.showCheckout && (
@@ -198,7 +204,7 @@ class Cart extends Component {
                                                 <li>
                                                     <button className="button proceed" type="submit">
                                                         Checkout
-                          </button>
+                                                    </button>
                                                 </li>
                                             </ul>
                                         </form>

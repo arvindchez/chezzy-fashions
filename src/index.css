@@ -188,6 +188,11 @@ footer {
   box-shadow: 0 4px #999;
 }
 
+.button.selected {
+  background-color: #06e96c;
+  font-weight: bold;
+}
+
 .button.proceed {
   display: inline-block;
   text-align: center;
@@ -371,6 +376,12 @@ input {
 }
 
 .product-details img {
+  max-height: 100vh;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.product-details label {
   max-height: 100vh;
   max-width: 46rem;
   margin: 0 auto;
