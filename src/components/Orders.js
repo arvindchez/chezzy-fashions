@@ -38,7 +38,7 @@ class Orders extends Component {
                   <td>
                     {order.cartItems.map((item) => (
                       <div>
-                        {item.count} {" x "} {item.title}
+                        {item.count} {" x "} {item.title} {"(Size/Colour -"} {item.selectedSize} {"/"} {item.selectedColor}{")"}
                       </div>
                     ))}
                   </td>

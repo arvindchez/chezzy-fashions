@@ -86,6 +86,8 @@ const Order = mongoose.model(
                     _id: String,
                     title: String,
                     price: Number,
+                    selectedSize: String,
+                    selectedColor: String,
                     count: Number,
                 },
             ],
