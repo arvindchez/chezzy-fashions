@@ -120,7 +120,7 @@ class Products extends Component {
                                         </p>
                                         <p>{product.description}</p>
                                         <p>
-                                            <label> Avaiable Sizes:{" "}</label>
+                                            <label> Available Sizes:{" "}</label>
                                             {product.availableSizes.map((x) => (
                                                 <span>
                                                     {" "}
@@ -138,7 +138,7 @@ class Products extends Component {
                                             ))}
                                         </p>
                                         <p>
-                                            <label> Avaiable Colours:{" "}</label>
+                                            <label> Available Colours:{" "}</label>
                                             {product.availableColours.map((x) => (
                                                 <span>
                                                     {" "}
