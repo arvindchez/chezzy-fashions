@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Filter from "../components/Filter";
+import Filter from "../components/filter/Filter";
 import Products from "../components/Products";
-import Cart from "../components/Cart";
 import { FaFilter } from 'react-icons/fa';
-
+import Fade from "react-reveal/Fade";
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -27,14 +26,13 @@ class HomeScreen extends Component {
       <div>
         <div className="content">
           <div className="main">
-            <div className="filter-container" onClick={this.hideComponent}>
-              <FaFilter />
-            </div>
+            <Fade top cascade>
+              <div className="filter-container" onClick={this.hideComponent}>
+                <FaFilter />
+              </div>
+            </Fade>
             {showFilter && <Filter />}
             <Products></Products>
-          </div>
-          <div className="sidebar">
-            <Cart />
           </div>
         </div>
       </div>
@@ -43,3 +41,4 @@ class HomeScreen extends Component {
 }
 
 export default HomeScreen
+

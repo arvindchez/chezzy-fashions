@@ -254,61 +254,7 @@ footer {
   width: inherit;
 }
 
-/* Filter */
-
-.filter {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  color: black;
-  font-weight: bold;
-  margin: 1rem;
-  border-bottom: 0.1rem #c0c0c0 solid;
-  position: relative;
-  background: rgb(238, 223, 202);
-  border-radius: .4em;
-  flex: 1;
-  align-items: center;
-}
-
-select {
-  border-radius: 5px;
-  background-color: aliceblue;
-  outline: none;
-}
-
-.filter-input {
-  background-color: white;
-  padding: .5rem;
-  border: 0.1rem #c0c0c0 solid;
-  outline: none;
-  width: 20rem;
-}
-
-@media screen and (max-width: 375px) {
-  .filter {
-    flex-direction: column;
-  }
-}
-
 /* Index.css */
-
-#sticky {
-  float: right;
-  position: absolute;
-  position: -webkit-sticky;
-  background: #f83d23;
-  width: 30px;
-  height: 30px;
-  visibility: hidden;
-  top: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 6px #000;
-  color: #fff;
-  cursor: pointer;
-}
 
 .cart {
   padding: 1rem;

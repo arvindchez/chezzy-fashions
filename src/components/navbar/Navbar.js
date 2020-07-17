@@ -69,7 +69,7 @@ const NavLinks = styled(animated.ul)`
   list-style-type: none;
   margin: auto 0;
 
-  & a {
+  & a  {
     color: #dfe6e9;
     text-transform: uppercase;
     font-weight: 600;
@@ -79,7 +79,7 @@ const NavLinks = styled(animated.ul)`
     text-decoration: none;
     cursor: pointer;
 
-    &:hover {
+    &:hover li{
       color: #fdcb6e;
       border-bottom: 1px solid #fdcb6e;
     }
@@ -87,7 +87,7 @@ const NavLinks = styled(animated.ul)`
     @media (max-width: 768px) {
       display: none;
     }
-  }
+  }  
 `;
 
 const BurgerWrapper = styled.div`
