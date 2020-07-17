@@ -1,14 +1,14 @@
 import React from "react";
 import store from "./store";
 import { Provider } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import AdminScreen from "./screens/AdminScreen";
 import About from './screens/About'
 import Navbar from "./components/navbar/Navbar";
 
 import GlobalStyle from './styles/Global';
-import Cart from "./components/Cart";
+import BigCart from "./components/bigcart/BigCart";
 
 class App extends React.Component {
   state = {
@@ -31,7 +31,7 @@ class App extends React.Component {
               />
             </header>
             <Route exact path="/contactus" component={About} />
-            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/cart" component={BigCart} />
             <Route exact path="/admin" component={AdminScreen} />
             <Route exact path="/" component={HomeScreen} />
             <footer>Chez Corporation. All right is reserved.</footer>

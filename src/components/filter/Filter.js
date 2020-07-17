@@ -4,9 +4,14 @@ import { useSpring, animated } from "react-spring";
 import { connect } from "react-redux";
 import { filterProductsBySize, sortProducts, searchProducts, filterProductsByColor } from "../../actions/product";
 import Loading from '../Loading';
-import { getUnique } from '../../common/utils'
 
 const Filter = (props) => {
+
+    const getUnique = (items, value) => {
+        let type = [...new Set(items.map(item => item[value]))]
+        type = new Set(type.flat(1))
+        return ['All', ...type]
+    }
 
     const sectionAnimation = useSpring({
         from: { transform: 'translate3d(0, -10rem, 0)' },
