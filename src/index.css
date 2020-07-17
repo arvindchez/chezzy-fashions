@@ -250,7 +250,7 @@ footer {
   margin: 1rem;
   border-bottom: 0.1rem #c0c0c0 solid;
   position: relative;
-  background: rgb(187, 220, 231);
+  background: rgb(238, 223, 202);
   border-radius: .4em;
   flex: 1;
   align-items: center;
@@ -303,8 +303,9 @@ select {
 
 .cart-header {
   position: relative;
-  background: #bb009c;
-  color: white;
+  background: #ecc085;
+  color: black;
+  font-weight: bold;
   border-radius: .4em;
 }
 
@@ -316,7 +317,7 @@ select {
   width: 0;
   height: 0;
   border: 20px solid transparent;
-  border-top-color: #bb009c;
+  border-top-color: #ecc085;
   border-bottom: 0;
   margin-left: -20px;
   margin-bottom: -20px;
