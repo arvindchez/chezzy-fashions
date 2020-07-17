@@ -5,6 +5,7 @@ import { useSpring, animated, config } from "react-spring";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
+import Cart from './Cart';
 
 const Navbar = (props) => {
   const barAnimation = useSpring({
@@ -27,6 +28,7 @@ const Navbar = (props) => {
           <NavLinks style={linkAnimation}>
             <a href="/">Home</a>
           </NavLinks>
+          <Cart />
           <BurgerWrapper>
             <BurgerMenu
               navbarState={props.navbarState}
@@ -69,7 +71,7 @@ const NavLinks = styled(animated.ul)`
   list-style-type: none;
   margin: auto 0;
 
-  & a {
+  & a  {
     color: #dfe6e9;
     text-transform: uppercase;
     font-weight: 600;
@@ -79,7 +81,7 @@ const NavLinks = styled(animated.ul)`
     text-decoration: none;
     cursor: pointer;
 
-    &:hover {
+    &:hover li{
       color: #fdcb6e;
       border-bottom: 1px solid #fdcb6e;
     }
@@ -87,7 +89,7 @@ const NavLinks = styled(animated.ul)`
     @media (max-width: 768px) {
       display: none;
     }
-  }
+  }  
 `;
 
 const BurgerWrapper = styled.div`
