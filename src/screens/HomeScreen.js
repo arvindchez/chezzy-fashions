@@ -8,7 +8,8 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showFilter: false
+      showFilter: false,
+      scrolled: false
     };
 
     this.hideComponent = this.hideComponent.bind(this);
@@ -16,24 +17,14 @@ class HomeScreen extends Component {
   }
 
   hideComponent() {
-    this.setState({ showFilter: !this.state.showFilter });
-  }
-
-  calDepth = () => {
-    if (document.documentElement.scrollTop === 0) {
-      if (this.state.showFilter !== false) {
-        this.setState({ showFilter: true });
-      }
+    if (document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
+      this.setState({ showFilter: false });
+    } else {
+      this.setState({ showFilter: !this.state.showFilter });
     }
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.calDepth)
-  }
 
-  componentWillUnmount() {
-    window.addEventListener('scroll', this.calDepth)
-  }
 
   render() {
     const { showFilter } = this.state;
@@ -45,14 +36,15 @@ class HomeScreen extends Component {
             {showFilter && <Filter />}
             <Fade top cascade>
               <div id="scrollFilter" className="filter-container" onClick={() => {
+                this.hideComponent()
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
-                this.hideComponent()
+
               }}>
                 <FaFilter onClick={() => {
+                  this.hideComponent()
                   document.body.scrollTop = 0;
                   document.documentElement.scrollTop = 0;
-                  this.hideComponent()
                 }} />
               </div>
             </Fade>

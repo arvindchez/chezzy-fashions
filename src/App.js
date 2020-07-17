@@ -8,6 +8,7 @@ import About from './screens/About'
 import Navbar from "./components/navbar/Navbar";
 
 import GlobalStyle from './styles/Global';
+import Cart from "./components/Cart";
 
 class App extends React.Component {
   state = {
@@ -30,6 +31,7 @@ class App extends React.Component {
               />
             </header>
             <Route exact path="/contactus" component={About} />
+            <Route exact path="/cart" component={Cart} />
             <Route exact path="/admin" component={AdminScreen} />
             <Route exact path="/" component={HomeScreen} />
             <footer>Chez Corporation. All right is reserved.</footer>

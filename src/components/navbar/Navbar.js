@@ -5,6 +5,7 @@ import { useSpring, animated, config } from "react-spring";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
+import Cart from './Cart';
 
 const Navbar = (props) => {
   const barAnimation = useSpring({
@@ -27,6 +28,7 @@ const Navbar = (props) => {
           <NavLinks style={linkAnimation}>
             <a href="/">Home</a>
           </NavLinks>
+          <Cart />
           <BurgerWrapper>
             <BurgerMenu
               navbarState={props.navbarState}
