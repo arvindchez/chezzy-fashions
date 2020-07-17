@@ -26,12 +26,13 @@ class HomeScreen extends Component {
       <div>
         <div className="content">
           <div className="main">
+            {showFilter && <Filter />}
             <Fade top cascade>
               <div className="filter-container" onClick={this.hideComponent}>
                 <FaFilter />
               </div>
             </Fade>
-            {showFilter && <Filter />}
+
             <Products></Products>
           </div>
         </div>
