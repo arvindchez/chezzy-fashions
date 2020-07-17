@@ -20,7 +20,11 @@ class HomeScreen extends Component {
   }
 
   calDepth = () => {
-    this.setState({ showFilter: true });
+    if (document.documentElement.scrollTop === 0) {
+      if (this.state.showFilter !== false) {
+        this.setState({ showFilter: true });
+      }
+    }
   }
 
   componentDidMount() {
