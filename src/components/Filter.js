@@ -17,33 +17,32 @@ class Filter extends Component {
         ) : (
                 <div className="filter">
                     <div>
-                        {this.props.filteredProducts.length} Products
+                        <div>Total Products: {this.props.filteredProducts.length} </div>
                     </div>
                     <div>
-                        Order{" "}
+                        <label htmlFor="sort">Order </label>
                         <select
+                            name="sort"
                             value={this.props.sort}
                             onChange={(e) =>
                                 this.props.sortProducts(
                                     this.props.filteredProducts,
                                     e.target.value
                                 )
-                            }
-                        >
+                            }>
                             <option value="latest">Latest</option>
                             <option value="lowest">Lowest</option>
                             <option value="highest">Highest</option>
                         </select>
                     </div>
                     <div>
-                        Size{" "}
+                        <label htmlFor="size">Size </label>
                         <select
                             name="size"
                             value={this.props.size ? this.props.size : "All"}
                             onChange={(e) =>
                                 this.props.filterProductsBySize(this.props.products, e.target.value)
-                            }
-                        >{
+                            }>{
                                 this.props.products ?
                                     (
                                         getUnique(this.props.products, 'availableSizes')
@@ -56,19 +55,17 @@ class Filter extends Component {
                                             })
 
                                     ) : "All"
-
                             }
                         </select>
                     </div>
                     <div>
-                        Colour{" "}
+                        <label htmlFor="color">Colour </label>
                         <select
                             name="color"
                             value={this.props.color ? this.props.color : "All"}
                             onChange={(e) =>
                                 this.props.filterProductsByColor(this.props.products, e.target.value)
-                            }>
-                            {
+                            }>{
                                 this.props.products ?
                                     (
                                         getUnique(this.props.products, 'availableColours')
@@ -81,11 +78,11 @@ class Filter extends Component {
                                             })
 
                                     ) : "All"
-
                             }
                         </select>
                     </div>
                     <div>
+                        <label htmlFor="search">Search </label>
                         <input className="filter-input"
                             type="text"
                             autoComplete="false"
