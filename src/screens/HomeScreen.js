@@ -13,7 +13,6 @@ class HomeScreen extends Component {
     };
 
     this.hideComponent = this.hideComponent.bind(this);
-
   }
 
   hideComponent() {
@@ -24,11 +23,8 @@ class HomeScreen extends Component {
     }
   }
 
-
-
   render() {
     const { showFilter } = this.state;
-
     return (
       <div>
         <div className="content">

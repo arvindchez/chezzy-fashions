@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { animated } from "react-spring";
 
 
-class Cart extends Component {
+class SmallCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,11 +38,10 @@ export default connect(
   (state) => ({
     cartItems: state.cart.cartItems,
   })
-)(Cart);
+)(SmallCart);
 
 
 const NavLinks = styled(animated.a)`
-
     color: #dfe6e9;
     text-transform: uppercase;
     font-weight: 600;
