@@ -1,51 +1,45 @@
-import React, { useEffect } from "react";
+import React, { Component } from "react";
 import Filter from "../components/Filter";
 import Products from "../components/Products";
 import Cart from "../components/Cart";
-import { FaShoppingBag } from 'react-icons/fa';
+import { FaFilter } from 'react-icons/fa';
 
 
-const HomeScreen = () => {
+class HomeScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showFilter: false
+    };
 
-  const calDepth = () => {
-    var element = document.getElementById("sticky");
-    if (document.documentElement.scrollTop > 100) {
-      if (element) {
-        element.style.visibility = "visible";
-        element.style.position = "sticky";
-      }
-    } else if (document.documentElement.scrollTop < 100) {
-      if (element) {
-        element.style.visibility = "hidden";
-        element.style.position = "absolute";
-      }
-    }
+    this.hideComponent = this.hideComponent.bind(this);
+
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', calDepth)
-  })
+  hideComponent() {
+    this.setState({ showFilter: !this.state.showFilter });
+  }
 
-  return (
-    <div>
-      <div id="sticky" onClick={() => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }} >
-        <FaShoppingBag />
-      </div>
-      <div className="content">
+  render() {
+    const { showFilter } = this.state;
 
-        <div className="main">
-          <Filter></Filter>
-          <Products></Products>
-        </div>
-        <div className="sidebar">
-          <Cart />
+    return (
+      <div>
+        <div className="content">
+          <div className="main">
+            <div className="filter-container" onClick={this.hideComponent}>
+              <FaFilter />
+            </div>
+            {showFilter && <Filter />}
+            <Products></Products>
+          </div>
+          <div className="sidebar">
+            <Cart />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default HomeScreen 
+export default HomeScreen
