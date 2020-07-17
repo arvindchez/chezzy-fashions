@@ -28,11 +28,11 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <div id="sticky">
-        <FaShoppingBag onClick={() => {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }} />
+      <div id="sticky" onClick={() => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }} >
+        <FaShoppingBag />
       </div>
       <div className="content">
 
