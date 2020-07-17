@@ -19,6 +19,18 @@ class HomeScreen extends Component {
     this.setState({ showFilter: !this.state.showFilter });
   }
 
+  calDepth = () => {
+    this.setState({ showFilter: true });
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.calDepth)
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('scroll', this.calDepth)
+  }
+
   render() {
     const { showFilter } = this.state;
 
@@ -28,11 +40,18 @@ class HomeScreen extends Component {
           <div className="main">
             {showFilter && <Filter />}
             <Fade top cascade>
-              <div className="filter-container" onClick={this.hideComponent}>
-                <FaFilter />
+              <div id="scrollFilter" className="filter-container" onClick={() => {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                this.hideComponent()
+              }}>
+                <FaFilter onClick={() => {
+                  document.body.scrollTop = 0;
+                  document.documentElement.scrollTop = 0;
+                  this.hideComponent()
+                }} />
               </div>
             </Fade>
-
             <Products></Products>
           </div>
         </div>

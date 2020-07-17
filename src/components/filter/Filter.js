@@ -129,11 +129,10 @@ const Filters = styled(animated.section)`
   background: rgb(238, 223, 202);
   font-size: 1.2rem;
   height: 5rem;
-
+  
   @media screen and (max-width: 430px) {
    height: 20rem;
    font-size: 1rem;
-
   }
 
   @media screen and (min-width: 430px) and (max-width: 992px){
