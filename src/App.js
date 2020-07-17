@@ -29,11 +29,9 @@ class App extends React.Component {
                 handleNavbar={this.handleNavbar}
               />
             </header>
-            <Switch>
-              <Route exact strict path="/contactus" component={About} />
-              <Route exact strict path="/admin" component={AdminScreen} />
-              <Route exact strict path="/" component={HomeScreen} />
-            </Switch>
+            <Route exact path="/contactus" component={About} />
+            <Route exact path="/admin" component={AdminScreen} />
+            <Route exact path="/" component={HomeScreen} />
             <footer>Chez Corporation. All right is reserved.</footer>
           </div>
         </Provider>
