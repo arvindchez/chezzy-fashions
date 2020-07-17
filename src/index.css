@@ -278,6 +278,23 @@ select {
 
 /* Index.css */
 
+#sticky {
+  float: right;
+  position: absolute;
+  position: -webkit-sticky;
+  background: #f83d23;
+  width: 30px;
+  height: 30px;
+  visibility: hidden;
+  top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 6px #000;
+  color: #fff;
+  cursor: pointer;
+}
+
 .cart {
   padding: 1rem;
   margin: 1rem;

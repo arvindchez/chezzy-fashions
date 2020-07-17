@@ -49,7 +49,7 @@ class Cart extends Component {
         const { cartItems, order } = this.props;
         return (
             <div>
-                {cartItems.length === 0 ? (
+                {cartItems && cartItems.length === 0 ? (
                     <div>
                         <div className="cart cart-header">Cart is empty</div>
                         <img src={emptyCart} height="80%" width="80%" alt="Cart is empty"></img>
@@ -57,8 +57,8 @@ class Cart extends Component {
                 ) : (
                         <div className="cart cart-header">
                             <FaShoppingBag />{"  "}
-                            You have {cartItems.length}
-                            {cartItems.length > 1 ?
+                            You have {cartItems ? cartItems.length : "0"}
+                            {cartItems && cartItems.length > 1 ?
                                 " items" : " item"} in the cart{" "}
                         </div>
                     )}
@@ -116,18 +116,23 @@ class Cart extends Component {
                     <div className="cart">
                         <Fade left cascade>
                             <ul className="cart-items">
-                                {cartItems.map((item) => (
+                                {cartItems && cartItems.map((item) => (
                                     <li key={item._id}>
                                         <div>
                                             <img src={item.image} alt={item.title}></img>
                                         </div>
                                         <div>
-                                            <div>{item.title}</div>
+                                            <div>{item.title}- (Size/Colour - {item.selectedSize} / {item.selectedColor})</div>
+
                                             <div className="right">
                                                 {formatCurrency(item.price)} x {item.count}{" "}
                                                 <button
                                                     className="button remove"
-                                                    onClick={() => this.props.removeFromCart(item)}
+                                                    onClick={() => {
+                                                        this.setState({ showCheckout: false })
+                                                        this.props.removeFromCart(item)
+                                                    }
+                                                    }
                                                 >
                                                     Remove
                         </button>
@@ -138,7 +143,7 @@ class Cart extends Component {
                             </ul>
                         </Fade>
                     </div>
-                    {cartItems.length !== 0 && (
+                    {cartItems && cartItems.length !== 0 && (
                         <div>
                             <div className="cart">
                                 <div className="total">
