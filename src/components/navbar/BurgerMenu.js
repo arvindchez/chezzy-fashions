@@ -20,6 +20,7 @@ const Wrapper = styled.div`
   padding-top: .7rem;
   cursor: pointer;
   display: block;
+  z-index: 100;
 
   & span {
     background: #fdcb6e;

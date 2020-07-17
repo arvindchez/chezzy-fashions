@@ -84,6 +84,21 @@ footer {
   flex: 1 20rem;
 }
 
+.filter-container {
+  float: right;
+  position: absolute;
+  background: #f83d23;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 6px #000;
+  color: #fff;
+  cursor: pointer;
+  z-index: 75;
+}
+
 /* products */
 
 .product {
