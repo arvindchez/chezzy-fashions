@@ -16,11 +16,7 @@ class HomeScreen extends Component {
   }
 
   hideComponent() {
-    if (document.documentElement.scrollTop > 0 || document.body.scrollTop > 0) {
-      this.setState({ showFilter: false });
-    } else {
-      this.setState({ showFilter: !this.state.showFilter });
-    }
+    this.setState({ showFilter: !this.state.showFilter });
   }
 
   render() {
