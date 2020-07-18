@@ -8,7 +8,7 @@ import { FaShoppingBag, FaTrashRestore } from 'react-icons/fa';
 import emptyCart from '../../images/emptycart.png';
 import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { createOrder, clearOrder } from "../../actions/order";
-import Checkout from '../../screens/checkout/Checkout';
+import SmallCart from '../smallcart/SmallCart';
 
 class BigCart extends Component {
     constructor(props) {
@@ -113,7 +113,7 @@ class BigCart extends Component {
                     </Modal>
                 )}
 
-                <Checkout />
+                <SmallCart />
 
                 {cartItems && cartItems.length !== 0 && (
                     <div>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { formatCurrency } from "../../helper/utils";
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { createOrder, clearOrder } from "../../actions/order";
-import { Container } from "./CheckoutStyles";
+import { Container } from "./SmallCartStyles";
+import { formatCurrency } from "../../helper/utils";
 
-class Checkout extends Component {
+class SmallCart extends Component {
   render() {
     const { cartItems } = this.props;
 
@@ -75,4 +75,4 @@ export default connect(
     cartItems: state.cart.cartItems,
   }),
   { removeFromCart, addToCart, removeByItemFromCart, clearCart, createOrder, clearOrder }
-)(Checkout);
+)(SmallCart);

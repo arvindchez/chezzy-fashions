@@ -1,12 +1,11 @@
 import React from "react";
-import store from "./store";
 import { Provider } from "react-redux";
 import { Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import AdminScreen from "./screens/AdminScreen";
 import ContactUs from './components/contactus/ContactUs'
 import Navbar from "./components/navbar/Navbar";
-
+import store from "./store";
 import GlobalStyle from './styles/Global';
 import BigCart from "./components/bigcart/BigCart";
 
