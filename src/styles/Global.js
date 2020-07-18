@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { px2vw } from "../helper/utils";
 
 const GlobalStyles = createGlobalStyle`
 

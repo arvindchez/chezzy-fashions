@@ -1,4 +1,4 @@
-import { CREATE_ORDER, CLEAR_CART, CLEAR_ORDER, FETCH_ORDERS } from "../types";
+import { CREATE_ORDER, CLEAR_CART, CLEAR_ORDER, FETCH_ORDERS, SHOW_ORDER } from "../types";
 
 export const createOrder = (order) => (dispatch) => {
   fetch("/api/orders", {
@@ -14,6 +14,14 @@ export const createOrder = (order) => (dispatch) => {
       localStorage.clear("cartItems");
       dispatch({ type: CLEAR_CART });
     });
+};
+
+export const showCheckout = (show) => (dispatch) => {
+  dispatch({
+    type: SHOW_ORDER, payload: {
+      showOrder: show
+    }
+  });
 };
 
 export const clearOrder = () => (dispatch) => {
