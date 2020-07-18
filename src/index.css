@@ -85,17 +85,14 @@ footer {
 }
 
 .filter-container {
-  position: -webkit-sticky;
-  position: sticky;
-  float: right;
-  top: 0;
-  background: #f83d23;
+  position: fixed;
+  right: 0;
+  background: #f84323;
   width: 20px;
   height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 6px #000;
   color: #fff;
   cursor: pointer;
   z-index: 75;

@@ -16,7 +16,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use("/", express.static(staticPath));
-app.get("*", (req, res) => res.sendFile(indexPath));
 
 mongoose.connect(
     process.env.MONGODB_URL,
@@ -124,6 +123,8 @@ app.delete("/api/orders/:id", async (req, res) => {
     const order = await Order.findByIdAndDelete(req.params.id);
     res.send(order);
 });
+
+app.get("*", (req, res) => res.sendFile(indexPath));
 
 const port = process.env.PORT;
 app.listen(port, () => console.log("serve at http://localhost:5000"));

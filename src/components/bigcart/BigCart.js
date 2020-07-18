@@ -127,17 +127,17 @@ class BigCart extends Component {
 
                                             <div className="right">
                                                 {formatCurrency(item.price)} x {item.count}{" "}
-                                                <button
-                                                    className="button remove"
-                                                    onClick={() => {
-                                                        this.setState({ showCheckout: false })
-                                                        this.props.removeFromCart(item)
-                                                    }
-                                                    }
-                                                >
-                                                    Remove
-                        </button>
+                                                <Fade left cascade>
+                                                    <button
+                                                        className="button remove"
+                                                        onClick={() => {
+                                                            this.setState({ showCheckout: false })
+                                                            this.props.removeFromCart(item)
+                                                        }
+                                                        }
+                                                    >Remove</button></Fade>
                                             </div>
+
                                         </div>
                                     </li>
                                 ))}
