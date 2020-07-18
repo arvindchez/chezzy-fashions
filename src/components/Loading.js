@@ -18,7 +18,8 @@ const Image = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 30%;
+  height: 30%;
   content:url(${bigLoadingGif});
 
   @media screen and (max-width: 430px) {
