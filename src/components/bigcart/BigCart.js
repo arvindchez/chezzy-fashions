@@ -4,12 +4,10 @@ import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
-import { FaShoppingBag } from 'react-icons/fa';
+import { FaShoppingBag, FaTrashRestore, FaPlus, FaMinus } from 'react-icons/fa';
 import emptyCart from '../../images/emptycart.png';
-import { removeFromCart } from "../../actions/cart";
+import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { createOrder, clearOrder } from "../../actions/order";
-
-
 
 class BigCart extends Component {
     constructor(props) {
@@ -123,6 +121,26 @@ class BigCart extends Component {
                                             <img src={item.image} alt={item.title}></img>
                                         </div>
                                         <div>
+                                            <div className="cartitem-count">
+                                                <button className="amount-btn" onClick={() =>
+                                                    this.props.addToCart(item)
+                                                }>
+                                                    <FaPlus />
+                                                </button>
+                                                <p className="amount">{item.count}</p>
+                                                <button
+                                                    className="amount-btn"
+                                                    onClick={() => {
+                                                        if (item.count === 1) {
+                                                            this.setState({ showCheckout: false })
+                                                            this.props.removeFromCart(item)
+                                                        } else {
+                                                            this.props.removeByItemFromCart(item)
+                                                        }
+                                                    }}>
+                                                    <FaMinus />
+                                                </button>
+                                            </div>
                                             <div>{item.title}- (Size/Colour - {item.selectedSize} / {item.selectedColor})</div>
 
                                             <div className="right">
@@ -146,22 +164,30 @@ class BigCart extends Component {
                     </div>
                     {cartItems && cartItems.length !== 0 && (
                         <div>
-                            <div className="cart">
-                                <div className="total">
-                                    <div>
-                                        <strong>Total:{" "}
-                                            {formatCurrency(
-                                                cartItems.reduce((a, c) => a + c.price * c.count, 0)
-                                            )}</strong>
+                            <Fade bottom>
+                                <button className="button clear"
+                                    onClick={() => {
+                                        this.setState({ showCheckout: true });
+                                        this.props.clearCart()
+                                    }}><FaTrashRestore />Clear Cart</button>
+                                <div className="cart">
+                                    <div className="total">
+
+                                        <div>
+                                            <strong>Total:{" "}
+                                                {formatCurrency(
+                                                    cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                                                )}</strong>
+                                        </div>
+                                        <button
+                                            onClick={() => {
+                                                this.setState({ showCheckout: true });
+                                            }}
+                                            className="button proceed"
+                                        >Proceed</button>
                                     </div>
-                                    <button
-                                        onClick={() => {
-                                            this.setState({ showCheckout: true });
-                                        }}
-                                        className="button proceed"
-                                    >Proceed</button>
                                 </div>
-                            </div>
+                            </Fade>
                             {this.state.showCheckout && (
                                 <Fade right cascade>
                                     <div className="cart">
@@ -230,5 +256,5 @@ export default connect(
         order: state.order.order,
         cartItems: state.cart.cartItems,
     }),
-    { removeFromCart, createOrder, clearOrder }
+    { removeFromCart, addToCart, removeByItemFromCart, clearCart, createOrder, clearOrder }
 )(BigCart);
