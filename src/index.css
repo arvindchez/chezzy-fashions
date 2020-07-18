@@ -115,6 +115,12 @@ footer {
 .cartitem-count button {
   height: 2rem;
   width: 2.6rem;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }
 
 /* products */
@@ -220,6 +226,18 @@ footer {
   font-size: 1.2rem;
 }
 
+.button.clear:hover {
+  font-weight: bold;
+}
+
+.button.clear:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
+}
+
 .button.clear {
   display: inline-block;
   text-align: center;
@@ -230,6 +248,18 @@ footer {
   border: none;
   border-radius: 15px;
   box-shadow: 0 4px #999;
+}
+
+.button.remove:hover {
+  font-weight: bold;
+}
+
+.button.remove:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
 }
 
 .button.remove {
@@ -245,8 +275,32 @@ footer {
 }
 
 .button.selected {
-  background-color: #06e96c;
+  background-color: #a7fccd;
   font-weight: bold;
+}
+
+.button.selected:hover {
+  font-weight: bold;
+}
+
+.button.selected:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
+}
+
+.button.proceed:hover {
+  font-weight: bold;
+}
+
+.button.proceed:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
 }
 
 .button.proceed {
@@ -261,8 +315,16 @@ footer {
   box-shadow: 0 4px #999;
 }
 
-.button:hover {
-  border: 0.1rem #808080 solid;
+.button.primary:hover {
+  font-weight: bold;
+}
+
+.button.primary:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
 }
 
 .button.primary {
@@ -459,6 +521,11 @@ input {
 
 .success-message {
   color: green;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Orders */
