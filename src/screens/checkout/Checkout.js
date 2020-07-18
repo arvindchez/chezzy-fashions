@@ -16,8 +16,8 @@ class Checkout extends Component {
         <div className="cart">
           <Fade left cascade>
             <ul className="cart-items">
-              {cartItems && cartItems.map((item) => (
-                <li key={item._id}>
+              {cartItems && cartItems.map((item, index) => (
+                <li key={index}>
                   <div>
                     <img src={item.image} alt={item.title}></img>
                   </div>
