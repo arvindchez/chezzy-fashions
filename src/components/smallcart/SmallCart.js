@@ -1,18 +1,32 @@
 import React, { Component } from 'react'
-import { formatCurrency } from "../../helper/utils";
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
-import { FaPlus, FaMinus } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaShoppingBag } from 'react-icons/fa';
 import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
-import { createOrder, clearOrder } from "../../actions/order";
-import { Container } from "./CheckoutStyles";
+import { Container } from "./SmallCartStyles";
+import { formatCurrency } from "../../helper/utils";
+import emptyCart from '../../images/emptycart.png';
 
-class Checkout extends Component {
+class SmallCart extends Component {
   render() {
     const { cartItems } = this.props;
 
     return (
       <Container>
+        {cartItems && cartItems.length === 0 ? (
+          <div>
+            <div className="cart cart-header">Cart is empty</div>
+            <img src={emptyCart} height="80%" width="80%" alt="Cart is empty"></img>
+          </div>
+        ) : (
+            <div className="cart cart-header">
+              <FaShoppingBag />{"  "}
+                            You have {cartItems ? cartItems.length : "0"}
+              {cartItems && cartItems.length > 1 ?
+                " items" : " item"} in the cart{" "}
+            </div>
+          )}
+
         <div className="cart">
           <Fade left cascade>
             <ul className="cart-items">
@@ -71,8 +85,7 @@ class Checkout extends Component {
 
 export default connect(
   (state) => ({
-    order: state.order.order,
     cartItems: state.cart.cartItems,
   }),
-  { removeFromCart, addToCart, removeByItemFromCart, clearCart, createOrder, clearOrder }
-)(Checkout);
+  { removeFromCart, addToCart, removeByItemFromCart, clearCart }
+)(SmallCart);

@@ -14,10 +14,10 @@ const sendWelcomeMail = (order) => {
             email: order.email,
             name: order.name
         },
-        bcc: {
-            email: 'babuskahungary@gmail.com',
-            name: 'Babuska Hungary'
-        },
+        // bcc: {
+        //     email: 'babuskahungary@gmail.com',
+        //     name: 'Babuska Hungary'
+        // },
         from: {
             email: 'arvind.chez@gmail.com',
             name: 'Babuska Hungary'
