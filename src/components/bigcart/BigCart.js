@@ -2,13 +2,11 @@ import React, { Component } from 'react'
 import { formatCurrency } from "../../helper/utils";
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
-import Modal from "react-modal";
-import Zoom from "react-reveal/Zoom";
-import { FaShoppingBag, FaTrashRestore } from 'react-icons/fa';
-import emptyCart from '../../images/emptycart.png';
+import { FaTrashRestore } from 'react-icons/fa';
 import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { createOrder, clearOrder } from "../../actions/order";
 import SmallCart from '../smallcart/SmallCart';
+import Order from '../order/Order';
 
 class BigCart extends Component {
     constructor(props) {
@@ -41,80 +39,12 @@ class BigCart extends Component {
         this.props.createOrder(order);
     };
 
-    closeModal = () => {
-        this.props.clearOrder();
-    };
-
     render() {
-        const { cartItems, order } = this.props;
+        const { cartItems } = this.props;
         return (
             <div>
-                {cartItems && cartItems.length === 0 ? (
-                    <div>
-                        <div className="cart cart-header">Cart is empty</div>
-                        <img src={emptyCart} height="80%" width="80%" alt="Cart is empty"></img>
-                    </div>
-                ) : (
-                        <div className="cart cart-header">
-                            <FaShoppingBag />{"  "}
-                            You have {cartItems ? cartItems.length : "0"}
-                            {cartItems && cartItems.length > 1 ?
-                                " items" : " item"} in the cart{" "}
-                        </div>
-                    )}
-
-                {order && (
-                    <Modal isOpen={true} onRequestClose={this.closeModal}>
-                        <Zoom>
-                            <button className="close-modal" onClick={this.closeModal}>
-                                x
-              </button>
-                            <div className="order-details">
-                                <h3 className="success-message">Your order has been placed.</h3>
-                                <h2>Order {order._id}</h2>
-                                <ul>
-                                    <li>
-                                        <div>Name:</div>
-                                        <div>{order.name}</div>
-                                    </li>
-                                    <li>
-                                        <div>Email:</div>
-                                        <div>{order.email}</div>
-                                    </li>
-                                    <li>
-                                        <div>Phone:</div>
-                                        <div>{order.phone}</div>
-                                    </li>
-                                    <li>
-                                        <div>Address:</div>
-                                        <div>{order.address}</div>
-                                    </li>
-                                    <li>
-                                        <div>Date:</div>
-                                        <div>{order.createdAt}</div>
-                                    </li>
-                                    <li>
-                                        <div>Total:</div>
-                                        <div>{formatCurrency(order.total)}</div>
-                                    </li>
-                                    <li>
-                                        <div>Cart Items:</div>
-                                        <div>
-                                            {order.cartItems.map((x) => (
-                                                <div>
-                                                    {x.count} {" x "} {x.title} {"(Size/Colour -"} {x.selectedSize} {"/"} {x.selectedColor}{")"}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </Zoom>
-                    </Modal>
-                )}
-
                 <SmallCart />
-
+                <Order />
                 {cartItems && cartItems.length !== 0 && (
                     <div>
                         <Fade bottom>
