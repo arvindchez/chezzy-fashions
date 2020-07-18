@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use("/", express.static(staticPath));
-app.get("/", (req, res) => res.sendFile(indexPath));
+app.get("*", (req, res) => res.sendFile(indexPath));
 
 mongoose.connect(
     process.env.MONGODB_URL,
