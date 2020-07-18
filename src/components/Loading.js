@@ -15,13 +15,13 @@ const Loading = () => {
 export default Loading
 
 const Image = styled.img`
-  height: 30%;
-  weight: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
   content:url(${bigLoadingGif});
 
   @media screen and (max-width: 430px) {
-   height: 20%;
-   weight: 20%;
    content:url(${smallLoadingGif});
   }
 `;
