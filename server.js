@@ -11,8 +11,8 @@ let staticPath = __dirname;
 let indexPath = __dirname;
 
 if (process.env.NODE_ENV === 'production') {
-    staticPath = staticPath + "/build";
-    indexPath = indexPath + "/build/index.html";
+    staticPath = staticPath + "client/build";
+    indexPath = indexPath + "client/build/index.html";
 }
 
 app.use("/", express.static(staticPath));
