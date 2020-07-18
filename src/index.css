@@ -98,6 +98,25 @@ footer {
   z-index: 75;
 }
 
+.cartitem-count {
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  align-items: baseline;
+}
+
+.cartitem-count p {
+  font-size: small;
+  font-weight: bold;
+  width: 2rem;
+  text-align: center;
+}
+
+.cartitem-count button {
+  height: 2rem;
+  width: 2.6rem;
+}
+
 /* products */
 
 .product {
@@ -199,6 +218,18 @@ footer {
   background-color: #f0f0f0;
   cursor: pointer;
   font-size: 1.2rem;
+}
+
+.button.clear {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #e90606;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px #999;
 }
 
 .button.remove {
