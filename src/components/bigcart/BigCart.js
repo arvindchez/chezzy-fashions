@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import formatCurrency from "../../helper/utils";
+import { formatCurrency } from "../../helper/utils";
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
-import { FaShoppingBag, FaTrashRestore, FaPlus, FaMinus } from 'react-icons/fa';
+import { FaShoppingBag, FaTrashRestore } from 'react-icons/fa';
 import emptyCart from '../../images/emptycart.png';
 import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { createOrder, clearOrder } from "../../actions/order";
+import Checkout from '../../screens/checkout/Checkout';
 
 class BigCart extends Component {
     constructor(props) {
@@ -111,141 +112,92 @@ class BigCart extends Component {
                         </Zoom>
                     </Modal>
                 )}
-                <div>
-                    <div className="cart">
-                        <Fade left cascade>
-                            <ul className="cart-items">
-                                {cartItems && cartItems.map((item) => (
-                                    <li key={item._id}>
-                                        <div>
-                                            <img src={item.image} alt={item.title}></img>
-                                        </div>
-                                        <div>
-                                            <div className="cartitem-count">
-                                                <button className="amount-btn" onClick={() =>
-                                                    this.props.addToCart(item)
-                                                }>
-                                                    <FaPlus />
-                                                </button>
-                                                <p className="amount">{item.count}</p>
-                                                <button
-                                                    className="amount-btn"
-                                                    onClick={() => {
-                                                        if (item.count === 1) {
-                                                            this.setState({ showCheckout: false })
-                                                            this.props.removeFromCart(item)
-                                                        } else {
-                                                            this.props.removeByItemFromCart(item)
-                                                        }
-                                                    }}>
-                                                    <FaMinus />
-                                                </button>
-                                            </div>
-                                            <div>{item.title}- (Size/Colour - {item.selectedSize} / {item.selectedColor})</div>
 
-                                            <div className="right">
-                                                {formatCurrency(item.price)} x {item.count}{" "}
-                                                <Fade left cascade>
-                                                    <button
-                                                        className="button remove"
-                                                        onClick={() => {
-                                                            this.setState({ showCheckout: false })
-                                                            this.props.removeFromCart(item)
-                                                        }
-                                                        }
-                                                    >Remove</button></Fade>
-                                            </div>
+                <Checkout />
 
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </Fade>
-                    </div>
-                    {cartItems && cartItems.length !== 0 && (
-                        <div>
-                            <Fade bottom>
-                                <button className="button clear"
-                                    onClick={() => {
-                                        this.setState({ showCheckout: true });
-                                        this.props.clearCart()
-                                    }}><FaTrashRestore />Clear Cart</button>
-                                <div className="cart">
-                                    <div className="total">
+                {cartItems && cartItems.length !== 0 && (
+                    <div>
+                        <Fade bottom>
+                            <button className="button clear"
+                                onClick={() => {
+                                    this.setState({ showCheckout: true });
+                                    this.props.clearCart()
+                                }}><FaTrashRestore />Clear Cart</button>
+                            <div className="cart">
+                                <div className="total">
 
-                                        <div>
-                                            <strong>Total:{" "}
-                                                {formatCurrency(
-                                                    cartItems.reduce((a, c) => a + c.price * c.count, 0)
-                                                )}</strong>
-                                        </div>
-                                        <button
-                                            onClick={() => {
-                                                this.setState({ showCheckout: true });
-                                            }}
-                                            className="button proceed"
-                                        >Proceed</button>
+                                    <div>
+                                        <strong>Total:{" "}
+                                            {formatCurrency(
+                                                cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                                            )}</strong>
                                     </div>
+                                    <button
+                                        onClick={() => {
+                                            this.setState({ showCheckout: true });
+                                        }}
+                                        className="button proceed"
+                                    >Proceed</button>
+                                </div>
+                            </div>
+                        </Fade>
+                        {this.state.showCheckout && (
+                            <Fade right cascade>
+                                <div className="cart">
+                                    <form onSubmit={this.createOrder}>
+                                        <ul className="form-container">
+                                            <li>
+                                                <label>Email:</label>
+                                                <input
+                                                    name="email"
+                                                    type="email"
+                                                    required
+                                                    placeholder="Your email"
+                                                    onChange={this.handleInput}
+                                                ></input>
+                                            </li>
+                                            <li>
+                                                <label>Name:</label>
+                                                <input
+                                                    name="name"
+                                                    type="text"
+                                                    required
+                                                    placeholder="Your name"
+                                                    onChange={this.handleInput}
+                                                ></input>
+                                            </li>
+                                            <li>
+                                                <label>Phone Number:</label>
+                                                <input
+                                                    name="phone"
+                                                    type="text"
+                                                    required
+                                                    placeholder="Your phone number"
+                                                    onChange={this.handleInput}
+                                                ></input>
+                                            </li>
+                                            <li>
+                                                <label>Address:</label>
+                                                <input
+                                                    name="address"
+                                                    type="text"
+                                                    required
+                                                    placeholder="Your address"
+                                                    onChange={this.handleInput}
+                                                ></input>
+                                            </li>
+                                            <li>
+                                                <button className="button proceed" type="submit">
+                                                    Checkout
+                                                    </button>
+                                            </li>
+                                        </ul>
+                                    </form>
                                 </div>
                             </Fade>
-                            {this.state.showCheckout && (
-                                <Fade right cascade>
-                                    <div className="cart">
-                                        <form onSubmit={this.createOrder}>
-                                            <ul className="form-container">
-                                                <li>
-                                                    <label>Email:</label>
-                                                    <input
-                                                        name="email"
-                                                        type="email"
-                                                        required
-                                                        placeholder="Your email"
-                                                        onChange={this.handleInput}
-                                                    ></input>
-                                                </li>
-                                                <li>
-                                                    <label>Name:</label>
-                                                    <input
-                                                        name="name"
-                                                        type="text"
-                                                        required
-                                                        placeholder="Your name"
-                                                        onChange={this.handleInput}
-                                                    ></input>
-                                                </li>
-                                                <li>
-                                                    <label>Phone Number:</label>
-                                                    <input
-                                                        name="phone"
-                                                        type="text"
-                                                        required
-                                                        placeholder="Your phone number"
-                                                        onChange={this.handleInput}
-                                                    ></input>
-                                                </li>
-                                                <li>
-                                                    <label>Address:</label>
-                                                    <input
-                                                        name="address"
-                                                        type="text"
-                                                        required
-                                                        placeholder="Your address"
-                                                        onChange={this.handleInput}
-                                                    ></input>
-                                                </li>
-                                                <li>
-                                                    <button className="button proceed" type="submit">
-                                                        Checkout
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </form>
-                                    </div>
-                                </Fade>
-                            )}
-                        </div>
-                    )}
-                </div>
+                        )}
+                    </div>
+                )}
             </div>
         );
     }
