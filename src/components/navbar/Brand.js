@@ -4,9 +4,11 @@ import styled from "styled-components";
 import logo from "../../images/logo.png";
 
 const Brand = () => {
-    return (
-        <Image src={logo} alt="Company Logo" />
-    )
+  return (
+    <ALink href="/" alt="Home" >
+      <Image src={logo} alt="Company Logo" />
+    </ALink>
+  )
 }
 
 export default Brand
@@ -14,4 +16,13 @@ export default Brand
 const Image = styled.img`
   height: 85%;
   margin: auto 0;
+`;
+
+const ALink = styled.a`
+width: 5rem;
+
+ @media screen and (max-width: 430px) {
+   width: 20rem;
+  }
+
 `;

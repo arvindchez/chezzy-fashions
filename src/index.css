@@ -170,9 +170,15 @@ footer {
   letter-spacing: var(--mainSpacing);
 }
 
-.cart-test {
-  height: 3rem;
+.small-cart {
+  height: 6rem;
   width: 3rem;
+  position: absolute;
+  @media screen and (max-width: 430px) {
+    height: 6rem;
+    width: 3rem;
+    position: absolute;
+  }
 }
 
 .products {
