@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
 import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { showCheckout } from "../../actions/order";
-import { Container } from "./SmallCartStyles";
 import { formatCurrency } from "../../helper/utils";
 import emptyCart from '../../images/emptycart.png';
 
@@ -13,12 +12,12 @@ class SmallCart extends Component {
     const { cartItems } = this.props;
 
     return (
-      <Container>
-        <div >
+      <div class="row">
+        <div class="column">
           <div>
             {cartItems && cartItems.length === 0 ? (
               <div>
-                <div className="cart cart-header">Cart is empty</div>
+                <div className="cart cart-header">Your cart is empty</div>
                 <img src={emptyCart} height="80%" width="80%" alt="Cart is empty"></img>
               </div>
             ) : (
@@ -80,32 +79,35 @@ class SmallCart extends Component {
             </Fade>
           </div>
         </div>
-        <div >
-          {cartItems && cartItems.length !== 0 && (
-            <Fade bottom>
-              <div className="col-sm-3 p-3">
-                <div className="card card-body">
-                  <p className="mb-1">Total Items</p>
-                  <h4 className=" mb-3 txt-right">{cartItems.length}</h4>
-                  <p className="mb-1">Total Payment</p>
-                  <h3 className="m-0 txt-right">{formatCurrency(
-                    cartItems.reduce((a, c) => a + c.price * c.count, 0)
-                  )}</h3>
-                  <hr className="my-4" />
-                  <div className="text-center">
-                    <button type="button" className="button proceed" onClick={() => {
-                      this.props.showCheckout(true);
-                    }}>Check out</button>
-                    <button type="button" className="button clear" onClick={() => {
-                      this.props.clearCart()
-                    }}>Clear Cart</button>
+
+        <div class="column">
+          <div>
+            {cartItems && cartItems.length !== 0 && (
+              <Fade bottom>
+                <div className="col-sm-3 p-3">
+                  <div className="card card-body">
+                    <p className="mb-1">Total Items</p>
+                    <h4 className=" mb-3 txt-right">{cartItems.length}</h4>
+                    <p className="mb-1">Total Payment</p>
+                    <h3 className="m-0 txt-right">{formatCurrency(
+                      cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                    )}</h3>
+                    <hr className="my-4" />
+                    <div className="text-center">
+                      <button type="button" className="button proceed" onClick={() => {
+                        this.props.showCheckout(true);
+                      }}>Check out</button>
+                      <button type="button" className="button clear" onClick={() => {
+                        this.props.clearCart()
+                      }}>Clear Cart</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Fade>
-          )}
+              </Fade>
+            )}
+          </div>
         </div>
-      </Container >
+      </div >
     );
   }
 }
