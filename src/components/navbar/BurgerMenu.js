@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
+import { FaAlignRight } from 'react-icons/fa';
 
 const Burgermenu = (props) => {
   return (
     <Wrapper onClick={props.handleNavbar}>
       <div className={props.navbarState ? "open" : ""}>
-        <span>&nbsp;</span>
-        <span>&nbsp;</span>
-        <span>&nbsp;</span>
+        <FaAlignRight />
       </div>
     </Wrapper>
   );

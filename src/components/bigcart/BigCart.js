@@ -1,13 +1,14 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from 'react'
 import formatCurrency from "../../helper/utils";
-import Fade from "./node_modules/react-reveal/Fade";
-import { connect } from "./node_modules/react-redux";
-import Modal from "./node_modules/react-modal";
-import Zoom from "./node_modules/react-reveal/Zoom";
-import emptyCart from '../images/emptycart.png';
+import Fade from "react-reveal/Fade";
+import { connect } from "react-redux";
+import Modal from "react-modal";
+import Zoom from "react-reveal/Zoom";
+import { FaShoppingBag } from 'react-icons/fa';
+import emptyCart from '../../images/emptycart.png';
 import { removeFromCart } from "../../actions/cart";
 import { createOrder, clearOrder } from "../../actions/order";
-import { FaShoppingBag } from './node_modules/react-icons/fa';
+
 
 
 class BigCart extends Component {
