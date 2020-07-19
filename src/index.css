@@ -100,7 +100,7 @@ footer {
 
 .form-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 0 4px;
   justify-content: center;
 }
@@ -108,8 +108,6 @@ footer {
 /* Create four equal columns that sits next to each other */
 
 .form-column {
-  flex: 50%;
-  max-width: 50%;
   padding: 0 4px;
 }
 
