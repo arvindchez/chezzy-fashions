@@ -25,22 +25,21 @@ class SmallCart extends Component {
                     </div>
                     <div>
                       <div className="cartitem-count">
-                        <button className="cartitem-count"
-                          onClick={() => {
-                            if (item.count === 1) {
-                              this.setState({ showCheckout: false })
-                              this.props.removeFromCart(item)
-                            } else {
-                              this.props.removeByItemFromCart(item)
-                            }
-                          }}>
-                          <FaChevronCircleLeft />
+                        <button className="cartitem-addremove" onClick={() => {
+                          if (item.count === 1) {
+                            this.setState({ showCheckout: false })
+                            this.props.removeFromCart(item)
+                          } else {
+                            this.props.removeByItemFromCart(item)
+                          }
+                        }}>
+                          <FaChevronCircleLeft className="cartitem-counter" />
                         </button>
                         <p className="mb-1">{item.count}</p>
-                        <button className="cartitem-count" onClick={() =>
+                        <button className="cartitem-addremove" onClick={() =>
                           this.props.addToCart(item)
                         }>
-                          <FaChevronCircleRight />
+                          <FaChevronCircleRight className="cartitem-counter" />
                         </button>
                       </div>
                       <p className="mb-1">{item.title}- (Size/Colour - {item.selectedSize} / {item.selectedColor})</p>
@@ -49,7 +48,6 @@ class SmallCart extends Component {
                         {formatCurrency(item.price)} x {item.count}{" "}
                         <Fade left cascade>
                           <button
-                            className="button remove"
                             onClick={() => {
                               this.setState({ showCheckout: false })
                               this.props.removeFromCart(item)
@@ -80,10 +78,10 @@ class SmallCart extends Component {
                     )}</h3>
                     <hr className="my-4" />
                     <div className="text-center">
-                      <button type="button" className="button proceed" onClick={() => {
+                      <button type="button" onClick={() => {
                         this.props.showCheckout(true);
                       }}>Check out</button>
-                      <button type="button" className="button clear" onClick={() => {
+                      <button type="button" onClick={() => {
                         this.props.clearCart()
                       }}>Clear Cart</button>
                     </div>

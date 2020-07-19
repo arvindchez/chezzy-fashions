@@ -2,10 +2,16 @@ import React from 'react'
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 import { connect } from "react-redux";
-import { filterProductsBySize, sortProducts, searchProducts, filterProductsByColor } from "../../actions/product";
 import Loading from '../Loading';
+import {
+    filterProductsBySize,
+    sortProducts,
+    searchProducts,
+    filterProductsByColor
+} from "../../actions/product";
 
-const Filter = (props) => {
+
+const ProductFilter = (props) => {
 
     const getUnique = (items, value) => {
         let type = [...new Set(items.map(item => item[value]))]
@@ -120,7 +126,7 @@ export default connect(
         filterProductsByColor,
         searchProducts
     }
-)(Filter);
+)(ProductFilter);
 
 
 const Filters = styled(animated.section)`
@@ -131,7 +137,7 @@ const Filters = styled(animated.section)`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-row-gap: 1rem;
   grid-column-gap: 30px;
-  background: rgb(238, 223, 202);
+  background: lightgray;
   font-size: 1.2rem;
   height: 5rem;
   

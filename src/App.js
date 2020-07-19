@@ -1,7 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { Route } from "react-router-dom";
-import HomeScreen from "./screens/HomeScreen";
+import Products from "./screens/Products";
 import AdminScreen from "./screens/AdminScreen";
 import ContactUs from './components/contactus/ContactUs'
 import Navbar from "./components/navbar/Navbar";
@@ -29,10 +29,12 @@ class App extends React.Component {
                 handleNavbar={this.handleNavbar}
               />
             </header>
-            <Route exact path="/contactus" component={ContactUs} />
-            <Route exact path="/cart" component={BigCart} />
-            <Route exact path="/admin" component={AdminScreen} />
-            <Route exact path="/" component={HomeScreen} />
+            <main>
+              <Route exact path="/contactus" component={ContactUs} />
+              <Route exact path="/cart" component={BigCart} />
+              <Route exact path="/admin" component={AdminScreen} />
+              <Route exact path="/" component={Products} />
+            </main>
             <footer>Chez Corporation. All right is reserved.</footer>
           </div>
         </Provider>
