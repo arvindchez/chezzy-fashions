@@ -5,34 +5,20 @@ import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
 import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { showCheckout } from "../../actions/order";
 import { formatCurrency } from "../../helper/utils";
-import emptyCart from '../../images/emptycart.png';
+
 
 class SmallCart extends Component {
   render() {
-    const { cartItems } = this.props;
-
+    const { cartItems, showOrder } = this.props;
     return (
-      <div class="row">
-        <div class="column">
-          <div>
-            {cartItems && cartItems.length === 0 ? (
-              <div>
-                <div className="cart cart-header">Your cart is empty</div>
-                <img src={emptyCart} height="80%" width="80%" alt="Cart is empty"></img>
-              </div>
-            ) : (
-                <div className="cart cart-header">
-                  {"  "}
-                            You have {cartItems ? cartItems.length : "0"}
-                  {cartItems && cartItems.length > 1 ?
-                    " items" : " item"} in the cart{" "}
-                </div>
-              )}
-          </div>
+      <div className="row">
+        <div>
+        </div>
+        < div className="column">
           <div className="cart">
             <Fade left cascade>
               <ul className="cart-items">
-                {cartItems && cartItems.map((item, index) => (
+                {!showOrder && cartItems && cartItems.map((item, index) => (
                   <li key={index}>
                     <div>
                       <img src={item.image} alt={item.title}></img>
@@ -80,9 +66,9 @@ class SmallCart extends Component {
           </div>
         </div>
 
-        <div class="column">
+        <div className="column">
           <div>
-            {cartItems && cartItems.length !== 0 && (
+            {!showOrder && cartItems && cartItems.length !== 0 && (
               <Fade bottom>
                 <div className="col-sm-3 p-3">
                   <div className="card card-body">
