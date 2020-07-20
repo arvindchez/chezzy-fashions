@@ -9,6 +9,7 @@ import { showCheckout } from "../../actions/order";
 import Order from "../order/Order"
 import Checkout from '../checkout/Checkout';
 import { FaShoppingBasket } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 class BigCart extends Component {
     render() {
@@ -63,9 +64,7 @@ class BigCart extends Component {
                                             )}</h3>
                                             <hr className="my-4" />
                                             <div className="text-center">
-                                                <button type="button" onClick={() => {
-                                                    this.props.showCheckout(true);
-                                                }}>Check out</button>
+                                                <Link to="/processing" className="btn btn-link">Check out</Link>
                                                 <button type="button" onClick={() => {
                                                     this.props.clearCart()
                                                 }}>Clear Cart</button>

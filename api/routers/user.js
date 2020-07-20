@@ -12,7 +12,7 @@ router.post('/users/register', async (req, res) => {
 
     try {
         await user.save()
-        sendWelcomeMail(user.email, `${user.lastName} ${user.firstName}`)
+        sendWelcomeMail(user.email, `${user.firstName} ${user.lastName}`)
         const token = await user.generateAuthTokens()
         res.status(201).send({ user, token })
     } catch (e) {
@@ -60,7 +60,7 @@ router.patch('/users/me', auth, async (req, res) => {
 router.delete('/users/me', auth, async (req, res) => {
     try {
         await req.user.remove()
-        sendCancellationMail(req.user.email, `${req.user.lastName} ${req.user.firstName}`)
+        sendCancellationMail(req.user.email, `${req.user.firstName} ${req.user.lastName}`)
         res.send(req.user)
     } catch (e) {
         res.status(500).send()
@@ -73,7 +73,7 @@ router.post('/users/login', async (req, res) => {
         const token = await user.generateAuthTokens()
         res.send({ user, token })
     } catch (e) {
-        res.status(400).send()
+        res.status(400).send(e)
     }
 })
 

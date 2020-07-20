@@ -1,4 +1,4 @@
-import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, SHOW_ORDER } from "../types";
+import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, SHOW_ORDER } from "../constants/order";
 
 const orderReducer = (state = {}, action) => {
   switch (action.type) {

@@ -4,7 +4,7 @@ import {
     FILTER_PRODUCTS_BY_SEARCH,
     ORDER_PRODUCTS_BY_PRICE,
     FILTER_PRODUCTS_BY_COLOR,
-} from "../types";
+} from "../constants/product";
 
 export const productsReducer = (state = {}, action) => {
     switch (action.type) {
