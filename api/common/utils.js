@@ -5,4 +5,9 @@ const convertToAppDate = date => {
     return momentTimezone(date, "MM-DD-YYYY").tz(process.env.TIME_ZONE)
 }
 
-module.exports = { convertToAppDate }
+const formatCurrency = (num) => {
+    return Number(parseFloat(num).toFixed(1)).toLocaleString() + "Ft ";
+}
+
+
+module.exports = { convertToAppDate, formatCurrency }
