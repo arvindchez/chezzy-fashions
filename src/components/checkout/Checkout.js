@@ -81,17 +81,18 @@ class Checkout extends Component {
                                     ></input>
                                 </li>
                                 <li>
-                                    <button type="submit">
-                                        Complete Order
+                                    <div>
+                                        <button type="submit">
+                                            Complete Order
                                         </button>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => {
-                                            this.props.showCheckout(false);
-                                        }}
 
-                                    >Back</button>
+                                        <button
+                                            onClick={() => {
+                                                this.props.showCheckout(false);
+                                            }}
+
+                                        >Back</button>
+                                    </div>
                                 </li>
                             </ul>
                         </form>
