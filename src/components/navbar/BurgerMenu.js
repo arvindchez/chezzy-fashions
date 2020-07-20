@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   position: relative;
   padding-top: .7rem;
   cursor: pointer;
+   padding-left: 1rem;
   display: block;
   z-index: 100;
 

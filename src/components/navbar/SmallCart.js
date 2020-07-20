@@ -30,7 +30,8 @@ export default connect(
 const CartDiv = styled(animated.div)`
    justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: pointer;    
+    padding-right: 1rem;
     position: relative;
     height: 0;
     padding-top: calc(var(--height) / var(--width) * 100%);
@@ -38,4 +39,5 @@ const CartDiv = styled(animated.div)`
     background: linear-gradient(to right, #fafafa 8%, #f4f4f4 38%, #fafafa 54%);
     background-size: 1000px 640px;
     animation: placeHolderShimmer 1.8s linear infinite forwards;
+
     `;

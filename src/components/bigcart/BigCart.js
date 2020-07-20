@@ -37,6 +37,12 @@ class BigCart extends Component {
                         </div>
                             )}
                     </div>
+                    <div>
+                        {showOrder && (
+                            <Checkout />
+                        )}
+                        <Order />
+                    </div>
                     <div className="cartlist-item details">
                         {!showOrder && (
                             <SmallCart />
@@ -71,12 +77,6 @@ class BigCart extends Component {
                         </div>
                         }
                     </div>
-                    <di>
-                        {showOrder && (
-                            <Checkout />
-                        )}
-                        <Order />
-                    </di>
                 </div>
             </section >
         );
