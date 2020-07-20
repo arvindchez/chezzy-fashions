@@ -82,7 +82,7 @@ const NavLinks = styled(animated.ul)`
     text-decoration: none;
     cursor: pointer;
 
-    &:hover li{
+    a:hover li{
       color: #fdcb6e;
       border-bottom: 1px solid #fdcb6e;
     }

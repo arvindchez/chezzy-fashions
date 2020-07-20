@@ -38,68 +38,64 @@ class Checkout extends Component {
             <div>
                 {showOrder && cartItems && cartItems.length !== 0 && (
                     <Fade right cascade>
-                        <div className="form-row">
-                            < div className="form-column">
-                                <form onSubmit={this.createOrder}>
-                                    <ul className="form-container">
-                                        <li>
-                                            <label>Email:</label>
-                                            <input
-                                                name="email"
-                                                type="email"
-                                                required
-                                                placeholder="Your email"
-                                                onChange={this.handleInput}
-                                            ></input>
-                                        </li>
-                                        <li>
-                                            <label>Name:</label>
-                                            <input
-                                                name="name"
-                                                type="text"
-                                                required
-                                                placeholder="Your name"
-                                                onChange={this.handleInput}
-                                            ></input>
-                                        </li>
-                                        <li>
-                                            <label>Phone Number:</label>
-                                            <input
-                                                name="phone"
-                                                type="text"
-                                                required
-                                                placeholder="Your phone number"
-                                                onChange={this.handleInput}
-                                            ></input>
-                                        </li>
-                                        <li>
-                                            <label>Address:</label>
-                                            <input
-                                                name="address"
-                                                type="text"
-                                                required
-                                                placeholder="Your address"
-                                                onChange={this.handleInput}
-                                            ></input>
-                                        </li>
-                                        <li>
-                                            <button className="button proceed" type="submit">
-                                                Complete Order
+                        <form onSubmit={this.createOrder}>
+                            <ul className="form-container">
+                                <li>
+                                    <label>Email:</label>
+                                    <input
+                                        name="email"
+                                        type="email"
+                                        required
+                                        placeholder="Your email"
+                                        onChange={this.handleInput}
+                                    ></input>
+                                </li>
+                                <li>
+                                    <label>Name:</label>
+                                    <input
+                                        name="name"
+                                        type="text"
+                                        required
+                                        placeholder="Your name"
+                                        onChange={this.handleInput}
+                                    ></input>
+                                </li>
+                                <li>
+                                    <label>Phone Number:</label>
+                                    <input
+                                        name="phone"
+                                        type="text"
+                                        required
+                                        placeholder="Your phone number"
+                                        onChange={this.handleInput}
+                                    ></input>
+                                </li>
+                                <li>
+                                    <label>Address:</label>
+                                    <input
+                                        name="address"
+                                        type="text"
+                                        required
+                                        placeholder="Your address"
+                                        onChange={this.handleInput}
+                                    ></input>
+                                </li>
+                                <li>
+                                    <div>
+                                        <button type="submit">
+                                            Complete Order
                                         </button>
-                                        </li>
-                                        <li>
-                                            <button className="button remove"
-                                                onClick={() => {
-                                                    this.props.showCheckout(false);
-                                                }}
 
-                                            >Back</button>
-                                        </li>
-                                    </ul>
-                                </form>
-                            </div>
-                        </div>
+                                        <button
+                                            onClick={() => {
+                                                this.props.showCheckout(false);
+                                            }}
 
+                                        >Back</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
                     </Fade>
                 )
                 }

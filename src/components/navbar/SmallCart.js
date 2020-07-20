@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import styled from "styled-components";
-import { FaShoppingCart } from 'react-icons/fa';
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { animated } from "react-spring";
+import { FaShoppingCart } from 'react-icons/fa';
 
 class SmallCart extends Component {
   render() {
@@ -28,10 +28,14 @@ export default connect(
 )(SmallCart);
 
 const CartDiv = styled(animated.div)`
-  width: 45px;
-  height: 45px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 75;
+   justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    height: 0;
+    padding-top: calc(var(--height) / var(--width) * 100%);
+    background: #f6f7f8;
+    background: linear-gradient(to right, #fafafa 8%, #f4f4f4 38%, #fafafa 54%);
+    background-size: 1000px 640px;
+    animation: placeHolderShimmer 1.8s linear infinite forwards;
     `;
