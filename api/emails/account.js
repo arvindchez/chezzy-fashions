@@ -1,13 +1,33 @@
 const sgMail = require('@sendgrid/mail');
-const { convertToAppDate } = require('../common/utils')
+const { convertToAppDate, formatCurrency } = require('../common/utils')
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const formatCurrency = (num) => {
-    return Number(parseFloat(num).toFixed(1)).toLocaleString() + "Ft ";
+const sendWelcomeMail = (email, name) => {
+    sgMail.send({
+        to: email,
+        from: {
+            email: 'arvind.chez@gmail.com',
+            name: 'Chez Corporation'
+        },
+        subject: 'Thanks for joining in! :)',
+        text: `Welcome to the app ${name}. Let me know how you get along with app.`
+    })
 }
 
-const sendWelcomeMail = (order) => {
+const sendCancellationMail = (email, name) => {
+    sgMail.send({
+        to: email,
+        from: {
+            email: 'arvind.chez@gmail.com',
+            name: 'Chez Corporation'
+        },
+        subject: 'Sorry to see you go! :(',
+        text: `Goodbye, ${name}. I hope to see you back sometime soon.`
+    })
+}
+
+const sendOrderConfirmationMail = (order) => {
     composeEmail(order);
     sgMail.send({
         to: {
@@ -66,5 +86,5 @@ const composeEmail = (order) => {
 
 
 module.exports = {
-    sendWelcomeMail
+    sendOrderConfirmationMail, sendWelcomeMail, sendCancellationMail
 }
