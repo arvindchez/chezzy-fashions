@@ -397,10 +397,9 @@ button.cartitem-addremove {
 /* Checkout form */
 
 .form-container {
-  width: 50vw;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(1, minmax(270px, 1fr));
+  grid-template-columns: repeat(1, minmax(50vw, 1fr));
   font-weight: bold;
 }
 
@@ -416,6 +415,17 @@ button.cartitem-addremove {
 
 .form-container button {
   margin: 10px;
+}
+
+@media screen and (max-width: 430px) {
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: start;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 /* Order Details */

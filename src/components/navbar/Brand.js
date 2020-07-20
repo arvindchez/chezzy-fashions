@@ -16,6 +16,7 @@ export default Brand
 const Image = styled.img`
   height: 85%;
   margin: auto 0;
+  padding-left: 2rem;
 `;
 
 const ALink = styled.a`
