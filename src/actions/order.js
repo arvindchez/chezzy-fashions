@@ -1,6 +1,7 @@
 import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, SHOW_ORDER } from "../constants/order";
 import { CLEAR_CART } from "../constants/cart";
 import { authHeader } from "../helper/auth-header"
+import { alertActions } from '../actions/alert';
 
 export const createOrder = (order) => (dispatch) => {
 
@@ -16,6 +17,7 @@ export const createOrder = (order) => (dispatch) => {
     .then((data) => {
       dispatch({ type: CREATE_ORDER, payload: data });
       localStorage.removeItem("cartItems");
+      dispatch(alertActions.success("Ordered successfully...!"));
       dispatch({ type: CLEAR_CART });
     });
 };

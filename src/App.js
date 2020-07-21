@@ -14,6 +14,7 @@ import { Router, Switch, Redirect } from 'react-router-dom';
 import { PrivateRoute } from './components/privateroute/PrivateRoute';
 import { clearAlert } from "./actions/alert";
 import Processing from "./screens/Processing"
+import Fade from "react-reveal/Fade";
 
 class App extends React.Component {
   state = {
@@ -43,9 +44,11 @@ class App extends React.Component {
           </header>
           <main>
             <Router history={history}>
-              {this.props.alert.message &&
-                <div className={`alert ${this.props.alert.type}`}>{this.props.alert.message}</div>
-              }
+              <Fade right cascade>
+                {this.props.alert.message &&
+                  <div className={`alert ${this.props.alert.type}`}>{this.props.alert.message}</div>
+                }
+              </Fade>
               <Switch>
                 <PrivateRoute exact path="/myorders" component={AdminScreen} />
                 <PrivateRoute exact path="/processing" component={Processing} />

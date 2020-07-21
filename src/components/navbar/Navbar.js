@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
-
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import SmallCart from './SmallCart';
-
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from "../../actions/user"
 
 const Navbar = (props) => {
 
   const loggedIn = useSelector(state => state.authentication.loggedIn);
+  const dispatch = useDispatch();
 
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
@@ -25,6 +25,10 @@ const Navbar = (props) => {
     config: config.wobbly,
   });
 
+  const logout = () => {
+    dispatch(userActions.logout());
+  };
+
   return (
     <>
       <NavBar style={barAnimation}>
@@ -33,14 +37,14 @@ const Navbar = (props) => {
           <NavLinks style={linkAnimation}>
             <a href="/">Home</a>
             <a href="/myorders">My Orders</a>
-            {
-              loggedIn && (
-                <a href="/login">Logout</a>
-              )
-            }
             <a href="/contactus">Contact Us</a>
           </NavLinks>
           <SmallCart />
+          {
+            loggedIn && (
+              <div><a onClick={logout} href="#:">Logout</a></div>
+            )
+          }
           <BurgerWrapper>
             <BurgerMenu
               navbarState={props.navbarState}
@@ -75,7 +79,27 @@ const FlexContainer = styled.div`
   margin: auto;
   justify-content: space-between;
   height: 5rem;
+
+    & a  {
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    margin: 0 1.5rem;
+    transition: all 300ms linear 0s;
+    text-decoration: none;
+    cursor: pointer;
+  
+    a:hover li{
+      color: #fdcb6e;
+      border-bottom: 1px solid #fdcb6e;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }  
 `;
+
+
 
 const NavLinks = styled(animated.ul)`
   justify-self: end;
@@ -83,8 +107,6 @@ const NavLinks = styled(animated.ul)`
   margin: auto 0;
 
   & a  {
-    color: #dfe6e9;
-    text-transform: uppercase;
     font-weight: 600;
     border-bottom: 1px solid transparent;
     margin: 0 1.5rem;
