@@ -25,5 +25,4 @@ width: 5rem;
  @media screen and (max-width: 430px) {
    width: 20rem;
   }
-
 `;

@@ -1,18 +1,15 @@
 import React from 'react'
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
+
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import SmallCart from './SmallCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = (props) => {
-
-  const loggedIn = useSelector(state => state.authentication.loggedIn);
-  const dispatch = useDispatch();
-
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
     transform: 'translate3d(0, 0, 0)',
@@ -21,9 +18,14 @@ const Navbar = (props) => {
   const linkAnimation = useSpring({
     from: { transform: 'translate3d(0, 30px, 0)', opacity: 0 },
     to: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
-    delay: 800,
-    config: config.wobbly,
+    delay: 100,
+    config: config.stiff,
   });
+
+  const loggedIn = useSelector(state => state.authentication.loggedIn);
+  const cartItems = useSelector(state => state.cart.cartItems);
+
+  const dispatch = useDispatch();
 
   const logout = () => {
     dispatch(userActions.logout());
@@ -38,14 +40,21 @@ const Navbar = (props) => {
             <a href="/">Home</a>
             <a href="/myorders">My Orders</a>
             <a href="/contactus">Contact Us</a>
+            {
+              loggedIn && (
+                <a onClick={logout} href="#:">Logout</a>
+              )
+            }
+            <a href="/cart">{
+              cartItems && cartItems.length > 0 ? cartItems.length : ""
+            }<FaShoppingCart className="small-cart" /></a>
           </NavLinks>
-          <SmallCart />
-          {
-            loggedIn && (
-              <div><a onClick={logout} href="#:">Logout</a></div>
-            )
-          }
           <BurgerWrapper>
+            <div>
+              <a href="/cart">{
+                cartItems && cartItems.length > 0 ? cartItems.length : ""
+              }<FaShoppingCart /></a>
+            </div>
             <BurgerMenu
               navbarState={props.navbarState}
               handleNavbar={props.handleNavbar}
@@ -77,36 +86,17 @@ const FlexContainer = styled.div`
   max-width: 120rem;
   display: flex;
   margin: auto;
+  padding: 0 2rem;;
   justify-content: space-between;
   height: 5rem;
-
-    & a  {
-    font-weight: 600;
-    border-bottom: 1px solid transparent;
-    margin: 0 1.5rem;
-    transition: all 300ms linear 0s;
-    text-decoration: none;
-    cursor: pointer;
-  
-    a:hover li{
-      color: #fdcb6e;
-      border-bottom: 1px solid #fdcb6e;
-    }
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }  
 `;
-
-
 
 const NavLinks = styled(animated.ul)`
   justify-self: end;
   list-style-type: none;
   margin: auto 0;
 
-  & a  {
+  & a {
     font-weight: 600;
     border-bottom: 1px solid transparent;
     margin: 0 1.5rem;
@@ -114,15 +104,16 @@ const NavLinks = styled(animated.ul)`
     text-decoration: none;
     cursor: pointer;
 
-    a:hover li{
+    &:hover li {
       color: #fdcb6e;
       border-bottom: 1px solid #fdcb6e;
+      text-decoration: none;
     }
 
     @media (max-width: 768px) {
       display: none;
     }
-  }  
+  }
 `;
 
 const BurgerWrapper = styled.div`
@@ -132,3 +123,4 @@ const BurgerWrapper = styled.div`
     display: none;
   }
 `;
+
