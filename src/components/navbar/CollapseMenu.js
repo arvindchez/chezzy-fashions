@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useSpring, animated } from 'react-spring';
+import { useSelector } from 'react-redux';
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
+
+  const loggedIn = useSelector(state => state.authentication.loggedIn);
 
   if (props.navbarState === true) {
     return (
@@ -17,6 +20,12 @@ const CollapseMenu = (props) => {
       >
         <NavLinks>
           <li><a href="/" onClick={props.handleNavbar}>Home</a></li>
+          <li><a href="/myorders" onClick={props.handleNavbar}>My Orders</a></li>
+          {
+            loggedIn && (
+              <a href="/login">Logout</a>
+            )
+          }
           <li><a href="/contactus" onClick={props.handleNavbar}>Contact Us</a></li>
         </NavLinks>
       </CollapseWrapper>

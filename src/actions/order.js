@@ -1,18 +1,33 @@
-import { CREATE_ORDER, CLEAR_CART, CLEAR_ORDER, FETCH_ORDERS, SHOW_ORDER } from "../types";
+import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, SHOW_ORDER } from "../constants/order";
+import { CLEAR_CART } from "../constants/cart";
+import { authHeader } from "../helper/auth-header"
 
 export const createOrder = (order) => (dispatch) => {
-  fetch("/api/orders", {
+
+  const contentHeader = { "Content-Type": "application/json" };
+  const tokenHeader = authHeader()
+
+  fetch("/orders", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { ...contentHeader, ...tokenHeader },
     body: JSON.stringify(order),
   })
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: CREATE_ORDER, payload: data });
-      localStorage.clear("cartItems");
+      localStorage.removeItem("cartItems");
       dispatch({ type: CLEAR_CART });
+    });
+};
+
+export const fetchOrders = () => (dispatch) => {
+  fetch("/orders/me", {
+    method: "GET",
+    headers: authHeader()
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch({ type: FETCH_ORDERS, payload: data });
     });
 };
 
@@ -26,12 +41,4 @@ export const showCheckout = (show) => (dispatch) => {
 
 export const clearOrder = () => (dispatch) => {
   dispatch({ type: CLEAR_ORDER });
-};
-
-export const fetchOrders = () => (dispatch) => {
-  fetch("/api/orders")
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({ type: FETCH_ORDERS, payload: data });
-    });
 };

@@ -101,6 +101,7 @@ button {
   color: var(--mainWhite);
   cursor: pointer;
   border-radius: 10px;
+  font-weight: 900;
 }
 
 button:active {
@@ -266,6 +267,15 @@ button.cartitem-addremove {
   margin-right: 16px;
 }
 
+.total a {
+  background-color: #1b1313;
+  border: 1px solid #660000;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 10px;
+  padding: 5px 5px 5px 5px;
+}
+
 .small-basket {
   bottom: 0px;
   text-align: center;
@@ -322,6 +332,143 @@ button.cartitem-addremove {
   }
 }
 
+/* end*/
+
+/*processing start*/
+
+.processing-list {
+  padding: 5rem 0;
+}
+
+.processing-list {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.processing-list button {
+  margin-right: 16px;
+}
+
+.processing-list a {
+  background-color: #1b1313;
+  border: 1px solid #660000;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 10px;
+  padding: 5px 5px 5px 5px;
+}
+
+@media screen and (max-width: 430px) {
+  .processing-list {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: start;
+  }
+}
+
+/*processing end*/
+
+/*login form start*/
+
+.register-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  justify-content: center;
+  align-content: start;
+  width: 50rem;
+}
+
+.register-form li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.register-form li div:last-child {
+  text-align: center;
+}
+
+.register-form button {
+  margin: 10px;
+}
+
+.register-form a {
+  background-color: #1b1313;
+  border: 1px solid #660000;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 10px;
+  padding: 5px 5px 5px 5px;
+}
+
+@media screen and (max-width: 430px) {
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: start;
+    margin: 0;
+    padding: 0;
+    width: 35rem;
+  }
+}
+
+/*register form end*/
+
+/*login form start*/
+
+.login-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  justify-content: center;
+  align-content: start;
+  width: 30rem;
+}
+
+.login-form li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.login-form li div:last-child {
+  text-align: center;
+}
+
+.login-form button {
+  margin: 10px;
+}
+
+.login-form a {
+  background-color: #1b1313;
+  border: 1px solid #660000;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 10px;
+  padding: 5px 5px 5px 5px;
+}
+
+@media screen and (max-width: 430px) {
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: start;
+    margin: 0;
+    padding: 0;
+    width: 35rem;
+  }
+}
+
+/*login form end*/
+
 /* Cart Details end */
 
 .empty-search {
@@ -341,6 +488,7 @@ button.cartitem-addremove {
 
 .product button {
   float: right;
+  font-size: small;
 }
 
 .product:hover {
@@ -415,6 +563,15 @@ button.cartitem-addremove {
 
 .form-container button {
   margin: 10px;
+}
+
+.form-container a {
+  background-color: #1b1313;
+  border: 1px solid #660000;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 10px;
+  padding: 5px 5px 5px 5px;
 }
 
 @media screen and (max-width: 430px) {

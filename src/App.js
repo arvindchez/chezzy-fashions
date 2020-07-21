@@ -1,17 +1,30 @@
 import React from "react";
-import { Provider } from "react-redux";
 import { Route } from "react-router-dom";
 import Products from "./screens/Products";
 import AdminScreen from "./screens/AdminScreen";
 import ContactUs from './components/contactus/ContactUs'
 import Navbar from "./components/navbar/Navbar";
-import store from "./store";
 import GlobalStyle from './styles/Global';
 import BigCart from "./components/bigcart/BigCart";
+import { RegisterPage } from "./screens/RegisterPage";
+import { LoginPage } from "./screens/LoginPage";
+import { history } from './helper/history';
+import { connect } from "react-redux";
+import { Router, Switch, Redirect } from 'react-router-dom';
+import { PrivateRoute } from './components/privateroute/PrivateRoute';
+import { clearAlert } from "./actions/alert";
+import Processing from "./screens/Processing"
 
 class App extends React.Component {
   state = {
     navbarOpen: false
+  }
+
+  componentDidMount() {
+    history.listen((location, action) => {
+      // clear alert on location change
+      this.props.clearAlert();
+    });
   }
 
   handleNavbar = () => {
@@ -21,27 +34,43 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Provider store={store}>
-          <div className="grid-container">
-            <header>
-              <Navbar
-                navbarState={this.state.navbarOpen}
-                handleNavbar={this.handleNavbar}
-              />
-            </header>
-            <main>
-              <Route exact path="/contactus" component={ContactUs} />
-              <Route exact path="/cart" component={BigCart} />
-              <Route exact path="/admin" component={AdminScreen} />
-              <Route exact path="/" component={Products} />
-            </main>
-            <footer>Chez Corporation. All right is reserved.</footer>
-          </div>
-        </Provider>
+        <div className="grid-container">
+          <header>
+            <Navbar
+              navbarState={this.state.navbarOpen}
+              handleNavbar={this.handleNavbar}
+            />
+          </header>
+          <main>
+            <Router history={history}>
+              {this.props.alert.message &&
+                <div className={`alert ${this.props.alert.type}`}>{this.props.alert.message}</div>
+              }
+              <Switch>
+                <PrivateRoute exact path="/myorders" component={AdminScreen} />
+                <PrivateRoute exact path="/processing" component={Processing} />
+                <Route exact path="/contactus" component={ContactUs} />
+                <Route exact path="/cart" component={BigCart} />
+                <Route exact path="/login" component={LoginPage} />
+                <Route exact path="/register" component={RegisterPage} />
+                <Route exact path="/" component={Products} />
+                <Redirect from="*" to="/" />
+              </Switch>
+            </Router>
+          </main>
+          <footer>Chez Corporation. All right is reserved.</footer>
+        </div>
         <GlobalStyle />
       </>
     );
   }
 }
 
-export default App;
+
+export default connect(
+  (state) => ({
+    alert: state.alert
+  }),
+  { clearAlert }
+)(App);
+

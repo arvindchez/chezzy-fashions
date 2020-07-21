@@ -1,4 +1,5 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART, SHOW_ORDER } from "../types";
+import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART, } from "../constants/cart";
+import { SHOW_ORDER } from "../constants/order";
 
 export const addToCart = (product) => (dispatch, getState) => {
     const cartItems = getState().cart.cartItems.slice();

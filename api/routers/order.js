@@ -13,7 +13,8 @@ router.post("/orders", auth, async (req, res) => {
 
     try {
         await order.save()
-        sendOrderConfirmationMail(order)
+        const result = await order.loadUser()
+        sendOrderConfirmationMail(result)
         res.status(201).send(order)
     } catch (e) {
         res.status(400).send(e)

@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import emptyCart from '../../images/emptycart.gif';
 import Fade from "react-reveal/Fade";
 import { formatCurrency } from "../../helper/utils";
-import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
-import { showCheckout } from "../../actions/order";
+import { clearCart } from "../../actions/cart";
 import Order from "../order/Order"
 import Checkout from '../checkout/Checkout';
 import { FaShoppingBasket } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 class BigCart extends Component {
     render() {
@@ -63,9 +63,7 @@ class BigCart extends Component {
                                             )}</h3>
                                             <hr className="my-4" />
                                             <div className="text-center">
-                                                <button type="button" onClick={() => {
-                                                    this.props.showCheckout(true);
-                                                }}>Check out</button>
+                                                <Link to="/processing">Check out</Link>
                                                 <button type="button" onClick={() => {
                                                     this.props.clearCart()
                                                 }}>Clear Cart</button>
@@ -89,5 +87,5 @@ export default connect(
         cartItems: state.cart.cartItems,
         showOrder: state.order.showOrder,
     }),
-    { removeFromCart, addToCart, removeByItemFromCart, clearCart, showCheckout }
+    { clearCart }
 )(BigCart);

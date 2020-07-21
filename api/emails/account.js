@@ -28,7 +28,6 @@ const sendCancellationMail = (email, name) => {
 }
 
 const sendOrderConfirmationMail = (order) => {
-    composeEmail(order);
     sgMail.send({
         to: {
             email: order.email,
@@ -48,12 +47,11 @@ const sendOrderConfirmationMail = (order) => {
 }
 
 const composeEmail = (order) => {
-
-    const orderDetails = order.cartItems.map((x) => (
+    const orderDetails = order.cartItems ? (order.cartItems.map((x) => (
         `<div><span style="color:orange;font-weight:bold">
           ${x.count} x  ${x.title} (Size/Colour - ${x.selectedSize}/${x.selectedColor})
           </span></div>`
-    ))
+    ))) : (`<div>No orders!</div>`)
 
     return `<div>
         <h3 style="color: green">Your order has been placed.</h3>

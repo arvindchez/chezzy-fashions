@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const shortid = require("shortid");
+const User = require('./user');
 
 const orderSchema = new mongoose.Schema({
     _id: {
@@ -34,6 +35,23 @@ const orderSchema = new mongoose.Schema({
     , {
         timestamps: true
     })
+
+orderSchema.methods.loadUser = async function () {
+    const order = this
+    const user = await User.findById({ _id: order.owner })
+
+    if (!user) {
+        throw new Error('Unable to load user data')
+    }
+
+    order.owner = user._id
+    order.email = user.email
+    order.name = `${user.firstName} ${user.lastName}`
+    order.phone = user.phone
+    order.address = user.address
+
+    return order
+}
 
 const Order = mongoose.model('Order', orderSchema)
 
