@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Fade from "react-reveal/Fade";
@@ -14,11 +14,6 @@ function LoginPage(props) {
     const { email, password } = inputs;
     const loggingIn = useSelector(state => state.authentication.loggingIn);
     const dispatch = useDispatch();
-
-    // reset login status
-    useEffect(() => {
-        dispatch(userActions.logout());
-    }, []);
 
     function handleChange(e) {
         const { name, value } = e.target;

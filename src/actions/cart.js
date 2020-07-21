@@ -19,6 +19,7 @@ export const addToCart = (product) => (dispatch, getState) => {
         type: ADD_TO_CART,
         payload: { cartItems },
     });
+
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 
@@ -33,7 +34,7 @@ export const removeFromCart = (product) => (dispatch, getState) => {
 };
 
 export const clearCart = (product) => (dispatch) => {
-    localStorage.clear("cartItems");
+    localStorage.removeItem("cartItems");
     dispatch({ type: CLEAR_CART });
     dispatch({
         type: SHOW_ORDER, payload: {

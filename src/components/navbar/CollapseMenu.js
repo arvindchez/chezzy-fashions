@@ -1,13 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from "../../actions/user"
+
 
 import { useSpring, animated } from 'react-spring';
-import { useSelector } from 'react-redux';
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
 
   const loggedIn = useSelector(state => state.authentication.loggedIn);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(userActions.logout());
+    props.handleNavbar()
+  };
+
 
   if (props.navbarState === true) {
     return (
@@ -18,15 +27,15 @@ const CollapseMenu = (props) => {
         }).interpolate(openValue => `translate3d(0, ${openValue}px, 0`),
       }}
       >
-        <NavLinks>
+        <NavLinks >
           <li><a href="/" onClick={props.handleNavbar}>Home</a></li>
           <li><a href="/myorders" onClick={props.handleNavbar}>My Orders</a></li>
+          <li><a href="/contactus" onClick={props.handleNavbar}>Contact Us</a></li>
           {
             loggedIn && (
-              <a href="/login">Logout</a>
+              <div><a onClick={logout} href="#:">Logout</a></div>
             )
           }
-          <li><a href="/contactus" onClick={props.handleNavbar}>Contact Us</a></li>
         </NavLinks>
       </CollapseWrapper>
     );
@@ -40,30 +49,30 @@ const CollapseWrapper = styled(animated.div)`
   background: #2d3436;
   position: fixed;
   top: 4.5rem;
+  height:16rem;
   left: 0;
   right: 0;
-  z-index: 99 ;
+  z-index:99;
 `;
 
 const NavLinks = styled.ul`
   list-style-type: none;
   padding: 2rem 1rem 2rem 2rem;
 
-  & li {
+   & li {
     transition: all 300ms linear 0s;
   }
 
   & a {
     font-size: 1.4rem;
     line-height: 2;
-    color: #dfe6e9;
-    text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
 
-    &:hover {
+    &:hover li {
       color: #fdcb6e;
       border-bottom: 1px solid #fdcb6e;
+       text-decoration: none;
     }
   }
 `;

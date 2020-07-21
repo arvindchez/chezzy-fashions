@@ -5,8 +5,10 @@ import { FaAlignRight } from 'react-icons/fa';
 const Burgermenu = (props) => {
   return (
     <Wrapper onClick={props.handleNavbar}>
-      <div className={props.navbarState ? "open" : ""}>
-        <FaAlignRight />
+      <div>
+        <div className={props.navbarState ? "open" : ""}>
+          <FaAlignRight className="burger-menu" />
+        </div>
       </div>
     </Wrapper>
   );
@@ -18,16 +20,14 @@ const Wrapper = styled.div`
   position: relative;
   padding-top: .7rem;
   cursor: pointer;
-   padding-left: 1rem;
   display: block;
-  z-index: 100;
 
   & span {
     background: #fdcb6e;
     display: block;
     position: relative;
-    width: 2.5rem;
-    height: .2rem;
+    width: 3.5rem;
+    height: .4rem;
     margin-bottom: .7rem;
     transition: all ease-in-out 0.2s;
   }

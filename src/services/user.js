@@ -26,7 +26,18 @@ function login(email, password) {
 }
 
 function logout() {
-    localStorage.removeItem('user');
+    const contentHeader = { "Content-Type": "application/json" };
+    const tokenHeader = authHeader()
+
+    return fetch("/users/logout", {
+        method: "POST",
+        headers: { ...contentHeader, ...tokenHeader },
+    }).then(handleResponse)
+        .then((user) => {
+            localStorage.removeItem('user');
+            localStorage.removeItem("cartItems");
+            return user;
+        });
 }
 
 function getById(id) {

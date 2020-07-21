@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Fade from "react-reveal/Fade";
@@ -17,11 +17,6 @@ function RegisterPage() {
     const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
 
-    // reset login status
-    useEffect(() => {
-        dispatch(userActions.logout());
-    }, []);
-
     function handleChange(e) {
         const { name, value } = e.target;
         setUser(user => ({ ...user, [name]: value }));
@@ -29,10 +24,7 @@ function RegisterPage() {
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        //if (user.firstName && user.lastName && user.email && user.password) {
         dispatch(userActions.register(user));
-        //    }
     }
 
     return (

@@ -5,14 +5,11 @@ import { useSpring, animated, config } from "react-spring";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import SmallCart from './SmallCart';
-
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from "../../actions/user"
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = (props) => {
-
-  const loggedIn = useSelector(state => state.authentication.loggedIn);
-
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
     transform: 'translate3d(0, 0, 0)',
@@ -21,9 +18,18 @@ const Navbar = (props) => {
   const linkAnimation = useSpring({
     from: { transform: 'translate3d(0, 30px, 0)', opacity: 0 },
     to: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
-    delay: 800,
-    config: config.wobbly,
+    delay: 100,
+    config: config.stiff,
   });
+
+  const loggedIn = useSelector(state => state.authentication.loggedIn);
+  const cartItems = useSelector(state => state.cart.cartItems);
+
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(userActions.logout());
+  };
 
   return (
     <>
@@ -33,15 +39,22 @@ const Navbar = (props) => {
           <NavLinks style={linkAnimation}>
             <a href="/">Home</a>
             <a href="/myorders">My Orders</a>
+            <a href="/contactus">Contact Us</a>
             {
               loggedIn && (
-                <a href="/login">Logout</a>
+                <a onClick={logout} href="#:">Logout</a>
               )
             }
-            <a href="/contactus">Contact Us</a>
+            <a href="/cart">{
+              cartItems && cartItems.length > 0 ? cartItems.length : ""
+            }<FaShoppingCart className="small-cart" /></a>
           </NavLinks>
-          <SmallCart />
           <BurgerWrapper>
+            <div>
+              <a href="/cart">{
+                cartItems && cartItems.length > 0 ? cartItems.length : ""
+              }<FaShoppingCart /></a>
+            </div>
             <BurgerMenu
               navbarState={props.navbarState}
               handleNavbar={props.handleNavbar}
@@ -73,6 +86,7 @@ const FlexContainer = styled.div`
   max-width: 120rem;
   display: flex;
   margin: auto;
+  padding: 0 2rem;;
   justify-content: space-between;
   height: 5rem;
 `;
@@ -82,9 +96,7 @@ const NavLinks = styled(animated.ul)`
   list-style-type: none;
   margin: auto 0;
 
-  & a  {
-    color: #dfe6e9;
-    text-transform: uppercase;
+  & a {
     font-weight: 600;
     border-bottom: 1px solid transparent;
     margin: 0 1.5rem;
@@ -92,15 +104,16 @@ const NavLinks = styled(animated.ul)`
     text-decoration: none;
     cursor: pointer;
 
-    a:hover li{
+    &:hover li {
       color: #fdcb6e;
       border-bottom: 1px solid #fdcb6e;
+      text-decoration: none;
     }
 
     @media (max-width: 768px) {
       display: none;
     }
-  }  
+  }
 `;
 
 const BurgerWrapper = styled.div`
@@ -110,3 +123,4 @@ const BurgerWrapper = styled.div`
     display: none;
   }
 `;
+

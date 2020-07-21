@@ -38,8 +38,20 @@ function login(email, password, previous) {
 }
 
 function logout() {
-    userService.logout();
-    return { type: userConstants.LOGOUT };
+    return dispatch => {
+        userService.logout()
+            .then(
+                user => {
+                    dispatch(success(user));
+                    history.push("/");
+                },
+                error => {
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+
+    function success(user) { return { type: userConstants.LOGOUT, user } }
 }
 
 function register(user) {

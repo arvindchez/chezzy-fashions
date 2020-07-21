@@ -156,9 +156,14 @@ button.cartitem-addremove {
 /* Navbar start*/
 
 .small-cart {
-  height: 6rem;
+  height: 3rem;
   width: 3rem;
-  position: absolute;
+  position: fixed;
+}
+
+.burger-menu {
+  height: 2rem;
+  width: 2rem;
 }
 
 /* Navbar end*/
@@ -408,13 +413,7 @@ button.cartitem-addremove {
 
 @media screen and (max-width: 430px) {
   .register-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: start;
-    margin: 0;
-    padding: 0;
-    width: 35rem;
+    width: 30rem;
   }
 }
 
@@ -429,7 +428,7 @@ button.cartitem-addremove {
   font-weight: bold;
   justify-content: center;
   align-content: start;
-  width: 30rem;
+  width: 50rem;
 }
 
 .login-form li {
@@ -457,13 +456,9 @@ button.cartitem-addremove {
 
 @media screen and (max-width: 430px) {
   .login-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: start;
     margin: 0;
     padding: 0;
-    width: 35rem;
+    width: 30rem;
   }
 }
 
@@ -618,6 +613,27 @@ button.cartitem-addremove {
   display: flex;
   flex-direction: column;
 }
+
+/*Alert start*/
+
+.alert {
+  opacity: 1;
+  text-align: center;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/*Alert end*/
 
 /* Orders */
 
