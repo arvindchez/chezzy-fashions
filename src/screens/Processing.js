@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { createOrder } from "../actions/order";
 import { Link } from 'react-router-dom';
-import Orders from '../components/Orders';
+import Orders from '../components/OrderSummary/Orders';
 
 class Processing extends Component {
 

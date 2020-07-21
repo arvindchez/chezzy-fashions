@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchProducts } from "../../actions/product";
 import Product from "./Product";
-import Loading from "../Loading";
-import { addToCart } from "../../actions/cart";
+import Loading from "../Loading/Loading";
 
 class ProductList extends Component {
-
-    addToCart = (product) => {
-        addToCart()
-    }
 
     render() {
 
@@ -43,8 +37,5 @@ class ProductList extends Component {
 
 export default connect(
     (state) => ({ products: state.products.filteredItems }),
-    {
-        fetchProducts,
-        addToCart,
-    }
+    {}
 )(ProductList);

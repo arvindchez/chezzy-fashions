@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import emptyCart from '../../images/emptycart.gif';
 import Fade from "react-reveal/Fade";
 import { formatCurrency } from "../../helper/utils";
-import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
-import { showCheckout } from "../../actions/order";
+import { clearCart } from "../../actions/cart";
 import Order from "../order/Order"
 import Checkout from '../checkout/Checkout';
 import { FaShoppingBasket } from 'react-icons/fa';
@@ -88,5 +87,5 @@ export default connect(
         cartItems: state.cart.cartItems,
         showOrder: state.order.showOrder,
     }),
-    { removeFromCart, addToCart, removeByItemFromCart, clearCart, showCheckout }
+    { clearCart }
 )(BigCart);

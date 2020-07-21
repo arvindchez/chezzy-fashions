@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
-import { removeFromCart, clearCart, addToCart, removeByItemFromCart } from "../../actions/cart";
+import { removeFromCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { showCheckout } from "../../actions/order";
 import { formatCurrency } from "../../helper/utils";
 
@@ -65,5 +65,5 @@ export default connect(
   (state) => ({
     cartItems: state.cart.cartItems
   }),
-  { removeFromCart, addToCart, removeByItemFromCart, clearCart, showCheckout }
+  { removeFromCart, addToCart, removeByItemFromCart, showCheckout }
 )(SmallCart);
