@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import Fade from "react-reveal/Fade";
 import { userActions } from '../actions/user';
 
 function RegisterPage() {
@@ -9,9 +9,11 @@ function RegisterPage() {
         firstName: '',
         lastName: '',
         email: '',
-        password: ''
+        password: '',
+        phone: '',
+        address: ''
     });
-    const [submitted, setSubmitted] = useState(false);
+
     const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
 
@@ -28,67 +30,91 @@ function RegisterPage() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        setSubmitted(true);
-        if (user.firstName && user.lastName && user.email && user.password) {
-            dispatch(userActions.register(user));
-        }
+        //if (user.firstName && user.lastName && user.email && user.password) {
+        dispatch(userActions.register(user));
+        //    }
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Register</h2>
-            <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
-                    {submitted && !user.firstName &&
-                        <div className="invalid-feedback">First Name is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
-                    {submitted && !user.lastName &&
-                        <div className="invalid-feedback">Last Name is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" value={user.email} onChange={handleChange} className={'form-control' + (submitted && !user.email ? ' is-invalid' : '')} />
-                    {submitted && !user.email &&
-                        <div className="invalid-feedback">Email is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
-                    {submitted && !user.password &&
-                        <div className="invalid-feedback">Password is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Phone Number</label>
-                    <input type="text" name="phone" value={user.phone} onChange={handleChange} className={'form-control' + (submitted && !user.phone ? ' is-invalid' : '')} />
-                    {submitted && !user.phone &&
-                        <div className="invalid-feedback">Phone is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Address</label>
-                    <input type="text" name="address" value={user.address} onChange={handleChange} className={'form-control' + (submitted && !user.address ? ' is-invalid' : '')} />
-                    {submitted && !user.address &&
-                        <div className="invalid-feedback">Address is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <button className="btn btn-primary">
-                        {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Register
-                    </button>
-                    <Link to="/login" className="btn btn-link">Cancel</Link>
-
-                </div>
-            </form>
+        <div>
+            <Fade right cascade>
+                <form onSubmit={handleSubmit}>
+                    <ul className="register-form">
+                        <li>
+                            <label>First Name:</label>
+                            <input
+                                name="firstName"
+                                type="text"
+                                required
+                                placeholder="Your first name"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+                        <li>
+                            <label>Last Name:</label>
+                            <input
+                                name="lastName"
+                                type="text"
+                                required
+                                placeholder="Your last name"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+                        <li>
+                            <label>Email:</label>
+                            <input
+                                name="email"
+                                type="email"
+                                required
+                                placeholder="Your email"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+                        <li>
+                            <label>Password:</label>
+                            <input
+                                name="password"
+                                type="password"
+                                required
+                                placeholder="Your password"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+                        <li>
+                            <label>Phone Number:</label>
+                            <input
+                                name="phone"
+                                type="text"
+                                required
+                                placeholder="Your phone number"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+                        <li>
+                            <label>Address:</label>
+                            <input
+                                name="address"
+                                type="text"
+                                required
+                                placeholder="Your address"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="submit">
+                                    {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                                    Register
+                                </button>
+                                <div>
+                                    <p>Nevermind...?</p>
+                                    <Link to="/login">Cancel</Link>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </Fade>
         </div>
     );
 }

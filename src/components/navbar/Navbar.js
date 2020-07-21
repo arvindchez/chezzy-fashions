@@ -7,7 +7,12 @@ import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import SmallCart from './SmallCart';
 
+import { useSelector } from 'react-redux';
+
 const Navbar = (props) => {
+
+  const loggedIn = useSelector(state => state.authentication.loggedIn);
+
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
     transform: 'translate3d(0, 0, 0)',
@@ -28,6 +33,11 @@ const Navbar = (props) => {
           <NavLinks style={linkAnimation}>
             <a href="/">Home</a>
             <a href="/myorders">My Orders</a>
+            {
+              loggedIn && (
+                <a href="/login">Logout</a>
+              )
+            }
             <a href="/contactus">Contact Us</a>
           </NavLinks>
           <SmallCart />

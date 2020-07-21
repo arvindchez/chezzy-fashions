@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOrders } from "../../actions/order";
-import { formatCurrency } from "../../helper/utils";
+import { formatCurrency, convertToAppDate } from "../../helper/utils";
 
 class Orders extends Component {
   componentDidMount() {
@@ -25,10 +25,10 @@ class Orders extends Component {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
-                <tr>
+              {orders.map((order, index) => (
+                <tr key={index}>
                   <td>{order._id}</td>
-                  <td>{order.createdAt}</td>
+                  <td>{convertToAppDate(order.createdAt)}</td>
                   <td> {formatCurrency(order.total)}</td>
                   <td>
                     {order.cartItems.map((item, index) => (

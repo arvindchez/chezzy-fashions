@@ -63,7 +63,7 @@ class BigCart extends Component {
                                             )}</h3>
                                             <hr className="my-4" />
                                             <div className="text-center">
-                                                <Link to="/processing" className="btn btn-link">Check out</Link>
+                                                <Link to="/processing">Check out</Link>
                                                 <button type="button" onClick={() => {
                                                     this.props.clearCart()
                                                 }}>Clear Cart</button>

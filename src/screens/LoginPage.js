@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Fade from "react-reveal/Fade";
 
 import { userActions } from '../actions/user';
 
@@ -9,7 +10,7 @@ function LoginPage(props) {
         email: '',
         password: ''
     });
-    const [submitted, setSubmitted] = useState(false);
+
     const { email, password } = inputs;
     const loggingIn = useSelector(state => state.authentication.loggingIn);
     const dispatch = useDispatch();
@@ -27,42 +28,57 @@ function LoginPage(props) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        setSubmitted(true);
         if (email && password) {
             dispatch(
                 userActions.login(
                     email,
                     password,
-                    props.location.state.from.pathname));
+                    props.location.state ?
+                        props.location.state.from.pathname : undefined));
         }
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Login</h2>
-            <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" value={email} onChange={handleChange} className={'form-control' + (submitted && !email ? ' is-invalid' : '')} />
-                    {submitted && !email &&
-                        <div className="invalid-feedback">Email is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
-                    {submitted && !password &&
-                        <div className="invalid-feedback">Password is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <button className="btn btn-primary">
-                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Login
-                    </button>
-                    <Link to="/register" className="btn btn-link">Register</Link>
-                </div>
-            </form>
+        <div>
+            <Fade right cascade>
+                <form onSubmit={handleSubmit}>
+                    <ul className="login-form">
+                        <li>
+                            <label>Email:</label>
+                            <input
+                                name="email"
+                                type="email"
+                                required
+                                placeholder="Your email"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+
+                        <li>
+                            <label>Password:</label>
+                            <input
+                                name="password"
+                                type="password"
+                                required
+                                placeholder="Your password"
+                                onChange={handleChange}
+                            ></input>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="submit">
+                                    {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                                    Login
+                                </button>
+                                <div>
+                                    <p>No account yet?</p>
+                                    <Link to="/register">Register</Link>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </Fade>
         </div>
     );
 }

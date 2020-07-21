@@ -22,9 +22,9 @@ class Processing extends Component {
           this.props.showOrder ? (
             <Orders />
           ) : (
-              <div>
+              <div className="processing-list">
                 <button onClick={this.createOrder}>Complete Order</button>
-                <Link to="/cart" className="btn btn-link">Back</Link>
+                <Link to="/cart">Back</Link>
               </div>
             )}
       </div>
