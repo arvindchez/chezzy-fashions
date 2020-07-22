@@ -1,26 +1,30 @@
 import { FETCH_PRODUCTS, FILTER_PRODUCTS_BY_COLOR, FILTER_PRODUCTS_BY_SEARCH, FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../constants/product";
 
-export const fetchProducts = () => async (dispatch) => {
-    const res = await fetch("products");
+export const fetchProducts = (page, limit) => async (dispatch) => {
+    const url = `products?page=${page}&limit=${limit}`
+    const res = await fetch(url)
     const data = await res.json();
+
     dispatch({
         type: FETCH_PRODUCTS,
-        payload: data,
+        payload: {
+            data: data.result,
+            totalProducts: data.count
+        }
     });
 };
 
-export const searchProducts = (search) => async (dispatch) => {
-    const res = await fetch("products");
+export const searchProducts = (search, page, limit) => async (dispatch) => {
+    const url = `products?page=${page}&limit=${limit}&query=${search}`
+    const res = await fetch(url);
     const data = await res.json();
 
     dispatch({
         type: FILTER_PRODUCTS_BY_SEARCH,
         payload: {
             search: search,
-            items:
-                search === ""
-                    ? data
-                    : data.filter((x) => x.title.toLowerCase().includes(search.toLowerCase()))
+            totalProducts: data.count,
+            items: data.result
         },
     });
 };
