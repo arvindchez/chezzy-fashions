@@ -5,53 +5,40 @@ import emptyCart from '../../images/emptycart.gif';
 import Fade from "react-reveal/Fade";
 import { formatCurrency } from "../../helper/utils";
 import { clearCart } from "../../actions/cart";
-import Order from "../order/Order"
-import Checkout from '../checkout/Checkout';
 import { FaShoppingBasket } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 class BigCart extends Component {
     render() {
-        const { showOrder, cartItems } = this.props;
+        const { cartItems } = this.props;
 
         return (
             <section className="cartlist">
                 <div className="cartlist-container">
-                    <div className="cartlist-item summary">
-                        {cartItems && cartItems.length === 0 ? (
-                            <div>
-                                <div>
-                                    {!showOrder ? "Your cart is empty" : "Complete your order"}
-                                </div>
-                                <img src={emptyCart} height="30%" width="40%" alt="Cart is empty"></img>
+                    {
+                        cartItems && cartItems.length === 0 ?
+                            (<div>
+                                <div class="thought">Your cart is empty</div>
+                                <img src={emptyCart} className="empty-cart" alt="Cart is empty"></img>
                             </div>
-                        ) : (<div>{!showOrder ?
-                            <div><FaShoppingBasket />
-                                {"  "} You have {cartItems ? cartItems.length : "0"}
-                                {cartItems && cartItems.length > 1 ?
-                                    " items" : " item"} in the cart{" "}
-                            </div> :
-                            <div >Complete your order</div>
+                            ) : (
 
-                        }
-                        </div>
-                            )}
-                    </div>
-                    <div>
-                        {showOrder && (
-                            <Checkout />
-                        )}
-                        <Order />
-                    </div>
+                                <div className="cartlist-item summary">
+                                    <div>
+                                        <FaShoppingBasket />
+                                        {"  "} You have {cartItems ? cartItems.length : "0"}
+                                        {cartItems && cartItems.length > 1 ?
+                                            " items" : " item"} in the cart{" "}
+                                    </div>
+                                </div>
+                            )
+                    }
                     <div className="cartlist-item details">
-                        {!showOrder && (
-                            <SmallCart />
-                        )
-                        }
+                        <SmallCart />
                     </div>
                     <div className="cartlist-item total">
                         {<div>
-                            {!showOrder && cartItems && cartItems.length !== 0 && (
+                            {cartItems && cartItems.length !== 0 && (
                                 <Fade bottom>
                                     <div className="col-sm-3 p-3">
                                         <div className="card card-body">

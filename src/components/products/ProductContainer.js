@@ -18,7 +18,9 @@ class ProductContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchProducts();
+        this.props.fetchProducts(
+            process.env.REACT_APP_PAGE_START_INDEX,
+            process.env.REACT_APP_PAGE_SIZE);
     }
 
     hideComponent() {

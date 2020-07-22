@@ -13,6 +13,14 @@ import {
 
 const ProductFilter = (props) => {
 
+    const handleSearch = (query) => {
+        props.searchProducts(
+            query,
+            process.env.REACT_APP_PAGE_START_INDEX,
+            process.env.REACT_APP_PAGE_SIZE);
+    };
+
+
     const getUnique = (items, value) => {
         let type = [...new Set(items.map(item => item[value]))]
         type = new Set(type.flat(1))
@@ -105,7 +113,7 @@ const ProductFilter = (props) => {
                         name="search"
                         placeholder="Search product..."
                         onKeyUp={(e) =>
-                            props.searchProducts(e.target.value)
+                            handleSearch(e.target.value)
                         } />
                 </FlexContainer>
             </Filters>

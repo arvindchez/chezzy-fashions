@@ -19,6 +19,7 @@ export const productsReducer = (state = {}, action) => {
                 ...state,
                 search: action.payload.search,
                 filteredItems: action.payload.items,
+                totalProducts: action.payload.totalProducts
             };
         case FILTER_PRODUCTS_BY_COLOR:
             return {
@@ -33,7 +34,11 @@ export const productsReducer = (state = {}, action) => {
                 filteredItems: action.payload.items,
             };
         case FETCH_PRODUCTS:
-            return { items: action.payload, filteredItems: action.payload };
+            return {
+                items: action.payload.data,
+                filteredItems: action.payload.data,
+                totalProducts: action.payload.totalProducts
+            };
         default:
             return state;
     }
