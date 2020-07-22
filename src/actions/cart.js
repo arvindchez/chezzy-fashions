@@ -1,5 +1,4 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART, } from "../constants/cart";
-import { SHOW_ORDER } from "../constants/order";
 
 export const addToCart = (product) => (dispatch, getState) => {
     const cartItems = getState().cart.cartItems.slice();
@@ -36,11 +35,6 @@ export const removeFromCart = (product) => (dispatch, getState) => {
 export const clearCart = (product) => (dispatch) => {
     localStorage.removeItem("cartItems");
     dispatch({ type: CLEAR_CART });
-    dispatch({
-        type: SHOW_ORDER, payload: {
-            showOrder: false
-        }
-    });
 };
 
 export const removeByItemFromCart = (product) => (dispatch, getState) => {

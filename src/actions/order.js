@@ -1,4 +1,4 @@
-import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, SHOW_ORDER } from "../constants/order";
+import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, FILTER_ORDERS_BY_SEARCH } from "../constants/order";
 import { CLEAR_CART } from "../constants/cart";
 import { authHeader } from "../helper/auth-header"
 import { alertActions } from '../actions/alert';
@@ -8,7 +8,7 @@ export const createOrder = (order) => (dispatch) => {
   const contentHeader = { "Content-Type": "application/json" };
   const tokenHeader = authHeader()
 
-  fetch("/orders", {
+  fetch("orders", {
     method: "POST",
     headers: { ...contentHeader, ...tokenHeader },
     body: JSON.stringify(order),
@@ -23,21 +23,34 @@ export const createOrder = (order) => (dispatch) => {
 };
 
 export const fetchOrders = () => (dispatch) => {
-  fetch("/orders/me", {
+  fetch("orders/me", {
     method: "GET",
     headers: authHeader()
   })
     .then((res) => res.json())
     .then((data) => {
-      dispatch({ type: FETCH_ORDERS, payload: data });
+      dispatch({
+        type: FETCH_ORDERS, payload: {
+          data: data.result,
+          totalOrders: data.count
+        }
+      });
     });
 };
 
-export const showCheckout = (show) => (dispatch) => {
+
+export const searchOrders = (search, page, limit) => async (dispatch) => {
+  const url = `orders?page=${page}&limit=${limit}&query=${search}`
+  const res = await fetch(url);
+  const data = await res.json();
+
   dispatch({
-    type: SHOW_ORDER, payload: {
-      showOrder: show
-    }
+    type: FILTER_ORDERS_BY_SEARCH,
+    payload: {
+      search: search,
+      totalOrders: data.count,
+      items: data.result
+    },
   });
 };
 

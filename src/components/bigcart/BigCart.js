@@ -73,8 +73,7 @@ class BigCart extends Component {
 
 export default connect(
     (state) => ({
-        cartItems: state.cart.cartItems,
-        showOrder: state.order.showOrder,
+        cartItems: state.cart.cartItems
     }),
     { clearCart }
 )(BigCart);

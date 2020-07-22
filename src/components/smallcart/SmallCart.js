@@ -3,18 +3,17 @@ import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
 import { removeFromCart, addToCart, removeByItemFromCart } from "../../actions/cart";
-import { showCheckout } from "../../actions/order";
 import { formatCurrency } from "../../helper/utils";
 
 
 class SmallCart extends Component {
   render() {
-    const { cartItems, showOrder } = this.props;
+    const { cartItems } = this.props;
     return (
       <div className="cart">
         <Fade left cascade>
           <ul className="cart-items">
-            {!showOrder && cartItems && cartItems.map((item, index) => (
+            {cartItems && cartItems.map((item, index) => (
               <li key={index}>
                 <div>
                   <img src={item.image} alt={item.title}></img>
@@ -65,5 +64,5 @@ export default connect(
   (state) => ({
     cartItems: state.cart.cartItems
   }),
-  { removeFromCart, addToCart, removeByItemFromCart, showCheckout }
+  { removeFromCart, addToCart, removeByItemFromCart }
 )(SmallCart);

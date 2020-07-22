@@ -16,6 +16,10 @@ const orderSchema = new mongoose.Schema({
             }
         }
     },
+    status: {
+        type: String,
+        default: 'active',
+    },
     cartItems: [
         {
             _id: String,
