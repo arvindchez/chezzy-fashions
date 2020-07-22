@@ -25,8 +25,8 @@ router.get("/orders/me", auth, async (req, res) => {
     const match = {}
     const sort = {}
 
-    if (req.query.completed) {
-        match.completed = req.query.completed === 'true'
+    if (req.query.status) {
+        match.status = req.query.status === 'active'
     }
 
     if (req.query.sortBy) {
@@ -39,13 +39,13 @@ router.get("/orders/me", auth, async (req, res) => {
             path: 'orders',
             match,
             options: {
-                limit: req.query.limit ? parseInt(req.query.limit) : 100,
-                skip: req.query.skip ? parseInt(req.query.skip) : 0,
+                limit: req.query.limit ? parseInt(req.query.limit) : parseInt(process.env.PAGE_SIZE),
+                skip: req.query.skip ? parseInt(req.query.skip) : parseInt(process.env.PAGE_START_INDEX) - 1, // in mongoose page index starts from 0
                 sort
             }
         }).execPopulate()
 
-        res.send(req.user.orders)
+        res.send({ result: req.user.orders, count: req.user.orders.length })
     } catch (e) {
         res.status(500).send()
     }

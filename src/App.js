@@ -1,7 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Products from "./screens/Products";
-import AdminScreen from "./screens/AdminScreen";
 import ContactUs from './components/contactus/ContactUs'
 import Navbar from "./components/navbar/Navbar";
 import GlobalStyle from './styles/Global';
@@ -15,6 +14,7 @@ import { PrivateRoute } from './components/privateroute/PrivateRoute';
 import { clearAlert } from "./actions/alert";
 import Processing from "./screens/Processing"
 import Fade from "react-reveal/Fade";
+import OrderDetails from "./screens/OrderDetails";
 
 class App extends React.Component {
   state = {
@@ -50,7 +50,7 @@ class App extends React.Component {
                 }
               </Fade>
               <Switch>
-                <PrivateRoute exact path="/myorders" component={AdminScreen} />
+                <PrivateRoute exact path="/myorders" component={OrderDetails} />
                 <PrivateRoute exact path="/processing" component={Processing} />
                 <Route exact path="/contactus" component={ContactUs} />
                 <Route exact path="/cart" component={BigCart} />
