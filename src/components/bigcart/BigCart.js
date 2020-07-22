@@ -5,7 +5,7 @@ import emptyCart from '../../images/emptycart.gif';
 import Fade from "react-reveal/Fade";
 import { formatCurrency } from "../../helper/utils";
 import { clearCart } from "../../actions/cart";
-import { FaShoppingBasket } from 'react-icons/fa';
+import { FaShoppingBasket, FaSmileWink } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 class BigCart extends Component {
@@ -18,7 +18,9 @@ class BigCart extends Component {
                     {
                         cartItems && cartItems.length === 0 ?
                             (<div>
-                                <div class="thought">Your cart is empty</div>
+                                <div class="thought">Cart empty!!! Lets get shopping
+                                    <Link to="/">Go...</Link>
+                                    <FaSmileWink className="empty-cart-smile" /> </div>
                                 <img src={emptyCart} className="empty-cart" alt="Cart is empty"></img>
                             </div>
                             ) : (
