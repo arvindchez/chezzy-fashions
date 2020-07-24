@@ -34,9 +34,8 @@ class OrderList extends Component {
         }
 
         return (
-            <section className="orderslist">
-
-                <div className="orderslist-center">
+            <section className="order-details-container">
+                <div>
                     {
                         this.props.orders.map((item, index) => {
                             return <Order key={index} order={item} />

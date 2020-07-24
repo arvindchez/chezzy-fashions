@@ -140,7 +140,7 @@ button.cartitem-addremove {
 .filter-container {
   position: fixed;
   right: 0;
-  background: #f84323;
+  background: var(--mainBlack);
   width: 20px;
   height: 20px;
   display: flex;
@@ -759,24 +759,67 @@ th {
 
 /*Order Details start*/
 
-.customer-user {
-  display: flex;
-  flex: 1fr;
-  justify-content: center;
-  color: #000;
-  box-sizing: inherit;
-  background: #fff;
-  margin: 10px;
-  padding: 15px;
+.order-details-container {
+  margin: auto;
+  width: 70%;
+  border: 1px solid rgb(42, 48, 42);
+  padding: 10px;
 }
 
-.customer-user item {
-  flex-grow: 4;
-  /* default 0 */
-}
-
-.customer-user div {
+.order-details {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: [row] auto [row] auto [row];
+  background-color: #fff;
+  color: #444;
+  font-size: smaller;
   border: 1px solid rgba(34, 36, 38, .15);
+  width: 65vw;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.a {
+  grid-row: row;
+}
+
+.b {
+  grid-column: span 2;
+  grid-row: row;
 }
 
 /*Order details end*/
+
+/*carousel start*/
+
+.carousel-style-img {
+  width: 100%;
+  height: 400px;
+}
+
+.rec .rec-dot {
+  width: 1px;
+  height: 5px;
+}
+
+.rec .rec-dot_active {
+  background-color: var(--mainBlack);
+}
+
+.rec .rec-pagination {
+  margin-top: -20px;
+  z-index: 99;
+}
+
+@media screen and (max-width: 430px) {
+  .carousel-style-img {
+    height: 200px;
+  }
+  .rec .rec-pagination {
+    z-index: 99;
+  }
+}
+
+/*carousel end */

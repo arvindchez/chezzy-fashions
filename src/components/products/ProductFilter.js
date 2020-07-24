@@ -44,7 +44,7 @@ const ProductFilter = (props) => {
             <Filters style={sectionAnimation}>
                 <FlexContainer>
                     <Label>
-                        Total Products: {props.filteredProducts.length}
+                        Total Products: {props.totalProducts}
                     </Label>
                 </FlexContainer>
                 <FlexContainer>
@@ -127,6 +127,7 @@ export default connect(
         sort: state.products.sort,
         products: state.products.items,
         filteredProducts: state.products.filteredItems,
+        totalProducts: state.products.totalProducts,
     }),
     {
         filterProductsBySize,

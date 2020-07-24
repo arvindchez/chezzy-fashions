@@ -4,6 +4,7 @@ const userRouter = require('./api/routers/user')
 const taskRouter = require('./api/routers/task')
 const productRouter = require('./api/routers/product')
 const orderRouter = require('./api/routers/order')
+const carouselRouter = require('./api/routers/carousel')
 
 const app = express();
 const port = process.env.PORT
@@ -22,6 +23,7 @@ app.use(userRouter)
 app.use(taskRouter)
 app.use(productRouter)
 app.use(orderRouter)
+app.use(carouselRouter)
 
 app.get("*", (req, res) => res.sendFile(indexPath));
 

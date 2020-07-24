@@ -6,7 +6,7 @@ import {
     FILTER_PRODUCTS_BY_COLOR,
 } from "../constants/product";
 
-export const productsReducer = (state = {}, action) => {
+export const product = (state = {}, action) => {
     switch (action.type) {
         case FILTER_PRODUCTS_BY_SIZE:
             return {

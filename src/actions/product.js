@@ -1,4 +1,10 @@
-import { FETCH_PRODUCTS, FILTER_PRODUCTS_BY_COLOR, FILTER_PRODUCTS_BY_SEARCH, FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../constants/product";
+import {
+    FETCH_PRODUCTS,
+    FILTER_PRODUCTS_BY_COLOR,
+    FILTER_PRODUCTS_BY_SEARCH,
+    FILTER_PRODUCTS_BY_SIZE,
+    ORDER_PRODUCTS_BY_PRICE
+} from "../constants/product";
 
 export const fetchProducts = (page, limit) => async (dispatch) => {
     const url = `products?page=${page}&limit=${limit}`
