@@ -10,11 +10,11 @@ class Order extends Component {
         return (
             <div >
                 <Fade bottom cascade>
-                    <article className="customer-user">
-                        <div><strong>Order Number:</strong> {order._id}</div>
-                        <div><strong>Total:</strong> {formatCurrency(order.total)}</div>
-                        <div><strong>Order Date:</strong> {convertToAppDate(order.createdAt)}</div>
-                        <div><strong>Items:</strong>
+                    <article className="order-details">
+                        <div className="col a"><strong></strong> {order._id}</div>
+                        <div className="col a"><strong></strong> {formatCurrency(order.total)}</div>
+                        <div className="col a"><strong></strong> {convertToAppDate(order.createdAt)}</div>
+                        <div className="col b"><strong></strong>
                             {order.cartItems.map((item, index) => (
                                 <div key={index}>
                                     {item.count} {" x "} {item.title} {"(Size/Colour -"} {item.selectedSize} {"/"} {item.selectedColor}{")"}
@@ -23,6 +23,8 @@ class Order extends Component {
                         </div>
                     </article>
                 </Fade>
+
+
             </div >
         );
     }

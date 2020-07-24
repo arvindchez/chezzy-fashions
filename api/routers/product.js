@@ -1,5 +1,7 @@
 const express = require('express')
 const Product = require('../models/product')
+const multer = require('multer')
+const sharp = require('sharp')
 
 const router = new express.Router()
 
@@ -39,7 +41,6 @@ router.delete("/products/:id", async (req, res) => {
 
 router.get('/products', async (req, res) => {
     try {
-
         var query = {};
         if (req.query.query) {
             query = {
@@ -59,6 +60,35 @@ router.get('/products', async (req, res) => {
     } catch (e) {
         res.status(500).send()
     }
+})
+
+const upload = multer({
+    limits: {
+        fieldSize: 1000000
+    },
+    fileFilter(req, file, cb) {
+        if (!file.originalname.match(/\.(jpg)$/)) {
+            return cb(new Error('Please upload an image'))
+        }
+
+        cb(undefined, true)
+    }
+})
+
+router.post('/products/:id/image', upload.single('avatar'), async (req, res) => {
+    const buffer = await sharp(req.file.buffer).resize({ width: 1500, height: 2000 }).png().toBuffer()
+
+    const _id = req.params.id
+    const product = await Product.findOne({ _id })
+    if (!product) {
+        return res.status(404).send()
+    }
+
+    product.avatar = buffer
+    await product.save()
+    res.send()
+}, (error, req, res, next) => {
+    res.status(400).send({ error: error.message })
 })
 
 module.exports = router

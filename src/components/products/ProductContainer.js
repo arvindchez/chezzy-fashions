@@ -5,6 +5,8 @@ import { FaFilter } from 'react-icons/fa';
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { fetchProducts } from "../../actions/product";
+import { fetchCarousel } from "../../actions/carousel";
+import CarouselBanner from '../carousel/CarouselBanner';
 
 class ProductContainer extends Component {
     constructor(props) {
@@ -21,6 +23,7 @@ class ProductContainer extends Component {
         this.props.fetchProducts(
             process.env.REACT_APP_PAGE_START_INDEX,
             process.env.REACT_APP_PAGE_SIZE);
+        this.props.fetchCarousel();
     }
 
     hideComponent() {
@@ -47,8 +50,12 @@ class ProductContainer extends Component {
                         }} />
                     </div>
                 </Fade>
-
-                <ProductList />
+                <div>
+                    <CarouselBanner />
+                </div>
+                <div>
+                    <ProductList />
+                </div>
             </>
         )
     }
@@ -57,6 +64,6 @@ class ProductContainer extends Component {
 export default connect(
     (state) => ({ products: state.products.filteredItems }),
     {
-        fetchProducts
+        fetchProducts, fetchCarousel
     }
 )(ProductContainer);

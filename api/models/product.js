@@ -32,6 +32,9 @@ const productSchema = new mongoose.Schema(
                 }
             }
         },
+        avatar: {
+            type: Buffer
+        },
         availableSizes: [String],
         availableColours: [String],
     }, {
