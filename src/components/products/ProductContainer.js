@@ -6,7 +6,6 @@ import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { fetchProducts } from "../../actions/product";
 import { fetchCarousel } from "../../actions/carousel";
-import CarouselBanner from '../carousel/CarouselBanner';
 
 class ProductContainer extends Component {
     constructor(props) {
@@ -50,9 +49,6 @@ class ProductContainer extends Component {
                         }} />
                     </div>
                 </Fade>
-                <div>
-                    <CarouselBanner />
-                </div>
                 <div>
                     <ProductList />
                 </div>

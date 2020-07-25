@@ -38,14 +38,14 @@ const Processing = (props) => {
     }
   }
 
-  const handleCOD = async () => {
+  const handleCOD = () => {
     const order = {
       cartItems: props.cartItems,
       paymenttype: paymentMode
     };
 
-    await props.createOrder(order);
-    await props.confirmOrder();
+    props.createOrder(order);
+    props.confirmOrder();
   }
 
   async function displayRazorpay() {
@@ -61,7 +61,7 @@ const Processing = (props) => {
     const options = {
       key: process.env.REACT_APP_RAZORPAY_APIKEY,
       currency: order.currency,
-      amount: order.total.toString(),
+      amount: order.total,
       order_id: order.paymentid,
       name: 'Your shopping details below.',
       description: 'Please make the payment.',
@@ -99,7 +99,6 @@ const Processing = (props) => {
         )}
         <li>
           {paymentMode === "razorpay" && props.order && (
-
             <div>
               <a onClick={displayRazorpay}
                 target="_blank"
@@ -109,9 +108,8 @@ const Processing = (props) => {
           )}
 
           {paymentMode === "cod" && (
-
-            < div >
-              <button onClick={handleCOD}>Complete order</button>
+            <div>
+              <a onClick={handleCOD}>Complete order</a>
             </div>
           )}
         </li>

@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Order from "./Order";
 import Loading from "../Loading/Loading";
 import ReactPaginate from 'react-paginate';
 import { fetchOrders, searchOrders } from "../../actions/order";
-import { formatCurrency, convertToAppDate } from "../../helper/utils";
 import Fade from "react-reveal/Fade";
-import ReactTable from "react-table"
+import 'react-accessible-accordion/dist/fancy-example.css';
+import styled from "styled-components";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemButton,
+    AccordionItemHeading,
+    AccordionItemPanel,
+} from 'react-accessible-accordion';
+import { formatCurrency, convertToAppDate } from "../../helper/utils";
 
 class OrderList extends Component {
-
     handlePageClick = (e) => {
         const selectedPage = e.selected;
         const offset = selectedPage + 1;
@@ -20,25 +26,14 @@ class OrderList extends Component {
         }
     };
 
-    render() {
+    handleSearch = (query) => {
+        this.props.searchOrders(
+            query,
+            process.env.REACT_APP_PAGE_START_INDEX,
+            process.env.REACT_APP_PAGE_SIZE);
+    };
 
-        const columns = [
-            {
-                Header: "Order Number",
-                accessor: "_id"
-            },
-            {
-                Header: "Date",
-                accessor: "createdAt"
-            },
-            {
-                Header: "Total",
-                accessor: "total"
-            },
-            {
-                Header: "Items",
-                accessor: "cartItems"
-            }]
+    render() {
 
         if (!this.props.orders) {
             return (
@@ -46,53 +41,76 @@ class OrderList extends Component {
             )
         }
 
-        if (this.props.orders.length === 0) {
-            return (
-                <div className="empty-search">
-                    <h3>No orders yet!</h3>
-                </div>
-            )
-        }
-
         return (
-
             <section className="order-details-container">
-
-                <div className="cart">
-                    <Fade left cascade>
-                        <ul className="cart-items">
-                            {this.props.orders && this.props.orders.map((order, index) => (
-                                <li key={index}>
-                                    <div><strong></strong> {order._id}</div>
-                                    <div><strong></strong> {formatCurrency(order.total)}</div>
-                                    <div><strong></strong> {convertToAppDate(order.createdAt)}</div>
-                                    <div><strong></strong>
-                                        {order.cartItems.map((item, index) => (
-                                            <div key={index}>
-                                                {item.count} {" x "} {item.title} {"(Size/Colour -"} {item.selectedSize} {"/"} {item.selectedColor}{")"}
-                                            </div>
+                <Fade left cascade>
+                    <FlexContainer>
+                        <Input type="text"
+                            autoComplete="false"
+                            name="search"
+                            placeholder="Search order..."
+                            onKeyUp={(e) =>
+                                this.handleSearch(e.target.value)
+                            } />
+                    </FlexContainer>
+                    <div>
+                        {this.props.orders.length > 0 ? (
+                            <div>
+                                <div>
+                                    <Accordion allowZeroExpanded>
+                                        {this.props.orders.map((order) => (
+                                            <AccordionItem key={order._id}>
+                                                <AccordionItemHeading>
+                                                    <AccordionItemButton>
+                                                        Your order number <strong>{order._id}{" "}</strong>
+                                            was placed on <strong> {convertToAppDate(order.createdAt)}{" "}</strong>
+                                            amounted <strong>{formatCurrency(order.total)}</strong>
+                                                    </AccordionItemButton>
+                                                </AccordionItemHeading>
+                                                <AccordionItemPanel>
+                                                    {order.cartItems.map((item, index) => (
+                                                        <div key={index}>
+                                                            <div>
+                                                                <img className="order-details-img" src={item.image} alt={item.title}></img>
+                                                            </div>
+                                                            <strong>{item.count} {" x "} {item.title} {"(Size/Colour -"} {item.selectedSize} {"/"} {item.selectedColor}{")"} </strong>
+                                                        </div>
+                                                    ))}
+                                                </AccordionItemPanel>
+                                            </AccordionItem>
                                         ))}
+                                    </Accordion>
+                                </div>
+                                <div>
+                                    <ReactPaginate
+                                        previousLabel={"prev"}
+                                        nextLabel={"next"}
+                                        breakLabel={"..."}
+                                        breakClassName={"break-me"}
+                                        pageCount={Math.ceil(this.props.totalOrders / process.env.REACT_APP_PAGE_SIZE)}
+                                        marginPagesDisplayed={2}
+                                        pageRangeDisplayed={5}
+                                        onPageChange={this.handlePageClick}
+                                        containerClassName={"pagination"}
+                                        subContainerClassName={"pages pagination"}
+                                        activeClassName={"active"} />
+                                </div>
+                            </div>
+                        ) : (
+                                this.props.search ? (
+                                    <div className="empty-search">
+                                        <h3>Unfortunately no order matched to your search parameters</h3>
                                     </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </Fade>
-                </div>
+                                ) : (
+                                        <div className="empty-search">
+                                            <h3>No orders yet!</h3>
+                                        </div>
+                                    )
+                            )
+                        }
+                    </div>
+                </Fade>
 
-                <div>
-                    <ReactPaginate
-                        previousLabel={"prev"}
-                        nextLabel={"next"}
-                        breakLabel={"..."}
-                        breakClassName={"break-me"}
-                        pageCount={Math.ceil(this.props.totalOrders / process.env.REACT_APP_PAGE_SIZE)}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        onPageChange={this.handlePageClick}
-                        containerClassName={"pagination"}
-                        subContainerClassName={"pages pagination"}
-                        activeClassName={"active"} />
-                </div>
             </section >
         )
     }
@@ -106,3 +124,18 @@ export default connect(
     }),
     { fetchOrders, searchOrders }
 )(OrderList);
+
+
+const FlexContainer = styled.div`
+  margin: auto;
+  padding: 0 2rem;
+`;
+
+const Input = styled.input`
+  color: rgb(2, 2, 43);
+  margin: auto;
+  padding: 0 2rem;
+  background: white;
+  outline: none;
+  border-radius: 10px;
+`;

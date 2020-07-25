@@ -38,9 +38,10 @@ router.post("/orders", auth, async (req, res) => {
         }
 
         await order.save()
+        const result = await order.loadUser()
 
         if (order.paymenttype === "cod") {
-            const result = await order.loadUser()
+
             sendOrderConfirmationMail(result)
         }
 
@@ -50,35 +51,36 @@ router.post("/orders", auth, async (req, res) => {
     }
 });
 
-router.get("/orders/me", auth, async (req, res) => {
-    const match = {}
-    const sort = {}
-
-    if (req.query.status) {
-        match.status = req.query.status === 'active'
-    }
-
-    if (req.query.sortBy) {
-        const parts = req.query.sortBy.split(':')
-        sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
-    }
-
+router.get('/orders/me', auth, async (req, res) => {
     try {
-        await req.user.populate({
-            path: 'orders',
-            match,
-            options: {
-                limit: req.query.limit ? parseInt(req.query.limit) : parseInt(process.env.PAGE_SIZE),
-                skip: req.query.skip ? parseInt(req.query.skip) : parseInt(process.env.PAGE_START_INDEX) - 1, // in mongoose page index starts from 0
-                sort
+        var query = {
+            owner: {
+                $eq: req.user._id
             }
-        }).execPopulate()
+        }
 
-        res.send({ result: req.user.orders, count: req.user.orders.length })
+        if (req.query.query) {
+            query = {
+                owner: {
+                    $eq: req.user._id
+                },
+                _id: {
+                    $in: new RegExp(req.query.query, "i")
+                }
+            };
+        }
+
+        const options = {
+            page: req.query.page ? req.query.page : process.env.PAGE_START_INDEX,
+            limit: req.query.limit ? req.query.limit : process.env.PAGE_SIZE
+        };
+
+        const orders = await Order.paginate(query, options)
+        res.send({ result: orders.docs, count: orders.totalDocs })
     } catch (e) {
         res.status(500).send()
     }
-});
+})
 
 router.delete("/orders/:id", auth, async (req, res) => {
     try {
