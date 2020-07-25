@@ -84,36 +84,43 @@ const Processing = (props) => {
   return (
 
     <div className="processing-list">
-      <div>
+      <ul>
         {props.cartItems && (
-          <div>
-            <label><input type="radio" name="razorpay" value="razorpay"
-              checked={paymentMode === "razorpay"}
-              onChange={handlePaymentOptions} />Razor Pay</label>
-            <label><input type="radio" name="cod" value="cod"
-              checked={paymentMode === "cod"}
-              onChange={handlePaymentOptions} />Cash on delivery</label>
-          </div>
+          <li>
+            <div>
+              <label><input type="radio" name="razorpay" value="razorpay"
+                checked={paymentMode === "razorpay"}
+                onChange={handlePaymentOptions} />Razor Pay</label>
+              <label><input type="radio" name="cod" value="cod"
+                checked={paymentMode === "cod"}
+                onChange={handlePaymentOptions} />Cash on delivery</label>
+            </div>
+          </li>
         )}
+        <li>
+          {paymentMode === "razorpay" && props.order && (
 
-        {paymentMode === "razorpay" && props.order && (
-          <div>
-            <a onClick={displayRazorpay}
-              target="_blank"
-              rel="noopener noreferrer">Make Payment</a>
-          </div>
-        )}
+            <div>
+              <a onClick={displayRazorpay}
+                target="_blank"
+                rel="noopener noreferrer">Make Payment</a>
+            </div>
 
-        {paymentMode === "cod" && (
-          < div >
-            <button onClick={handleCOD}>Complete order</button>
-          </div>
-        )}
-      </div>
-      <div>
-        <Link to="/cart">Back</Link>
-      </div>
+          )}
+
+          {paymentMode === "cod" && (
+
+            < div >
+              <button onClick={handleCOD}>Complete order</button>
+            </div>
+          )}
+        </li>
+        <li>
+          <Link to="/cart">Back</Link>
+        </li>
+      </ul>
     </div >
+
   );
 }
 
