@@ -785,6 +785,20 @@ th {
   padding: 10px;
 }
 
+@media screen and (max-width: 430px) {
+  .accordion {
+    width: 335px;
+  }
+  .order-details-container {
+    width: 100%;
+    padding: 5px;
+  }
+  .pagination {
+    margin: 10px;
+    width: 275px;
+  }
+}
+
 /*Order details end*/
 
 /*carousel start*/
