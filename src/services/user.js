@@ -10,14 +10,14 @@ export const userService = {
     delete: _delete
 };
 
-function login(email, password) {
+async function login(email, password) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
     };
 
-    return fetch("/users/login", requestOptions)
+    return await fetch("/users/login", requestOptions)
         .then(handleResponse)
         .then((user) => {
             localStorage.setItem('user', JSON.stringify(user));
@@ -25,11 +25,11 @@ function login(email, password) {
         });
 }
 
-function logout() {
+async function logout() {
     const contentHeader = { "Content-Type": "application/json" };
     const tokenHeader = authHeader()
 
-    return fetch("/users/logout", {
+    return await fetch("/users/logout", {
         method: "POST",
         headers: { ...contentHeader, ...tokenHeader },
     }).then(handleResponse)
@@ -40,42 +40,42 @@ function logout() {
         });
 }
 
-function getById(id) {
+async function getById(id) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch("/users/me", requestOptions).then(handleResponse);
+    return await fetch("/users/me", requestOptions).then(handleResponse);
 }
 
-function register(user) {
+async function register(user) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
-    return fetch("/users/register", requestOptions).then(handleResponse);
+    return await fetch("/users/register", requestOptions).then(handleResponse);
 }
 
-function update(user) {
+async function update(user) {
     const requestOptions = {
         method: '[PATCH]',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
-    return fetch("/users/me", requestOptions).then(handleResponse);
+    return await fetch("/users/me", requestOptions).then(handleResponse);
 }
 
-function _delete(id) {
+async function _delete(id) {
     const requestOptions = {
         method: 'DELETE',
         headers: authHeader()
     };
 
-    return fetch("/users/me", requestOptions).then(handleResponse);
+    return await fetch("/users/me", requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

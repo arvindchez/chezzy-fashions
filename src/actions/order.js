@@ -2,13 +2,14 @@ import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, FILTER_ORDERS_BY_SEARCH } from
 import { CLEAR_CART } from "../constants/cart";
 import { authHeader } from "../helper/auth-header"
 import { history } from '../helper/history';
+import { alertActions } from '../actions/alert';
 
-export const createOrder = (order) => (dispatch) => {
+export const createOrder = (order) => async (dispatch) => {
 
   const contentHeader = { "Content-Type": "application/json" };
   const tokenHeader = authHeader()
 
-  fetch("orders", {
+  await fetch("orders", {
     method: "POST",
     headers: { ...contentHeader, ...tokenHeader },
     body: JSON.stringify(order),
@@ -16,18 +17,28 @@ export const createOrder = (order) => (dispatch) => {
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: CREATE_ORDER, payload: data });
+
+      if (data.paymenttype === "cod") {
+        localStorage.removeItem("cartItems");
+        dispatch({ type: CLEAR_CART });
+        history.push("/myorders");
+        dispatch(alertActions.success(`Ordered successfully! Your order number is : ${data._id} `));
+        dispatch({ type: CLEAR_ORDER });
+      }
     });
 };
 
-export const confirmOrder = () => async (dispatch) => {
+export const confirmOrder = (order) => (dispatch) => {
   localStorage.removeItem("cartItems");
   dispatch({ type: CLEAR_CART });
   history.push("/myorders");
+  dispatch(alertActions.success(`Ordered successfully! Your order number is : ${order._id} `));
+  dispatch({ type: CLEAR_ORDER });
 }
 
-export const fetchOrders = (page, limit) => (dispatch) => {
+export const fetchOrders = (page, limit) => async (dispatch) => {
   const url = `orders/me?page=${page}&limit=${limit}`
-  fetch(url, {
+  await fetch(url, {
     method: "GET",
     headers: authHeader()
   })
@@ -45,7 +56,7 @@ export const fetchOrders = (page, limit) => (dispatch) => {
 
 export const searchOrders = (search, page, limit) => async (dispatch) => {
   const url = `orders/me?page=${page}&limit=${limit}&query=${search}`
-  fetch(url, {
+  await fetch(url, {
     method: "GET",
     headers: authHeader()
   })

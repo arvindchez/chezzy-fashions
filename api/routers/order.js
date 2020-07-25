@@ -38,10 +38,8 @@ router.post("/orders", auth, async (req, res) => {
         }
 
         await order.save()
-        const result = await order.loadUser()
-
         if (order.paymenttype === "cod") {
-
+            const result = await order.loadUser()
             sendOrderConfirmationMail(result)
         }
 
