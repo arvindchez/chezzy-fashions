@@ -38,14 +38,13 @@ const Processing = (props) => {
     }
   }
 
-  const handleCOD = () => {
+  const handleCOD = async () => {
     const order = {
       cartItems: props.cartItems,
       paymenttype: paymentMode
     };
 
     props.createOrder(order);
-    props.confirmOrder();
   }
 
   async function displayRazorpay() {
@@ -67,7 +66,7 @@ const Processing = (props) => {
       description: 'Please make the payment.',
       image: logo,
       handler: function (response) {
-        props.confirmOrder();
+        props.confirmOrder(order);
       }
     }
 
