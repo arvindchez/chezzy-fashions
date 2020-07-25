@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
-const shortid = require("shortid");
+
 const User = require('./user');
 
 const orderSchema = new mongoose.Schema({
     _id: {
-        type: String,
-        default: shortid.generate,
+        type: String
     },
     total: {
         type: Number,
@@ -16,9 +15,27 @@ const orderSchema = new mongoose.Schema({
             }
         }
     },
-    status: {
+    deliverystatus: {
         type: String,
         default: 'active',
+    },
+    currency: {
+        type: String,
+        required: true,
+    },
+    paymentstatus: {
+        type: String,
+        default: 'pending',
+    },
+    paymentid: {
+        type: String
+    },
+    paymenttype: {
+        type: String
+    },
+    paymentresponse: {
+        type: String,
+        default: 'awaiting'
     },
     cartItems: [
         {

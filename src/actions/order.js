@@ -1,6 +1,7 @@
 import { CREATE_ORDER, CLEAR_ORDER, FETCH_ORDERS, FILTER_ORDERS_BY_SEARCH } from "../constants/order";
 import { CLEAR_CART } from "../constants/cart";
 import { authHeader } from "../helper/auth-header"
+import { history } from '../helper/history';
 import { alertActions } from '../actions/alert';
 
 export const createOrder = (order) => (dispatch) => {
@@ -16,9 +17,6 @@ export const createOrder = (order) => (dispatch) => {
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: CREATE_ORDER, payload: data });
-      localStorage.removeItem("cartItems");
-      dispatch(alertActions.success("Ordered successfully...!"));
-      dispatch({ type: CLEAR_CART });
     });
 };
 
@@ -38,6 +36,12 @@ export const fetchOrders = () => (dispatch) => {
     });
 };
 
+export const confirmOrder = () => async (dispatch) => {
+  localStorage.removeItem("cartItems");
+  dispatch({ type: CLEAR_CART });
+  history.push("/myorders");
+  dispatch(alertActions.success("Ordered successfully...!"));
+}
 
 export const searchOrders = (search, page, limit) => async (dispatch) => {
   const url = `orders?page=${page}&limit=${limit}&query=${search}`

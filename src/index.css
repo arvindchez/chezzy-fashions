@@ -352,11 +352,21 @@ button.cartitem-addremove {
 /*processing start*/
 
 .processing-list {
-  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.processing-list {
+.processing-list li {
+  padding: 2rem 0;
   display: flex;
+  justify-content: center;
+  align-content: center;
+  text-decoration: none;
+}
+
+.processing-list label {
+  font-weight: bold;
   justify-content: center;
   align-content: center;
 }
@@ -799,18 +809,8 @@ th {
   height: 400px;
 }
 
-.rec .rec-dot {
-  width: 1px;
-  height: 5px;
-}
-
 .rec .rec-dot_active {
   background-color: var(--mainBlack);
-}
-
-.rec .rec-pagination {
-  margin-top: -20px;
-  z-index: 99;
 }
 
 @media screen and (max-width: 430px) {
