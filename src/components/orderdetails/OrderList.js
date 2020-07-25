@@ -4,6 +4,9 @@ import Order from "./Order";
 import Loading from "../Loading/Loading";
 import ReactPaginate from 'react-paginate';
 import { fetchOrders, searchOrders } from "../../actions/order";
+import { formatCurrency, convertToAppDate } from "../../helper/utils";
+import Fade from "react-reveal/Fade";
+import ReactTable from "react-table"
 
 class OrderList extends Component {
 
@@ -18,6 +21,24 @@ class OrderList extends Component {
     };
 
     render() {
+
+        const columns = [
+            {
+                Header: "Order Number",
+                accessor: "_id"
+            },
+            {
+                Header: "Date",
+                accessor: "createdAt"
+            },
+            {
+                Header: "Total",
+                accessor: "total"
+            },
+            {
+                Header: "Items",
+                accessor: "cartItems"
+            }]
 
         if (!this.props.orders) {
             return (
@@ -34,14 +55,30 @@ class OrderList extends Component {
         }
 
         return (
+
             <section className="order-details-container">
-                <div>
-                    {
-                        this.props.orders.map((item, index) => {
-                            return <Order key={index} order={item} />
-                        })
-                    }
+
+                <div className="cart">
+                    <Fade left cascade>
+                        <ul className="cart-items">
+                            {this.props.orders && this.props.orders.map((order, index) => (
+                                <li key={index}>
+                                    <div><strong></strong> {order._id}</div>
+                                    <div><strong></strong> {formatCurrency(order.total)}</div>
+                                    <div><strong></strong> {convertToAppDate(order.createdAt)}</div>
+                                    <div><strong></strong>
+                                        {order.cartItems.map((item, index) => (
+                                            <div key={index}>
+                                                {item.count} {" x "} {item.title} {"(Size/Colour -"} {item.selectedSize} {"/"} {item.selectedColor}{")"}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </Fade>
                 </div>
+
                 <div>
                     <ReactPaginate
                         previousLabel={"prev"}
@@ -56,7 +93,7 @@ class OrderList extends Component {
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"} />
                 </div>
-            </section>
+            </section >
         )
     }
 }

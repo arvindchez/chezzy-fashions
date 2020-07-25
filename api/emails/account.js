@@ -28,6 +28,9 @@ const sendCancellationMail = (email, name) => {
 }
 
 const sendOrderConfirmationMail = (order) => {
+
+    const header = '<h3 style="color: green">Your order has been placed.</h3>'
+
     sgMail.send({
         to: {
             email: order.email,
@@ -42,11 +45,11 @@ const sendOrderConfirmationMail = (order) => {
             name: 'Babuska Hungary'
         },
         subject: `Thank you! Your order no: ${order._id} has been placed.`,
-        html: composeEmail(order)
+        html: composeEmail(order, header)
     })
 }
 
-const composeEmail = (order) => {
+const composeEmail = (order, header) => {
     const orderDetails = order.cartItems ? (order.cartItems.map((x) => (
         `<div><span style="color:orange;font-weight:bold">
           ${x.count} x  ${x.title} (Size/Colour - ${x.selectedSize}/${x.selectedColor})
@@ -54,7 +57,7 @@ const composeEmail = (order) => {
     ))) : (`<div>No orders!</div>`)
 
     return `<div>
-        <h3 style="color: green">Your order has been placed.</h3>
+            ${header}
         <h2>Order Number: ${order._id}</h2>
         <ul>
             <li>
@@ -68,6 +71,9 @@ const composeEmail = (order) => {
             </li>
             <li>
                 <div><strong>Address:</strong> ${order.address}</div>
+            </li>
+              <li>
+                <div><strong>Payment Mode:</strong> ${order.paymenttype}</div>
             </li>
             <li>
                 <div><strong>Date:</strong> ${convertToAppDate(order.createdAt)}</div>
@@ -83,6 +89,27 @@ const composeEmail = (order) => {
 }
 
 
+const sendOrderPendingMail = (order) => {
+    const header = '<h3 style="color: orange">Your order has been received.</h3>'
+
+    sgMail.send({
+        to: {
+            email: order.email,
+            name: order.name
+        },
+        // bcc: {
+        //     email: 'babuskahungary@gmail.com',
+        //     name: 'Babuska Hungary'
+        // },
+        from: {
+            email: 'arvind.chez@gmail.com',
+            name: 'Babuska Hungary'
+        },
+        subject: `Thank you! Your order no: ${order._id} has been received and pending payment confirmation.`,
+        html: composeEmail(order, header)
+    })
+}
+
 module.exports = {
-    sendOrderConfirmationMail, sendWelcomeMail, sendCancellationMail
+    sendOrderConfirmationMail, sendWelcomeMail, sendCancellationMail, sendOrderPendingMail
 }

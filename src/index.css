@@ -799,18 +799,8 @@ th {
   height: 400px;
 }
 
-.rec .rec-dot {
-  width: 1px;
-  height: 5px;
-}
-
 .rec .rec-dot_active {
   background-color: var(--mainBlack);
-}
-
-.rec .rec-pagination {
-  margin-top: -20px;
-  z-index: 99;
 }
 
 @media screen and (max-width: 430px) {
