@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import OrderList from './OrderList'
 import { fetchOrders } from "../../actions/order";
 import { connect } from "react-redux";
+import Order from "../order/Order"
 
 class OrderContainer extends Component {
 
@@ -11,11 +12,10 @@ class OrderContainer extends Component {
             process.env.REACT_APP_PAGE_SIZE);
     }
 
-
     render() {
-
         return (
             <>
+                <Order />
                 <OrderList />
             </>
         )
@@ -23,9 +23,6 @@ class OrderContainer extends Component {
 }
 
 export default connect(
-    (state) => ({
-        orders: state.orders.filteredItems,
-
-    }),
+    (state) => ({}),
     { fetchOrders }
 )(OrderContainer);

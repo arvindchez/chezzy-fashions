@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { formatCurrency } from "../../helper/utils";
+import { formatCurrency, convertToAppDate } from "../../helper/utils";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
@@ -20,27 +20,11 @@ class Order extends Component {
                             <button onClick={this.closeModal}>x</button>
                             <div className="order-details">
                                 <h3 className="success-message">Your order has been placed.</h3>
-                                <h2>Order {order._id}</h2>
+                                <h2>{order._id}</h2>
                                 <ul>
                                     <li>
-                                        <div>Name:</div>
-                                        <div>{order.name}</div>
-                                    </li>
-                                    <li>
-                                        <div>Email:</div>
-                                        <div>{order.email}</div>
-                                    </li>
-                                    <li>
-                                        <div>Phone:</div>
-                                        <div>{order.phone}</div>
-                                    </li>
-                                    <li>
-                                        <div>Address:</div>
-                                        <div>{order.address}</div>
-                                    </li>
-                                    <li>
                                         <div>Date:</div>
-                                        <div>{order.createdAt}</div>
+                                        <div>{convertToAppDate(order.createdAt)}</div>
                                     </li>
                                     <li>
                                         <div>Total:</div>
@@ -69,7 +53,7 @@ class Order extends Component {
 
 export default connect(
     (state) => ({
-        order: state.order.order
+        order: state.orders.order
     }),
     { clearOrder }
 )(Order);

@@ -30,6 +30,10 @@ body, input, select, button, textarea {
   outline: none;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 .grid-container {
   display: grid;
   grid-template-areas: "header" "main" "footer";
@@ -604,7 +608,7 @@ button.cartitem-addremove {
 
 .order-details {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -623,6 +627,11 @@ button.cartitem-addremove {
 .order-details .items {
   text-align: right;
   padding: 0;
+}
+
+.order-details-img {
+  width: 6rem;
+  height: 6rem;
 }
 
 .success-message {
@@ -717,7 +726,7 @@ th {
 
 .thought {
   display: flex;
-  background-color: rgb(85, 101, 170);
+  background-color: gray;
   padding: 20px;
   border-radius: 30px;
   min-width: 40px;
@@ -732,17 +741,18 @@ th {
 }
 
 .thought a {
-  background-color: #1cb6dd;
+  background-color: lightgray;
   border: 1px solid #660000;
   border-radius: 5px;
-  color: #fff;
+  color: var(--mainBlack);
   margin-right: 10px;
+  font-weight: bold;
   padding: 5px 5px 5px 5px;
 }
 
 .thought:before, .thought:after {
   content: "";
-  background-color: rgb(94, 95, 168);
+  background-color: lightgray;
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -754,7 +764,7 @@ th {
   height: 44px;
   top: -12px;
   left: 28px;
-  box-shadow: -50px 30px 0 -12px rgb(255, 255, 255);
+  box-shadow: -50px 30px 0 -12px lightgray;
 }
 
 .thought:after {
@@ -762,7 +772,7 @@ th {
   right: 26px;
   width: 30px;
   height: 30px;
-  box-shadow: 40px -34px 0 0 rgb(255, 255, 255), -28px -6px 0 -2px rgb(255, 255, 255), -24px 17px 0 -6px rgb(255, 255, 255), -5px 25px 0 -10px rgb(255, 255, 255);
+  box-shadow: 40px -34px 0 0 lightgray, -28px -6px 0 -2px lightgray, -24px 17px 0 -6px lightgray, -5px 25px 0 -10px lightgray;
 }
 
 /*animation end*/
@@ -774,30 +784,6 @@ th {
   width: 70%;
   border: 1px solid rgb(42, 48, 42);
   padding: 10px;
-}
-
-.order-details {
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: [row] auto [row] auto [row];
-  background-color: #fff;
-  color: #444;
-  font-size: smaller;
-  border: 1px solid rgba(34, 36, 38, .15);
-  width: 65vw;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: lightgray;
-  border-radius: 10px;
-}
-
-.a {
-  grid-row: row;
-}
-
-.b {
-  grid-column: span 2;
-  grid-row: row;
 }
 
 /*Order details end*/

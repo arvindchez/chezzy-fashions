@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const mongoosePaginate = require('mongoose-paginate-v2');
 const User = require('./user');
 
 const orderSchema = new mongoose.Schema({
@@ -41,6 +41,7 @@ const orderSchema = new mongoose.Schema({
         {
             _id: String,
             title: String,
+            image: String,
             price: Number,
             selectedSize: String,
             selectedColor: String,
@@ -73,6 +74,8 @@ orderSchema.methods.loadUser = async function () {
 
     return order
 }
+
+orderSchema.plugin(mongoosePaginate);
 
 const Order = mongoose.model('Order', orderSchema)
 
