@@ -89,7 +89,7 @@ class OrderList extends Component {
                                         breakClassName={"break-me"}
                                         pageCount={Math.ceil(this.props.totalOrders / process.env.REACT_APP_PAGE_SIZE)}
                                         marginPagesDisplayed={2}
-                                        pageRangeDisplayed={5}
+                                        pageRangeDisplayed={3}
                                         onPageChange={this.handlePageClick}
                                         containerClassName={"pagination"}
                                         subContainerClassName={"pages pagination"}
