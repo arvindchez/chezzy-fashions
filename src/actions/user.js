@@ -6,6 +6,7 @@ import { history } from '../helper/history';
 export const userActions = {
     login,
     logout,
+    update,
     register,
     delete: _delete
 };
@@ -75,6 +76,27 @@ function register(user) {
     function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+}
+
+function update(user) {
+    return dispatch => {
+        dispatch(request(user));
+
+        userService.update(user)
+            .then(
+                user => {
+                    dispatch(success(user));
+                    history.push('/me');
+                    dispatch(alertActions.success('Profile updated successfully'));
+                },
+                error => {
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+
+    function request(user) { return { type: userConstants.USER_UPDATE_REQUEST, user } }
+    function success(user) { return { type: userConstants.USER_UPDATE_SUCCESS, user } }
 }
 
 function _delete(id) {

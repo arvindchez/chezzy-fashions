@@ -60,13 +60,19 @@ async function register(user) {
 }
 
 async function update(user) {
+    const { firstName, lastName, phone, address, password } = user
     const requestOptions = {
-        method: '[PATCH]',
+        method: 'PUT',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
+        body: JSON.stringify({ firstName, lastName, phone, address, password })
     };
 
-    return await fetch("/users/me", requestOptions).then(handleResponse);
+    return await fetch("users/me", requestOptions)
+        .then(handleResponse)
+        .then((user) => {
+            localStorage.setItem('user', JSON.stringify(user));
+            return user;
+        });
 }
 
 async function _delete(id) {

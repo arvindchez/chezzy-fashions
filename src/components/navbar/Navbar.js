@@ -8,6 +8,16 @@ import CollapseMenu from "./CollapseMenu";
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
 import { FaShoppingCart } from 'react-icons/fa';
+import Avatar, { Cache } from 'react-avatar';
+
+const cache = new Cache({
+
+  // Keep cached source failures for up to 7 days
+  sourceTTL: 7 * 24 * 3600 * 1000,
+
+  // Keep a maximum of 20 entries in the source cache
+  sourceSize: 20
+});
 
 const Navbar = (props) => {
   const barAnimation = useSpring({
@@ -48,6 +58,9 @@ const Navbar = (props) => {
             <a href="/cart">{
               cartItems && cartItems.length > 0 ? cartItems.length : ""
             }<FaShoppingCart className="small-cart" /></a>
+            <a href="/me">
+              <Avatar name="Aravind Cheziyan" cache={cache} size="35" />
+            </a>
           </NavLinks>
           <BurgerWrapper>
             <div>
