@@ -146,7 +146,7 @@ const Filters = styled(animated.section)`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-row-gap: 1rem;
   grid-column-gap: 30px;
-  background: lightgray;
+  background: #c4dbd8;
   font-size: 1.2rem;
   height: 5rem;
   

@@ -2,17 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
-import Avatar, { Cache } from 'react-avatar';
 import { useSpring, animated } from 'react-spring';
-
-const cache = new Cache({
-
-  // Keep cached source failures for up to 7 days
-  sourceTTL: 7 * 24 * 3600 * 1000,
-
-  // Keep a maximum of 20 entries in the source cache
-  sourceSize: 20
-});
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
@@ -44,9 +34,6 @@ const CollapseMenu = (props) => {
               <div><a onClick={logout} href="#:">Logout</a></div>
             )
           }
-          <a href="/me">
-            <Avatar name="Wim Mostmans" cache={cache} size="35" />
-          </a>
         </NavLinks>
       </CollapseWrapper>
     );
@@ -57,7 +44,7 @@ const CollapseMenu = (props) => {
 export default CollapseMenu;
 
 const CollapseWrapper = styled(animated.div)`
-  background: #2d3436;
+  background: #45ccb8;
   position: fixed;
   top: 4.5rem;
   height:16rem;

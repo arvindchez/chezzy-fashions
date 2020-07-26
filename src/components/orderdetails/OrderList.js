@@ -57,7 +57,7 @@ class OrderList extends Component {
                         {this.props.orders.length > 0 ? (
                             <div>
                                 <div>
-                                    <Accordion allowZeroExpanded>
+                                    <Accordion className="accordion-container" allowZeroExpanded>
                                         {this.props.orders.map((order) => (
                                             <AccordionItem key={order._id}>
                                                 <AccordionItemHeading>

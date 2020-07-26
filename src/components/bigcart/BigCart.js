@@ -18,8 +18,7 @@ class BigCart extends Component {
                     {
                         cartItems && cartItems.length === 0 ?
                             (<div>
-                                <div class="thought">Cart empty!!! Lets get shopping
-                                    <Link to="/">Go...</Link>
+                                <div>Cart empty!!! Lets get shopping
                                     <FaSmileWink className="empty-cart-smile" /> </div>
                                 <img src={emptyCart} className="empty-cart" alt="Cart is empty"></img>
                             </div>
