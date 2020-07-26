@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 :root {
-  --header: #203040;
+  --header: #45ccb8;
   --footer: gray;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
+  --primary-color: #45ccb8;
   --mainOrange: #ff8000;
   --mainGrey: #ececec;
   --darkGrey: #cfcfcf;
@@ -14,9 +15,14 @@
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
+  font-size: 55%;
+  outline: none;
 }
 
 body, #root {
@@ -87,6 +93,7 @@ footer {
 
 a {
   text-decoration: none;
+  background-color: #45ccb8;
 }
 
 a:hover {
@@ -101,8 +108,8 @@ input {
 }
 
 button {
-  background-color: var(--mainBlack);
-  color: var(--mainWhite);
+  background-color: #c4dbd8;
+  color: var(--mainBlack);
   cursor: pointer;
   border-radius: 10px;
   font-weight: 900;
@@ -144,7 +151,7 @@ button.cartitem-addremove {
 .filter-container {
   position: fixed;
   right: 0;
-  background: var(--mainBlack);
+  background: var(--primary-color);
   width: 20px;
   height: 20px;
   display: flex;
@@ -271,7 +278,7 @@ button.cartitem-addremove {
   text-align: center;
   font-weight: bold;
   font-size: larger;
-  background-color: lightgray;
+  background-color: #c4dbd8;
 }
 
 .details {
@@ -287,7 +294,7 @@ button.cartitem-addremove {
 }
 
 .total a {
-  background-color: #1b1313;
+  background-color: #45ccb8;
   border: 1px solid #660000;
   border-radius: 5px;
   color: #fff;
@@ -380,10 +387,11 @@ button.cartitem-addremove {
 }
 
 .processing-list a {
-  background-color: #1b1313;
+  background-color: #c4dbd8;
   border: 1px solid #660000;
   border-radius: 5px;
-  color: #fff;
+  color: var(--mainBlack);
+  font-weight: bold;
   margin-right: 10px;
   padding: 5px 5px 5px 5px;
 }
@@ -785,6 +793,20 @@ th {
   padding: 10px;
 }
 
+@media screen and (max-width: 430px) {
+  .accordion {
+    width: 335px;
+  }
+  .order-details-container {
+    width: 100%;
+    padding: 5px;
+  }
+  .pagination {
+    margin: 10px;
+    width: 275px;
+  }
+}
+
 /*Order details end*/
 
 /*carousel start*/
@@ -808,3 +830,7 @@ th {
 }
 
 /*carousel end */
+
+.accordion-container {
+  background-color: #c4dbd8;
+}

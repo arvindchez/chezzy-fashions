@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ProductFilter from './ProductFilter'
 import ProductList from './ProductList'
-import { FaFilter } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { fetchProducts } from "../../actions/product";
@@ -42,7 +42,7 @@ class ProductContainer extends Component {
                         document.documentElement.scrollTop = 0;
 
                     }}>
-                        <FaFilter onClick={() => {
+                        <FaSearch onClick={() => {
                             this.hideComponent()
                             document.body.scrollTop = 0;
                             document.documentElement.scrollTop = 0;

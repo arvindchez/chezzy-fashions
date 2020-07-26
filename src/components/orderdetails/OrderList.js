@@ -57,13 +57,13 @@ class OrderList extends Component {
                         {this.props.orders.length > 0 ? (
                             <div>
                                 <div>
-                                    <Accordion allowZeroExpanded>
+                                    <Accordion className="accordion-container" allowZeroExpanded>
                                         {this.props.orders.map((order) => (
                                             <AccordionItem key={order._id}>
                                                 <AccordionItemHeading>
                                                     <AccordionItemButton>
                                                         Your order number <strong>{order._id}{" "}</strong>
-                                            was placed on <strong> {convertToAppDate(order.createdAt)}{" "}</strong>
+                                                        was placed on <strong> {convertToAppDate(order.createdAt)}{" "}</strong>
                                             amounted <strong>{formatCurrency(order.total)}</strong>
                                                     </AccordionItemButton>
                                                 </AccordionItemHeading>
@@ -132,7 +132,7 @@ const FlexContainer = styled.div`
 `;
 
 const Input = styled.input`
-  color: rgb(2, 2, 43);
+  width: 200px;
   margin: auto;
   padding: 0 2rem;
   background: white;

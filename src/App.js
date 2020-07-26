@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Products from "./screens/Products";
 import ContactUs from './components/contactus/ContactUs'
 import Navbar from "./components/navbar/Navbar";
-import GlobalStyle from './styles/Global';
 import BigCart from "./components/bigcart/BigCart";
 import { RegisterPage } from "./screens/RegisterPage";
 import { LoginPage } from "./screens/LoginPage";
@@ -15,6 +14,7 @@ import { clearAlert } from "./actions/alert";
 import Processing from "./screens/Processing"
 import Fade from "react-reveal/Fade";
 import OrderDetails from "./screens/OrderDetails";
+import Profile from "./screens/Profile";
 
 class App extends React.Component {
   state = {
@@ -52,6 +52,7 @@ class App extends React.Component {
               <Switch>
                 <PrivateRoute exact path="/myorders" component={OrderDetails} />
                 <PrivateRoute exact path="/processing" component={Processing} />
+                <PrivateRoute exact path="/me" component={Profile} />
                 <Route exact path="/contactus" component={ContactUs} />
                 <Route exact path="/cart" component={BigCart} />
                 <Route exact path="/login" component={LoginPage} />
@@ -63,7 +64,6 @@ class App extends React.Component {
           </main>
           <footer>Chez Corporation. All right is reserved.</footer>
         </div>
-        <GlobalStyle />
       </>
     );
   }

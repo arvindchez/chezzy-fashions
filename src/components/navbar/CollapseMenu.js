@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
-
-
 import { useSpring, animated } from 'react-spring';
 
 const CollapseMenu = (props) => {
@@ -46,7 +44,7 @@ const CollapseMenu = (props) => {
 export default CollapseMenu;
 
 const CollapseWrapper = styled(animated.div)`
-  background: #2d3436;
+  background: #45ccb8;
   position: fixed;
   top: 4.5rem;
   height:16rem;
