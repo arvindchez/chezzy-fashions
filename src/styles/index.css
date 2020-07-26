@@ -1,6 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato&family=Roboto&family=Sofia&display=swap');
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: var(--roboto);
+}
+
 :root {
-  --header: #203040;
+  --primary-color: #45ccb8;
+  --light-gray: #2b3032a1;
+  --border: #2b303218;
+  --text-color: #ff686b;
+  --roboto: "Roboto", sans-serif;
+  --gugi: "Gugi", cursive;
+  --sofiq: "Sofia", cursive;
+  --header: #45ccb8;
   --footer: gray;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
@@ -17,16 +37,6 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-}
-
-body, #root {
-  height: 100vh;
-  margin: 0;
-}
-
-body, input, select, button, textarea {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
   outline: none;
 }
 
@@ -37,7 +47,7 @@ a:hover {
 .grid-container {
   display: grid;
   grid-template-areas: "header" "main" "footer";
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 7rem 1fr 5rem;
   grid-template-columns: 1fr;
   height: 100%;
 }

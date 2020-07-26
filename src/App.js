@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Products from "./screens/Products";
 import ContactUs from './components/contactus/ContactUs'
 import Navbar from "./components/navbar/Navbar";
-import GlobalStyle from './styles/Global';
 import BigCart from "./components/bigcart/BigCart";
 import { RegisterPage } from "./screens/RegisterPage";
 import { LoginPage } from "./screens/LoginPage";
@@ -38,10 +37,6 @@ class App extends React.Component {
       <>
         <div className="grid-container">
           <header>
-            <Navbar
-              navbarState={this.state.navbarOpen}
-              handleNavbar={this.handleNavbar}
-            />
           </header>
           <main>
             <Router history={history}>
@@ -65,7 +60,6 @@ class App extends React.Component {
           </main>
           <footer>Chez Corporation. All right is reserved.</footer>
         </div>
-        <GlobalStyle />
       </>
     );
   }
