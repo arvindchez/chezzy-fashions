@@ -1,25 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import styled from "styled-components";
-import { useSpring, animated, config } from "react-spring";
-
-import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import { useSelector, useDispatch } from 'react-redux';
-import { userActions } from "../../actions/user"
-import { FaShoppingCart } from 'react-icons/fa';
-import Avatar, { Cache } from 'react-avatar';
-
-const cache = new Cache({
-
-  // Keep cached source failures for up to 7 days
-  sourceTTL: 7 * 24 * 3600 * 1000,
-
-  // Keep a maximum of 20 entries in the source cache
-  sourceSize: 20
-});
+import { useSpring, animated, config } from "react-spring";
 
 const Navbar = (props) => {
+
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
     transform: 'translate3d(0, 0, 0)',
@@ -32,47 +19,35 @@ const Navbar = (props) => {
     config: config.stiff,
   });
 
-  const loggedIn = useSelector(state => state.authentication.loggedIn);
-  const cartItems = useSelector(state => state.cart.cartItems);
-
-  const dispatch = useDispatch();
-
-  const logout = () => {
-    dispatch(userActions.logout());
-  };
-
   return (
     <>
       <NavBar style={barAnimation}>
         <FlexContainer>
-          <Brand />
-          <NavLinks style={linkAnimation}>
-            <a href="/">Home</a>
-            <a href="/myorders">My Orders</a>
-            <a href="/contactus">Contact Us</a>
-            {
-              loggedIn && (
-                <a onClick={logout} href="#:">Logout</a>
-              )
-            }
-            <a href="/cart">{
-              cartItems && cartItems.length > 0 ? cartItems.length : ""
-            }<FaShoppingCart className="small-cart" /></a>
-            <a href="/me">
-              <Avatar name="Aravind Cheziyan" cache={cache} size="35" />
-            </a>
-          </NavLinks>
           <BurgerWrapper>
-            <div>
-              <a href="/cart">{
-                cartItems && cartItems.length > 0 ? cartItems.length : ""
-              }<FaShoppingCart /></a>
-            </div>
             <BurgerMenu
               navbarState={props.navbarState}
               handleNavbar={props.handleNavbar}
             />
           </BurgerWrapper>
+          <NavLinks style={linkAnimation}>
+            <a href="/">Home</a>
+            <a href="/myorders">My Orders</a>
+            <a href="/contactus">Contact Us</a>
+          </NavLinks>
+          <div class="navbar-nav">
+            <div class="row">
+              <div class="col">
+                <li class="nav-item border rounded-circle mx-2 search-icon">
+                  <i class="fas fa-search p-2"></i>
+                </li>
+              </div>
+              <div class="col">
+                <li class="nav-item border rounded-circle mx-2 basket-icon">
+                  <i class="fas fa-shopping-basket p-2"></i>
+                </li>
+              </div>
+            </div>
+          </div>
         </FlexContainer>
       </NavBar>
       <CollapseMenu
@@ -85,14 +60,13 @@ const Navbar = (props) => {
 
 export default Navbar
 
+
 const NavBar = styled(animated.nav)`
   position: fixed;
   width: 100%;
-  top: 0;
   left: 0;
-  background: #2d3436;
+  top:10;
   z-index: 1;
-  font-size: 1.4rem;
 `;
 
 const FlexContainer = styled.div`
@@ -110,15 +84,15 @@ const NavLinks = styled(animated.ul)`
   margin: auto 0;
 
   & a {
-    font-weight: 600;
     border-bottom: 1px solid transparent;
     margin: 0 1.5rem;
     transition: all 300ms linear 0s;
     text-decoration: none;
     cursor: pointer;
+    color:#45ccb8;
 
     &:hover li {
-      color: #fdcb6e;
+      color:lightgray;
       border-bottom: 1px solid #fdcb6e;
       text-decoration: none;
     }

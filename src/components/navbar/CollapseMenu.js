@@ -1,30 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { userActions } from "../../actions/user"
-import Avatar, { Cache } from 'react-avatar';
 import { useSpring, animated } from 'react-spring';
-
-const cache = new Cache({
-
-  // Keep cached source failures for up to 7 days
-  sourceTTL: 7 * 24 * 3600 * 1000,
-
-  // Keep a maximum of 20 entries in the source cache
-  sourceSize: 20
-});
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
-
-  const loggedIn = useSelector(state => state.authentication.loggedIn);
-  const dispatch = useDispatch();
-
-  const logout = () => {
-    dispatch(userActions.logout());
-    props.handleNavbar()
-  };
-
 
   if (props.navbarState === true) {
     return (
@@ -39,14 +18,6 @@ const CollapseMenu = (props) => {
           <li><a href="/" onClick={props.handleNavbar}>Home</a></li>
           <li><a href="/myorders" onClick={props.handleNavbar}>My Orders</a></li>
           <li><a href="/contactus" onClick={props.handleNavbar}>Contact Us</a></li>
-          {
-            loggedIn && (
-              <div><a onClick={logout} href="#:">Logout</a></div>
-            )
-          }
-          <a href="/me">
-            <Avatar name="Wim Mostmans" cache={cache} size="35" />
-          </a>
         </NavLinks>
       </CollapseWrapper>
     );
@@ -57,10 +28,10 @@ const CollapseMenu = (props) => {
 export default CollapseMenu;
 
 const CollapseWrapper = styled(animated.div)`
-  background: #2d3436;
+  background: #45ccb8;
   position: fixed;
-  top: 4.5rem;
-  height:16rem;
+  top: 14.5rem;
+  height:10rem;
   left: 0;
   right: 0;
   z-index:99;
@@ -75,15 +46,14 @@ const NavLinks = styled.ul`
   }
 
   & a {
-    font-size: 1.4rem;
     line-height: 2;
     text-decoration: none;
     cursor: pointer;
+    color:white;
 
     &:hover li {
-      color: #fdcb6e;
       border-bottom: 1px solid #fdcb6e;
-       text-decoration: none;
+      text-decoration: none;
     }
   }
 `;
