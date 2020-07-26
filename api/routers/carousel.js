@@ -40,7 +40,7 @@ router.delete("/carousel/:id", async (req, res) => {
 
 router.get('/carousel', async (req, res) => {
     try {
-        const carousels = await Carousel.find()
+        const carousels = await Carousel.find({})
         if (!carousels) {
             return res.status(404).send()
         }

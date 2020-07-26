@@ -1,7 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from "../../actions/user"
 
 const Brand = () => {
+
+    const loggedIn = useSelector(state => state.authentication.loggedIn);
+
+    const dispatch = useDispatch();
+
+    const logout = () => {
+        dispatch(userActions.logout());
+    };
+
     return (
         <div className="container">
             <div className="row">
@@ -15,12 +26,19 @@ const Brand = () => {
                     </div>
                 </div>
                 <div className="col-md-4 col-12 text-center">
-                    <h2 className="my-md-3 site-title text-white">Chezzy Store</h2>
+                    <a href="/" className="px-2">
+                        <h2 className="my-md-3 site-title text-white">Chezzy e-Store</h2>
+                    </a>
                 </div>
                 <div className="col-md-4 col-12 text-right">
                     <p className="my-md-4 header-links">
-                        <a href="#" className="px-2">Sign In</a>
-                        <a href="#" className="px-1">Create an Account</a>
+                        {
+                            loggedIn ? (
+                                <a onClick={logout} href="#:">Logout</a>
+                            ) : (
+                                    <a href="/login" className="px-2">Sign In</a>
+                                )
+                        }
                     </p>
                 </div>
             </div>

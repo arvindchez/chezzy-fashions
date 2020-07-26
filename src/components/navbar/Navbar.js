@@ -4,8 +4,11 @@ import styled from "styled-components";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { useSpring, animated, config } from "react-spring";
+import { useSelector } from "react-redux";
 
 const Navbar = (props) => {
+
+  const cartItems = useSelector(state => state.cart.cartItems);
 
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -10rem, 0)' },
@@ -34,16 +37,18 @@ const Navbar = (props) => {
             <a href="/myorders">My Orders</a>
             <a href="/contactus">Contact Us</a>
           </NavLinks>
-          <div class="navbar-nav">
-            <div class="row">
-              <div class="col">
-                <li class="nav-item border rounded-circle mx-2 search-icon">
-                  <i class="fas fa-search p-2"></i>
+          <div className="navbar-nav">
+            <div className="row">
+              <div className="col">
+                <li className="nav-item border rounded-circle mx-2 search-icon">
+                  <i className="fas fa-search p-2"></i>
                 </li>
               </div>
-              <div class="col">
-                <li class="nav-item border rounded-circle mx-2 basket-icon">
-                  <i class="fas fa-shopping-basket p-2"></i>
+              <div className="col">
+                <li className="nav-item border rounded-circle mx-2 basket-icon">
+                  <a href="/cart">{
+                    cartItems && cartItems.length > 0 ? cartItems.length : ""
+                  }<i className="fas fa-shopping-basket p-2"></i></a>
                 </li>
               </div>
             </div>
@@ -62,7 +67,6 @@ export default Navbar
 
 
 const NavBar = styled(animated.nav)`
-  position: fixed;
   width: 100%;
   left: 0;
   top:10;
@@ -75,7 +79,8 @@ const FlexContainer = styled.div`
   margin: auto;
   padding: 0 2rem;;
   justify-content: space-between;
-  height: 5rem;
+  height: 3rem;
+  background-color: white;
 `;
 
 const NavLinks = styled(animated.ul)`

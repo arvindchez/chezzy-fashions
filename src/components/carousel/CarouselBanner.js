@@ -1,31 +1,37 @@
-import React from 'react';
-import Carousel from 'react-elastic-carousel';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux";
+import { fetchCarousel } from "../../actions/carousel";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const CarouselBanner = (props) => {
+
+    var settings = {
+        autoplay: true,
+        autoplaySpeed: 3000,
+        dots: true
+    };
+
+    useEffect(() => {
+        props.fetchCarousel();
+    }, [])
+
     return (
         <div>
             {props.carousel && props.carousel.length > 0 &&
                 (
-                    <Carousel
-                        showArrows={false}
-                        pagination={true}
-                        enableAutoPlay
-                        autoPlaySpeed={3000}
-                    >
-                        {props.carousel.map(item =>
-                            <img className="carousel-style-img"
-                                key={item._id}
-                                src={item.image}
-                                alt={item.title}>
-                            </img>
-
-                        )}
-                    </Carousel>
-
+                    <div className="container">
+                        <Slider {...settings}>
+                            {props.carousel.map(item =>
+                                <div>
+                                    <img key={item._id} src={item.image} alt={item.title} />
+                                </div>
+                            )}
+                        </Slider>
+                    </div>
                 )
             }
-
         </div >
     )
 }
@@ -34,5 +40,6 @@ const CarouselBanner = (props) => {
 export default connect(
     (state) => ({
         carousel: state.carousel.carousel
-    })
+    }),
+    { fetchCarousel }
 )(CarouselBanner);
