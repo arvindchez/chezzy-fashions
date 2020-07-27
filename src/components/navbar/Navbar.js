@@ -5,14 +5,24 @@ import { useSpring, animated, config } from "react-spring";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { FaSearch } from 'react-icons/fa';
+import { connect } from "react-redux";
+import { searchProducts } from "../../actions/product"
 
 const Navbar = (props) => {
+
   const linkAnimation = useSpring({
     from: { transform: 'translate3d(0, 30px, 0)', opacity: 0 },
     to: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
     delay: 100,
     config: config.stiff,
   });
+
+  const handleSearch = (query) => {
+    props.searchProducts(
+      query,
+      process.env.REACT_APP_PAGE_START_INDEX,
+      process.env.REACT_APP_PAGE_SIZE);
+  };
 
   return (
     <>
@@ -26,12 +36,19 @@ const Navbar = (props) => {
           </BurgerWrapper>
           <NavLinks style={linkAnimation}>
             <a href="/">Home</a>
+            <a href="/products">Products</a>
             <a href="/myorders">My Orders</a>
             <a href="/contactus">Contact Us</a>
           </NavLinks>
 
           <div className="search">
-            <input type="text" placeholder="Search product..." />
+            <input style={linkAnimation} type="text"
+              autoComplete="false"
+              name="search"
+              placeholder="Search product..."
+              onKeyUp={(e) =>
+                handleSearch(e.target.value)
+              } />
             <a><FaSearch /></a>
           </div>
         </FlexContainer>
@@ -43,8 +60,6 @@ const Navbar = (props) => {
     </>
   )
 }
-
-export default Navbar
 
 const NavBar = styled(animated.nav)`
   width: 100%;
@@ -98,3 +113,10 @@ const BurgerWrapper = styled.div`
     display: none;
   }
 `;
+
+export default connect(
+  (state) => ({}),
+  {
+    searchProducts
+  }
+)(Navbar);

@@ -25,13 +25,14 @@ const Brand = () => {
             <button class="btn border dropdown-toggle my-md-4 my-2 text-white" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">USD</button>
             <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">INR - Rupees</a>
               <a href="#" class="dropdown-item">ERU - Euro</a>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-12 text-center">
           <ALink href="/" alt="Home" >
-            {!logo ? (<h2 class="my-md-3 site-title text-white">Chezzy Store</h2>) : (
+            {!logo ? (<h2 class="my-md-3 site-title text-white">Chezzy e-Shop</h2>) : (
               <Image src={logo} alt="Company Logo" />
             )
             }</ALink>

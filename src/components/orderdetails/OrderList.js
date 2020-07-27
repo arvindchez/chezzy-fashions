@@ -6,6 +6,7 @@ import { fetchOrders, searchOrders } from "../../actions/order";
 import Fade from "react-reveal/Fade";
 import 'react-accessible-accordion/dist/fancy-example.css';
 import styled from "styled-components";
+import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
 import {
     Accordion,
     AccordionItem,
@@ -44,15 +45,15 @@ class OrderList extends Component {
         return (
             <section className="order-details-container">
                 <Fade left cascade>
-                    <FlexContainer>
-                        <Input type="text"
+                    <div>
+                        <input type="text"
                             autoComplete="false"
                             name="search"
                             placeholder="Search order..."
                             onKeyUp={(e) =>
                                 this.handleSearch(e.target.value)
                             } />
-                    </FlexContainer>
+                    </div>
                     <div>
                         {this.props.orders.length > 0 ? (
                             <div>
@@ -83,8 +84,8 @@ class OrderList extends Component {
                                 </div>
                                 <div>
                                     <ReactPaginate
-                                        previousLabel={"prev"}
-                                        nextLabel={"next"}
+                                        previousLabel={<FaChevronCircleLeft />}
+                                        nextLabel={<FaChevronCircleRight />}
                                         breakLabel={"..."}
                                         breakClassName={"break-me"}
                                         pageCount={Math.ceil(this.props.totalOrders / process.env.REACT_APP_PAGE_SIZE)}
@@ -125,17 +126,3 @@ export default connect(
     { fetchOrders, searchOrders }
 )(OrderList);
 
-
-const FlexContainer = styled.div`
-  margin: auto;
-  padding: 0 2rem;
-`;
-
-const Input = styled.input`
-  width: 200px;
-  margin: auto;
-  padding: 0 2rem;
-  background: white;
-  outline: none;
-  border-radius: 10px;
-`;

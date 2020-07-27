@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import Products from "./screens/Products";
+import Home from "./screens/Home";
 import ContactUs from './components/contactus/ContactUs'
 import BigCart from "./components/bigcart/BigCart";
 import { RegisterPage } from "./screens/RegisterPage";
@@ -48,7 +49,8 @@ class App extends React.Component {
               <Route exact path="/cart" component={BigCart} />
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/register" component={RegisterPage} />
-              <Route exact path="/" component={Products} />
+              <Route exact path="/products" component={Products} />
+              <Route exact path="/" component={Home} />
               <Redirect from="*" to="/" />
             </Switch>
           </Router>
