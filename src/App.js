@@ -49,7 +49,7 @@ class App extends React.Component {
               <Route exact path="/cart" component={BigCart} />
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/register" component={RegisterPage} />
-              <Route exact path="/products" component={Products} />
+              <Route exact path="/product" component={Products} />
               <Route exact path="/" component={Home} />
               <Redirect from="*" to="/" />
             </Switch>

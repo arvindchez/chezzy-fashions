@@ -96,6 +96,12 @@ header .site-title {
   cursor: pointer;
 }
 
+@media screen and (max-width: 430px) {
+  .search {
+    width: 250px;
+  }
+}
+
 main {
   grid-area: main;
   margin-top: 10px;

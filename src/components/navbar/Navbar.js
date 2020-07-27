@@ -36,7 +36,7 @@ const Navbar = (props) => {
           </BurgerWrapper>
           <NavLinks style={linkAnimation}>
             <a href="/">Home</a>
-            <a href="/products">Products</a>
+            <a href="/product">Products</a>
             <a href="/myorders">My Orders</a>
             <a href="/contactus">Contact Us</a>
           </NavLinks>
