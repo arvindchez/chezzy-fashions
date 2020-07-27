@@ -1,20 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { userActions } from "../../actions/user"
 import { useSpring, animated } from 'react-spring';
+
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
-
-  const loggedIn = useSelector(state => state.authentication.loggedIn);
-  const dispatch = useDispatch();
-
-  const logout = () => {
-    dispatch(userActions.logout());
-    props.handleNavbar()
-  };
-
 
   if (props.navbarState === true) {
     return (
@@ -29,11 +19,6 @@ const CollapseMenu = (props) => {
           <li><a href="/" onClick={props.handleNavbar}>Home</a></li>
           <li><a href="/myorders" onClick={props.handleNavbar}>My Orders</a></li>
           <li><a href="/contactus" onClick={props.handleNavbar}>Contact Us</a></li>
-          {
-            loggedIn && (
-              <div><a onClick={logout} href="#:">Logout</a></div>
-            )
-          }
         </NavLinks>
       </CollapseWrapper>
     );
@@ -45,9 +30,6 @@ export default CollapseMenu;
 
 const CollapseWrapper = styled(animated.div)`
   background: #45ccb8;
-  position: fixed;
-  top: 4.5rem;
-  height:16rem;
   left: 0;
   right: 0;
   z-index:99;
@@ -62,10 +44,10 @@ const NavLinks = styled.ul`
   }
 
   & a {
-    font-size: 1.4rem;
     line-height: 2;
     text-decoration: none;
     cursor: pointer;
+    color:white;
 
     &:hover li {
       color: #fdcb6e;
