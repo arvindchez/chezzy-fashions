@@ -1,7 +1,7 @@
 import momentTimezone from "moment-timezone"
 
 export const formatCurrency = (num) => {
-    return Number(parseFloat(num).toFixed(1)).toLocaleString() + " Ft ";
+    return Number(parseFloat(num).toFixed(1)).toLocaleString() + " USD ";
 }
 
 export const convertToAppDate = date => {

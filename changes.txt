@@ -1,0 +1,15 @@
+index.html 
+	1)%PUBLIC_URL%/logo.png
+	2)%PUBLIC_URL%/logo.png
+	3)<title>
+	4)content
+
+email
+	1) change from company name
+
+db name in config
+	1)change to approp db name
+
+formatCurrency
+	1) common in api
+	2) Helper in client

@@ -42,7 +42,7 @@ const sendOrderConfirmationMail = (order) => {
         // },
         from: {
             email: 'arvind.chez@gmail.com',
-            name: 'Babuska Hungary'
+            name: 'Chez Corporation'
         },
         subject: `Thank you! Your order no: ${order._id} has been placed.`,
         html: composeEmail(order, header)
