@@ -20,7 +20,7 @@ const Image = styled.img`
   margin-right: auto;
   width: 30%;
   height: 30%;
-  content:url(${bigLoadingGif});
+  content:url(${smallLoadingGif});
 
   @media screen and (max-width: 430px) {
    content:url(${smallLoadingGif});

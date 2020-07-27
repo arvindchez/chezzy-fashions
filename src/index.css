@@ -1,18 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato&family=Roboto&family=Sofia&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
 :root {
-  --header: #45ccb8;
-  --footer: gray;
-  --mainWhite: #fff;
-  --offWhite: #f7f7f7;
-  --mainBlack: #222;
   --primary-color: #45ccb8;
-  --mainOrange: #ff8000;
-  --mainGrey: #ececec;
-  --darkGrey: #cfcfcf;
-  --mainTransition: all 0.3s linear;
-  --mainSpacing: 2px;
-  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
-  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --light-gray: #2b3032a1;
+  --border: #2b303218;
+  --text-color: #ff686b;
+  --roboto: "Roboto", sans-serif;
+  --gugi: "Gugi", cursive;
+  --sofiq: "Sofia", cursive;
 }
 
 *, *::after, *::before {
@@ -21,23 +22,27 @@
 
 html {
   box-sizing: border-box;
-  font-size: 55%;
   outline: none;
 }
 
-body, #root {
-  height: 100vh;
-  margin: 0;
+.primary-color {
+  color: var(--primary-color);
 }
 
-body, input, select, button, textarea {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
-  outline: none;
+.bg-primary-color {
+  background-color: var(--primary-color) !important;
 }
 
-a:hover {
-  cursor: pointer;
+.text-color {
+  color: var(--text-color);
+}
+
+.font-roboto {
+  font-family: var(--roboto);
+}
+
+.lightblue {
+  color: lightblue;
 }
 
 .grid-container {
@@ -48,23 +53,36 @@ a:hover {
   height: 100%;
 }
 
-header {
-  grid-area: header;
-  background-color: var(--header);
-  color: var(--mainWhite);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
+a {
+  text-decoration: none !important;
 }
 
-header a {
-  color: var(--mainWhite);
+/*header*/
+
+header {
+  grid-area: header;
+  background-color: var(--primary-color);
+  font-family: var(--roboto);
+}
+
+header .site-title {
+  font-family: var(--gugi);
+}
+
+.container .dropdown-toggle, .container .dropdown-item {
+  font-size: 0.7em;
+}
+
+.header-links a {
+  font-size: 0.9rem;
   text-decoration: none;
+  color: white;
 }
 
 main {
   grid-area: main;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 footer {
@@ -89,12 +107,39 @@ footer {
   flex: 1 20rem;
 }
 
-/* HTML Control start*/
+/* Slick dots*/
 
-a {
-  text-decoration: none;
-  background-color: #45ccb8;
+/* Slick dots*/
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem 0;
+  list-style-type: none;
+  position: absolute;
+  bottom: 10px !important;
+  color: white !important;
 }
+
+.slick-dots li.slick-active button {
+  transform: scale(1);
+  background-color: white;
+}
+
+.container {
+  padding: 2rem !;
+}
+
+.px-2 {
+  text-decoration: none !important;
+}
+
+.fas {
+  color: var(--primary-color) !important;
+}
+
+/* HTML Control start*/
 
 a:hover {
   color: var(--mainOrange);
@@ -177,8 +222,8 @@ button.cartitem-addremove {
 /* Navbar start*/
 
 .small-cart {
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   position: fixed;
 }
 

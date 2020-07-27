@@ -1,13 +1,49 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import styled from "styled-components";
-
-import logo from "../../images/logo.png";
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from "../../actions/user"
+const logo = undefined; // from "../../images/logo.png";
 
 const Brand = () => {
+
+  const loggedIn = useSelector(state => state.authentication.loggedIn);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(userActions.logout());
+  };
+
   return (
-    <ALink href="/" alt="Home" >
-      <Image src={logo} alt="Company Logo" />
-    </ALink>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-12">
+          <div class="btn-group">
+            <button class="btn border dropdown-toggle my-md-4 my-2 text-white" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">USD</button>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">ERU - Euro</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 text-center">
+          <ALink href="/" alt="Home" >
+            {!logo ? (<h2 class="my-md-3 site-title text-white">Chezzy Store</h2>) : (
+              <Image src={logo} alt="Company Logo" />
+            )
+            }</ALink>
+        </div>
+        <div class="col-md-4 col-12 text-right">
+          <p class="my-md-4 header-links">
+            {
+              loggedIn ? (
+                <a onClick={logout} href="#:">Logout</a>
+              ) : (<a href="/login" class="px-2">Sign In</a>)
+            }
+          </p>
+        </div>
+      </div>
+    </div>
   )
 }
 
