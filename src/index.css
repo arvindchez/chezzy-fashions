@@ -79,6 +79,23 @@ header .site-title {
   color: white;
 }
 
+.search {
+  display: inline-block;
+  margin: 5px 5px;
+  width: 350px;
+}
+
+.search input {
+  height: 1.5rem;
+  border: 1px solid #4ca598;
+}
+
+.search a {
+  margin: 5px 5px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
 main {
   grid-area: main;
   margin-top: 30px;
@@ -224,7 +241,7 @@ button.cartitem-addremove {
 .small-cart {
   height: 2rem;
   width: 2rem;
-  position: fixed;
+  color: white;
 }
 
 .burger-menu {

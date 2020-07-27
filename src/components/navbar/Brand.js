@@ -3,12 +3,15 @@ import React from 'react'
 import styled from "styled-components";
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
+import { FaShoppingCart } from 'react-icons/fa';
 const logo = undefined; // from "../../images/logo.png";
 
 const Brand = () => {
 
   const loggedIn = useSelector(state => state.authentication.loggedIn);
   const dispatch = useDispatch();
+
+  const cartItems = useSelector(state => state.cart.cartItems);
 
   const logout = () => {
     dispatch(userActions.logout());
@@ -41,7 +44,11 @@ const Brand = () => {
               ) : (<a href="/login" class="px-2">Sign In</a>)
             }
           </p>
+          <a className="small-cart" href=" /cart">{
+            cartItems && cartItems.length > 0 ? cartItems.length : ""
+          }<FaShoppingCart /></a>
         </div>
+
       </div>
     </div>
   )
