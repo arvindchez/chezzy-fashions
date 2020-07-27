@@ -7,6 +7,7 @@ import CollapseMenu from "./CollapseMenu";
 import { FaSearch } from 'react-icons/fa';
 import { connect } from "react-redux";
 import { searchProducts } from "../../actions/product"
+import { useLocation } from 'react-router-dom'
 
 const Navbar = (props) => {
 
@@ -24,6 +25,8 @@ const Navbar = (props) => {
       process.env.REACT_APP_PAGE_SIZE);
   };
 
+  let location = useLocation();
+
   return (
     <>
       <NavBar>
@@ -40,17 +43,18 @@ const Navbar = (props) => {
             <a href="/myorders">My Orders</a>
             <a href="/contactus">Contact Us</a>
           </NavLinks>
+          {location.pathname === "/product" && (
+            <div className="search input-icons">
+              <input style={linkAnimation}
+                type="search"
+                placeholder="Search product..."
+                onKeyUp={(e) =>
+                  handleSearch(e.target.value)
+                } required />
+              <i class="fas fa-search icon" aria-hidden="true"></i>
 
-          <div className="search">
-            <input style={linkAnimation} type="text"
-              autoComplete="false"
-              name="search"
-              placeholder="Search product..."
-              onKeyUp={(e) =>
-                handleSearch(e.target.value)
-              } />
-            <a><FaSearch /></a>
-          </div>
+            </div>
+          )}
         </FlexContainer>
       </NavBar>
       <CollapseMenu
@@ -76,6 +80,7 @@ const FlexContainer = styled.div`
   justify-content: space-between;
   height: 3rem;
   background-color: white;
+}
 `;
 
 const NavLinks = styled(animated.ul)`

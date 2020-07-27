@@ -18,31 +18,31 @@ const Brand = () => {
   };
 
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-12 col-12">
-          <div class="btn-group">
-            <button class="btn border dropdown-toggle my-md-4 my-2 text-white" data-toggle="dropdown"
+    <div className="container">
+      <div className="row">
+        <div className="col-md-4 col-sm-12 col-12">
+          <div className="btn-group">
+            <button className="btn border dropdown-toggle my-md-4 my-2 text-white" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">USD</button>
-            <div class="dropdown-menu">
-              <a href="#" class="dropdown-item">INR - Rupees</a>
-              <a href="#" class="dropdown-item">ERU - Euro</a>
+            <div className="dropdown-menu">
+              <a href="#" className="dropdown-item">INR - Rupees</a>
+              <a href="#" className="dropdown-item">ERU - Euro</a>
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-12 text-center">
+        <div className="col-md-4 col-12 text-center">
           <ALink href="/" alt="Home" >
-            {!logo ? (<h2 class="my-md-3 site-title text-white">Chezzy e-Shop</h2>) : (
+            {!logo ? (<h2 className="my-md-3 site-title text-white">Chezzy e-Shop</h2>) : (
               <Image src={logo} alt="Company Logo" />
             )
             }</ALink>
         </div>
-        <div class="col-md-4 col-12 text-right">
-          <p class="my-md-4 header-links">
+        <div className="col-md-4 col-12 text-right">
+          <p className="my-md-4 header-links">
             {
               loggedIn ? (
                 <a onClick={logout} href="#:">Logout</a>
-              ) : (<a href="/login" class="px-2">Sign In</a>)
+              ) : (<a href="/login" className="px-2">Sign In</a>)
             }
           </p>
           <a className="small-cart" href=" /cart">{

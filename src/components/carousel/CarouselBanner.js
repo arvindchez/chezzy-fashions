@@ -23,8 +23,8 @@ const CarouselBanner = (props) => {
                 (
                     <div className="container">
                         <Slider {...settings}>
-                            {props.carousel.map(item =>
-                                <div>
+                            {props.carousel.map((item, index) =>
+                                <div key={index}>
                                     <img key={item._id} className="img-fluid" src={item.image} alt={item.title} />
                                 </div>
                             )}
