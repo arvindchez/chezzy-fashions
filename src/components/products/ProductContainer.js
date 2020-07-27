@@ -1,40 +1,35 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import ProductList from './ProductList'
 import { connect } from "react-redux";
 import { fetchProducts } from "../../actions/product";
-import { fetchCarousel } from "../../actions/carousel";
+import ProductFilter from './ProductFilter';
 
-class ProductContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showFilter: false,
-            scrolled: false
-        };
-    }
-
-    componentDidMount() {
-        this.props.fetchProducts(
+const ProductContainer = (props) => {
+    useEffect(() => {
+        props.fetchProducts(
             process.env.REACT_APP_PAGE_START_INDEX,
             process.env.REACT_APP_PAGE_SIZE);
-        this.props.fetchCarousel();
-    }
+    }, [])
 
-    render() {
-
-        return (
-            <>
-                <div>
-                    <ProductList />
-                </div>
-            </>
-        )
-    }
+    return (
+        <>
+            <div>
+                {props.search && (
+                    <ProductFilter />
+                )}
+            </div>
+            <div>
+                <ProductList />
+            </div>
+        </>
+    )
 }
-
 export default connect(
-    (state) => ({ products: state.products.filteredItems }),
+    (state) => ({
+        products: state.products.filteredItems,
+        search: state.products.search
+    }),
     {
-        fetchProducts, fetchCarousel
+        fetchProducts
     }
 )(ProductContainer);

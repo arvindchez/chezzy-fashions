@@ -79,10 +79,27 @@ header .site-title {
   color: white;
 }
 
+.search {
+  display: inline-block;
+  margin: 5px 5px;
+  width: 350px;
+}
+
+.search input {
+  height: 1.5rem;
+  border: 1px solid #4ca598;
+}
+
+.search a {
+  margin: 5px 5px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
 main {
   grid-area: main;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 footer {
@@ -109,8 +126,6 @@ footer {
 
 /* Slick dots*/
 
-/* Slick dots*/
-
 .slick-dots {
   display: flex;
   justify-content: center;
@@ -124,6 +139,8 @@ footer {
 
 .slick-dots li.slick-active button {
   transform: scale(1);
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.205);
+  border-radius: 100%;
   background-color: white;
 }
 
@@ -153,22 +170,31 @@ input {
 }
 
 button {
-  background-color: #c4dbd8;
-  color: var(--mainBlack);
+  background-color: var(--primary-color);
   cursor: pointer;
-  border-radius: 10px;
-  font-weight: 900;
+  color: white;
+  font-size: 0.9em;
+  border-radius: 5px;
+  border: 1px solid darkcyan;
 }
 
 button:active {
-  background: var(--mainWhite);
   outline: none;
+  background-color: black;
 }
 
 button.cartitem-addremove {
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
+  margin-right: 10px;
+  margin-left: 10px;
+  outline: none;
+}
+
+.cartitem-count p {
+  margin-bottom: 0 !important;
+  font-weight: bold;
 }
 
 .option-button {
@@ -224,7 +250,7 @@ button.cartitem-addremove {
 .small-cart {
   height: 2rem;
   width: 2rem;
-  position: fixed;
+  color: white;
 }
 
 .burger-menu {
@@ -274,7 +300,7 @@ button.cartitem-addremove {
 /* product list start */
 
 .productslist {
-  padding: 5rem 0;
+  margin: 10px;
 }
 
 .productslist-center {
@@ -303,26 +329,22 @@ button.cartitem-addremove {
 
 /* Cart Details start */
 
-.cartlist {
-  padding: 5rem 0;
-}
-
 .cartlist-container {
   display: grid;
   justify-content: center;
   align-content: center;
   grid-template: "header header header" 60px "main main side" 1fr;
+  font-family: var(--roboto);
 }
 
 .cartlist-item {
-  padding: 20px;
+  padding: 5px;
 }
 
 .summary {
   grid-area: header;
   text-align: center;
   font-weight: bold;
-  font-size: larger;
   background-color: #c4dbd8;
 }
 
@@ -361,7 +383,8 @@ button.cartitem-addremove {
 }
 
 .cart-items img {
-  width: 11rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .cart-items li {
@@ -369,7 +392,7 @@ button.cartitem-addremove {
   background-color: beige;
   border-radius: 10px;
   margin: 0 0 3px 0;
-  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .cart-items li div {
@@ -393,6 +416,7 @@ button.cartitem-addremove {
 @media screen and (min-width: 776px) {
   .cartlist-container {
     width: 90vw;
+    flex-direction: row;
   }
 }
 
@@ -461,8 +485,12 @@ button.cartitem-addremove {
   flex-direction: column;
   font-weight: bold;
   justify-content: center;
-  align-content: start;
-  width: 50rem;
+  align-items: center;
+}
+
+.register-form input {
+  border: 1px solid #4ca598;
+  width: 20rem;
 }
 
 .register-form li {
@@ -490,7 +518,9 @@ button.cartitem-addremove {
 
 @media screen and (max-width: 430px) {
   .register-form {
-    width: 30rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
   }
 }
 
@@ -498,14 +528,32 @@ button.cartitem-addremove {
 
 /*login form start*/
 
+.section-title h3 {
+  display: flex;
+  text-align: center;
+  font-family: var(--roboto);
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  font-size: 1rem;
+  background-color: #c4dbd8;
+  text-transform: uppercase;
+}
+
 .login-form {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   font-weight: bold;
   justify-content: center;
-  align-content: start;
-  width: 50rem;
+  align-items: center;
+}
+
+.login-form input {
+  border: 1px solid #4ca598;
+  width: 20rem;
 }
 
 .login-form li {
@@ -535,7 +583,7 @@ button.cartitem-addremove {
   .login-form {
     margin: 0;
     padding: 0;
-    width: 30rem;
+    align-items: center;
   }
 }
 
@@ -560,7 +608,6 @@ button.cartitem-addremove {
 
 .product button {
   float: right;
-  font-size: small;
 }
 
 .product:hover {
@@ -594,7 +641,7 @@ button.cartitem-addremove {
 .price-top h6 {
   margin-bottom: 0;
   font-size: 0.9rem;
-  font-weight: 300;
+  color: white;
   letter-spacing: var(--mainSpacing);
 }
 
@@ -747,9 +794,11 @@ th {
 }
 
 .pagination>.active>a {
-  background-color: var(--mainBlack);
-  border-color: var(--mainBlack);
-  color: #fff;
+  transform: scale(2.5);
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.205);
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  font-weight: bold;
 }
 
 .pagination>li>a {
@@ -760,8 +809,6 @@ th {
 }
 
 .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
-  background-color: var(--mainBlack);
-  border-color: var(--mainBlack);
   outline: none;
 }
 
@@ -836,6 +883,11 @@ th {
   margin: auto;
   width: 70%;
   padding: 10px;
+}
+
+.order-details-container input {
+  height: 1.5rem;
+  border: 1px solid #4ca598;
 }
 
 @media screen and (max-width: 430px) {

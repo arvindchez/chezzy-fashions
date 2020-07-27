@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Fade from "react-reveal/Fade";
 
 import { userActions } from '../actions/user';
+import Title from '../components/title/Title';
 
 function LoginPage(props) {
     const [inputs, setInputs] = useState({
@@ -36,8 +37,10 @@ function LoginPage(props) {
     return (
         <div>
             <Fade right cascade>
+                <Title title={"Login"} />
                 <form onSubmit={handleSubmit}>
                     <ul className="login-form">
+
                         <li>
                             <label>Email:</label>
                             <input

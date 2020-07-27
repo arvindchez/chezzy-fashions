@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Fade from "react-reveal/Fade";
 import { userActions } from '../actions/user';
+import Title from '../components/title/Title';
 
 function RegisterPage() {
     const [user, setUser] = useState({
@@ -30,6 +31,7 @@ function RegisterPage() {
     return (
         <div>
             <Fade right cascade>
+                <Title title={"Register"} />
                 <form onSubmit={handleSubmit}>
                     <ul className="register-form">
                         <li>

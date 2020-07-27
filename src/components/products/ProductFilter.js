@@ -6,21 +6,11 @@ import Loading from '../Loading/Loading';
 import {
     filterProductsBySize,
     sortProducts,
-    searchProducts,
     filterProductsByColor
 } from "../../actions/product";
 
 
 const ProductFilter = (props) => {
-
-    const handleSearch = (query) => {
-        props.searchProducts(
-            query,
-            process.env.REACT_APP_PAGE_START_INDEX,
-            process.env.REACT_APP_PAGE_SIZE);
-    };
-
-
     const getUnique = (items, value) => {
         let type = [...new Set(items.map(item => item[value]))]
         type = new Set(type.flat(1))
@@ -106,16 +96,6 @@ const ProductFilter = (props) => {
                         }
                     </Select>
                 </FlexContainer>
-                <FlexContainer>
-                    <Label>Search</Label>
-                    <Input style={selectAnimation} type="text"
-                        autoComplete="false"
-                        name="search"
-                        placeholder="Search product..."
-                        onKeyUp={(e) =>
-                            handleSearch(e.target.value)
-                        } />
-                </FlexContainer>
             </Filters>
         )
 }
@@ -132,8 +112,7 @@ export default connect(
     {
         filterProductsBySize,
         sortProducts,
-        filterProductsByColor,
-        searchProducts
+        filterProductsByColor
     }
 )(ProductFilter);
 
@@ -141,14 +120,11 @@ export default connect(
 const Filters = styled(animated.section)`
   border-radius: 10px;
   width: 100%;
-  margin: 0 auto;
+ margin: 0 auto;
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-row-gap: 1rem;
-  grid-column-gap: 30px;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
   background: #c4dbd8;
-  font-size: 1.2rem;
-  height: 5rem;
+  height: 3rem;
   
   @media screen and (max-width: 430px) {
    height: 20rem;
@@ -168,24 +144,13 @@ const Filters = styled(animated.section)`
 
 const FlexContainer = styled.div`
   margin: auto;
-  padding: 0 2rem;
+  padding: 1 1rem;
 `;
 
 const Label = styled.label`
-  display: table;
-  font-weight: bold;
   color: rgb(2, 2, 43);
-  margin: auto;
-  padding: 0 2rem;
-`;
-
-const Input = styled.input`
-  color: rgb(2, 2, 43);
-  margin: auto;
-  padding: 0 2rem;
-  background: white;
-  outline: none;
-  border-radius: 10px;
+  padding: 0 .3rem;
+  font-family: var(--roboto);
 `;
 
 const Select = styled(animated.select)`

@@ -2,18 +2,20 @@ import React from 'react'
 import styled from "styled-components";
 import contactUsImg from '../../images/mail-icon.png'
 import Fade from "react-reveal/Fade";
+import Title from "../title/Title"
 
 const ContactUs = () => {
     return (
-
-        <DivContainer>
-            <DivAnchor href="mailto:babuskahungary@gmail.com" >
-                <Fade bottom cascade>Contact Us...
-                    <Image src={contactUsImg} alt="contact us..." />
-                </Fade>
-            </DivAnchor>
-        </DivContainer>
-
+        <>
+            <Title title={"Contact Us"} />
+            <DivContainer>
+                <DivAnchor href="mailto:babuskahungary@gmail.com" >
+                    <Fade bottom cascade>
+                        <Image src={contactUsImg} alt="contact us..." />
+                    </Fade>
+                </DivAnchor>
+            </DivContainer>
+        </>
     )
 }
 

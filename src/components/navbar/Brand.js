@@ -3,12 +3,15 @@ import React from 'react'
 import styled from "styled-components";
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
+import { FaShoppingCart } from 'react-icons/fa';
 const logo = undefined; // from "../../images/logo.png";
 
 const Brand = () => {
 
   const loggedIn = useSelector(state => state.authentication.loggedIn);
   const dispatch = useDispatch();
+
+  const cartItems = useSelector(state => state.cart.cartItems);
 
   const logout = () => {
     dispatch(userActions.logout());
@@ -22,13 +25,14 @@ const Brand = () => {
             <button class="btn border dropdown-toggle my-md-4 my-2 text-white" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">USD</button>
             <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">INR - Rupees</a>
               <a href="#" class="dropdown-item">ERU - Euro</a>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-12 text-center">
           <ALink href="/" alt="Home" >
-            {!logo ? (<h2 class="my-md-3 site-title text-white">Chezzy Store</h2>) : (
+            {!logo ? (<h2 class="my-md-3 site-title text-white">Chezzy e-Shop</h2>) : (
               <Image src={logo} alt="Company Logo" />
             )
             }</ALink>
@@ -41,7 +45,11 @@ const Brand = () => {
               ) : (<a href="/login" class="px-2">Sign In</a>)
             }
           </p>
+          <a className="small-cart" href=" /cart">{
+            cartItems && cartItems.length > 0 ? cartItems.length : ""
+          }<FaShoppingCart /></a>
         </div>
+
       </div>
     </div>
   )

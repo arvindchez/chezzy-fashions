@@ -4,6 +4,7 @@ import Product from "./Product";
 import Loading from "../Loading/Loading";
 import ReactPaginate from 'react-paginate';
 import { fetchProducts, searchProducts } from "../../actions/product";
+import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
 
 class ProductList extends Component {
 
@@ -21,11 +22,11 @@ class ProductList extends Component {
 
         if (!this.props.products) {
             return (
-                <div> <Loading /></div>
+                <div><Loading /></div>
             )
         }
 
-        if (this.props.products.length === 0) {
+        if (this.props.products.length === 0 && this.props.search) {
             return (
                 <div className="empty-search">
                     <h3>Unfortunately no products matched to your search parameters</h3>
@@ -33,9 +34,17 @@ class ProductList extends Component {
             )
         }
 
+
+        if (this.props.products.length === 0 && !this.props.search) {
+            return (
+                <div className="empty-search">
+                    <h3>No products in the store</h3>
+                </div>
+            )
+        }
+
         return (
             <section className="productslist">
-
                 <div className="productslist-center">
                     {
                         this.props.products.map((item, index) => {
@@ -45,8 +54,8 @@ class ProductList extends Component {
                 </div>
                 <div>
                     <ReactPaginate
-                        previousLabel={"prev"}
-                        nextLabel={"next"}
+                        previousLabel={<FaChevronCircleLeft />}
+                        nextLabel={<FaChevronCircleRight />}
                         breakLabel={"..."}
                         breakClassName={"break-me"}
                         pageCount={Math.ceil(this.props.totalProducts / process.env.REACT_APP_PAGE_SIZE)}

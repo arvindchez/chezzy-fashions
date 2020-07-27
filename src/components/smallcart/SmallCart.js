@@ -10,52 +10,50 @@ class SmallCart extends Component {
   render() {
     const { cartItems } = this.props;
     return (
-      <div className="cart">
-        <Fade left cascade>
-          <ul className="cart-items">
-            {cartItems && cartItems.map((item, index) => (
-              <li key={index}>
-                <div>
-                  <img src={item.image} alt={item.title}></img>
+      <Fade left cascade>
+        <ul className="cart-items">
+          {cartItems && cartItems.map((item, index) => (
+            <li key={index}>
+              <div>
+                <img src={item.image} alt={item.title}></img>
+              </div>
+              <div>
+                <div className="cartitem-count">
+                  <button className="cartitem-addremove" onClick={() => {
+                    if (item.count === 1) {
+                      this.setState({ showCheckout: false })
+                      this.props.removeFromCart(item)
+                    } else {
+                      this.props.removeByItemFromCart(item)
+                    }
+                  }}>
+                    <FaChevronCircleLeft className="cartitem-counter" />
+                  </button>
+                  <p>{item.count}</p>
+                  <button className="cartitem-addremove" onClick={() =>
+                    this.props.addToCart(item)
+                  }>
+                    <FaChevronCircleRight className="cartitem-counter" />
+                  </button>
                 </div>
-                <div>
-                  <div className="cartitem-count">
-                    <button className="cartitem-addremove" onClick={() => {
-                      if (item.count === 1) {
+                <p className="mb-1">{item.title}- (Size/Colour - {item.selectedSize} / {item.selectedColor})</p>
+
+                <div className="cartitem-remove">
+                  {formatCurrency(item.price)} x {item.count}{" "}
+                  <Fade left cascade>
+                    <button
+                      onClick={() => {
                         this.setState({ showCheckout: false })
                         this.props.removeFromCart(item)
-                      } else {
-                        this.props.removeByItemFromCart(item)
                       }
-                    }}>
-                      <FaChevronCircleLeft className="cartitem-counter" />
-                    </button>
-                    <p className="mb-1">{item.count}</p>
-                    <button className="cartitem-addremove" onClick={() =>
-                      this.props.addToCart(item)
-                    }>
-                      <FaChevronCircleRight className="cartitem-counter" />
-                    </button>
-                  </div>
-                  <p className="mb-1">{item.title}- (Size/Colour - {item.selectedSize} / {item.selectedColor})</p>
-
-                  <div className="cartitem-remove">
-                    {formatCurrency(item.price)} x {item.count}{" "}
-                    <Fade left cascade>
-                      <button
-                        onClick={() => {
-                          this.setState({ showCheckout: false })
-                          this.props.removeFromCart(item)
-                        }
-                        }
-                      >Remove</button></Fade>
-                  </div>
+                      }
+                    >Remove</button></Fade>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </Fade>
-      </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Fade>
     );
   }
 }
