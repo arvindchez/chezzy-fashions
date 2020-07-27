@@ -5,7 +5,7 @@ const convertToAppDate = date => {
 }
 
 const formatCurrency = (num) => {
-    return Number(parseFloat(num).toFixed(1)).toLocaleString() + " USD ";
+    return Number(parseFloat(num).toFixed(1)).toLocaleString() + ` ${process.env.PAYMENT_CURRENCY} `;
 }
 
 module.exports = { convertToAppDate, formatCurrency }

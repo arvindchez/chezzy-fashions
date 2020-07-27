@@ -1,7 +1,7 @@
 import momentTimezone from "moment-timezone"
 
 export const formatCurrency = (num) => {
-    return Number(parseFloat(num).toFixed(1)).toLocaleString() + " USD ";
+    return Number(parseFloat(num).toFixed(1)).toLocaleString() + ` ${process.env.REACT_APP_PAYMENT_CURRENCY} `;
 }
 
 export const convertToAppDate = date => {

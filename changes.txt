@@ -9,7 +9,3 @@ email
 
 db name in config
 	1)change to approp db name
-
-formatCurrency
-	1) common in api
-	2) Helper in client
