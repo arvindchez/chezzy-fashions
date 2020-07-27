@@ -36,8 +36,12 @@ function LoginPage(props) {
     return (
         <div>
             <Fade right cascade>
+                <div>
+                    <h3>Login</h3>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <ul className="login-form">
+
                         <li>
                             <label>Email:</label>
                             <input

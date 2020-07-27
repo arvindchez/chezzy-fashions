@@ -485,8 +485,12 @@ button.cartitem-addremove {
   flex-direction: column;
   font-weight: bold;
   justify-content: center;
-  align-content: start;
-  width: 50rem;
+  align-items: center;
+}
+
+.register-form input {
+  border: 1px solid #4ca598;
+  width: 20rem;
 }
 
 .register-form li {
@@ -514,7 +518,9 @@ button.cartitem-addremove {
 
 @media screen and (max-width: 430px) {
   .register-form {
-    width: 30rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
   }
 }
 
@@ -528,8 +534,25 @@ button.cartitem-addremove {
   flex-direction: column;
   font-weight: bold;
   justify-content: center;
-  align-content: start;
-  width: 50rem;
+  align-items: center;
+}
+
+h3 {
+  display: flex;
+  text-align: center;
+  font-family: var(--roboto);
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  font-size: 1rem;
+  background-color: #c4dbd8;
+}
+
+.login-form input {
+  border: 1px solid #4ca598;
+  width: 20rem;
 }
 
 .login-form li {
@@ -559,7 +582,7 @@ button.cartitem-addremove {
   .login-form {
     margin: 0;
     padding: 0;
-    width: 30rem;
+    align-items: center;
   }
 }
 
@@ -859,6 +882,15 @@ th {
   margin: auto;
   width: 70%;
   padding: 10px;
+}
+
+.order-details-container h3 {
+  text-align: center;
+  font-family: var(--roboto);
+  font-weight: bold;
+  padding: 20px;
+  font-size: 1rem;
+  background-color: #c4dbd8;
 }
 
 .order-details-container input {

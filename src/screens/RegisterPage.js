@@ -30,6 +30,9 @@ function RegisterPage() {
     return (
         <div>
             <Fade right cascade>
+                <div>
+                    <h3>Register</h3>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <ul className="register-form">
                         <li>
