@@ -528,16 +528,7 @@ button.cartitem-addremove {
 
 /*login form start*/
 
-.login-form {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-}
-
-h3 {
+.section-title h3 {
   display: flex;
   text-align: center;
   font-family: var(--roboto);
@@ -548,6 +539,16 @@ h3 {
   margin: 0 auto;
   font-size: 1rem;
   background-color: #c4dbd8;
+  text-transform: uppercase;
+}
+
+.login-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form input {
@@ -882,15 +883,6 @@ th {
   margin: auto;
   width: 70%;
   padding: 10px;
-}
-
-.order-details-container h3 {
-  text-align: center;
-  font-family: var(--roboto);
-  font-weight: bold;
-  padding: 20px;
-  font-size: 1rem;
-  background-color: #c4dbd8;
 }
 
 .order-details-container input {

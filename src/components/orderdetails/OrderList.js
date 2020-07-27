@@ -14,6 +14,7 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion';
 import { formatCurrency, convertToAppDate } from "../../helper/utils";
+import Title from '../title/Title';
 
 class OrderList extends Component {
     handlePageClick = (e) => {
@@ -42,10 +43,7 @@ class OrderList extends Component {
         }
 
         return (
-            <>
-                <div>
-                    <h3>My Orders</h3>
-                </div>
+            <>     <Title title={"My Orders"} />
                 <section className="order-details-container">
 
                     <Fade left cascade>
