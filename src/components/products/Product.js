@@ -72,39 +72,37 @@ class Product extends Component {
 
         return (
             <div >
-                <Fade bottom cascade>
-                    <article className="products">
-                        <div className="img-container">
-                            <a
-                                href={"#" + _id}
-                                onClick={() => this.openModal(product)}
-                            >
-                                <img src={image || defaultImg} alt={title}></img>
-                            </a>
-                            <div className="price-top">
-                                <h6>{formatCurrency(price)}</h6>
-                            </div>
-                            <p className="product-info">{title.length > 22 ?
-                                title.substring(0, 22) + "..." : title}</p>
-                            <div>
+                <article className="products">
+                    <div className="img-container">
+                        <a
+                            href={"#" + _id}
+                            onClick={() => this.openModal(product)}
+                        >
+                            <img src={image || defaultImg} alt={title}></img>
+                        </a>
+                        <div className="price-top">
+                            <h6>{formatCurrency(price)}</h6>
+                        </div>
+                        <p className="product-info">{title.length > 22 ?
+                            title.substring(0, 22) + "..." : title}</p>
+                        <div>
 
-                                <button onClick={() => {
-                                    if (availableColours.length > 0) {
-                                        product.selectedColor = availableColours[0]
-                                    }
+                            <button onClick={() => {
+                                if (availableColours.length > 0) {
+                                    product.selectedColor = availableColours[0]
+                                }
 
-                                    if (availableSizes.length > 0) {
-                                        product.selectedSize = availableSizes[0]
-                                    }
+                                if (availableSizes.length > 0) {
+                                    product.selectedSize = availableSizes[0]
+                                }
 
-                                    this.props.addToCart(product)
-                                }}>Add To Cart</button>
-                            </div>
-
+                                this.props.addToCart(product)
+                            }}>Add To Cart</button>
                         </div>
 
-                    </article>
-                </Fade>
+                    </div>
+
+                </article>
                 {product &&
                     <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
                         <Zoom>
