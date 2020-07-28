@@ -1,13 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { connect } from "react-redux";
 import { searchProducts } from "../../actions/product"
 import Fade from "react-reveal/Fade";
+import { useLocation } from 'react-router-dom'
 
 const Navbar = (props) => {
+
+  let location = useLocation();
+  console.log(location)
 
   const handleSearch = (query) => {
     props.searchProducts(
@@ -33,15 +37,17 @@ const Navbar = (props) => {
             <a href="/contactus">Contact Us</a>
           </NavLinks>
           <Fade left cascade>
-            <div className="search input-icons">
-              <input
-                type="search"
-                placeholder="Search product..."
-                onKeyUp={(e) =>
-                  handleSearch(e.target.value)
-                } required />
-              <i className="fas fa-search icon" aria-hidden="true"></i>
-            </div>
+            {(location.pathname === "/product" || props.search) && (
+              <div className="search input-icons">
+                <input
+                  type="search"
+                  placeholder="Search product..."
+                  onKeyUp={(e) =>
+                    handleSearch(e.target.value)
+                  } required />
+                <i className="fas fa-search icon" aria-hidden="true"></i>
+              </div>
+            )}
           </Fade>
         </FlexContainer>
       </NavBar>
@@ -108,7 +114,7 @@ const BurgerWrapper = styled.div`
 `;
 
 export default connect(
-  (state) => ({}),
+  (state) => ({ search: state.products.search }),
   {
     searchProducts
   }

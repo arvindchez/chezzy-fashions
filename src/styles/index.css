@@ -208,6 +208,10 @@ main {
   height: 100%;
 }
 
+.slick-arrow {
+  background-color: transparent !important;
+}
+
 .slick-dots {
   display: flex;
   justify-content: center;

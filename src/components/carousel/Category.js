@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { searchProducts } from "../../actions/product"
 import { Link } from 'react-router-dom';
 
-function SampleNextArrow(props) {
+function NextArrow(props) {
     const { onClick } = props;
     return (
         <div className="slider-btn" onClick={onClick}>
@@ -19,7 +19,7 @@ function SampleNextArrow(props) {
     );
 }
 
-function SamplePrevArrow(props) {
+function PrevArrow(props) {
     const { onClick } = props;
     return (
         <div className="slider-btn" onClick={onClick}>
@@ -37,8 +37,8 @@ const Category = (props) => {
         slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 0,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         responsive: [
             {
                 breakpoint: 1024,

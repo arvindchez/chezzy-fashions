@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ProductList from './ProductList'
 import { connect } from "react-redux";
 import { fetchProducts, searchProducts } from "../../actions/product";
