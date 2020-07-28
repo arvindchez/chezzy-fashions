@@ -15,6 +15,7 @@ import { PrivateRoute } from './components/privateroute/PrivateRoute';
 import Processing from "./screens/Processing"
 import Fade from "react-reveal/Fade";
 import OrderDetails from "./screens/OrderDetails";
+import Footer from "./components/footer/Footer";
 
 class App extends React.Component {
   state = {
@@ -56,7 +57,7 @@ class App extends React.Component {
           </Router>
         </main>
         <footer>
-          <p>Chez corporation. All rights reserved.</p>
+          <Footer />
         </footer>
       </>
     );

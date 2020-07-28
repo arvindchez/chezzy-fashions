@@ -49,6 +49,63 @@ html {
   color: lightblue;
 }
 
+.main-footer {
+  background-color: black;
+  color: white;
+  font-family: var(--roboto);
+}
+
+.main-footer p {
+  font-size: 0.7rem;
+  font-family: var(--roboto);
+  margin: 5px;
+  color: var(--primary-color);
+}
+
+.main-footer p:hover {
+  color: white;
+}
+
+.main-footer h4 {
+  font-size: 1rem;
+  font-family: var(--roboto);
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #eeeeee;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.social-media ul {
+  display: inline-block;
+}
+
+.social-media ul li {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.subscribe {
+  display: inline;
+  white-space: nowrap;
+}
+
+.subscribe input {
+  height: 1rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0;
+}
+
+.subscribe button {
+  background-color: var(--primary-color);
+  margin-bottom: 2px;
+}
+
 .grid-container {
   display: grid;
   grid-template-areas: "header" "main" "footer";
@@ -121,20 +178,7 @@ header .site-title {
 main {
   margin-top: 10px;
   margin-bottom: 10px;
-  min-height: 360px;
-}
-
-footer {
-  grid-area: footer;
-  color: #333333;
-  border-top: 2px solid #eeeeee;
-  margin-top: 10px;
-  padding: 16px 0;
-  align-items: center;
-  justify-content: center;
-  bottom: 0;
-  left: 0;
-  display: flex;
+  min-height: 100vh;
 }
 
 .content {
@@ -364,16 +408,10 @@ input {
 
 button {
   background-color: var(--primary-color);
-  cursor: pointer;
-  color: white;
-  font-size: 0.9em;
-  border-radius: 5px;
-  border: 1px solid darkcyan;
 }
 
 button:active {
   outline: none;
-  background-color: black;
 }
 
 button.cartitem-addremove {
