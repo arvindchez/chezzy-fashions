@@ -4,6 +4,30 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SectionTitle from "../title/SectionTitle"
 
+
+function SampleNextArrow(props) {
+    const { onClick } = props;
+    return (
+        <div class="slider-btn" onClick={onClick}>
+            <span class="next position-top right-0 slick-arrow">
+                <i class="fas fa-chevron-right fa-2x"></i>
+            </span>
+        </div>
+    );
+}
+
+function SamplePrevArrow(props) {
+    const { onClick } = props;
+    return (
+        <div class="slider-btn" onClick={onClick}>
+            <span class="prev position-top slick-arrow">
+                <i class="fas fa-chevron-left fa-2x text-secondary"></i>
+            </span>
+        </div>
+    );
+}
+
+
 const Category = () => {
 
     var settings = {
@@ -11,6 +35,8 @@ const Category = () => {
         slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 0,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
         responsive: [
             {
                 breakpoint: 1024,
