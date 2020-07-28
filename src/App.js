@@ -55,6 +55,9 @@ class App extends React.Component {
             </Switch>
           </Router>
         </main>
+        <footer>
+          <p>Chez corporation. All rights reserved.</p>
+        </footer>
       </>
     );
   }

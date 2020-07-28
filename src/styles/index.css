@@ -122,6 +122,7 @@ main {
 }
 
 footer {
+  grid-area: footer;
   color: #333333;
   border-top: 2px solid #eeeeee;
   margin-top: 16px;
@@ -253,10 +254,6 @@ footer {
 }
 
 /*slider end*/
-
-.container {
-  padding: 2rem;
-}
 
 .px-2 {
   text-decoration: none !important;
@@ -527,7 +524,7 @@ button.cartitem-addremove {
   display: grid;
   justify-content: center;
   align-content: center;
-  grid-template: "header header header" 60px "main main side" minmax(100px, 1fr);
+  grid-template: "header header header" 60px "main main side" minmax(300px, 1fr);
   font-family: var(--roboto);
 }
 
