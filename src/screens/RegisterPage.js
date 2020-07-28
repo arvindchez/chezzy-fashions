@@ -101,8 +101,7 @@ function RegisterPage() {
                                     Register
                                 </button>
                                 <div>
-                                    <p>Nevermind...?</p>
-                                    <Link to="/login">Cancel</Link>
+                                    Nevermind...? <Link to="/login">Cancel</Link>
                                 </div>
                             </div>
                         </li>

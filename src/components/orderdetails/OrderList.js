@@ -47,14 +47,15 @@ class OrderList extends Component {
                 <section className="order-details-container">
 
                     <Fade left cascade>
-                        <div>
-                            <input type="text"
+                        <div className="search input-icons">
+                            <input type="search"
                                 autoComplete="false"
                                 name="search"
                                 placeholder="Search order..."
                                 onKeyUp={(e) =>
                                     this.handleSearch(e.target.value)
                                 } />
+                            <i class="fas fa-search icon" aria-hidden="true"></i>
                         </div>
                         <div>
                             {this.props.orders.length > 0 ? (

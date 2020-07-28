@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import { FaSearch } from 'react-icons/fa';
 import { connect } from "react-redux";
 import { searchProducts } from "../../actions/product"
 import { useLocation } from 'react-router-dom'
+import Fade from "react-reveal/Fade";
 
 const Navbar = (props) => {
 
@@ -43,18 +43,19 @@ const Navbar = (props) => {
             <a href="/myorders">My Orders</a>
             <a href="/contactus">Contact Us</a>
           </NavLinks>
-          {location.pathname === "/product" && (
-            <div className="search input-icons">
-              <input style={linkAnimation}
-                type="search"
-                placeholder="Search product..."
-                onKeyUp={(e) =>
-                  handleSearch(e.target.value)
-                } required />
-              <i class="fas fa-search icon" aria-hidden="true"></i>
-
-            </div>
-          )}
+          <Fade left cascade>
+            {location.pathname === "/product" && (
+              <div className="search input-icons">
+                <input style={linkAnimation}
+                  type="search"
+                  placeholder="Search product..."
+                  onKeyUp={(e) =>
+                    handleSearch(e.target.value)
+                  } required />
+                <i class="fas fa-search icon" aria-hidden="true"></i>
+              </div>
+            )}
+          </Fade>
         </FlexContainer>
       </NavBar>
       <CollapseMenu

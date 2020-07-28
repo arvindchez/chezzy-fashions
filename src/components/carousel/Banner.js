@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CarouselBanner = (props) => {
+const Banner = (props) => {
 
     var settings = {
         autoplay: true,
@@ -18,18 +18,14 @@ const CarouselBanner = (props) => {
     }, [])
 
     return (
-        <div>
+        <div className="banner-container">
             {props.carousel && props.carousel.length > 0 &&
                 (
-                    <div className="container">
-                        <Slider {...settings}>
-                            {props.carousel.map((item, index) =>
-                                <div key={index}>
-                                    <img key={item._id} className="img-fluid" src={item.image} alt={item.title} />
-                                </div>
-                            )}
-                        </Slider>
-                    </div>
+                    <Slider {...settings}>
+                        {props.carousel.map((item, index) =>
+                            <img key={item._id} src={item.image} alt={item.title} />
+                        )}
+                    </Slider>
                 )
             }
         </div >
@@ -42,4 +38,4 @@ export default connect(
         carousel: state.carousel.carousel
     }),
     { fetchCarousel }
-)(CarouselBanner);
+)(Banner);

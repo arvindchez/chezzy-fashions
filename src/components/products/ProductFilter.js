@@ -120,7 +120,7 @@ export default connect(
 const Filters = styled(animated.section)`
   border-radius: 10px;
   width: 100%;
- margin: 0 auto;
+  margin: 0 auto;
   display: flex;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
   background: #c4dbd8;

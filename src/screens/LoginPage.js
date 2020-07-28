@@ -65,12 +65,10 @@ function LoginPage(props) {
                         <li>
                             <div>
                                 <button type="submit">
-                                    {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                     Login
                                 </button>
                                 <div>
-                                    <p>No account yet?</p>
-                                    <Link to="/register">Register</Link>
+                                    No account yet? <Link to="/register">Register</Link>
                                 </div>
                             </div>
                         </li>

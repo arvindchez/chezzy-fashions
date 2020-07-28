@@ -73,7 +73,7 @@ class Product extends Component {
         return (
             <div >
                 <Fade bottom cascade>
-                    <article className="product">
+                    <article className="products">
                         <div className="img-container">
                             <a
                                 href={"#" + _id}
