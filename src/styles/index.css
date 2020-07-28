@@ -333,11 +333,10 @@ main {
 
 .section-title {
   text-align: center;
-  margin-bottom: 4rem;
 }
 
 .section-title h4 {
-  font-size: 2rem;
+  font-size: 1rem;
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
   margin-bottom: 1rem;
@@ -345,7 +344,7 @@ main {
 
 .section-title div {
   width: 5rem;
-  height: 5px;
+  height: 2px;
   margin: 0 auto;
   background: var(--primary-color);
 }
@@ -732,7 +731,6 @@ button.cartitem-addremove {
 /*login form start*/
 
 .register-form {
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -740,7 +738,7 @@ button.cartitem-addremove {
   align-items: center;
 }
 
-.register-form input {
+.register-form input, .register-form textarea {
   border: 1px solid #4ca598;
   width: 20rem;
 }
@@ -748,7 +746,10 @@ button.cartitem-addremove {
 .register-form li {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+}
+
+.register-form ul {
+  padding-right: 0;
 }
 
 .register-form li div:last-child {

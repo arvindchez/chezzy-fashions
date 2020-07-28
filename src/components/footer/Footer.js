@@ -24,9 +24,9 @@ const Footer = () => {
                         <h4>Social Media</h4>
                         <div className="social-media">
                             <ul className="list-unstyled">
-                                <li><a href="#"><i className="fab fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/pokiewokie007"><i className="fab fa-facebook"></i></a></li>
                                 <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i className="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/pokiewokie007"><i className="fab fa-instagram"></i></a></li>
                                 <li><a href="#"><i className="fab fa-google-plus-g"></i></a></li>
                                 <li><a href="#"><i className="fab fa-youtube"></i></a></li>
                             </ul>

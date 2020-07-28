@@ -7,7 +7,8 @@ export const userService = {
     register,
     getById,
     update,
-    delete: _delete
+    delete: _delete,
+    contactUs
 };
 
 async function login(email, password) {
@@ -82,6 +83,16 @@ async function _delete(id) {
     };
 
     return await fetch("/users/me", requestOptions).then(handleResponse);
+}
+
+async function contactUs(message) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(message)
+    };
+
+    return await fetch("/users/contactus", requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

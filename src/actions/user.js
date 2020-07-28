@@ -8,7 +8,8 @@ export const userActions = {
     logout,
     update,
     register,
-    delete: _delete
+    delete: _delete,
+    contactUs
 };
 
 function login(email, password, previous) {
@@ -113,4 +114,19 @@ function _delete(id) {
     function request(id) { return { type: userConstants.DELETE_USER_REQUEST, id } }
     function success(id) { return { type: userConstants.DELETE_USER_SUCCESS, id } }
     function failure(id, error) { return { type: userConstants.DELETE_USER_FAILURE, id, error } }
+}
+
+function contactUs(post) {
+    return dispatch => {
+        userService.contactUs(post)
+            .then(
+                message => {
+                    dispatch(alertActions.success('Message sent successfully'));
+                    history.push("/")
+                },
+                error => {
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
 }

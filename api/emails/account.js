@@ -27,6 +27,19 @@ const sendCancellationMail = (email, name) => {
     })
 }
 
+const sendContactUsMail = (post) => {
+    console.log(post)
+    sgMail.send({
+        to: 'arvind.chez@gmail.com',
+        from: {
+            email: post.email,
+            name: `${post.firstName} ${post.lastName}`
+        },
+        subject: post.subject,
+        text: post.message
+    })
+}
+
 const sendOrderConfirmationMail = (order) => {
 
     const header = '<h3 style="color: green">Your order has been placed.</h3>'
@@ -111,5 +124,9 @@ const sendOrderPendingMail = (order) => {
 }
 
 module.exports = {
-    sendOrderConfirmationMail, sendWelcomeMail, sendCancellationMail, sendOrderPendingMail
+    sendOrderConfirmationMail,
+    sendWelcomeMail,
+    sendCancellationMail,
+    sendOrderPendingMail,
+    sendContactUsMail
 }

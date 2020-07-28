@@ -3,7 +3,7 @@ const User = require('../models/user')
 const auth = require('../middleware/auth')
 const multer = require('multer')
 const sharp = require('sharp')
-const { sendWelcomeMail, sendCancellationMail } = require('../emails/account')
+const { sendWelcomeMail, sendCancellationMail, sendContactUsMail } = require('../emails/account')
 
 const router = new express.Router()
 
@@ -142,6 +142,18 @@ router.get('/users/:id/avatar', async (req, res) => {
         res.status(400).send()
     }
 })
+
+router.post('/users/contactus', async (req, res) => {
+    const post = req.body
+
+    try {
+        sendContactUsMail(post)
+        res.status(201).send()
+    } catch (e) {
+        res.status(400).send(e)
+    }
+})
+
 
 
 module.exports = router
