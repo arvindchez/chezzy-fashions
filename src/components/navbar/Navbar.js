@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import styled from "styled-components";
-import { useSpring, animated, config } from "react-spring";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { connect } from "react-redux";
@@ -10,13 +9,6 @@ import { useLocation } from 'react-router-dom'
 import Fade from "react-reveal/Fade";
 
 const Navbar = (props) => {
-
-  const linkAnimation = useSpring({
-    from: { transform: 'translate3d(0, 30px, 0)', opacity: 0 },
-    to: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
-    delay: 100,
-    config: config.stiff,
-  });
 
   const handleSearch = (query) => {
     props.searchProducts(
@@ -37,7 +29,7 @@ const Navbar = (props) => {
               handleNavbar={props.handleNavbar}
             />
           </BurgerWrapper>
-          <NavLinks style={linkAnimation}>
+          <NavLinks>
             <a href="/">Home</a>
             <a href="/product">Products</a>
             <a href="/myorders">My Orders</a>
@@ -46,7 +38,7 @@ const Navbar = (props) => {
           <Fade left cascade>
             {location.pathname === "/product" && (
               <div className="search input-icons">
-                <input style={linkAnimation}
+                <input
                   type="search"
                   placeholder="Search product..."
                   onKeyUp={(e) =>
@@ -66,7 +58,7 @@ const Navbar = (props) => {
   )
 }
 
-const NavBar = styled(animated.nav)`
+const NavBar = styled.nav`
   width: 100%;
   left: 0;
   top:10;
@@ -84,7 +76,7 @@ const FlexContainer = styled.div`
 }
 `;
 
-const NavLinks = styled(animated.ul)`
+const NavLinks = styled.ul`
   justify-self: end;
   list-style-type: none;
   margin: auto 0;

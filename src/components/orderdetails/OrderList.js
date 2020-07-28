@@ -43,7 +43,8 @@ class OrderList extends Component {
         }
 
         return (
-            <>     <Title title={"My Orders"} />
+            <>
+                <Title title={"My Orders"} />
                 <section className="order-details-container">
 
                     <Fade left cascade>
