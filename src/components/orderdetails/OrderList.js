@@ -56,7 +56,7 @@ class OrderList extends Component {
                                 onKeyUp={(e) =>
                                     this.handleSearch(e.target.value)
                                 } />
-                            <i class="fas fa-search icon" aria-hidden="true"></i>
+                            <i className="fas fa-search icon" aria-hidden="true"></i>
                         </div>
                         <div>
                             {this.props.orders.length > 0 ? (

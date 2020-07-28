@@ -50,6 +50,14 @@ router.get('/products', async (req, res) => {
             };
         }
 
+        if (req.query.category) {
+            query = {
+                category: {
+                    $in: new RegExp(req.query.category, "i")
+                }
+            };
+        }
+
         const options = {
             page: req.query.page ? req.query.page : process.env.PAGE_START_INDEX,
             limit: req.query.limit ? req.query.limit : process.env.PAGE_SIZE

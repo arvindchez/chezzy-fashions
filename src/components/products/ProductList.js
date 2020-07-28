@@ -12,7 +12,7 @@ class ProductList extends Component {
         const selectedPage = e.selected;
         const offset = selectedPage + 1;
         if (this.props.search) {
-            this.props.searchProducts(this.props.search, offset, process.env.REACT_APP_PAGE_SIZE);
+            this.props.searchProducts(this.props.search, offset, process.env.REACT_APP_PAGE_SIZE, false);
         } else {
             this.props.fetchProducts(offset, process.env.REACT_APP_PAGE_SIZE);
         }

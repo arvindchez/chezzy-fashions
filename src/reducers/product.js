@@ -19,7 +19,8 @@ export const product = (state = {}, action) => {
                 ...state,
                 search: action.payload.search,
                 filteredItems: action.payload.items,
-                totalProducts: action.payload.totalProducts
+                totalProducts: action.payload.totalProducts,
+                items: action.payload.items,
             };
         case FILTER_PRODUCTS_BY_COLOR:
             return {

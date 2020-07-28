@@ -11,6 +11,7 @@ import {
 
 
 const ProductFilter = (props) => {
+
     const getUnique = (items, value) => {
         let type = [...new Set(items.map(item => item[value]))]
         type = new Set(type.flat(1))

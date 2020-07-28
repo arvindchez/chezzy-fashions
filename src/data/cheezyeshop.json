@@ -15,7 +15,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 3990
+    "price": 3990,
+    "category": "shirt"
   },
   {
     "image": "/images/cimkefelho_csillagok.jpg",
@@ -33,7 +34,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 3990
+    "price": 3990,
+    "category": "shirt"
   },
   {
     "image": "/images/esofelho_1.jpg",
@@ -51,7 +53,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 3990
+    "price": 3990,
+    "category": "shirt"
   },
   {
     "image": "/images/cimkefelho_sunis.jpg",
@@ -69,7 +72,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 3990
+    "price": 3990,
+    "category": "shirt"
   },
   {
     "image": "/images/cimkefelho_vonatok.jpg",
@@ -87,7 +91,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 3990
+    "price": 3990,
+    "category": "shirt"
   },
   {
     "image": "/images/cimkefelho_pasztel.jpg",
@@ -105,7 +110,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 3990
+    "price": 3990,
+    "category": "denim"
   },
   {
     "image": "/images/cimkekocka_fius.jpg",
@@ -118,7 +124,8 @@
     "availableColours": [
       "Igény-szerint"
     ],
-    "price": 2990
+    "price": 2990,
+    "category": "denim"
   },
   {
     "image": "/images/cimkekocka_lanyos.jpg",
@@ -131,7 +138,8 @@
     "availableColours": [
       "Igény-szerint"
     ],
-    "price": 2990
+    "price": 2990,
+    "category": "denim"
   },
   {
     "image": "/images/nyalkendo_bunny.jpg",
@@ -149,7 +157,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "denim"
   },
   {
     "image": "/images/nyalkendo_safari.jpg",
@@ -167,7 +176,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "denim"
   },
   {
     "image": "/images/nyalkendo_lajharos.jpg",
@@ -185,7 +195,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "bikini"
   },
   {
     "image": "/images/nyalkendo_vasmacskas.jpg",
@@ -203,7 +214,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "bikini"
   },
   {
     "image": "/images/nyalkendo_macis.jpg",
@@ -221,7 +233,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "bikini"
   },
   {
     "image": "/images/nyalkendo_nyuszispink.jpg",
@@ -239,7 +252,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "bikini"
   },
   {
     "image": "/images/nyalkendo_nyuszisturkiz.jpg",
@@ -257,7 +271,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "bikini"
   },
   {
     "image": "/images/nyalkendo_vitorlas.jpg",
@@ -275,7 +290,8 @@
       "porrózsaszín",
       "menta"
     ],
-    "price": 1290
+    "price": 1290,
+    "category": "bikini"
   },
   {
     "image": "/images/fogpersely_lany.jpg",
@@ -285,7 +301,8 @@
       "Egyméret"
     ],
     "availableColours": [],
-    "price": 2990
+    "price": 2990,
+    "category": "bikini"
   },
   {
     "image": "/images/fogpersely_fiu.jpg",
@@ -295,7 +312,8 @@
       "Egyméret"
     ],
     "availableColours": [],
-    "price": 2990
+    "price": 2990,
+    "category": "bikini"
   },
   {
     "image": "/images/jatszoszonyeg_palma.jpg",
@@ -316,7 +334,8 @@
       "világosszürke",
       "vanília"
     ],
-    "price": 8990
+    "price": 8990,
+    "category": "skirts"
   },
   {
     "image": "/images/jatszoszonyeg_level.jpg",
@@ -337,7 +356,8 @@
       "világosszürke",
       "vanília"
     ],
-    "price": 8990
+    "price": 8990,
+    "category": "skirts"
   },
   {
     "image": "/images/jatszoszonyeg_level.jpg",
@@ -358,7 +378,8 @@
       "világosszürke",
       "vanília"
     ],
-    "price": 8990
+    "price": 8990,
+    "category": "skirts"
   },
   {
     "image": "/images/jatszoszonyeg_tolgyfalevel.jpg",
@@ -379,7 +400,8 @@
       "világosszürke",
       "vanília"
     ],
-    "price": 8990
+    "price": 8990,
+    "category": "skirts"
   },
   {
     "image": "/images/racsvedo_unikornis.jpg",
@@ -394,7 +416,8 @@
       "kék",
       "menta"
     ],
-    "price": 4990
+    "price": 4990,
+    "category": "skirts"
   },
   {
     "image": "/images/racsvedo_unikornis.jpg",
@@ -409,7 +432,8 @@
       "kék",
       "menta"
     ],
-    "price": 5990
+    "price": 5990,
+    "category": "skirts"
   },
   {
     "image": "/images/racsvedo_szarvasos.jpg",
@@ -424,7 +448,8 @@
       "kék",
       "menta"
     ],
-    "price": 4990
+    "price": 4990,
+    "category": "skirts"
   },
   {
     "image": "/images/racsvedo_szarvasos.jpg",
@@ -439,7 +464,8 @@
       "kék",
       "menta"
     ],
-    "price": 5990
+    "price": 5990,
+    "category": "skirts"
   },
   {
     "image": "/images/fonott_babafeszek.jpg",
@@ -463,7 +489,8 @@
       "Menta-fehér-szürke",
       "Menta-rose-fehér"
     ],
-    "price": 21990
+    "price": 21990,
+    "category": "ties"
   },
   {
     "image": "/images/fonott_babafeszek.jpg",
@@ -487,6 +514,7 @@
       "Menta-fehér-szürke",
       "Menta-rose-fehér"
     ],
-    "price": 24990
+    "price": 24990,
+    "category": "ties"
   }
 ]

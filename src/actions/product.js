@@ -20,11 +20,14 @@ export const fetchProducts = (page, limit) => async (dispatch) => {
     });
 };
 
-export const searchProducts = (search, page, limit) => async (dispatch) => {
-    const url = `products?page=${page}&limit=${limit}&query=${search}`
+export const searchProducts = (search, page, limit, next) => async (dispatch) => {
+    let url = `products?page=${page}&limit=${limit}&query=${search}`
+    if (next === true) {
+        url = `products?page=${page}&limit=${limit}&category=${search}`
+    }
+
     const res = await fetch(url);
     const data = await res.json();
-
     dispatch({
         type: FILTER_PRODUCTS_BY_SEARCH,
         payload: {

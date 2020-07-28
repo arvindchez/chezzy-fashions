@@ -5,7 +5,6 @@ import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { connect } from "react-redux";
 import { searchProducts } from "../../actions/product"
-import { useLocation } from 'react-router-dom'
 import Fade from "react-reveal/Fade";
 
 const Navbar = (props) => {
@@ -14,10 +13,8 @@ const Navbar = (props) => {
     props.searchProducts(
       query,
       process.env.REACT_APP_PAGE_START_INDEX,
-      process.env.REACT_APP_PAGE_SIZE);
+      process.env.REACT_APP_PAGE_SIZE, false);
   };
-
-  let location = useLocation();
 
   return (
     <>
@@ -36,17 +33,15 @@ const Navbar = (props) => {
             <a href="/contactus">Contact Us</a>
           </NavLinks>
           <Fade left cascade>
-            {location.pathname === "/product" && (
-              <div className="search input-icons">
-                <input
-                  type="search"
-                  placeholder="Search product..."
-                  onKeyUp={(e) =>
-                    handleSearch(e.target.value)
-                  } required />
-                <i class="fas fa-search icon" aria-hidden="true"></i>
-              </div>
-            )}
+            <div className="search input-icons">
+              <input
+                type="search"
+                placeholder="Search product..."
+                onKeyUp={(e) =>
+                  handleSearch(e.target.value)
+                } required />
+              <i className="fas fa-search icon" aria-hidden="true"></i>
+            </div>
           </Fade>
         </FlexContainer>
       </NavBar>
