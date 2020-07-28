@@ -41,7 +41,7 @@ class SmallCart extends Component {
                 <div className="cartitem-remove">
                   {formatCurrency(item.price)} x {item.count}{" "}
                   <Fade left cascade>
-                    <button
+                    <button className="btn btn-sm"
                       onClick={() => {
                         this.setState({ showCheckout: false })
                         this.props.removeFromCart(item)

@@ -16,7 +16,7 @@ const Footer = () => {
                     <div className="col-md-3">
                         <h4>Quick Links</h4>
                         <p><a href="/">Home</a></p>
-                        <p><a href="/products">Gallery</a></p>
+                        <p><a href="/product">Gallery</a></p>
                         <p><a href="/contactus">Contact Us</a></p>
                         <p><a href="#">About Us</a></p>
                     </div>

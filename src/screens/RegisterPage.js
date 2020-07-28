@@ -96,7 +96,7 @@ function RegisterPage() {
                         </li>
                         <li>
                             <div>
-                                <button type="submit">
+                                <button className="btn btn-sm" type="submit">
                                     {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                     Register
                                 </button>

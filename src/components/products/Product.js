@@ -88,7 +88,7 @@ class Product extends Component {
                                 title.substring(0, 22) + "..." : title}</p>
                             <div>
 
-                                <button onClick={() => {
+                                <button className="btn btn-sm" onClick={() => {
                                     if (availableColours.length > 0) {
                                         product.selectedColor = availableColours[0]
                                     }
@@ -108,7 +108,7 @@ class Product extends Component {
                 {product &&
                     <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
                         <Zoom>
-                            <button className="close-modal" onClick={this.closeModal}>x</button>
+                            <button className="btn btn-success btn-sm close-modal" onClick={this.closeModal}>x</button>
                             <div className="product-details">
                                 <img src={product.image} alt={product.title}></img>
                                 <div className="product-details-description">

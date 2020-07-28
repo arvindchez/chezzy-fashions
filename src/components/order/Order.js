@@ -17,7 +17,7 @@ class Order extends Component {
                 {order && (
                     <Modal isOpen={true} onRequestClose={this.closeModal}>
                         <Zoom>
-                            <button onClick={this.closeModal}>x</button>
+                            <button className="btn btn-sm" onClick={this.closeModal}>x</button>
                             <div className="order-details">
                                 <h3 className="success-message">Your order has been placed.</h3>
                                 <h2>{order._id}</h2>

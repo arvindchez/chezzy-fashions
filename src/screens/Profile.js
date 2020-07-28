@@ -81,7 +81,7 @@ function Profile() {
                         </li>
                         <li>
                             <div>
-                                <button type="submit">
+                                <button className="btn btn-sm" type="submit">
                                     Update
                                 </button>
                                 <div>

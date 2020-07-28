@@ -407,20 +407,21 @@ input {
 }
 
 button {
-  background-color: var(--primary-color);
-}
-
-button:active {
-  outline: none;
+  background-color: var(--primary-color) !important;
+  color: black !important;
 }
 
 button.cartitem-addremove {
-  background-color: Transparent;
+  background-color: Transparent !important;
   background-repeat: no-repeat;
   border: none;
   margin-right: 10px;
   margin-left: 10px;
   outline: none;
+}
+
+.clear-cart {
+  margin-bottom: 5px;
 }
 
 .cartitem-count p {
