@@ -168,13 +168,7 @@ footer {
   padding: 1rem 0;
   list-style-type: none;
   position: absolute;
-  bottom: .1rem !important;
-}
-
-@media screen and (max-width: 430px) {
-  .slick-dots {
-    bottom: .1rem !important;
-  }
+  bottom: 0 !important;
 }
 
 .slick-dots li {
@@ -191,6 +185,12 @@ footer {
   text-indent: -99999px !important;
   border-radius: 100% !important;
   outline: none !important;
+}
+
+@media screen and (max-width: 430px) {
+  .slick-dots {
+    bottom: -10px !important;
+  }
 }
 
 .slick-dots li.slick-active button {
