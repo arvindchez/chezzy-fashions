@@ -13,9 +13,7 @@ class OrderContainer extends Component {
 
     render() {
         return (
-            <>
-                <OrderList />
-            </>
+            <OrderList />
         )
     }
 }

@@ -9,7 +9,7 @@ const ContactUs = () => {
         <>
             <Title title={"Contact Us"} />
             <DivContainer>
-                <DivAnchor href="mailto:babuskahungary@gmail.com" >
+                <DivAnchor href="mailto:arvind.chez@gmail.com" >
                     <Fade bottom cascade>
                         <Image src={contactUsImg} alt="contact us..." />
                     </Fade>
