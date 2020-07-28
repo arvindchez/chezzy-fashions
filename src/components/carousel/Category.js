@@ -7,7 +7,7 @@ import SectionTitle from "../title/SectionTitle"
 const Category = () => {
 
     var settings = {
-        speed: 3000,
+        speed: 1000,
         slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 0,
