@@ -4,6 +4,7 @@ import {
     FILTER_PRODUCTS_BY_SEARCH,
     ORDER_PRODUCTS_BY_PRICE,
     FILTER_PRODUCTS_BY_COLOR,
+    FETCH_FEATURED_PRODUCTS
 } from "../constants/product";
 
 export const product = (state = {}, action) => {
@@ -39,6 +40,11 @@ export const product = (state = {}, action) => {
                 items: action.payload.data,
                 filteredItems: action.payload.data,
                 totalProducts: action.payload.totalProducts
+            };
+        case FETCH_FEATURED_PRODUCTS:
+            return {
+                ...state,
+                featuredProducts: action.payload.data
             };
         default:
             return state;

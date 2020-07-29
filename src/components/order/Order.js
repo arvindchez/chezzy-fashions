@@ -15,7 +15,7 @@ class Order extends Component {
         return (
             <div>
                 {order && (
-                    <Modal isOpen={true} onRequestClose={this.closeModal}>
+                    <Modal ariaHideApp={false} isOpen={true} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button className="btn btn-sm" onClick={this.closeModal}>x</button>
                             <div className="order-details">

@@ -3,7 +3,8 @@ import {
     FILTER_PRODUCTS_BY_COLOR,
     FILTER_PRODUCTS_BY_SEARCH,
     FILTER_PRODUCTS_BY_SIZE,
-    ORDER_PRODUCTS_BY_PRICE
+    ORDER_PRODUCTS_BY_PRICE,
+    FETCH_FEATURED_PRODUCTS
 } from "../constants/product";
 
 export const fetchProducts = (page, limit) => async (dispatch) => {
@@ -16,6 +17,18 @@ export const fetchProducts = (page, limit) => async (dispatch) => {
         payload: {
             data: data.result,
             totalProducts: data.count
+        }
+    });
+};
+
+export const fetchFeaturedProducts = () => async (dispatch) => {
+    const url = "fproducts"
+    const res = await fetch(url)
+    const data = await res.json();
+    dispatch({
+        type: FETCH_FEATURED_PRODUCTS,
+        payload: {
+            data: data
         }
     });
 };

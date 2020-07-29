@@ -70,6 +70,16 @@ router.get('/products', async (req, res) => {
     }
 })
 
+router.get('/fproducts', async (req, res) => {
+
+    try {
+        const fproducts = await Product.find({ active: true, featured: true })
+        res.send(fproducts)
+    } catch (e) {
+        res.status(500).send()
+    }
+})
+
 const upload = multer({
     limits: {
         fieldSize: 1000000

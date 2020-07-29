@@ -106,7 +106,7 @@ class Product extends Component {
                     </article>
                 </Fade>
                 {product &&
-                    <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+                    <Modal ariaHideApp={false} isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button className="close-modal" onClick={this.closeModal}>x</button>
                             <div className="product-details">

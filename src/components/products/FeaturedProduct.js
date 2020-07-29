@@ -1,50 +1,191 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
-import Title from '../title/SectionTitle';
-import Loading from '../Loading/Loading';
-import Product from './Product';
+import React, { Component } from "react";
+import { formatCurrency } from "../../helper/utils";
+import Fade from "react-reveal/Fade";
+import Modal from "react-modal";
+import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
-import { fetchProducts } from "../../actions/product";
+import { addToCart } from "../../actions/cart";
 
-const FeaturedProduct = (props) => {
 
-    useEffect(() => {
-        props.fetchProducts(
-            process.env.REACT_APP_PAGE_START_INDEX,
-            process.env.REACT_APP_PAGE_SIZE);
-    }, [])
-
-    if (!props.products) {
-        return (
-            <div><Loading /></div>
-        )
+class FeaturedProduct extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            product: null,
+            isColorSet: false,
+            isSizeSet: false,
+            modalIsOpen: false,
+            setSize: "",
+            setColor: ""
+        };
     }
 
-    let products = props.products.filter(product => product.featured === true);
+    openModal = (product) => {
+        this.setState({
+            product: product,
+            modalIsOpen: true,
+            isColorSet: false,
+            isSizeSet: false,
+            setSize: "",
+            setColor: ""
+        });
+    };
 
-    if (products) {
-        products = products.map(product => {
-            return <Product key={product._id} product={product} />
+    closeModal = () => {
+        this.setState({
+            product: null,
+            modalIsOpen: false,
+            isColorSet: false,
+            isSizeSet: false,
+            setSize: "",
+            setColor: ""
+        });
+    };
+
+    addSelectedColor = (color) => {
+        let { product } = this.state;
+        let temp = { ...product }
+        temp.selectedColor = color;
+        this.setState({
+            product: temp,
+            isColorSet: true,
+            setColor: color
         })
-    }
+    };
 
-    return (
-        <section className="featured-products">
-            <Title title="Featured Products"> </Title>
-            <div className="featured-products-center">
-                {products && products.length > 0 ? (products) : (
-                    <div className="empty-search">
-                        <h5>Featured products coming soon...</h5>
-                    </div>
-                )}
-            </div>
-        </section>
-    );
+    addSelectedSize = (size) => {
+        let { product } = this.state;
+        let temp = { ...product }
+        temp.selectedSize = size;
+        this.setState({
+            product: temp,
+            isSizeSet: true,
+            setSize: size
+        })
+    };
+
+    render() {
+        const { product } = this.props;
+        const { _id, title, availableColours, category, availableSizes, image, price } = product;
+        const defaultImg = "/images/common/no-product-image.png";
+        const imagePath = `/images/${process.env.REACT_APP_NAME}/${category}/`;
+
+        return (
+
+            <div>
+                <Fade bottom cascade>
+                    <article className="product">
+                        <div className="img-container">
+                            <a
+                                href={"#" + _id}
+                                onClick={() => this.openModal(product)}
+                            >
+                                <img src={imagePath + image || defaultImg} alt={title}></img>
+                            </a>
+                            <div className="price-top">
+                                <h6>{formatCurrency(price)}</h6>
+                            </div>
+                            <p className="product-info">{title.length > 22 ?
+                                title.substring(0, 22) + "..." : title}</p>
+                            <div className="price-top-right">
+                                <button className="btn btn-sm" onClick={() => {
+                                    if (availableColours.length > 0) {
+                                        product.selectedColor = availableColours[0]
+                                    }
+
+                                    if (availableSizes.length > 0) {
+                                        product.selectedSize = availableSizes[0]
+                                    }
+
+                                    this.props.addToCart(product)
+                                }}>Add To Cart</button>
+                            </div>
+                        </div>
+
+                    </article>
+                </Fade>
+                {
+                    product &&
+                    <Modal ariaHideApp={false} isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+                        <Zoom>
+                            <button className="close-modal" onClick={this.closeModal}>x</button>
+                            <div className="product-details">
+                                <img src={imagePath + product.image || defaultImg} alt={product.title}></img>
+                                <div className="product-details-description">
+                                    <p>
+                                        <strong>{product.title}</strong>
+                                    </p>
+                                    <p>{product.description}</p>
+                                    <p>
+                                        <label>Available Sizes:{" "}</label>
+                                        {product.availableSizes.map((x, index) => (
+                                            <span key={index}>
+                                                {" "}
+                                                {
+                                                    <button key={index}
+                                                        className={this.state.isSizeSet && this.state.setSize === x ?
+                                                            "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
+                                                        onClick={() => { this.addSelectedSize(x); }}
+                                                    > {x}
+                                                    </button>
+                                                }
+                                            </span>
+                                        ))}
+                                    </p>
+                                    <p>
+                                        <label>Available Colours:{" "}</label>
+                                        {product.availableColours.map((x, index) => (
+                                            <span key={index}>
+                                                {" "}
+                                                {<button key={index}
+                                                    className={this.state.isColorSet && this.state.setColor === x ?
+                                                        "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
+                                                    onClick={() => { this.addSelectedColor(x); }}
+                                                > {x} </button>
+                                                }
+                                            </span>
+                                        ))}
+                                    </p>
+                                    <div>
+                                        <label>Price: {formatCurrency(product.price)}</label>
+                                        <button className="btn btn-success btn-sm"
+                                            onClick={() => {
+
+                                                let { product } = this.state;
+                                                let temp = { ...product }
+
+                                                if ((!this.state.isColorSet && !this.state.setColor) && product.availableColours.length > 0) {
+                                                    temp.selectedColor = product.availableColours[0]
+
+                                                }
+
+                                                if ((!this.state.isSizeSet && !this.state.setSize) && product.availableSizes.length > 0) {
+                                                    temp.selectedSize = product.availableSizes[0]
+                                                }
+
+                                                this.props.addToCart(temp);
+                                                this.closeModal();
+
+                                            }}>Add To Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </Zoom>
+                    </Modal>
+
+                }
+            </div >
+        );
+    }
 }
 
+
 export default connect(
-    (state) => ({
-        products: state.products.filteredItems
-    }),
-    { fetchProducts }
+    (state) => ({}),
+    {
+        addToCart,
+    }
 )(FeaturedProduct);
+
+
+

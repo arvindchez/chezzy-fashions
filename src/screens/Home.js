@@ -2,7 +2,7 @@ import React from 'react'
 
 import Banner from '../components/carousel/Banner'
 import Category from '../components/carousel/Category'
-import FeaturedProduct from '../components/products/FeaturedProduct';
+import Featured from '../components/carousel/Featured';
 
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Banner />
       <Category />
-      <FeaturedProduct />
+      <Featured />
     </>
   );
 }
