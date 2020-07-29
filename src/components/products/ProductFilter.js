@@ -158,5 +158,6 @@ const Select = styled(animated.select)`
   margin: auto 0;
   background: white;
   border-radius: 10px;
+  text-transform:uppercase;
 `;
 

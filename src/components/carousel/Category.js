@@ -77,7 +77,7 @@ const Category = (props) => {
                 {props.catergories && props.catergories.length > 0 && (
                     <Slider {...settings}>
                         {props.catergories.map((item, index) =>
-                            <div key={index} className="product">
+                            <div key={index} className="products">
                                 <Link to={`/product?cat=${item.title}`}>
                                     <img key={item._id} src={imagePath + item.image} alt={item.title} />
                                     <span className="border site-btn btn-span">{item.description}</span> </Link>

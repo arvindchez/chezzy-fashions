@@ -68,15 +68,13 @@ class Product extends Component {
     render() {
         const { product } = this.props;
         const { _id, title, availableColours, category, availableSizes, image, price } = product;
-
-
         const defaultImg = "/images/common/no-product-image.png";
         const imagePath = `/images/${process.env.REACT_APP_NAME}/${category}/`;
 
         return (
             <div >
                 <Fade bottom cascade>
-                    <article className="products">
+                    <article className="product">
                         <div className="img-container">
                             <a
                                 href={"#" + _id}

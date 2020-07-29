@@ -15,7 +15,8 @@
       "blue"
     ],
     "price": 15,
-    "category": "tshirt"
+    "category": "tshirt",
+    "featured": true
   },
   {
     "image": "tshirt2.jpg",
@@ -33,7 +34,8 @@
       "blue"
     ],
     "price": 12,
-    "category": "tshirt"
+    "category": "tshirt",
+    "featured": true
   },
   {
     "image": "tshirt3.jpg",
@@ -50,7 +52,8 @@
       "blue"
     ],
     "price": 20,
-    "category": "tshirt"
+    "category": "tshirt",
+    "featured": true
   },
   {
     "image": "tshirt4.jpg",
@@ -66,7 +69,8 @@
       "black"
     ],
     "price": 15,
-    "category": "tshirt"
+    "category": "tshirt",
+    "featured": true
   },
   {
     "image": "activewear1.jpg",
@@ -83,7 +87,8 @@
       "black"
     ],
     "price": 25,
-    "category": "activewear"
+    "category": "activewear",
+    "featured": true
   },
   {
     "image": "activewear2.jpg",
@@ -100,7 +105,8 @@
       "black"
     ],
     "price": 25,
-    "category": "activewear"
+    "category": "activewear",
+    "featured": true
   },
   {
     "image": "activewear3.jpg",
@@ -117,7 +123,8 @@
       "black"
     ],
     "price": 20,
-    "category": "activewear"
+    "category": "activewear",
+    "featured": true
   },
   {
     "image": "activewear4.jpg",
@@ -134,7 +141,8 @@
       "black"
     ],
     "price": 30,
-    "category": "activewear"
+    "category": "activewear",
+    "featured": true
   },
   {
     "image": "denim1.jpg",
@@ -151,7 +159,8 @@
       "blue"
     ],
     "price": 30,
-    "category": "denim"
+    "category": "denim",
+    "featured": true
   },
   {
     "image": "denim2.jpg",
@@ -168,7 +177,8 @@
       "blue"
     ],
     "price": 30,
-    "category": "denim"
+    "category": "denim",
+    "featured": true
   },
   {
     "image": "denim3.jpg",
@@ -185,7 +195,8 @@
       "blue"
     ],
     "price": 30,
-    "category": "denim"
+    "category": "denim",
+    "featured": true
   },
   {
     "image": "denim4.jpg",
@@ -202,7 +213,8 @@
       "blue"
     ],
     "price": 30,
-    "category": "denim"
+    "category": "denim",
+    "featured": true
   },
   {
     "image": "jacket1.jpg",
@@ -218,7 +230,8 @@
       "black"
     ],
     "price": 30,
-    "category": "jacket"
+    "category": "jacket",
+    "featured": true
   },
   {
     "image": "jacket2.jpg",
@@ -234,7 +247,8 @@
       "black"
     ],
     "price": 30,
-    "category": "jacket"
+    "category": "jacket",
+    "featured": true
   },
   {
     "image": "jacket3.jpg",
@@ -248,7 +262,8 @@
       "black"
     ],
     "price": 30,
-    "category": "jacket"
+    "category": "jacket",
+    "featured": true
   },
   {
     "image": "jacket4.jpg",
@@ -264,7 +279,8 @@
       "black"
     ],
     "price": 30,
-    "category": "jacket"
+    "category": "jacket",
+    "featured": true
   },
   {
     "image": "jacket5.jpg",
@@ -280,7 +296,8 @@
       "black"
     ],
     "price": 30,
-    "category": "jacket"
+    "category": "jacket",
+    "featured": true
   },
   {
     "image": "shoe1.jpg",
@@ -298,7 +315,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "shoe"
+    "category": "shoe",
+    "featured": true
   },
   {
     "image": "shoe2.jpg",
@@ -316,7 +334,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "shoe"
+    "category": "shoe",
+    "featured": true
   },
   {
     "image": "shoe3.jpg",
@@ -334,7 +353,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "shoe"
+    "category": "shoe",
+    "featured": true
   },
   {
     "image": "shoe4.jpg",
@@ -352,7 +372,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "shoe"
+    "category": "shoe",
+    "featured": true
   },
   {
     "image": "shoe5.jpg",
@@ -370,7 +391,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "shoe"
+    "category": "shoe",
+    "featured": true
   },
   {
     "image": "shoe6.jpg",
@@ -388,7 +410,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "shoe"
+    "category": "shoe",
+    "featured": true
   },
   {
     "image": "skirt1.jpg",
@@ -406,7 +429,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "skirt"
+    "category": "skirt",
+    "featured": true
   },
   {
     "image": "skirt2.jpg",
@@ -424,7 +448,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "skirt"
+    "category": "skirt",
+    "featured": true
   },
   {
     "image": "skirt3.jpg",
@@ -440,7 +465,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "skirt"
+    "category": "skirt",
+    "featured": true
   },
   {
     "image": "skirt4.jpg",
@@ -456,7 +482,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "skirt"
+    "category": "skirt",
+    "featured": true
   },
   {
     "image": "skirt5.jpg",
@@ -474,7 +501,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "skirt"
+    "category": "skirt",
+    "featured": true
   },
   {
     "image": "skirt6.jpg",
@@ -492,7 +520,8 @@
       "yellow"
     ],
     "price": 30,
-    "category": "skirt"
+    "category": "skirt",
+    "featured": true
   },
   {
     "image": "skirt7.jpg",
@@ -510,6 +539,7 @@
       "yellow"
     ],
     "price": 30,
-    "category": "skirt"
+    "category": "skirt",
+    "featured": true
   }
 ]
