@@ -1,0 +1,38 @@
+﻿[
+  {
+    "image": "activewear.jpg",
+    "title": "activewear",
+    "description": "Active Wear",
+    "status": "active"
+  },
+  {
+    "image": "denim.jpg",
+    "title": "denim",
+    "description": "Denims",
+    "status": "active"
+  },
+  {
+    "image": "jacket.jpg",
+    "title": "jacket",
+    "description": "Jackets",
+    "status": "active"
+  },
+  {
+    "image": "shoe.jpg",
+    "title": "shoe",
+    "description": "Shoes",
+    "status": "active"
+  },
+  {
+    "image": "skirt.jpg",
+    "title": "skirt",
+    "description": "Skirts",
+    "status": "active"
+  },
+  {
+    "image": "tshirt.jpg",
+    "title": "tshirt",
+    "description": "T-Shirts",
+    "status": "active"
+  }
+]

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 class BigCart extends Component {
 
-    emptyCart = "/images/emptycart.gif";
+    emptyCart = "/images/common/emptycart.gif";
 
     render() {
         const { cartItems } = this.props;

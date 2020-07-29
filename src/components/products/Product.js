@@ -72,6 +72,7 @@ class Product extends Component {
 
         const defaultImg = "/images/common/no-product-image.png";
         const imagePath = `/images/${process.env.REACT_APP_NAME}/${category}/`;
+
         return (
             <div >
                 <Fade bottom cascade>

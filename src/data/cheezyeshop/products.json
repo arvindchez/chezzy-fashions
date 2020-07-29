@@ -37,12 +37,11 @@
   },
   {
     "image": "tshirt3.jpg",
-    "title": "Casual T-Shirt",
+    "title": "Funky T-Shirt",
     "description": "T-Shirts designed and sold by artists. Available in a range of colours and styles for women",
     "availableSizes": [
       "s",
-      "m",
-      "xl"
+      "m"
     ],
     "availableColours": [
       "white",
@@ -55,7 +54,7 @@
   },
   {
     "image": "tshirt4.jpg",
-    "title": "Casual T-Shirt",
+    "title": "Try Me T-Shirt",
     "description": "T-Shirts designed and sold by artists. Available in a range of colours and styles for women",
     "availableSizes": [
       "s",
@@ -88,7 +87,7 @@
   },
   {
     "image": "activewear2.jpg",
-    "title": "Active Wear Track Pants",
+    "title": "Comfort Pants",
     "description": "Active Wear Track Pants",
     "availableSizes": [
       "s",
@@ -105,7 +104,7 @@
   },
   {
     "image": "activewear3.jpg",
-    "title": "Active Wear Track Pants",
+    "title": "Active Wear Pants",
     "description": "Active Wear Track Pants",
     "availableSizes": [
       "s",
@@ -122,7 +121,7 @@
   },
   {
     "image": "activewear4.jpg",
-    "title": "Active Wear Track Pants",
+    "title": "Free Type Wear",
     "description": "Active Wear Track Pants",
     "availableSizes": [
       "s",
@@ -156,7 +155,7 @@
   },
   {
     "image": "denim2.jpg",
-    "title": "Washed Denim A-line Dress",
+    "title": "Denim Casual Dress",
     "description": "Washed Denim A-line Dress",
     "availableSizes": [
       "s",
@@ -173,7 +172,7 @@
   },
   {
     "image": "denim3.jpg",
-    "title": "Washed Denim A-line Dress",
+    "title": "A-line Dress",
     "description": "Washed Denim A-line Dress",
     "availableSizes": [
       "s",
@@ -190,7 +189,7 @@
   },
   {
     "image": "denim4.jpg",
-    "title": "Washed Denim A-line Dress",
+    "title": "Washed Wear",
     "description": "Washed Denim A-line Dress",
     "availableSizes": [
       "s",
@@ -223,7 +222,7 @@
   },
   {
     "image": "jacket2.jpg",
-    "title": "Print A-line Dress with Jacket",
+    "title": "A-line Dress with Jacket",
     "description": "Print A-line Dress with Jacket",
     "availableSizes": [
       "s",
@@ -239,12 +238,10 @@
   },
   {
     "image": "jacket3.jpg",
-    "title": "Print A-line Dress with Jacket",
+    "title": "Casual Jacket",
     "description": "Print A-line Dress with Jacket",
     "availableSizes": [
-      "s",
-      "m",
-      "xl"
+      "m"
     ],
     "availableColours": [
       "white",
@@ -255,7 +252,7 @@
   },
   {
     "image": "jacket4.jpg",
-    "title": "Print A-line Dress with Jacket",
+    "title": "Dress with Jacket",
     "description": "Print A-line Dress with Jacket",
     "availableSizes": [
       "s",
@@ -271,7 +268,7 @@
   },
   {
     "image": "jacket5.jpg",
-    "title": "Print A-line Dress with Jacket",
+    "title": "Funky Jacket",
     "description": "Print A-line Dress with Jacket",
     "availableSizes": [
       "s",
@@ -305,7 +302,7 @@
   },
   {
     "image": "shoe2.jpg",
-    "title": "Comfort Slip-On Bellies",
+    "title": "Slip-On",
     "description": "Comfort Slip-On Bellies",
     "availableSizes": [
       "s",
@@ -323,7 +320,7 @@
   },
   {
     "image": "shoe3.jpg",
-    "title": "Comfort Slip-On Bellies",
+    "title": "Casual Slip-On Bellies",
     "description": "Comfort Slip-On Bellies",
     "availableSizes": [
       "s",
@@ -341,7 +338,7 @@
   },
   {
     "image": "shoe4.jpg",
-    "title": "Comfort Slip-On Bellies",
+    "title": "Try Me Bellies",
     "description": "Comfort Slip-On Bellies",
     "availableSizes": [
       "s",
@@ -359,7 +356,7 @@
   },
   {
     "image": "shoe5.jpg",
-    "title": "Comfort Slip-On Bellies",
+    "title": "Comfort Bellies",
     "description": "Comfort Slip-On Bellies",
     "availableSizes": [
       "s",
@@ -377,7 +374,7 @@
   },
   {
     "image": "shoe6.jpg",
-    "title": "Comfort Slip-On Bellies",
+    "title": "Home Slip-On Bellies",
     "description": "Comfort Slip-On Bellies",
     "availableSizes": [
       "s",
@@ -395,7 +392,7 @@
   },
   {
     "image": "skirt1.jpg",
-    "title": " Printed A-line Skirt",
+    "title": "Printed A-line Skirt",
     "description": " Printed A-line Skirt",
     "availableSizes": [
       "s",
@@ -413,7 +410,7 @@
   },
   {
     "image": "skirt2.jpg",
-    "title": " Printed A-line Skirt",
+    "title": "A-line Skirt",
     "description": " Printed A-line Skirt",
     "availableSizes": [
       "s",
@@ -431,11 +428,9 @@
   },
   {
     "image": "skirt3.jpg",
-    "title": " Printed A-line Skirt",
+    "title": "Casual Skirt",
     "description": " Printed A-line Skirt",
     "availableSizes": [
-      "s",
-      "m",
       "xl"
     ],
     "availableColours": [
@@ -449,11 +444,9 @@
   },
   {
     "image": "skirt4.jpg",
-    "title": " Printed A-line Skirt",
+    "title": "Try Me A-line Skirt",
     "description": " Printed A-line Skirt",
     "availableSizes": [
-      "s",
-      "m",
       "xl"
     ],
     "availableColours": [
@@ -467,7 +460,7 @@
   },
   {
     "image": "skirt5.jpg",
-    "title": " Printed A-line Skirt",
+    "title": "Free Skirt",
     "description": " Printed A-line Skirt",
     "availableSizes": [
       "s",
@@ -485,7 +478,7 @@
   },
   {
     "image": "skirt6.jpg",
-    "title": " Printed A-line Skirt",
+    "title": "Skirt Style",
     "description": " Printed A-line Skirt",
     "availableSizes": [
       "s",
@@ -503,7 +496,7 @@
   },
   {
     "image": "skirt7.jpg",
-    "title": " Printed A-line Skirt",
+    "title": "Z-line Skirt",
     "description": " Printed A-line Skirt",
     "availableSizes": [
       "s",

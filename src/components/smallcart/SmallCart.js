@@ -7,15 +7,20 @@ import { formatCurrency } from "../../helper/utils";
 
 
 class SmallCart extends Component {
+
+
   render() {
     const { cartItems } = this.props;
+    const defaultImg = "/images/common/no-product-image.png";
+    const imagePath = `/images/${process.env.REACT_APP_NAME}/`;
+
     return (
       <Fade left cascade>
         <ul className="cart-items">
           {cartItems && cartItems.map((item, index) => (
             <li key={index}>
               <div>
-                <img src={item.image} alt={item.title}></img>
+                <img src={imagePath + item.category + "/" + item.image || defaultImg} alt={item.title}></img>
               </div>
               <div>
                 <div className="cartitem-count">

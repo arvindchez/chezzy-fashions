@@ -28,7 +28,6 @@ const sendCancellationMail = (email, name) => {
 }
 
 const sendContactUsMail = (post) => {
-    console.log(post)
     sgMail.send({
         to: 'arvind.chez@gmail.com',
         from: {

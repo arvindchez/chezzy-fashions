@@ -1,0 +1,38 @@
+﻿[
+  {
+    "image": "banner_1.jpg",
+    "title": "Banner 1",
+    "description": "Banner 1",
+    "status": "active"
+  },
+  {
+    "image": "banner_2.jpg",
+    "title": "Banner 2",
+    "description": "Banner 2",
+    "status": "active"
+  },
+  {
+    "image": "banner_3.jpg",
+    "title": "Banner 3",
+    "description": "Banner 3",
+    "status": "active"
+  },
+  {
+    "image": "banner_4.jpg",
+    "title": "Banner 4",
+    "description": "Banner 4",
+    "status": "active"
+  },
+  {
+    "image": "banner_5.jpg",
+    "title": "Banner 5",
+    "description": "Banner 5",
+    "status": "active"
+  },
+  {
+    "image": "banner_6.jpg",
+    "title": "Banner 6",
+    "description": "Banner 6",
+    "status": "active"
+  }
+]

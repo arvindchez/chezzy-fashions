@@ -42,6 +42,9 @@ class OrderList extends Component {
             )
         }
 
+        const defaultImg = "/images/common/no-product-image.png";
+        const imagePath = `/images/${process.env.REACT_APP_NAME}/`;
+
         return (
             <>
                 <Title title={"My Orders"} />
@@ -76,7 +79,7 @@ class OrderList extends Component {
                                                         {order.cartItems.map((item, index) => (
                                                             <div key={index}>
                                                                 <div>
-                                                                    <img className="order-details-img" src={item.image} alt={item.title}></img>
+                                                                    <img className="order-details-img" src={imagePath + item.category + "/" + item.image || defaultImg} alt={item.title}></img>
                                                                 </div>
                                                                 <strong>{item.count} {" x "} {item.title} {"(Size/Colour -"} {item.selectedSize} {"/"} {item.selectedColor}{")"} </strong>
                                                             </div>
