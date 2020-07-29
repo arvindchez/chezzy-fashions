@@ -64,7 +64,6 @@ class Product extends Component {
         })
     };
 
-
     render() {
         const { product } = this.props;
         const { _id, title, availableColours, category, availableSizes, image, price } = product;
@@ -109,7 +108,7 @@ class Product extends Component {
                 {product &&
                     <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
                         <Zoom>
-                            <button className="btn btn-success btn-sm close-modal" onClick={this.closeModal}>x</button>
+                            <button className="close-modal" onClick={this.closeModal}>x</button>
                             <div className="product-details">
                                 <img src={imagePath + product.image || defaultImg} alt={product.title}></img>
                                 <div className="product-details-description">
@@ -122,11 +121,13 @@ class Product extends Component {
                                         {product.availableSizes.map((x, index) => (
                                             <span key={index}>
                                                 {" "}
-                                                {<button key={index}
-                                                    className={this.state.isSizeSet && this.state.setSize === x ? "option-button-selected" : "option-button"}
-                                                    onClick={() => { this.addSelectedSize(x); }}
-                                                > {x}
-                                                </button>
+                                                {
+                                                    <button key={index}
+                                                        className={this.state.isSizeSet && this.state.setSize === x ?
+                                                            "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
+                                                        onClick={() => { this.addSelectedSize(x); }}
+                                                    > {x}
+                                                    </button>
                                                 }
                                             </span>
                                         ))}
@@ -137,7 +138,8 @@ class Product extends Component {
                                             <span key={index}>
                                                 {" "}
                                                 {<button key={index}
-                                                    className={this.state.isColorSet && this.state.setColor === x ? "option-button-selected" : "option-button"}
+                                                    className={this.state.isColorSet && this.state.setColor === x ?
+                                                        "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
                                                     onClick={() => { this.addSelectedColor(x); }}
                                                 > {x} </button>
                                                 }

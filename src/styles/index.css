@@ -18,6 +18,15 @@ html, body {
   --roboto: "Roboto", sans-serif;
   --gugi: "Gugi", cursive;
   --sofiq: "Sofia", cursive;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #cfcfcf;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 3px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 *, *::after, *::before {
@@ -285,7 +294,7 @@ main {
   color: var(--light-gray);
 }
 
-.slick-track .product:hover span {
+.slick-track .products:hover span {
   background-color: var(--primary-color);
   outline: none;
   color: white;
@@ -359,7 +368,7 @@ main {
 }
 
 .category {
-  background: var(--darkGrey);
+  background: rgb(221, 241, 248)172, 173);
   text-align: center;
 }
 
@@ -413,6 +422,7 @@ input {
 button {
   background-color: var(--primary-color) !important;
   color: black !important;
+  outline: none !important;
 }
 
 button.cartitem-addremove {
@@ -434,13 +444,14 @@ button.cartitem-addremove {
 }
 
 .option-button {
-  background-color: lightgray;
-  color: var(--mainBlack);
+  border-radius: 100%;
+  background-color: #b8bbd4 !important;
+  text-transform: uppercase;
 }
 
 .option-button-selected {
-  background-color: #7a82d1;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .cartitem-counter {
@@ -541,10 +552,13 @@ button.cartitem-addremove {
 
 .close-modal {
   position: absolute;
-  top: 60px;
-  right: 1rem;
-  top: 2.5rem;
+  right: 0;
+  top: 2rem;
   z-index: 1000;
+  border-radius: 100%;
+  width: 1.5rem;
+  height: 2.1rem;
+  background-color: white !important;
 }
 
 /* Product details modal end*/
@@ -924,7 +938,6 @@ button.cartitem-addremove {
   margin-bottom: 0;
   font-size: 0.9rem;
   color: white;
-  letter-spacing: var(--mainSpacing);
 }
 
 .product-info {
@@ -932,8 +945,7 @@ button.cartitem-addremove {
   text-transform: capitalize;
   padding: 0.5rem 0;
   text-align: center;
-  font-weight: 700;
-  letter-spacing: var(--mainSpacing);
+  font-family: var(--roboto);
 }
 
 /* end of product  */
@@ -1106,7 +1118,6 @@ th {
 }
 
 .pagination>li>a {
-  border: 1px solid var(--mainBlack);
   padding: 5px 10px;
   outline: none;
   cursor: pointer;
