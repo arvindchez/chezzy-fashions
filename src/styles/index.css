@@ -213,7 +213,11 @@ main {
   position: relative;
 }
 
-.slick-arrow {
+.banner-container button {
+  background-color: transparent !important;
+}
+
+.banner-container button:hover {
   background-color: transparent !important;
 }
 
