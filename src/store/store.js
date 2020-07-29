@@ -8,6 +8,7 @@ import { alert } from "../reducers/alert";
 import { authentication } from "../reducers/authentication";
 import { users } from "../reducers/users";
 import { carousel } from "../reducers/carousel";
+import { category } from "../reducers/category";
 
 const initialState = {};
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -20,7 +21,8 @@ const store = createStore(
         alert: alert,
         authentication: authentication,
         users: users,
-        carousel: carousel
+        carousel: carousel,
+        catergories: category
     }),
     initialState,
     composeEnhancer(applyMiddleware(thunk))

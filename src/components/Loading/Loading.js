@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
-import smallLoadingGif from '../../images/gif/small-loading.gif'
+
+const smallLoadingGif = "/images/gif/small-loading.gif";
 
 const Loading = () => {
     return (

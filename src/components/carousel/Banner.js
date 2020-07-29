@@ -18,13 +18,15 @@ const Banner = (props) => {
         props.fetchCarousel();
     }, [])
 
+    const imagePath = `/images/${process.env.REACT_APP_NAME}/banner/`;
+
     return (
         <div className="banner-container">
             {props.carousel && props.carousel.length > 0 &&
                 (
                     <Slider {...settings}>
                         {props.carousel.map((item, index) =>
-                            <img key={item._id} src={item.image} alt={item.title} />
+                            <img key={item._id} src={imagePath + item.image} alt={item.title} />
                         )}
                     </Slider>
                 )

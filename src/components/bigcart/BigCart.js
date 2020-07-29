@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import SmallCart from '../smallcart/SmallCart';
 import { connect } from "react-redux";
-import emptyCart from '../../images/emptycart.gif';
 import Fade from "react-reveal/Fade";
 import { formatCurrency } from "../../helper/utils";
 import { clearCart } from "../../actions/cart";
@@ -9,6 +8,9 @@ import { FaShoppingBasket, FaSmileWink } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 class BigCart extends Component {
+
+    emptyCart = "/images/emptycart.gif";
+
     render() {
         const { cartItems } = this.props;
 
@@ -19,7 +21,7 @@ class BigCart extends Component {
                         (<div>
                             <div className="empty-cart-container">Cart empty!!! Lets get shopping
                                     <FaSmileWink className="empty-cart-smile" /> </div>
-                            <img src={emptyCart} className="empty-cart" alt="Cart is empty"></img>
+                            <img src={this.emptyCart} className="empty-cart" alt="Cart is empty"></img>
                         </div>
                         ) : (
                             <div className="cartlist-item summary">

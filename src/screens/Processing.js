@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { createOrder, confirmOrder } from "../actions/order";
 import { Link } from 'react-router-dom';
-import logo from "../images/logo.png";
 
 function loadScript(src) {
   return new Promise((resolve) => {
@@ -22,6 +21,7 @@ function loadScript(src) {
 }
 
 const Processing = (props) => {
+  const logo = "/images/logo/logo.png";
 
   const [paymentMode, setPaymentMode] = useState("");
 

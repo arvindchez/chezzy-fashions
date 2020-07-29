@@ -1,11 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SectionTitle from "../title/SectionTitle"
 import { connect } from "react-redux";
-import { searchProducts } from "../../actions/product"
+import { fetchCategory } from "../../actions/category";
 import { Link } from 'react-router-dom';
 
 function NextArrow(props) {
@@ -64,51 +64,35 @@ const Category = (props) => {
         ]
     };
 
+    useEffect(() => {
+        props.fetchCategory();
+    }, [])
+
+    const imagePath = `/images/${process.env.REACT_APP_NAME}/category/`;
 
     return (
         <section className="category">
             <SectionTitle title="Categories"></SectionTitle>
             <div className="category-center">
-                <Slider {...settings}>
-                    <div className="product">
-                        <Link to="/product?cat=tshirt">  <img src="images/tshirt.jpg" alt="product 1" />
-                            <span className="border site-btn btn-span">T-Shirts</span> </Link>
-                    </div>
-                    <div className="product">
-                        <Link to="/product?cat=jacket"> <img src="images/jackets.jpg" alt="product 2" />
-                            <span className="border site-btn btn-span">Jackets</span> </Link>
-                    </div>
-                    <div className="product">
-                        <Link to="/product?cat=ties">
-                            <img src="images/tie.jpg" alt="product 3" />
-                            <span className="border site-btn btn-span">Neck Ties</span> </Link>
-                    </div>
-                    <div className="product">
-                        <Link to="/product?cat=bikini">   <img src="images/bikini.jpg" alt="product 4" />
-                            <span className="border site-btn btn-span">Swim Wear</span> </Link>
-                    </div>
-                    <div className="product">
-                        <Link to="/product?cat=denim">   <img src="images/denim.jpg" alt="product 5" />
-                            <span className="border site-btn btn-span">Denim</span> </Link>
-                    </div>
-                    <div className="product">
-                        <Link to="/product?cat=skirts"> <img src="images/skirts.jpg" alt="product 5" />
-                            <span className="border site-btn btn-span">Skirts</span> </Link>
-                    </div>
-                    <div className="product">
-                        <Link to="/product?cat=shirt"><img src="images/shirt.jpg" alt="product 6" />
-                            <span className="border site-btn btn-span">Shirt</span> </Link>
-                    </div>
-                </Slider>
+                {props.catergories && props.catergories.length > 0 && (
+                    <Slider {...settings}>
+                        {props.catergories.map((item, index) =>
+                            <div key={index} className="product">
+                                <Link to={`/product?cat=${item.title}`}>
+                                    <img key={item._id} src={imagePath + item.image} alt={item.title} />
+                                    <span className="border site-btn btn-span">{item.description}</span> </Link>
+                            </div>
+                        )}
+                    </Slider>
+                )}
             </div>
         </section>
     )
 }
 
 export default connect(
-    (state) => ({}),
-    {
-        searchProducts
-    }
+    (state) => ({
+        catergories: state.catergories.catergories
+    }),
+    { fetchCategory }
 )(Category);
-

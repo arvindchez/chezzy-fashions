@@ -1,520 +1,522 @@
 ﻿[
   {
-    "image": "/images/Cimkefelho_pillangok.jpg",
-    "title": "Cimkefelhő pillangók",
-    "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
+    "image": "tshirt1.jpg",
+    "title": "White T-Shirt",
+    "description": "T-Shirts designed and sold by artists. Available in a range of colours and styles for women",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "pink",
+      "black",
+      "blue"
     ],
-    "price": 3990,
-    "category": "shirt"
+    "price": 15,
+    "category": "tshirt"
   },
   {
-    "image": "/images/cimkefelho_csillagok.jpg",
-    "title": "Cimkefelhő csillagok",
-    "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
+    "image": "tshirt2.jpg",
+    "title": "Casual T-Shirt",
+    "description": "T-Shirts designed and sold by artists. Available in a range of colours and styles for women",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "pink",
+      "black",
+      "blue"
     ],
-    "price": 3990,
-    "category": "shirt"
+    "price": 12,
+    "category": "tshirt"
   },
   {
-    "image": "/images/esofelho_1.jpg",
-    "title": "Cimkefelhő esőfelhő, esőcsepekkel",
-    "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
+    "image": "tshirt3.jpg",
+    "title": "Casual T-Shirt",
+    "description": "T-Shirts designed and sold by artists. Available in a range of colours and styles for women",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "pink",
+      "black",
+      "blue"
     ],
-    "price": 3990,
-    "category": "shirt"
+    "price": 20,
+    "category": "tshirt"
   },
   {
-    "image": "/images/cimkefelho_sunis.jpg",
-    "title": "Cimkefelhő süni",
-    "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
+    "image": "tshirt4.jpg",
+    "title": "Casual T-Shirt",
+    "description": "T-Shirts designed and sold by artists. Available in a range of colours and styles for women",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black"
     ],
-    "price": 3990,
-    "category": "shirt"
+    "price": 15,
+    "category": "tshirt"
   },
   {
-    "image": "/images/cimkefelho_vonatok.jpg",
-    "title": "Cimkefelhő vonatok",
-    "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
+    "image": "activewear1.jpg",
+    "title": "Active Wear Track Pants",
+    "description": "Active Wear Track Pants",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "pink",
+      "black"
     ],
-    "price": 3990,
-    "category": "shirt"
+    "price": 25,
+    "category": "activewear"
   },
   {
-    "image": "/images/cimkefelho_pasztel.jpg",
-    "title": "Cimkefelhő pasztel",
-    "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
+    "image": "activewear2.jpg",
+    "title": "Active Wear Track Pants",
+    "description": "Active Wear Track Pants",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "pink",
+      "black"
     ],
-    "price": 3990,
+    "price": 25,
+    "category": "activewear"
+  },
+  {
+    "image": "activewear3.jpg",
+    "title": "Active Wear Track Pants",
+    "description": "Active Wear Track Pants",
+    "availableSizes": [
+      "s",
+      "m",
+      "xl"
+    ],
+    "availableColours": [
+      "white",
+      "pink",
+      "black"
+    ],
+    "price": 20,
+    "category": "activewear"
+  },
+  {
+    "image": "activewear4.jpg",
+    "title": "Active Wear Track Pants",
+    "description": "Active Wear Track Pants",
+    "availableSizes": [
+      "s",
+      "m",
+      "xl"
+    ],
+    "availableColours": [
+      "white",
+      "pink",
+      "black"
+    ],
+    "price": 30,
+    "category": "activewear"
+  },
+  {
+    "image": "denim1.jpg",
+    "title": "Washed Denim A-line Dress",
+    "description": "Washed Denim A-line Dress",
+    "availableSizes": [
+      "s",
+      "m",
+      "xl"
+    ],
+    "availableColours": [
+      "white",
+      "black",
+      "blue"
+    ],
+    "price": 30,
     "category": "denim"
   },
   {
-    "image": "/images/cimkekocka_fius.jpg",
-    "title": "Cimkekocka fiús",
-    "description": "A címkekocka fejleszti gyermeked finom motorikus készségeit. Általa játékká válik az egyes színek, és minták tanulása, segítségével könnyen elsajátíthatja a markolást, dobást. A színek és minták egymással harmonizálva lesznek kiválasztva a készítő által, a választott nemhez igazítva.",
+    "image": "denim2.jpg",
+    "title": "Washed Denim A-line Dress",
+    "description": "Washed Denim A-line Dress",
     "availableSizes": [
-      "10x10cm",
-      "15x15cm"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Igény-szerint"
+      "white",
+      "black",
+      "blue"
     ],
-    "price": 2990,
+    "price": 30,
     "category": "denim"
   },
   {
-    "image": "/images/cimkekocka_lanyos.jpg",
-    "title": "Cimkekocka lányos",
-    "description": "A címkekocka fejleszti gyermeked finom motorikus készségeit. Általa játékká válik az egyes színek, és minták tanulása, segítségével könnyen elsajátíthatja a markolást, dobást. A színek és minták egymással harmonizálva lesznek kiválasztva a készítő által, a választott nemhez igazítva.",
+    "image": "denim3.jpg",
+    "title": "Washed Denim A-line Dress",
+    "description": "Washed Denim A-line Dress",
     "availableSizes": [
-      "10x10cm",
-      "15x15cm"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Igény-szerint"
+      "white",
+      "black",
+      "blue"
     ],
-    "price": 2990,
+    "price": 30,
     "category": "denim"
   },
   {
-    "image": "/images/nyalkendo_bunny.jpg",
-    "title": "Nyálkendő bunny",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "denim4.jpg",
+    "title": "Washed Denim A-line Dress",
+    "description": "Washed Denim A-line Dress",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black",
+      "blue"
     ],
-    "price": 1290,
+    "price": 30,
     "category": "denim"
   },
   {
-    "image": "/images/nyalkendo_safari.jpg",
-    "title": "Nyálkendő safari",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "jacket1.jpg",
+    "title": "Print A-line Dress with Jacket",
+    "description": "Print A-line Dress with Jacket",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black"
     ],
-    "price": 1290,
-    "category": "denim"
+    "price": 30,
+    "category": "jacket"
   },
   {
-    "image": "/images/nyalkendo_lajharos.jpg",
-    "title": "Nyálkendő lajhár",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "jacket2.jpg",
+    "title": "Print A-line Dress with Jacket",
+    "description": "Print A-line Dress with Jacket",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black"
     ],
-    "price": 1290,
-    "category": "bikini"
+    "price": 30,
+    "category": "jacket"
   },
   {
-    "image": "/images/nyalkendo_vasmacskas.jpg",
-    "title": "Nyálkendő vasmacska",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "jacket3.jpg",
+    "title": "Print A-line Dress with Jacket",
+    "description": "Print A-line Dress with Jacket",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black"
     ],
-    "price": 1290,
-    "category": "bikini"
+    "price": 30,
+    "category": "jacket"
   },
   {
-    "image": "/images/nyalkendo_macis.jpg",
-    "title": "Nyálkendő maci",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "jacket4.jpg",
+    "title": "Print A-line Dress with Jacket",
+    "description": "Print A-line Dress with Jacket",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black"
     ],
-    "price": 1290,
-    "category": "bikini"
+    "price": 30,
+    "category": "jacket"
   },
   {
-    "image": "/images/nyalkendo_nyuszispink.jpg",
-    "title": "Nyálkendő rózsaszín nyuszi",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "jacket5.jpg",
+    "title": "Print A-line Dress with Jacket",
+    "description": "Print A-line Dress with Jacket",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black"
     ],
-    "price": 1290,
-    "category": "bikini"
+    "price": 30,
+    "category": "jacket"
   },
   {
-    "image": "/images/nyalkendo_nyuszisturkiz.jpg",
-    "title": "Nyálkendő türkiz nyuszi",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "shoe1.jpg",
+    "title": "Comfort Slip-On Bellies",
+    "description": "Comfort Slip-On Bellies",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 1290,
-    "category": "bikini"
+    "price": 30,
+    "category": "shoe"
   },
   {
-    "image": "/images/nyalkendo_vitorlas.jpg",
-    "title": "Nyálkendő vitorla",
-    "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
+    "image": "shoe2.jpg",
+    "title": "Comfort Slip-On Bellies",
+    "description": "Comfort Slip-On Bellies",
     "availableSizes": [
-      "Egyméret"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "fehér",
-      "ekrü",
-      "bézs",
-      "szürke",
-      "rose",
-      "porrózsaszín",
-      "menta"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 1290,
-    "category": "bikini"
+    "price": 30,
+    "category": "shoe"
   },
   {
-    "image": "/images/fogpersely_lany.jpg",
-    "title": "Fogpersely lányos",
-    "description": "Ez a tündéri kis fogacska arra hivatott, hogy a fogtündér biztosan megtalálja a kipottyant fogacskákat a párnák alatt. A rajta lévő kis zseb kiválóan alkalmas erre. Anyaga filc, töltete poliészter. Kérhető névvel, vagy név nélkül. Amennyiben névvel kéred, úgy a megrendelés véglegesítésénél a megjegyzés rovatba írd be a kívánt nevet, melyet ráhímzünk.",
+    "image": "shoe3.jpg",
+    "title": "Comfort Slip-On Bellies",
+    "description": "Comfort Slip-On Bellies",
     "availableSizes": [
-      "Egyméret"
-    ],
-    "availableColours": [],
-    "price": 2990,
-    "category": "bikini"
-  },
-  {
-    "image": "/images/fogpersely_fiu.jpg",
-    "title": "Fogpersely fiús",
-    "description": "Ez a tündéri kis fogacska arra hivatott, hogy a fogtündér biztosan megtalálja a kipottyant fogacskákat a párnák alatt. A rajta lévő kis zseb kiválóan alkalmas erre. Anyaga filc, töltete poliészter. Kérhető névvel, vagy név nélkül. Amennyiben névvel kéred, úgy a megrendelés véglegesítésénél a megjegyzés rovatba írd be a kívánt nevet, melyet ráhímzünk.",
-    "availableSizes": [
-      "Egyméret"
-    ],
-    "availableColours": [],
-    "price": 2990,
-    "category": "bikini"
-  },
-  {
-    "image": "/images/jatszoszonyeg_palma.jpg",
-    "title": "Játszószőnyeg pálmalevél",
-    "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
-    "availableSizes": [
-      "100x115cm(+-5cm)"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Halvány-menta",
-      "közép-menta",
-      "sötét-menta",
-      "smaragd",
-      "sötétkék",
-      "farmerkék",
-      "mályva",
-      "pasztellrózsaszín",
-      "világosszürke",
-      "vanília"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 8990,
-    "category": "skirts"
+    "price": 30,
+    "category": "shoe"
   },
   {
-    "image": "/images/jatszoszonyeg_level.jpg",
-    "title": "Játszószőnyeg levél",
-    "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
+    "image": "shoe4.jpg",
+    "title": "Comfort Slip-On Bellies",
+    "description": "Comfort Slip-On Bellies",
     "availableSizes": [
-      "100x115cm(+-5cm)"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Halvány-menta",
-      "közép-menta",
-      "sötét-menta",
-      "smaragd",
-      "sötétkék",
-      "farmerkék",
-      "mályva",
-      "pasztellrózsaszín",
-      "világosszürke",
-      "vanília"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 8990,
-    "category": "skirts"
+    "price": 30,
+    "category": "shoe"
   },
   {
-    "image": "/images/jatszoszonyeg_level.jpg",
-    "title": "Játszószőnyeg ginko levél",
-    "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
+    "image": "shoe5.jpg",
+    "title": "Comfort Slip-On Bellies",
+    "description": "Comfort Slip-On Bellies",
     "availableSizes": [
-      "100x115cm(+-5cm)"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Halvány-menta",
-      "közép-menta",
-      "sötét-menta",
-      "smaragd",
-      "sötétkék",
-      "farmerkék",
-      "mályva",
-      "pasztellrózsaszín",
-      "világosszürke",
-      "vanília"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 8990,
-    "category": "skirts"
+    "price": 30,
+    "category": "shoe"
   },
   {
-    "image": "/images/jatszoszonyeg_tolgyfalevel.jpg",
-    "title": "Játszószőnyeg tölgyfalevél",
-    "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
+    "image": "shoe6.jpg",
+    "title": "Comfort Slip-On Bellies",
+    "description": "Comfort Slip-On Bellies",
     "availableSizes": [
-      "100x115cm(+-5cm)"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Halvány-menta",
-      "közép-menta",
-      "sötét-menta",
-      "smaragd",
-      "sötétkék",
-      "farmerkék",
-      "mályva",
-      "pasztellrózsaszín",
-      "világosszürke",
-      "vanília"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 8990,
-    "category": "skirts"
+    "price": 30,
+    "category": "shoe"
   },
   {
-    "image": "/images/racsvedo_unikornis.jpg",
-    "title": "Unikornis rácsvédő",
-    "description": "Hengerpárna unikornis fejvéggel.",
+    "image": "skirt1.jpg",
+    "title": " Printed A-line Skirt",
+    "description": " Printed A-line Skirt",
     "availableSizes": [
-      "10-13cm"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "rózsaszín",
-      "szürke",
-      "kék",
-      "menta"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 4990,
-    "category": "skirts"
+    "price": 30,
+    "category": "skirt"
   },
   {
-    "image": "/images/racsvedo_unikornis.jpg",
-    "title": "Unikornis rácsvédő",
-    "description": "Hengerpárna unikornis fejvéggel.",
+    "image": "skirt2.jpg",
+    "title": " Printed A-line Skirt",
+    "description": " Printed A-line Skirt",
     "availableSizes": [
-      "13-16cm"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "rózsaszín",
-      "szürke",
-      "kék",
-      "menta"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 5990,
-    "category": "skirts"
+    "price": 30,
+    "category": "skirt"
   },
   {
-    "image": "/images/racsvedo_szarvasos.jpg",
-    "title": "Szarvas rácsvédő",
-    "description": "Hengerpárna szarvas fejvéggel.",
+    "image": "skirt3.jpg",
+    "title": " Printed A-line Skirt",
+    "description": " Printed A-line Skirt",
     "availableSizes": [
-      "10-13cm"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "rózsaszín",
-      "szürke",
-      "kék",
-      "menta"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 4990,
-    "category": "skirts"
+    "price": 30,
+    "category": "skirt"
   },
   {
-    "image": "/images/racsvedo_szarvasos.jpg",
-    "title": "Szarvas rácsvédő",
-    "description": "Hengerpárna szarvas fejvéggel.",
+    "image": "skirt4.jpg",
+    "title": " Printed A-line Skirt",
+    "description": " Printed A-line Skirt",
     "availableSizes": [
-      "13-16cm"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "rózsaszín",
-      "szürke",
-      "kék",
-      "menta"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 5990,
-    "category": "skirts"
+    "price": 30,
+    "category": "skirt"
   },
   {
-    "image": "/images/fonott_babafeszek.jpg",
-    "title": "Fonott babafészek",
-    "description": "100% OEKO-TEX pamutból készült fekvőfelület, a fonat bébiplüssből készül, mely 80% pamut, 20 % poliészter, belseje 100% antiallergén poliésztertöltetet tartalmaz. Lábrésznél kioldozható, a fekvőlapot mindkét oldallal használhatod. A fekvőfelület vastagság 2 centiméteres puha flízlap. Légzésfigyelővel is használható. A termék mosógépben mosható. A fonat szalagokkal rögzíthető az alaphoz, így később rácsvédőként is használható. A hosszú élettartam érdekében kérlek olvasd el az oldalon található Kezelés/Ápolás menüpontot.",
+    "image": "skirt5.jpg",
+    "title": " Printed A-line Skirt",
+    "description": " Printed A-line Skirt",
     "availableSizes": [
-      "Kicsi(65x40cmb-első)"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Rose",
-      "fehér",
-      "világoskék",
-      "szürke",
-      "menta",
-      "türkiz",
-      "bézs",
-      "Rose-fehér-szürke",
-      "Menta-türkiz-fehér",
-      "fehér-bézs-szürke",
-      "Rose-világoskék-fehér",
-      "Menta-fehér-szürke",
-      "Menta-rose-fehér"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 21990,
-    "category": "ties"
+    "price": 30,
+    "category": "skirt"
   },
   {
-    "image": "/images/fonott_babafeszek.jpg",
-    "title": "Fonott babafészek",
-    "description": "100% OEKO-TEX pamutból készült fekvőfelület, a fonat bébiplüssből készül, mely 80% pamut, 20 % poliészter, belseje 100% antiallergén poliésztertöltetet tartalmaz. Lábrésznél kioldozható, a fekvőlapot mindkét oldallal használhatod. A fekvőfelület vastagság 2 centiméteres puha flízlap. Légzésfigyelővel is használható. A termék mosógépben mosható. A fonat szalagokkal rögzíthető az alaphoz, így később rácsvédőként is használható. A hosszú élettartam érdekében kérlek olvasd el az oldalon található Kezelés/Ápolás menüpontot.",
+    "image": "skirt6.jpg",
+    "title": " Printed A-line Skirt",
+    "description": " Printed A-line Skirt",
     "availableSizes": [
-      "Nagy(90x45cm-belső)"
+      "s",
+      "m",
+      "xl"
     ],
     "availableColours": [
-      "Rose",
-      "fehér",
-      "világoskék",
-      "szürke",
-      "menta",
-      "türkiz",
-      "bézs",
-      "Rose-fehér-szürke",
-      "Menta-türkiz-fehér",
-      "fehér-bézs-szürke",
-      "Rose-világoskék-fehér",
-      "Menta-fehér-szürke",
-      "Menta-rose-fehér"
+      "white",
+      "black",
+      "red",
+      "yellow"
     ],
-    "price": 24990,
-    "category": "ties"
+    "price": 30,
+    "category": "skirt"
+  },
+  {
+    "image": "skirt7.jpg",
+    "title": " Printed A-line Skirt",
+    "description": " Printed A-line Skirt",
+    "availableSizes": [
+      "s",
+      "m",
+      "xl"
+    ],
+    "availableColours": [
+      "white",
+      "black",
+      "red",
+      "yellow"
+    ],
+    "price": 30,
+    "category": "skirt"
   }
 ]

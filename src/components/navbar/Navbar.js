@@ -11,7 +11,6 @@ import { useLocation } from 'react-router-dom'
 const Navbar = (props) => {
 
   let location = useLocation();
-  console.log(location)
 
   const handleSearch = (query) => {
     props.searchProducts(

@@ -336,7 +336,7 @@ main {
 }
 
 .section-title h4 {
-  font-size: 1rem;
+  font-size: 2rem;
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
   margin-bottom: 1rem;
@@ -346,6 +346,7 @@ main {
   width: 5rem;
   height: 2px;
   margin: 0 auto;
+  margin-bottom: 2rem;
   background: var(--primary-color);
 }
 
@@ -910,12 +911,20 @@ button.cartitem-addremove {
   letter-spacing: var(--mainSpacing);
 }
 
+.img-container:hover {
+  background: rgba(163, 230, 193, 0.8);
+}
+
 .img-container:hover img {
   opacity: 40;
 }
 
 .img-container:hover .price-top {
   opacity: 0;
+}
+
+.img-container:hover .room-link {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .product-info {

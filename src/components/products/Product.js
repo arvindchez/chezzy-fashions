@@ -5,7 +5,6 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { addToCart } from "../../actions/cart";
-import defaultImg from '../../images/no-product-image.png'
 
 
 class Product extends Component {
@@ -68,8 +67,11 @@ class Product extends Component {
 
     render() {
         const { product } = this.props;
-        const { _id, title, availableColours, availableSizes, image, price } = product;
+        const { _id, title, availableColours, category, availableSizes, image, price } = product;
 
+
+        const defaultImg = "/images/common/no-product-image.png";
+        const imagePath = `/images/${process.env.REACT_APP_NAME}/${category}/`;
         return (
             <div >
                 <Fade bottom cascade>
@@ -79,7 +81,7 @@ class Product extends Component {
                                 href={"#" + _id}
                                 onClick={() => this.openModal(product)}
                             >
-                                <img src={image || defaultImg} alt={title}></img>
+                                <img src={imagePath + image || defaultImg} alt={title}></img>
                             </a>
                             <div className="price-top">
                                 <h6>{formatCurrency(price)}</h6>
@@ -110,7 +112,7 @@ class Product extends Component {
                         <Zoom>
                             <button className="btn btn-success btn-sm close-modal" onClick={this.closeModal}>x</button>
                             <div className="product-details">
-                                <img src={product.image} alt={product.title}></img>
+                                <img src={imagePath + product.image || defaultImg} alt={product.title}></img>
                                 <div className="product-details-description">
                                     <p>
                                         <strong>{product.title}</strong>

@@ -1,6 +1,6 @@
 ﻿[
   {
-    "image": "/images/Cimkefelho_pillangok.jpg",
+    "image": "Cimkefelho_pillangok.jpg",
     "title": "Cimkefelhő pillangók",
     "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
     "availableSizes": [
@@ -18,7 +18,7 @@
     "price": 3990
   },
   {
-    "image": "/images/cimkefelho_csillagok.jpg",
+    "image": "cimkefelho_csillagok.jpg",
     "title": "Cimkefelhő csillagok",
     "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
     "availableSizes": [
@@ -36,7 +36,7 @@
     "price": 3990
   },
   {
-    "image": "/images/esofelho_1.jpg",
+    "image": "esofelho_1.jpg",
     "title": "Cimkefelhő esőfelhő, esőcsepekkel",
     "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
     "availableSizes": [
@@ -54,7 +54,7 @@
     "price": 3990
   },
   {
-    "image": "/images/cimkefelho_sunis.jpg",
+    "image": "cimkefelho_sunis.jpg",
     "title": "Cimkefelhő süni",
     "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
     "availableSizes": [
@@ -72,7 +72,7 @@
     "price": 3990
   },
   {
-    "image": "/images/cimkefelho_vonatok.jpg",
+    "image": "cimkefelho_vonatok.jpg",
     "title": "Cimkefelhő vonatok",
     "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
     "availableSizes": [
@@ -90,7 +90,7 @@
     "price": 3990
   },
   {
-    "image": "/images/cimkefelho_pasztel.jpg",
+    "image": "cimkefelho_pasztel.jpg",
     "title": "Cimkefelhő pasztel",
     "description": "A kis címkefelhő nem csak dekoráció lehet a babaszobában, rögzítheted gyermeked feje fölé a babakocsiba, vagy akár játszhat is vele. A színes címkékkel könnyedén fejleszthető a baba finom-motorikus készsége, vagy később tanulhatjátok vele a színeket is.",
     "availableSizes": [
@@ -108,7 +108,7 @@
     "price": 3990
   },
   {
-    "image": "/images/cimkekocka_fius.jpg",
+    "image": "cimkekocka_fius.jpg",
     "title": "Cimkekocka fiús",
     "description": "A címkekocka fejleszti gyermeked finom motorikus készségeit. Általa játékká válik az egyes színek, és minták tanulása, segítségével könnyen elsajátíthatja a markolást, dobást. A színek és minták egymással harmonizálva lesznek kiválasztva a készítő által, a választott nemhez igazítva.",
     "availableSizes": [
@@ -121,7 +121,7 @@
     "price": 2990
   },
   {
-    "image": "/images/cimkekocka_lanyos.jpg",
+    "image": "cimkekocka_lanyos.jpg",
     "title": "Cimkekocka lányos",
     "description": "A címkekocka fejleszti gyermeked finom motorikus készségeit. Általa játékká válik az egyes színek, és minták tanulása, segítségével könnyen elsajátíthatja a markolást, dobást. A színek és minták egymással harmonizálva lesznek kiválasztva a készítő által, a választott nemhez igazítva.",
     "availableSizes": [
@@ -134,7 +134,7 @@
     "price": 2990
   },
   {
-    "image": "/images/nyalkendo_bunny.jpg",
+    "image": "nyalkendo_bunny.jpg",
     "title": "Nyálkendő bunny",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -152,7 +152,7 @@
     "price": 1290
   },
   {
-    "image": "/images/nyalkendo_safari.jpg",
+    "image": "nyalkendo_safari.jpg",
     "title": "Nyálkendő safari",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -170,7 +170,7 @@
     "price": 1290
   },
   {
-    "image": "/images/nyalkendo_lajharos.jpg",
+    "image": "nyalkendo_lajharos.jpg",
     "title": "Nyálkendő lajhár",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -188,7 +188,7 @@
     "price": 1290
   },
   {
-    "image": "/images/nyalkendo_vasmacskas.jpg",
+    "image": "nyalkendo_vasmacskas.jpg",
     "title": "Nyálkendő vasmacska",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -206,7 +206,7 @@
     "price": 1290
   },
   {
-    "image": "/images/nyalkendo_macis.jpg",
+    "image": "nyalkendo_macis.jpg",
     "title": "Nyálkendő maci",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -224,7 +224,7 @@
     "price": 1290
   },
   {
-    "image": "/images/nyalkendo_nyuszispink.jpg",
+    "image": "nyalkendo_nyuszispink.jpg",
     "title": "Nyálkendő rózsaszín nyuszi",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -242,7 +242,7 @@
     "price": 1290
   },
   {
-    "image": "/images/nyalkendo_nyuszisturkiz.jpg",
+    "image": "nyalkendo_nyuszisturkiz.jpg",
     "title": "Nyálkendő türkiz nyuszi",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -260,7 +260,7 @@
     "price": 1290
   },
   {
-    "image": "/images/nyalkendo_vitorlas.jpg",
+    "image": "nyalkendo_vitorlas.jpg",
     "title": "Nyálkendő vitorla",
     "description": "Puha, kiváló nedvszívó-képességű nyálkendők, pamutjersey-ből. Minden nyálkendő műanyag patenttal rögzíthető.",
     "availableSizes": [
@@ -278,7 +278,7 @@
     "price": 1290
   },
   {
-    "image": "/images/fogpersely_lany.jpg",
+    "image": "fogpersely_lany.jpg",
     "title": "Fogpersely lányos",
     "description": "Ez a tündéri kis fogacska arra hivatott, hogy a fogtündér biztosan megtalálja a kipottyant fogacskákat a párnák alatt. A rajta lévő kis zseb kiválóan alkalmas erre. Anyaga filc, töltete poliészter. Kérhető névvel, vagy név nélkül. Amennyiben névvel kéred, úgy a megrendelés véglegesítésénél a megjegyzés rovatba írd be a kívánt nevet, melyet ráhímzünk.",
     "availableSizes": [
@@ -288,7 +288,7 @@
     "price": 2990
   },
   {
-    "image": "/images/fogpersely_fiu.jpg",
+    "image": "fogpersely_fiu.jpg",
     "title": "Fogpersely fiús",
     "description": "Ez a tündéri kis fogacska arra hivatott, hogy a fogtündér biztosan megtalálja a kipottyant fogacskákat a párnák alatt. A rajta lévő kis zseb kiválóan alkalmas erre. Anyaga filc, töltete poliészter. Kérhető névvel, vagy név nélkül. Amennyiben névvel kéred, úgy a megrendelés véglegesítésénél a megjegyzés rovatba írd be a kívánt nevet, melyet ráhímzünk.",
     "availableSizes": [
@@ -298,7 +298,7 @@
     "price": 2990
   },
   {
-    "image": "/images/jatszoszonyeg_palma.jpg",
+    "image": "jatszoszonyeg_palma.jpg",
     "title": "Játszószőnyeg pálmalevél",
     "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
     "availableSizes": [
@@ -319,7 +319,7 @@
     "price": 8990
   },
   {
-    "image": "/images/jatszoszonyeg_level.jpg",
+    "image": "jatszoszonyeg_level.jpg",
     "title": "Játszószőnyeg levél",
     "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
     "availableSizes": [
@@ -340,7 +340,7 @@
     "price": 8990
   },
   {
-    "image": "/images/jatszoszonyeg_level.jpg",
+    "image": "jatszoszonyeg_level.jpg",
     "title": "Játszószőnyeg ginko levél",
     "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
     "availableSizes": [
@@ -361,7 +361,7 @@
     "price": 8990
   },
   {
-    "image": "/images/jatszoszonyeg_tolgyfalevel.jpg",
+    "image": "jatszoszonyeg_tolgyfalevel.jpg",
     "title": "Játszószőnyeg tölgyfalevél",
     "description": "A puha játszószőnyegen babád egyszerre pihenhet, és játszhat. Nem kell aggódnod, hogy felfázik játék közben a padlón, egyszerűen terítsd le, és hagyd, hogy élvezze a játékot a puha, meleg szőnyegen. A külseje antiallergén, OEKO-TEX minősítésű 100% pamutból készül, a belső töltet pedig antiallergén poliészter. A termék 30 °C-on mosható, alacsony hőfokon, gőz nélkül vasalható.",
     "availableSizes": [
@@ -382,7 +382,7 @@
     "price": 8990
   },
   {
-    "image": "/images/racsvedo_unikornis.jpg",
+    "image": "racsvedo_unikornis.jpg",
     "title": "Unikornis rácsvédő",
     "description": "Hengerpárna unikornis fejvéggel.",
     "availableSizes": [
@@ -397,7 +397,7 @@
     "price": 4990
   },
   {
-    "image": "/images/racsvedo_unikornis.jpg",
+    "image": "racsvedo_unikornis.jpg",
     "title": "Unikornis rácsvédő",
     "description": "Hengerpárna unikornis fejvéggel.",
     "availableSizes": [
@@ -412,7 +412,7 @@
     "price": 5990
   },
   {
-    "image": "/images/racsvedo_szarvasos.jpg",
+    "image": "racsvedo_szarvasos.jpg",
     "title": "Szarvas rácsvédő",
     "description": "Hengerpárna szarvas fejvéggel.",
     "availableSizes": [
@@ -427,7 +427,7 @@
     "price": 4990
   },
   {
-    "image": "/images/racsvedo_szarvasos.jpg",
+    "image": "racsvedo_szarvasos.jpg",
     "title": "Szarvas rácsvédő",
     "description": "Hengerpárna szarvas fejvéggel.",
     "availableSizes": [
@@ -442,7 +442,7 @@
     "price": 5990
   },
   {
-    "image": "/images/fonott_babafeszek.jpg",
+    "image": "fonott_babafeszek.jpg",
     "title": "Fonott babafészek",
     "description": "100% OEKO-TEX pamutból készült fekvőfelület, a fonat bébiplüssből készül, mely 80% pamut, 20 % poliészter, belseje 100% antiallergén poliésztertöltetet tartalmaz. Lábrésznél kioldozható, a fekvőlapot mindkét oldallal használhatod. A fekvőfelület vastagság 2 centiméteres puha flízlap. Légzésfigyelővel is használható. A termék mosógépben mosható. A fonat szalagokkal rögzíthető az alaphoz, így később rácsvédőként is használható. A hosszú élettartam érdekében kérlek olvasd el az oldalon található Kezelés/Ápolás menüpontot.",
     "availableSizes": [
@@ -466,7 +466,7 @@
     "price": 21990
   },
   {
-    "image": "/images/fonott_babafeszek.jpg",
+    "image": "fonott_babafeszek.jpg",
     "title": "Fonott babafészek",
     "description": "100% OEKO-TEX pamutból készült fekvőfelület, a fonat bébiplüssből készül, mely 80% pamut, 20 % poliészter, belseje 100% antiallergén poliésztertöltetet tartalmaz. Lábrésznél kioldozható, a fekvőlapot mindkét oldallal használhatod. A fekvőfelület vastagság 2 centiméteres puha flízlap. Légzésfigyelővel is használható. A termék mosógépben mosható. A fonat szalagokkal rögzíthető az alaphoz, így később rácsvédőként is használható. A hosszú élettartam érdekében kérlek olvasd el az oldalon található Kezelés/Ápolás menüpontot.",
     "availableSizes": [
