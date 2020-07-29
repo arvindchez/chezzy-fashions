@@ -32,11 +32,11 @@ const FeaturedProduct = (props) => {
         <section className="featured-products">
             <Title title="Featured Products"> </Title>
             <div className="featured-products-center">
-                {products ||
+                {products && products.length > 0 ? (products) : (
                     <div className="empty-search">
                         <h5>Featured products coming soon...</h5>
                     </div>
-                }
+                )}
             </div>
         </section>
     );
