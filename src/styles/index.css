@@ -1001,14 +1001,22 @@ button.cartitem-addremove {
   position: absolute;
   top: 0;
   right: 0;
-  background: rgba(72, 72, 73, 0.8);
-  color: var(--mainWhite);
   border-bottom-left-radius: 1rem;
   font-size: 0.5rem;
   font-weight: bold;
   text-align: center;
   transition: var(--mainTransition);
   opacity: 0;
+}
+
+.price-top-right button {
+  color: white !important;
+}
+
+button:active {
+  background-color: black !important;
+  font-family: var(--roboto) !important;
+  color: var(--primary-color) !important;
 }
 
 .product-info {
