@@ -1,23 +1,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React from 'react';
 import styled from "styled-components";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { connect } from "react-redux";
-import { searchProducts } from "../../actions/product"
+import { fetchProductsAutoComplete } from "../../actions/product";
 import Fade from "react-reveal/Fade";
-import { useLocation } from 'react-router-dom'
+import AutoCompleteSearch from '../autocomplete/AutoCompleteSearch';
+import { history } from '../../helper/history';
 
 const Navbar = (props) => {
-
-  let location = useLocation();
-
   const handleSearch = (query) => {
-    props.searchProducts(
-      query,
+    history.push({
+      pathname: '/product',
+      search: `?title=${query}`
+    });
+  }
+
+  const loadSuggestions = (query) => {
+    props.fetchProductsAutoComplete(
       process.env.REACT_APP_PAGE_START_INDEX,
-      process.env.REACT_APP_PAGE_SIZE, false);
-  };
+      process.env.REACT_APP_PAGE_SIZE,
+      query);
+  }
 
   return (
     <>
@@ -36,19 +41,16 @@ const Navbar = (props) => {
             <a href="/contactus">Contact Us</a>
           </NavLinks>
           <Fade left cascade>
-            {(location.pathname === "/product" || props.search) && (
-              <div className="search input-icons">
-                <input
-                  type="search"
-                  placeholder="Search product..."
-                  onKeyUp={(e) =>
-                    handleSearch(e.target.value)
-                  } required />
-                <i className="fas fa-search icon" aria-hidden="true"></i>
-              </div>
-            )}
+            <div className="app-component">
+              <AutoCompleteSearch
+                data={props.autoSuggestions ?
+                  props.autoSuggestions.map(item => item.title) : []}
+                loadSuggestions={loadSuggestions}
+                handleSearch={handleSearch} />
+            </div>
           </Fade>
         </FlexContainer>
+
       </NavBar>
       <CollapseMenu
         navbarState={props.navbarState}
@@ -57,7 +59,6 @@ const Navbar = (props) => {
     </>
   )
 }
-
 const NavBar = styled.nav`
   width: 100%;
   left: 0;
@@ -113,8 +114,11 @@ const BurgerWrapper = styled.div`
 `;
 
 export default connect(
-  (state) => ({ search: state.products.search }),
+  (state) => ({
+    autoSuggestions: state.products.autoSuggestions,
+    suggestionsCount: state.products.suggestionsCount
+  }),
   {
-    searchProducts
+    fetchProductsAutoComplete
   }
 )(Navbar);

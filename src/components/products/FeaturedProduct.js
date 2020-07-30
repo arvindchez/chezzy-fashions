@@ -6,6 +6,7 @@ import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { addToCart } from "../../actions/cart";
 
+Modal.setAppElement('#root');
 
 class FeaturedProduct extends Component {
     constructor(props) {
@@ -104,9 +105,8 @@ class FeaturedProduct extends Component {
 
                     </article>
                 </Fade>
-                {
-                    product &&
-                    <Modal ariaHideApp={false} isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+                {product &&
+                    <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button className="close-modal" onClick={this.closeModal}>x</button>
                             <div className="product-details">

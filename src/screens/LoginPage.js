@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Fade from "react-reveal/Fade";
 
 import { userActions } from '../actions/user';
@@ -12,6 +12,7 @@ function LoginPage(props) {
         password: ''
     });
 
+    const loggingIn = useSelector(state => state.authentication.loggingIn);
     const { email, password } = inputs;
     const dispatch = useDispatch();
 
@@ -64,6 +65,7 @@ function LoginPage(props) {
                         <li>
                             <div>
                                 <button className="btn btn-sm" type="submit">
+                                    {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                     Login
                                 </button>
                                 <div>

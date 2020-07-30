@@ -149,41 +149,6 @@ header .site-title {
   color: white;
 }
 
-.search {
-  display: inline-block;
-  margin: 5px 5px;
-  width: 350px;
-}
-
-.input-icons i {
-  position: absolute;
-}
-
-.icon {
-  padding: 5px;
-}
-
-.input-field {
-  padding: 5px;
-  font-family: var(--roboto);
-  font-size: .7rem;
-}
-
-[type="search"]:focus~.fa-search {
-  display: none;
-}
-
-.search input {
-  height: 1.5rem;
-  border: 1px solid var(--primary-color);
-}
-
-@media screen and (max-width: 430px) {
-  .search {
-    width: 250px;
-  }
-}
-
 main {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -531,20 +496,6 @@ button.cartitem-addremove {
 
 .cartitem-remove {
   float: right;
-}
-
-.filter-container {
-  position: fixed;
-  right: 0;
-  background: var(--primary-color);
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  cursor: pointer;
-  z-index: 75;
 }
 
 .empty-cart {
@@ -1271,3 +1222,72 @@ th {
 .accordion-container {
   background-color: #c4dbd8;
 }
+
+/*Auto complete start*/
+
+.app-component {
+  padding-top: 4px;
+  padding-right: 100px;
+  width: 400px;
+  z-index: 1;
+}
+
+.autocompletetext {
+  width: 100%;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+  font-family: var(--roboto);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.73)
+}
+
+.autocompletetext input {
+  width: 100%;
+  border: none;
+  font-family: var(--roboto);
+  font-size: 14px;
+  color: var(--darkShadow);
+  outline: none !important;
+}
+
+.autocompletetext ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--primary-color);
+  background-color: var(--light-gray)
+}
+
+.autocompletetext ul::before {
+  content: "";
+}
+
+.autocompletetext li {
+  padding: 10px 5px;
+  color: var(--mainWhite);
+  z-index: 60;
+}
+
+.autocompletetext li:hover {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.btn.focus, .btn:focus {
+  box-shadow: none !important;
+}
+
+.btn, .btn-sm {
+  border-radius: none !important;
+}
+
+.input-group-append .btn {
+  z-index: 0 !important;
+}
+
+/*Auto complete end*/

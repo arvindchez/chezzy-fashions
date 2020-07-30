@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { clearOrder } from "../../actions/order";
 
+Modal.setAppElement('#root');
 class Order extends Component {
     closeModal = () => {
         this.props.clearOrder();
