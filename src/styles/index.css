@@ -537,6 +537,7 @@ button.cartitem-addremove {
 .burger-menu {
   height: 2rem;
   width: 2rem;
+  color: var(--primary-color);
 }
 
 /* Navbar end*/
@@ -1230,6 +1231,13 @@ th {
   padding-right: 100px;
   width: 400px;
   z-index: 1;
+}
+
+@media screen and (max-width: 430px) {
+  .app-component {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 .autocompletetext {

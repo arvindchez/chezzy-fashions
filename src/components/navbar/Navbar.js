@@ -70,7 +70,6 @@ const FlexContainer = styled.div`
   max-width: 120rem;
   display: flex;
   margin: auto;
-  padding: 0 2rem;;
   justify-content: space-between;
   height: 3rem;
   background-color: white;
@@ -107,7 +106,6 @@ const NavLinks = styled.ul`
 `;
 
 const BurgerWrapper = styled.div`
-  margin: auto 0;
   @media (min-width: 769px) {
     display: none;
   }
