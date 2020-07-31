@@ -70,7 +70,8 @@ router.get('/orders/me', auth, async (req, res) => {
 
         const options = {
             page: req.query.page ? req.query.page : process.env.PAGE_START_INDEX,
-            limit: req.query.limit ? req.query.limit : process.env.PAGE_SIZE
+            limit: req.query.limit ? req.query.limit : process.env.PAGE_SIZE,
+            sort: { createdAt: -1 }
         };
 
         const orders = await Order.paginate(query, options)

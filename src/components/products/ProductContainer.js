@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import ProductList from './ProductList'
 import { connect } from "react-redux";
 import { fetchProducts, searchProducts } from "../../actions/product";
-import ProductFilter from './ProductFilter';
+//import ProductFilter from './ProductFilter';
 import { useLocation } from 'react-router-dom'
 import { convertToObject } from "../../helper/utils"
 

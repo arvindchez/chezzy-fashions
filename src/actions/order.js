@@ -3,30 +3,31 @@ import { CLEAR_CART } from "../constants/cart";
 import { authHeader } from "../helper/auth-header"
 import { history } from '../helper/history';
 import { alertActions } from '../actions/alert';
+import { handleResponse } from "../services/common"
 
 export const createOrder = (order) => async (dispatch) => {
 
   const contentHeader = { "Content-Type": "application/json" };
-  const tokenHeader = authHeader()
+  const tokenHeader = authHeader();
+  const url = "orders";
 
-  await fetch("orders", {
+  const requestOptions = {
     method: "POST",
     headers: { ...contentHeader, ...tokenHeader },
     body: JSON.stringify(order),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({ type: CREATE_ORDER, payload: data });
+  };
 
-      if (data.paymenttype === "cod") {
-        localStorage.removeItem("cartItems");
-        dispatch({ type: CLEAR_CART });
-        history.push("/myorders");
-        dispatch(alertActions.success(`Ordered successfully! Your order number is : ${data._id} `));
-        dispatch({ type: CLEAR_ORDER });
-      }
-    });
-};
+  const data = await fetch(url, requestOptions).then(handleResponse);
+
+  dispatch({ type: CREATE_ORDER, payload: data });
+  if (data.paymenttype === "cod") {
+    localStorage.removeItem("cartItems");
+    dispatch({ type: CLEAR_CART });
+    history.push("/myorders");
+    dispatch(alertActions.success(`Ordered successfully! Your order number is : ${data._id} `));
+    dispatch({ type: CLEAR_ORDER });
+  }
+}
 
 export const confirmOrder = (order) => (dispatch) => {
   localStorage.removeItem("cartItems");
@@ -38,39 +39,37 @@ export const confirmOrder = (order) => (dispatch) => {
 
 export const fetchOrders = (page, limit) => async (dispatch) => {
   const url = `orders/me?page=${page}&limit=${limit}`
-  await fetch(url, {
+  const requestOptions = {
     method: "GET",
     headers: authHeader()
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({
-        type: FETCH_ORDERS,
-        payload: {
-          data: data.result,
-          totalOrders: data.count
-        }
-      });
-    });
-};
+  };
+
+  const data = await fetch(url, requestOptions).then(handleResponse);
+  dispatch({
+    type: FETCH_ORDERS,
+    payload: {
+      data: data.result,
+      totalOrders: data.count
+    }
+  });
+}
 
 export const searchOrders = (search, page, limit) => async (dispatch) => {
   const url = `orders/me?page=${page}&limit=${limit}&query=${search}`
-  await fetch(url, {
+  const requestOptions = {
     method: "GET",
     headers: authHeader()
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({
-        type: FILTER_ORDERS_BY_SEARCH,
-        payload: {
-          search: search,
-          totalOrders: data.count,
-          items: data.result
-        },
-      });
-    });
+  };
+
+  const data = await fetch(url, requestOptions).then(handleResponse);
+  dispatch({
+    type: FILTER_ORDERS_BY_SEARCH,
+    payload: {
+      search: search,
+      totalOrders: data.count,
+      items: data.result
+    },
+  });
 }
 
 export const clearOrder = () => (dispatch) => {
