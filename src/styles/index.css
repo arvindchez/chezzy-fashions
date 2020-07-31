@@ -1300,3 +1300,40 @@ th {
 }
 
 /*Auto complete end*/
+
+/*search order */
+
+.search {
+  display: inline-block;
+  margin: 5px 5px;
+  width: 350px;
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.icon {
+  padding: 5px;
+}
+
+.input-field {
+  padding: 5px;
+  font-family: var(--roboto);
+  font-size: .7rem;
+}
+
+[type="search"]:focus~.fa-search {
+  display: none;
+}
+
+.search input {
+  height: 1.5rem;
+  border: 1px solid var(--primary-color);
+}
+
+@media screen and (max-width: 430px) {
+  .search {
+    width: 250px;
+  }
+}
