@@ -1340,13 +1340,13 @@ th {
 
 /*cart popup*/
 
+.cart-popup {
+  font-size: small !important;
+  color: var(--primary-color) !important;
+}
+
 .cart-popup h6, p, .cartitem-summary {
   font-weight: bold;
   font-family: var(--roboto);
   font-size: small;
-}
-
-.customeTheme {
-  font-size: small !important;
-  color: var(--primary-color) !important;
 }

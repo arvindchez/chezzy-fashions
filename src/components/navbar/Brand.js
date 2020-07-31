@@ -54,7 +54,7 @@ const Brand = () => {
           }<FaShoppingCart data-for='cartitem' data-tip /></a>
           <ReactTooltip id='cartitem'
             getContent={(dataTip) => <CartToolTip />}
-            className='customeTheme'
+            className='cart-popup'
             effect='solid'
             border={false}
             type={'dark'}
