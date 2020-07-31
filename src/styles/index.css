@@ -538,6 +538,7 @@ button.cartitem-addremove {
   height: 2rem;
   width: 2rem;
   color: var(--primary-color);
+  padding-left: 5px;
 }
 
 /* Navbar end*/
@@ -720,14 +721,19 @@ button.cartitem-addremove {
   display: flex;
   justify-content: center;
   align-content: center;
+  padding-top: 40px;
+  border: 1px solid var(--primary-color);
 }
 
 .processing-list li {
-  padding: 2rem 0;
   display: flex;
   justify-content: center;
   align-content: center;
   text-decoration: none;
+}
+
+.processing-list li a:last-child {
+  justify-content: center;
 }
 
 .processing-list label {
@@ -741,13 +747,8 @@ button.cartitem-addremove {
 }
 
 .processing-list a {
-  background-color: #c4dbd8;
-  border: 1px solid #660000;
-  border-radius: 5px;
-  color: var(--mainBlack);
   font-weight: bold;
-  margin-right: 10px;
-  padding: 5px 5px 5px 5px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 430px) {

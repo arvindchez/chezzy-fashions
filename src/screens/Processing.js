@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { createOrder, confirmOrder } from "../actions/order";
 import { Link } from 'react-router-dom';
+import Title from '../components/title/Title';
 
 function loadScript(src) {
   return new Promise((resolve) => {
@@ -81,42 +82,45 @@ const Processing = (props) => {
   }
 
   return (
-
-    <div className="processing-list">
-      <ul>
-        {props.cartItems && (
+    <> <Title title={"Payments"} />
+      <div className="processing-list">
+        <ul>
+          {props.cartItems && (
+            <div>
+              <li>
+                <label><input type="radio" name="cod" value="cod"
+                  checked={paymentMode === "cod"}
+                  onChange={handlePaymentOptions} />{" "}Cash on delivery</label>
+              </li>
+              <li>
+                <label><input type="radio" name="razorpay" value="razorpay"
+                  checked={paymentMode === "razorpay"}
+                  onChange={handlePaymentOptions} />{" "}Razor Pay</label>
+              </li>
+            </div>
+          )}
           <li>
-            <div>
-              <label><input type="radio" name="razorpay" value="razorpay"
-                checked={paymentMode === "razorpay"}
-                onChange={handlePaymentOptions} />Razor Pay</label>
-              <label><input type="radio" name="cod" value="cod"
-                checked={paymentMode === "cod"}
-                onChange={handlePaymentOptions} />Cash on delivery</label>
-            </div>
+            {paymentMode === "razorpay" && props.order && (
+              <div>
+                <button onClick={displayRazorpay} className="btn btn-sm"
+                  target="_blank"
+                  rel="noopener noreferrer">Make Payment</button>
+              </div>
+
+            )}
+
+            {paymentMode === "cod" && (
+              <div>
+                <button className="btn btn-sm" onClick={handleCOD}>Complete order</button>
+              </div>
+            )}
           </li>
-        )}
-        <li>
-          {paymentMode === "razorpay" && props.order && (
-            <div>
-              <a onClick={displayRazorpay}
-                target="_blank"
-                rel="noopener noreferrer">Make Payment</a>
-            </div>
-
-          )}
-
-          {paymentMode === "cod" && (
-            <div>
-              <a onClick={handleCOD}>Complete order</a>
-            </div>
-          )}
-        </li>
-        <li>
-          <Link to="/cart">Back</Link>
-        </li>
-      </ul>
-    </div >
+          <li>
+            <Link to="/cart">Back</Link>
+          </li>
+        </ul>
+      </div >
+    </>
 
   );
 }

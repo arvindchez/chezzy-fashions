@@ -151,7 +151,7 @@ class Product extends Component {
                                     </p>
                                     <div>
                                         <label>Price: {formatCurrency(product.price)}</label>
-                                        <button className="btn btn-success btn-sm"
+                                        {" "}<button className="btn btn-success btn-sm"
                                             onClick={() => {
 
                                                 let { product } = this.state;
