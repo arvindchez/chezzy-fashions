@@ -1267,6 +1267,10 @@ th {
   background-color: var(--light-gray)
 }
 
+.autocompletetext .btn {
+  border-radius: 0 !important;
+}
+
 .autocompletetext ul::before {
   content: "";
 }
