@@ -4,8 +4,11 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
 import { FaShoppingCart } from 'react-icons/fa';
-import CartPopUp from './CartPopUp';
+import CartToolTip from './CartToolTip';
+import ReactTooltip from "react-tooltip";
+
 const logo = undefined; // from "../../images/logo.png";
+
 
 const Brand = () => {
 
@@ -48,10 +51,15 @@ const Brand = () => {
           </p>
           <a className="small-cart" href=" /cart">{
             cartItems && cartItems.length > 0 ? cartItems.length : ""
-          }<FaShoppingCart /></a>
-          <div className="cart-popup">
-            <CartPopUp />
-          </div>
+          }<FaShoppingCart data-for='cartitem' data-tip /></a>
+          <ReactTooltip id='cartitem'
+            getContent={(dataTip) => <CartToolTip />}
+            className='customeTheme'
+            effect='solid'
+            border={false}
+            type={'dark'}
+            place={'left'}
+          ></ReactTooltip>
         </div>
       </div>
     </div >

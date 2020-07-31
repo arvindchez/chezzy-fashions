@@ -1340,22 +1340,13 @@ th {
 
 /*cart popup*/
 
-.cart-popup {
-  display: none;
-  border: solid 1px #ccc;
-  height: 5px;
-  z-index: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.small-cart:hover+.cart-popup {
-  display: block;
-  overflow: visible;
-  z-index: 100;
-  position: relative;
-}
-
-.cart-popup h6 {
+.cart-popup h6, p, .cartitem-summary {
   font-weight: bold;
+  font-family: var(--roboto);
+  font-size: small;
+}
+
+.customeTheme {
+  font-size: small !important;
+  color: var(--primary-color) !important;
 }
