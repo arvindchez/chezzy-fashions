@@ -107,7 +107,7 @@ class Product extends Component {
                     </article>
                 </Fade>
                 {product &&
-                    <Modal
+                    <Modal style={{ overlay: { zIndex: 3 } }}
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}>
                         <Zoom>
@@ -175,7 +175,6 @@ class Product extends Component {
                             </div>
                         </Zoom>
                     </Modal>
-
                 }
             </div >
         );

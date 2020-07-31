@@ -16,7 +16,7 @@ class Order extends Component {
         return (
             <div>
                 {order && (
-                    <Modal ariaHideApp={false} isOpen={true} onRequestClose={this.closeModal}>
+                    <Modal style={{ overlay: { zIndex: 3 } }} isOpen={true} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button className="btn btn-sm" onClick={this.closeModal}>x</button>
                             <div className="order-details">

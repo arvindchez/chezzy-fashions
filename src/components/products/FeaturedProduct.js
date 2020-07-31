@@ -106,7 +106,7 @@ class FeaturedProduct extends Component {
                     </article>
                 </Fade>
                 {product &&
-                    <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+                    <Modal style={{ overlay: { zIndex: 3 } }} isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button className="close-modal" onClick={this.closeModal}>x</button>
                             <div className="product-details">
@@ -148,6 +148,7 @@ class FeaturedProduct extends Component {
                                     </p>
                                     <div>
                                         <label>Price: {formatCurrency(product.price)}</label>
+                                        {" "}
                                         <button className="btn btn-success btn-sm"
                                             onClick={() => {
 
