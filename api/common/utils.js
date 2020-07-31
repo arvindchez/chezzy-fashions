@@ -8,4 +8,8 @@ const formatCurrency = (num) => {
     return Number(parseFloat(num).toFixed(1)).toLocaleString() + ` ${process.env.PAYMENT_CURRENCY} `;
 }
 
-module.exports = { convertToAppDate, formatCurrency }
+const escapeStringLiterals = (value) => {
+    return value.replace(/\\/g, "\\\\");
+}
+
+module.exports = { convertToAppDate, formatCurrency, escapeStringLiterals }

@@ -2,6 +2,7 @@ const express = require('express')
 const Product = require('../models/product')
 const multer = require('multer')
 const sharp = require('sharp')
+const { escapeStringLiterals } = require('../common/utils')
 
 const router = new express.Router()
 
@@ -41,19 +42,24 @@ router.delete("/products/:id", async (req, res) => {
 
 router.get('/products', async (req, res) => {
     try {
+
+        console.log(req.query.query)
+
         var query = {};
         if (req.query.query) {
+            const formattedString = escapeStringLiterals(req.query.query)
             query = {
                 title: {
-                    $in: new RegExp(req.query.query, "i")
+                    $in: new RegExp(formattedString, "i")
                 }
             };
         }
 
         if (req.query.category) {
+            const formattedString = escapeStringLiterals(req.query.category)
             query = {
                 category: {
-                    $in: new RegExp(req.query.category, "i")
+                    $in: new RegExp(formattedString, "i")
                 }
             };
         }
@@ -66,6 +72,7 @@ router.get('/products', async (req, res) => {
         const products = await Product.paginate(query, options)
         res.send({ result: products.docs, count: products.totalDocs })
     } catch (e) {
+        console.log(e)
         res.status(500).send()
     }
 })

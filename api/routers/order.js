@@ -4,7 +4,8 @@ const { sendOrderConfirmationMail } = require('../emails/account')
 const Order = require('../models/order')
 const Razorpay = require('razorpay')
 const crypto = require('crypto')
-const auth = require('../middleware/auth')
+const auth = require('../middleware/auth');
+const { escapeStringLiterals } = require('../common/utils');
 
 const router = new express.Router()
 
@@ -58,12 +59,13 @@ router.get('/orders/me', auth, async (req, res) => {
         }
 
         if (req.query.query) {
+            const formattedString = escapeStringLiterals(req.query.query)
             query = {
                 owner: {
                     $eq: req.user._id
                 },
                 _id: {
-                    $in: new RegExp(req.query.query, "i")
+                    $in: new RegExp(formattedString, "i")
                 }
             };
         }
