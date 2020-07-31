@@ -631,7 +631,7 @@ button.cartitem-addremove {
   grid-area: header;
   text-align: center;
   font-weight: bold;
-  background-color: #c4dbd8;
+  background-color: #f1f1d1;
 }
 
 .details {
@@ -1336,4 +1336,26 @@ th {
   .search {
     width: 250px;
   }
+}
+
+/*cart popup*/
+
+.cart-popup {
+  display: none;
+  border: solid 1px #ccc;
+  height: 5px;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.small-cart:hover+.cart-popup {
+  display: block;
+  overflow: visible;
+  z-index: 100;
+  position: relative;
+}
+
+.cart-popup h6 {
+  font-weight: bold;
 }

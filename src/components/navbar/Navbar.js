@@ -50,7 +50,6 @@ const Navbar = (props) => {
             </div>
           </Fade>
         </FlexContainer>
-
       </NavBar>
       <CollapseMenu
         navbarState={props.navbarState}

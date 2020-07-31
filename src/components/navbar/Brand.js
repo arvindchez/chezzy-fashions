@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from "../../actions/user"
 import { FaShoppingCart } from 'react-icons/fa';
+import CartPopUp from './CartPopUp';
 const logo = undefined; // from "../../images/logo.png";
 
 const Brand = () => {
@@ -48,10 +49,12 @@ const Brand = () => {
           <a className="small-cart" href=" /cart">{
             cartItems && cartItems.length > 0 ? cartItems.length : ""
           }<FaShoppingCart /></a>
+          <div className="cart-popup">
+            <CartPopUp />
+          </div>
         </div>
-
       </div>
-    </div>
+    </div >
   )
 }
 
