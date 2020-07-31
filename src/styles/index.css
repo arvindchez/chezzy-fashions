@@ -1349,7 +1349,7 @@ th {
   color: var(--primary-color) !important;
 }
 
-.cart-popup h6, p, .cartitem-summary {
+.cart-popup h6, .cart-popup p, .cartitem-summary {
   font-weight: bold;
   font-family: var(--roboto);
   font-size: small;
