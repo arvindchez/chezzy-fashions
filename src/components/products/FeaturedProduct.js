@@ -87,8 +87,7 @@ class FeaturedProduct extends Component {
                             <div className="price-top">
                                 <h6>{formatCurrency(price)}</h6>
                             </div>
-                            <p className="product-info">{title.length > 22 ?
-                                title.substring(0, 22) + "..." : title}</p>
+                            <p className="product-info">{title}</p>
                             <div className="price-top-right">
                                 <button className="btn btn-sm" onClick={() => {
                                     if (availableColours.length > 0) {
@@ -106,7 +105,8 @@ class FeaturedProduct extends Component {
 
                     </article>
                 </Fade>
-                {product &&
+                {
+                    product &&
                     <Modal style={{ overlay: { zIndex: 3 } }} isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button className="close-modal" onClick={this.closeModal}>x</button>

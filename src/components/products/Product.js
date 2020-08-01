@@ -76,18 +76,17 @@ class Product extends Component {
             <div>
                 <Fade bottom cascade>
                     <article className="product">
-                        <div className="img-container">
+                        <div className="img-container" >
                             <a
                                 href={"#" + _id}
                                 onClick={() => this.openModal(product)}
                             >
-                                <img src={imagePath + image || defaultImg} alt={title}></img>
+                                <img data-for='productitem' data-tip src={imagePath + image || defaultImg} alt={title}></img>
                             </a>
                             <div className="price-top">
                                 <h6>{formatCurrency(price)}</h6>
                             </div>
-                            <p className="product-info">{title.length > 22 ?
-                                title.substring(0, 22) + "..." : title}</p>
+                            <p className="product-info">{title}</p>
                             <div className="price-top-right">
                                 <button className="btn btn-sm" onClick={() => {
                                     if (availableColours.length > 0) {
@@ -102,7 +101,6 @@ class Product extends Component {
                                 }}><FaShoppingBasket /></button>
                             </div>
                         </div>
-
                     </article>
                 </Fade>
                 {product &&

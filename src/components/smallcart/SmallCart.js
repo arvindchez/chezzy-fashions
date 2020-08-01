@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
-import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
+import { FaChevronCircleRight, FaChevronCircleLeft, FaTrash } from 'react-icons/fa';
 import { removeFromCart, addToCart, removeByItemFromCart } from "../../actions/cart";
 import { formatCurrency } from "../../helper/utils";
 
@@ -46,13 +46,13 @@ class SmallCart extends Component {
                 <div className="cartitem-remove">
                   {formatCurrency(item.price)} x {item.count}{" "}
                   <Fade left cascade>
-                    <button className="btn btn-sm"
+                    <button className="btn btn-sm clear-background"
                       onClick={() => {
                         this.setState({ showCheckout: false })
                         this.props.removeFromCart(item)
                       }
                       }
-                    >Remove</button></Fade>
+                    ><FaTrash /></button></Fade>
                 </div>
               </div>
             </li>

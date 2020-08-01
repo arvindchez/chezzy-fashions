@@ -42,25 +42,30 @@ router.delete("/products/:id", async (req, res) => {
 
 router.get('/products', async (req, res) => {
     try {
-
         var query = {};
-        if (req.query.query) {
-            const formattedString = escapeStringLiterals(req.query.query)
-            query = {
-                title: {
-                    $in: new RegExp(formattedString, "i")
-                }
-            };
+
+        const title = req.query.title && escapeStringLiterals(req.query.title)
+        const category = req.query.category && escapeStringLiterals(req.query.category)
+
+        query = {
+            title: {
+                $in: new RegExp(title, "i")
+            },
+            category: {
+                $in: new RegExp(category, "i")
+            }
         }
 
-        if (req.query.category) {
-            const formattedString = escapeStringLiterals(req.query.category)
+        if (req.query.price) {
             query = {
-                category: {
-                    $in: new RegExp(formattedString, "i")
+                ...query,
+                price: {
+                    $lte: parseInt(req.query.price)
                 }
-            };
+            }
         }
+
+        console.log(req.query)
 
         var sortQuery = {};
         if (req.query.sort) {
@@ -80,26 +85,33 @@ router.get('/products', async (req, res) => {
             }
         }
 
-        const options = {
+        let options = {};
+        let products = await Product.paginate(query, options)
+
+        const result = {
+            colors: getUnique(products.docs, 'availableColours', false),
+            sizes: getUnique(products.docs, 'availableSizes', false),
+            sort: ['latest', 'lowest', 'highest'],
+            minPrice: Math.min.apply(Math, products.docs.map(function (o) { return o.price; })),
+            maxPrice: Math.max.apply(Math, products.docs.map(function (o) { return o.price; }))
+        }
+
+        options = {
             page: req.query.page ? req.query.page : process.env.PAGE_START_INDEX,
             limit: req.query.limit ? req.query.limit : process.env.PAGE_SIZE,
             sort: sortQuery
         };
 
-        // todo: fix the colors and sizes data  
-        const products = await Product.paginate(query, options)
-
+        products = await Product.paginate(query, options)
         const response = {
+            ...result,
             data: products.docs,
-            count: products.totalDocs,
-            colors: getUnique(products.docs, 'availableColours', false),
-            sizes: getUnique(products.docs, 'availableSizes', false),
-            sort: ['latest', 'lowest', 'highest']
+            count: products.totalDocs
         }
 
         res.send(response)
     } catch (e) {
-        res.status(500).send()
+        res.status(500).send(e)
     }
 })
 

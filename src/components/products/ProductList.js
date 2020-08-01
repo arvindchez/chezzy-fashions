@@ -7,25 +7,19 @@ import { fetchProducts, searchProducts } from "../../actions/product";
 import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
 
 const ProductList = (props) => {
-
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
         const offset = selectedPage + 1;
 
-        const { search, sort, size, color } = props.filters || {};
-
-        if (search || sort) {
-            props.searchProducts(
-                search || "",
-                sort || "",
-                offset,
-                process.env.REACT_APP_PAGE_SIZE,
-                false,
-                size || "",
-                color || "");
-        } else {
-            props.fetchProducts(offset, process.env.REACT_APP_PAGE_SIZE);
-        }
+        props.searchProducts(
+            props.filters ? ({
+                ...props.filters,
+                page: offset
+            }) : (
+                    {
+                        page: offset
+                    }
+                ));
     };
 
 
@@ -63,7 +57,6 @@ const ProductList = (props) => {
             </div>
             <div>
                 <ReactPaginate
-                    forcePage={0}
                     previousLabel={<FaChevronCircleLeft />}
                     nextLabel={<FaChevronCircleRight />}
                     breakLabel={"..."}

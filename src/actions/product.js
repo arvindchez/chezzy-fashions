@@ -68,37 +68,31 @@ export const fetchFeaturedProducts = () => async (dispatch) => {
     });
 };
 
-export const searchProducts = (
-    search,
-    sort = "latest",
-    page = process.env.REACT_APP_PAGE_START_INDEX,
-    limit = process.env.REACT_APP_PAGE_SIZE,
-    next = false) => async (dispatch) => {
-        let url = `products?page=${page}&limit=${limit}&query=${search}&sort=${sort}`;
-        if (next === true) {
-            url = `products?page=${page}&limit=${limit}&category=${search}&sort=${sort}`;
-        }
+export const searchProducts = (search) => async (dispatch) => {
+    const { price, title, category, sort, page, limit } = search;
 
-        const requestOptions = {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        };
+    let query = "";
+    price && (query += `price=${price}&`);
+    title && (query += `title=${title}&`);
+    category && (query += `category=${category}&`);
+    query += `sort=${sort || "latest"}&`;
+    query += `page=${page || process.env.REACT_APP_PAGE_START_INDEX}&`;
+    query += `limit=${limit || process.env.REACT_APP_PAGE_SIZE}`;
 
-        const data = await fetch(url, requestOptions).then(handleResponse);
+    let url = `products?${query}`;
 
-
-        console.log(search)
-
-        const filters = {
-            search: search,
-            sort: sort
-        }
-
-        dispatch({
-            type: FILTER_PRODUCTS_BY_SEARCH,
-            payload: {
-                filters: filters,
-                data: data
-            },
-        });
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
     };
+
+    const data = await fetch(url, requestOptions).then(handleResponse);
+
+    dispatch({
+        type: FILTER_PRODUCTS_BY_SEARCH,
+        payload: {
+            filters: search,
+            data: data
+        },
+    });
+};
