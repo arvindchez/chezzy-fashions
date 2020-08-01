@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { addToCart } from "../../actions/cart";
+import { FaShoppingBasket } from "react-icons/fa";
 
 Modal.setAppElement('#root');
 
@@ -99,7 +100,7 @@ class FeaturedProduct extends Component {
                                     }
 
                                     this.props.addToCart(product)
-                                }}>Add To Cart</button>
+                                }}><FaShoppingBasket /></button>
                             </div>
                         </div>
 
@@ -167,7 +168,7 @@ class FeaturedProduct extends Component {
                                                 this.props.addToCart(temp);
                                                 this.closeModal();
 
-                                            }}>Add To Cart</button>
+                                            }}><FaShoppingBasket /></button>
                                     </div>
                                 </div>
                             </div>

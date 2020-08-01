@@ -1,46 +1,22 @@
 import {
     FETCH_PRODUCTS,
-    FILTER_PRODUCTS_BY_SIZE,
     FILTER_PRODUCTS_BY_SEARCH,
-    ORDER_PRODUCTS_BY_PRICE,
-    FILTER_PRODUCTS_BY_COLOR,
     FETCH_FEATURED_PRODUCTS,
     FETCH_PRODUCTS_AUTOCOMPLETE
 } from "../constants/product";
 
 export const product = (state = {}, action) => {
     switch (action.type) {
-        case FILTER_PRODUCTS_BY_SIZE:
-            return {
-                ...state,
-                size: action.payload.size,
-                filteredItems: action.payload.items,
-            };
         case FILTER_PRODUCTS_BY_SEARCH:
             return {
                 ...state,
-                search: action.payload.search,
-                filteredItems: action.payload.items,
-                totalProducts: action.payload.totalProducts,
-                items: action.payload.items,
-            };
-        case FILTER_PRODUCTS_BY_COLOR:
-            return {
-                ...state,
-                color: action.payload.color,
-                filteredItems: action.payload.items,
-            };
-        case ORDER_PRODUCTS_BY_PRICE:
-            return {
-                ...state,
-                sort: action.payload.sort,
-                filteredItems: action.payload.items,
+                filters: action.payload.filters,
+                products: action.payload.data
             };
         case FETCH_PRODUCTS:
             return {
-                items: action.payload.data,
-                filteredItems: action.payload.data,
-                totalProducts: action.payload.totalProducts
+                ...state,
+                products: action.payload.data
             };
         case FETCH_PRODUCTS_AUTOCOMPLETE:
             return {

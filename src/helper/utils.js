@@ -9,14 +9,20 @@ export const convertToAppDate = date => {
 }
 
 export const convertToObject = (url) => {
-    const arr = url.slice(1).split(/&|=/); // remove the "?", "&" and "="
+    const arr = url.slice(1).split(/&|=/);
     let params = {};
 
     for (let i = 0; i < arr.length; i += 2) {
         const key = arr[i], value = arr[i + 1];
-        params[key] = value; // build the object = { limit: "10", page:"1", status:"APPROVED" }
+        params[key] = value;
     }
     return params;
 };
+
+export const getUnique = (items, value) => {
+    let type = [...new Set(items.map(item => item[value]))]
+    type = new Set(type.flat(1))
+    return ['All', ...type]
+}
 
 export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;

@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import ProductList from './ProductList'
 import { connect } from "react-redux";
 import { fetchProducts, searchProducts } from "../../actions/product";
-//import ProductFilter from './ProductFilter';
 import { useLocation } from 'react-router-dom'
 import { convertToObject } from "../../helper/utils"
 
@@ -20,6 +19,7 @@ const ProductContainer = (props) => {
             const searchCategory = convertToObject(location.search);
             props.searchProducts(
                 searchCategory.cat ? searchCategory.cat : searchCategory.title,
+                process.env.REACT_APP_DEFAULT_SORT,
                 process.env.REACT_APP_PAGE_START_INDEX,
                 process.env.REACT_APP_PAGE_SIZE,
                 searchCategory.cat ? true : false);
@@ -27,26 +27,13 @@ const ProductContainer = (props) => {
     }, [location.search])
 
     return (
-        <>
-
-            {/* <div>
-                {props.search && props.products.length > 0 && (
-                    <ProductFilter />
-                )}
-            </div>
-           */}
-
-            <div>
-                <ProductList />
-            </div>
-        </>
+        <section>
+            <ProductList />
+        </section>
     )
 }
 export default connect(
-    (state) => ({
-        products: state.products.filteredItems,
-        search: state.products.search
-    }),
+    (state) => ({}),
     {
         fetchProducts, searchProducts
     }

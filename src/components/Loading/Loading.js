@@ -1,11 +1,22 @@
 import React from 'react'
 import styled from "styled-components";
+import TopBarProgress from "react-topbar-progress-indicator";
+
+
+TopBarProgress.config({
+    barColors: {
+        "0": "#fff",
+        "1.0": "#fff"
+    },
+    shadowBlur: 5
+});
 
 const smallLoadingGif = "/images/gif/small-loading.gif";
 
 const Loading = () => {
     return (
         <div>
+            <TopBarProgress />
             <Image alt="Loading..." />
         </div>
     )

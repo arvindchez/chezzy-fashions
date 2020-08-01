@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Product from "./Product";
 import Loading from "../Loading/Loading";
@@ -6,76 +6,85 @@ import ReactPaginate from 'react-paginate';
 import { fetchProducts, searchProducts } from "../../actions/product";
 import { FaChevronCircleRight, FaChevronCircleLeft } from 'react-icons/fa';
 
-class ProductList extends Component {
+const ProductList = (props) => {
 
-    handlePageClick = (e) => {
+    const handlePageClick = (e) => {
         const selectedPage = e.selected;
         const offset = selectedPage + 1;
-        if (this.props.search) {
-            this.props.searchProducts(this.props.search, offset, process.env.REACT_APP_PAGE_SIZE, false);
+
+        const { search, sort, size, color } = props.filters || {};
+
+        if (search || sort) {
+            props.searchProducts(
+                search || "",
+                sort || "",
+                offset,
+                process.env.REACT_APP_PAGE_SIZE,
+                false,
+                size || "",
+                color || "");
         } else {
-            this.props.fetchProducts(offset, process.env.REACT_APP_PAGE_SIZE);
+            props.fetchProducts(offset, process.env.REACT_APP_PAGE_SIZE);
         }
     };
 
-    render() {
 
-        if (!this.props.products) {
-            return (
-                <div><Loading /></div>
-            )
-        }
-
-        if (this.props.products.length === 0 && this.props.search) {
-            return (
-                <div className="empty-search">
-                    <h3>Unfortunately no products matched to your search parameters</h3>
-                </div>
-            )
-        }
-
-
-        if (this.props.products.length === 0 && !this.props.search) {
-            return (
-                <div className="empty-search">
-                    <h3>No products in the store</h3>
-                </div>
-            )
-        }
-
+    if (!props.products) {
         return (
-            <section className="productslist">
-                <div className="productslist-center">
-                    {
-                        this.props.products.map((item, index) => {
-                            return <Product key={index} product={item} />
-                        })
-                    }
-                </div>
-                <div>
-                    <ReactPaginate
-                        previousLabel={<FaChevronCircleLeft />}
-                        nextLabel={<FaChevronCircleRight />}
-                        breakLabel={"..."}
-                        breakClassName={"break-me"}
-                        pageCount={Math.ceil(this.props.totalProducts / process.env.REACT_APP_PAGE_SIZE)}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        onPageChange={this.handlePageClick}
-                        containerClassName={"pagination"}
-                        subContainerClassName={"pages pagination"}
-                        activeClassName={"active"} />
-                </div>
-            </section>
+            <div><Loading /></div>
         )
     }
+
+    if (props.products.data.length === 0 && props.filters.search) {
+        return (
+            <div className="empty-search">
+                <h3>Unfortunately no products matched to your search parameters</h3>
+            </div>
+        )
+    }
+
+
+    if (props.products.data.length === 0 && !props.filters.search) {
+        return (
+            <div className="empty-search">
+                <h3>No products in the store</h3>
+            </div>
+        )
+    }
+
+    return (
+        <section className="productslist">
+            <div className="productslist-center">
+                {
+                    props.products.data.map((item, index) => {
+                        return <Product key={index} product={item} />
+                    })
+                }
+            </div>
+            <div>
+                <ReactPaginate
+                    forcePage={0}
+                    previousLabel={<FaChevronCircleLeft />}
+                    nextLabel={<FaChevronCircleRight />}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(props.products.count / process.env.REACT_APP_PAGE_SIZE)}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}
+                />
+            </div>
+        </section>
+    )
 }
 
 export default connect(
     (state) => ({
-        products: state.products.filteredItems,
-        totalProducts: state.products.totalProducts,
-        search: state.products.search
+        products: state.products.products,
+        filters: state.products.filters
     }),
     { fetchProducts, searchProducts }
 )(ProductList);

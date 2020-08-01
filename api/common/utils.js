@@ -12,4 +12,15 @@ const escapeStringLiterals = (value) => {
     return value.replace(/\\/g, "\\\\");
 }
 
-module.exports = { convertToAppDate, formatCurrency, escapeStringLiterals }
+const getUnique = (items, value, includeAll) => {
+    let type = [...new Set(items.map(item => item[value]))]
+    type = new Set(type.flat(1))
+    return includeAll ? ['All', ...type] : [...type];
+}
+
+module.exports = {
+    convertToAppDate,
+    formatCurrency,
+    escapeStringLiterals,
+    getUnique
+}

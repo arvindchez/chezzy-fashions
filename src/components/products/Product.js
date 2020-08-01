@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
+import { FaShoppingBasket } from "react-icons/fa";
 import { addToCart } from "../../actions/cart";
 
 Modal.setAppElement('#root');
@@ -72,7 +73,7 @@ class Product extends Component {
         const imagePath = `/images/${process.env.REACT_APP_NAME}/${category}/`;
 
         return (
-            <div >
+            <div>
                 <Fade bottom cascade>
                     <article className="product">
                         <div className="img-container">
@@ -87,8 +88,7 @@ class Product extends Component {
                             </div>
                             <p className="product-info">{title.length > 22 ?
                                 title.substring(0, 22) + "..." : title}</p>
-                            <div>
-
+                            <div className="price-top-right">
                                 <button className="btn btn-sm" onClick={() => {
                                     if (availableColours.length > 0) {
                                         product.selectedColor = availableColours[0]
@@ -99,9 +99,8 @@ class Product extends Component {
                                     }
 
                                     this.props.addToCart(product)
-                                }}>Add To Cart</button>
+                                }}><FaShoppingBasket /></button>
                             </div>
-
                         </div>
 
                     </article>
