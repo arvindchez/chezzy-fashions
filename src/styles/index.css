@@ -1496,3 +1496,34 @@ input[type="range"]::-ms-fill-upper {
 .row {
   margin-right: 0 !important;
 }
+
+.side-filter-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: calc(100vh - 100px);
+  column-gap: 5px;
+  row-gap: 5px;
+  height: 350px;
+}
+
+.price-filter {
+  flex: 1;
+  order: 1;
+  height: 10px;
+}
+
+.color-filter {
+  flex: 1;
+  height: 10px;
+  order: 2;
+}
+
+.color-filter .pl-0, .color-filter .px-0 {
+  padding-left: 2px !important;
+}
+
+.card span>div {
+  border: 1px dashed;
+  border-radius: 50%;
+}

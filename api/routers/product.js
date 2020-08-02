@@ -47,12 +47,21 @@ router.get('/products', async (req, res) => {
         const title = req.query.title && escapeStringLiterals(req.query.title)
         const category = req.query.category && escapeStringLiterals(req.query.category)
 
-        query = {
-            title: {
-                $in: new RegExp(title, "i")
-            },
-            category: {
-                $in: new RegExp(category, "i")
+        if (req.query.title) {
+            query = {
+                ...query,
+                title: {
+                    $in: new RegExp(title, "i")
+                }
+            }
+        }
+
+        if (req.query.category) {
+            query = {
+                ...query,
+                category: {
+                    $in: new RegExp(category, "i")
+                }
             }
         }
 
@@ -65,7 +74,14 @@ router.get('/products', async (req, res) => {
             }
         }
 
-        console.log(req.query)
+        if (req.query.color) {
+            query = {
+                ...query,
+                availableColours: {
+                    $eq: req.query.color
+                }
+            }
+        }
 
         var sortQuery = {};
         if (req.query.sort) {
@@ -85,9 +101,11 @@ router.get('/products', async (req, res) => {
             }
         }
 
-        let options = {};
-        let products = await Product.paginate(query, options)
+        let options = {
+            pagination: false
+        };
 
+        let products = await Product.paginate(query, options)
         const result = {
             colors: getUnique(products.docs, 'availableColours', false),
             sizes: getUnique(products.docs, 'availableSizes', false),
