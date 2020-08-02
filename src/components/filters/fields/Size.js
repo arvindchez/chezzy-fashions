@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux";
 import { searchProducts } from "../../../actions/product";
 import Fade from "react-reveal/Fade";
@@ -6,20 +6,21 @@ import { FaCheck } from "react-icons/fa"
 import ClearFilter from '../ClearFilter';
 import { criteria } from '../FilterEnum';
 
-class Size extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            checkedItems: new Map(),
-        }
-    }
+const Size = (props) => {
+    const [checkedItems, setCheckedItems] = useState(new Map());
 
-    handleChecked = (event) => {
+    useEffect(() => {
+        if (props.filters && props.filters.sizes && props.filters.sizes.length === 0) {
+            setCheckedItems(new Map());
+        }
+    }, [props.filters])
+
+    const handleChecked = (event) => {
         let filters = {};
         let sizes = [];
 
-        if (this.props.filters) {
-            filters = { ...this.props.filters };
+        if (props.filters) {
+            filters = { ...props.filters };
             sizes = filters.sizes && [...filters.sizes];
         }
 
@@ -43,33 +44,41 @@ class Size extends React.Component {
 
         const item = event.target.name;
         const isChecked = event.target.checked;
-        this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
 
-        this.props.searchProducts(query)
+        let list;
+        if (!checkedItems) {
+            list = new Map()
+        } else {
+            list = checkedItems
+        }
+
+        setCheckedItems(list.set(item, isChecked));
+
+        props.searchProducts(query)
     }
 
-    clearFilter = () => {
-        if (this.props.filters) {
+    const clearFilter = () => {
+        if (props.filters) {
             const query = {
-                ...this.props.filters,
+                ...props.filters,
                 sizes: [],
                 page: process.env.REACT_APP_PAGE_START_INDEX,
             }
 
-            this.setState(prevState => ({ checkedItems: new Map() }));
-            this.props.searchProducts(query)
+            setCheckedItems(new Map());
+            props.searchProducts(query)
         }
     }
 
-    renderSizes = () => {
+    const renderSizes = () => {
         return (
-            this.props.products.sizes.map((item, index) => {
+            props.products.sizes.map((item, index) => {
                 return (
                     <label key={item} htmlFor={item} className="btn text-left">
                         <input key={index} type="checkbox"
-                            checked={this.state.checkedItems.get(item) || false}
+                            checked={checkedItems.get(item) || false}
                             name={item} id={item} className="badgebox"
-                            onChange={this.handleChecked}
+                            onChange={handleChecked}
                         />
                         <span className="badge"><FaCheck /></span>
                         {" "}{item}
@@ -78,26 +87,25 @@ class Size extends React.Component {
             })
         )
     }
-    render() {
-        return (
-            <Fade bottom>
-                <div>
-                    <h6 className="mb-1 text-left p-3">Size
+
+    return (
+        <Fade bottom>
+            <div>
+                <h6 className="mb-1 text-left p-3">Size
                     <ClearFilter
-                            clearFilter={this.clearFilter}
-                            filters={this.props.filters}
-                            condition={criteria.SIZE} /></h6>
-                    <div className="size-filter-content">
-                        {this.props.products && this.props.products.sizes &&
-                            (
-                                this.renderSizes()
-                            )
-                        }
-                    </div>
+                        clearFilter={clearFilter}
+                        filters={props.filters}
+                        condition={criteria.SIZE} /></h6>
+                <div className="size-filter-content">
+                    {props.products && props.products.sizes &&
+                        (
+                            renderSizes()
+                        )
+                    }
                 </div>
-            </Fade >
-        )
-    }
+            </div>
+        </Fade >
+    )
 }
 
 export default connect(

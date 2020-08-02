@@ -43,11 +43,16 @@ const ClearFilter = ({ filters, condition, clearFilter }) => {
     }
 
     return (
-        <div>
-            {
-                show && <button className="filter-icon" onClick={clearFilter}><FcClearFilters /></button>
-            }
-        </div>
+        <>
+            <div>
+                {
+                    show && <button className="filter-icon"
+                        onClick={clearFilter}>
+                        <FcClearFilters size={20} /></button>
+
+                }
+            </div>
+        </>
     )
 }
 
