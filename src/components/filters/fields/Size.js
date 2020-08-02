@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { searchProducts } from "../../../actions/product";
 import Fade from "react-reveal/Fade";
 import { FaCheck } from "react-icons/fa"
+import ClearFilter from '../ClearFilter';
+import { criteria } from '../FilterEnum';
 
 class Size extends React.Component {
     constructor(props) {
@@ -11,6 +13,8 @@ class Size extends React.Component {
             checkedItems: new Map(),
         }
     }
+
+    const loggingIn = useSelector(state => state.products.filters);
 
     handleChecked = (event) => {
         let filters = {};
@@ -46,12 +50,26 @@ class Size extends React.Component {
         this.props.searchProducts(query)
     }
 
+    clearFilter = () => {
+        if (this.props.filters) {
+            const query = {
+                ...this.props.filters,
+                sizes: [],
+                page: process.env.REACT_APP_PAGE_START_INDEX,
+            }
+
+            this.setState(prevState => ({ checkedItems: new Map() }));
+            this.props.searchProducts(query)
+        }
+    }
+
     renderSizes = () => {
         return (
             this.props.products.sizes.map((item, index) => {
                 return (
                     <label key={item} htmlFor={item} className="btn text-left">
-                        <input key={index} type="checkbox" checked={this.state.checkedItems.get(item)}
+                        <input key={index} type="checkbox"
+                            checked={this.state.checkedItems.get(item) || false}
                             name={item} id={item} className="badgebox"
                             onChange={this.handleChecked}
                         />
@@ -66,7 +84,11 @@ class Size extends React.Component {
         return (
             <Fade bottom>
                 <div>
-                    <h6 className="mb-1 text-left p-3">Size</h6>
+                    <h6 className="mb-1 text-left p-3">Size
+                    <ClearFilter
+                            clearFilter={this.clearFilter}
+                            filters={this.props.filters}
+                            condition={criteria.SIZE} /></h6>
                     <div className="size-filter-content">
                         {this.props.products && this.props.products.sizes &&
                             (

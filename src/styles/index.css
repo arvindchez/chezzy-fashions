@@ -1580,3 +1580,15 @@ input[type="range"]::-ms-fill-upper {
 .badgebox:checked+.badge {
   text-indent: 0;
 }
+
+.filter-icon {
+  vertical-align: middle;
+  float: right;
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.filter-icon:focus {
+  outline: none !important;
+}

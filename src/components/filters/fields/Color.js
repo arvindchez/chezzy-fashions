@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { searchProducts } from "../../../actions/product";
 import Fade from "react-reveal/Fade";
 import { CirclePicker } from 'react-color';
+import ClearFilter from '../ClearFilter';
+import { criteria } from '../FilterEnum';
 var namer = require('color-namer');
 
 const Color = (props) => {
@@ -13,10 +15,29 @@ const Color = (props) => {
         setBackground(color.hex);
     };
 
+    const clearFilter = () => {
+        if (props.filters) {
+            const query = {
+                ...props.filters,
+                color: "",
+                page: process.env.REACT_APP_PAGE_START_INDEX,
+            }
+
+            setBackground("");
+            props.searchProducts(query)
+        }
+    }
+
     return (
         <Fade bottom>
             <div>
-                <h6 className="mb-1 text-left p-3">Colour</h6>
+                <h6 className="mb-1 text-left p-3">
+                    Colour
+                    <ClearFilter
+                        clearFilter={clearFilter}
+                        filters={props.filters}
+                        condition={criteria.COLOR} />
+                </h6>
                 <div className="form-check pl-0 mb-3">
                     <CirclePicker
                         color={background}
