@@ -14,8 +14,6 @@ class Size extends React.Component {
         }
     }
 
-    const loggingIn = useSelector(state => state.products.filters);
-
     handleChecked = (event) => {
         let filters = {};
         let sizes = [];
