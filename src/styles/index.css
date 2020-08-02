@@ -452,9 +452,14 @@ input {
 }
 
 button {
-  background-color: var(--primary-color) !important;
-  color: black !important;
-  outline: none !important;
+  background-color: var(--primary-color);
+  color: var(--mainBlack);
+  outline: none;
+}
+
+button:active {
+  background-color: var(--mainBlack);
+  color: var(--primary-color);
 }
 
 button.cartitem-addremove {
@@ -464,6 +469,10 @@ button.cartitem-addremove {
   margin-right: 10px;
   margin-left: 10px;
   outline: none;
+}
+
+.cartitem-addremove:active {
+  background-color: none !important;
 }
 
 .clear-cart {
@@ -1005,12 +1014,6 @@ button.cartitem-addremove {
   opacity: 0;
 }
 
-button:active {
-  background-color: black !important;
-  font-family: var(--roboto) !important;
-  color: var(--primary-color) !important;
-}
-
 .product-info {
   background: lightgray;
   text-transform: capitalize;
@@ -1409,6 +1412,7 @@ th {
   justify-content: space-between;
   text-align: center;
   min-height: 100vh;
+  margin: 100px;
 }
 
 .products-container>* {
@@ -1427,16 +1431,6 @@ th {
   margin-right: 10px;
   order: 2;
   border-radius: 50% !important;
-}
-
-.product-filter .card {
-  border: 1px solid var(--primary-color);
-  height: 1rem;
-  background-color: var(--primary-color);
-}
-
-.filter-header {
-  border: 1px solid var(--primary-color);
 }
 
 /*Chrome*/
@@ -1497,26 +1491,62 @@ input[type="range"]::-ms-fill-upper {
   margin-right: 0 !important;
 }
 
+/*filter side*/
+
 .side-filter-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   height: calc(100vh - 100px);
   column-gap: 5px;
-  row-gap: 5px;
-  height: 350px;
+  row-gap: 15px;
 }
 
 .price-filter {
-  flex: 1;
+  flex: 0 0 150px;
   order: 1;
-  height: 10px;
+}
+
+.category-filter {
+  flex: 1;
+  order: 2;
+}
+
+.side-filter-category-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+}
+
+.filter-block {
+  background: #fff;
+  border: none;
+  border-top: 6px solid var(--primary-color);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+  box-sizing: border-box;
 }
 
 .color-filter {
   flex: 1;
-  height: 10px;
+  order: 1;
+  margin: 5px;
+}
+
+.size-filter {
+  flex: 1;
   order: 2;
+}
+
+.size-filter-content {
+  display: grid;
+  justify-content: left;
+  text-transform: uppercase;
+}
+
+.size-filter-content>* {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: var(--roboto);
+  font-size: .8rem;
 }
 
 .color-filter .pl-0, .color-filter .px-0 {
@@ -1524,6 +1554,29 @@ input[type="range"]::-ms-fill-upper {
 }
 
 .card span>div {
-  border: 1px dashed;
+  border: .5px thin;
   border-radius: 50%;
+}
+
+/* Hiding the checkbox, but allowing it to be focused */
+
+.badgebox {
+  opacity: 0;
+}
+
+.badgebox+.badge {
+  text-indent: -999999px;
+  width: 27px;
+}
+
+.badge {
+  background-color: var(--primary-color) !important;
+}
+
+.badgebox:focus+.badge {
+  box-shadow: inset 0px 0px 5px;
+}
+
+.badgebox:checked+.badge {
+  text-indent: 0;
 }

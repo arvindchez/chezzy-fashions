@@ -15,32 +15,28 @@ const Color = (props) => {
 
     return (
         <Fade bottom>
-            <div className="card">
-                <div className="filter-header">
-                    <br></br>
-                    <h6 className="mb-1">Colour</h6>
-                    <hr className="my-4" />
-                    <div className="form-check pl-0 mb-3">
-                        <CirclePicker
-                            color={background}
-                            colors={props.products ? props.products.colors : []}
-                            circleSize={22}
-                            onChangeComplete={handleChangeComplete}
-                            onChange={(color, event) => {
-                                props.searchProducts(
-                                    props.filters ? ({
-                                        ...props.filters,
-                                        color: namer(color.hex).basic[0].name,
-                                        page: process.env.REACT_APP_PAGE_START_INDEX
-                                    }) : (
-                                            {
-                                                color: namer(color.hex).basic[0].name,
-                                                page: process.env.REACT_APP_PAGE_START_INDEX
-                                            }
-                                        ));
-                            }
-                            } />;
-                    </div>
+            <div>
+                <h6 className="mb-1 text-left p-3">Colour</h6>
+                <div className="form-check pl-0 mb-3">
+                    <CirclePicker
+                        color={background}
+                        colors={props.products ? props.products.colors : []}
+                        circleSize={22} p
+                        onChangeComplete={handleChangeComplete}
+                        onChange={(color, event) => {
+                            props.searchProducts(
+                                props.filters ? ({
+                                    ...props.filters,
+                                    color: namer(color.hex).basic[0].name,
+                                    page: process.env.REACT_APP_PAGE_START_INDEX
+                                }) : (
+                                        {
+                                            color: namer(color.hex).basic[0].name,
+                                            page: process.env.REACT_APP_PAGE_START_INDEX
+                                        }
+                                    ));
+                        }
+                        } />
                 </div>
             </div>
 

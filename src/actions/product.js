@@ -69,13 +69,18 @@ export const fetchFeaturedProducts = () => async (dispatch) => {
 };
 
 export const searchProducts = (search) => async (dispatch) => {
-    const { price, title, category, color, sort, page, limit } = search;
+    const { price, title, category, color, sizes, sort, page, limit } = search;
 
     let query = "";
     price && (query += `price=${price}&`);
     title && (query += `title=${title}&`);
     category && (query += `category=${category}&`);
     color && (query += `color=${color}&`);
+
+    if (sizes) {
+        query += `size=${sizes.join(",")}&`;
+    }
+
     query += `sort=${sort || "latest"}&`;
     query += `page=${page || process.env.REACT_APP_PAGE_START_INDEX}&`;
     query += `limit=${limit || process.env.REACT_APP_PAGE_SIZE}`;

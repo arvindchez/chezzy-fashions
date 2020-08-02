@@ -1,17 +1,17 @@
 import React from 'react';
 import Price from './fields/Price';
-import Color from './fields/Color';
+import FilterCategory from './FilterCategory';
 
 const FilterSide = () => {
 
     return (
         <section>
             <div className="side-filter-container">
-                <div className="price-filter">
+                <div className="price-filter filter-block">
                     <Price />
                 </div>
-                <div className="color-filter">
-                    <Color />
+                <div className="category-filter">
+                    <FilterCategory />
                 </div>
             </div>
         </section>

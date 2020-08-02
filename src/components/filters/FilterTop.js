@@ -11,7 +11,7 @@ const FilterTop = (props) => {
                         <div className="d-flex flex-wrap">
                             <div className="select-outline position-relative w-100">
                                 <label className="mb-1">
-                                    <h6 className="mb-1">Sort by</h6></label>{" "}
+                                    <h6 className="mb-1 text-uppercase">Sort by</h6></label>{" "}
                                 <select className="mdb-select text-capitalize border border-info"
                                     value={
                                         props.filters && props.filters.sort ?

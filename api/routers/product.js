@@ -83,6 +83,16 @@ router.get('/products', async (req, res) => {
             }
         }
 
+        if (req.query.size) {
+            const parameters = req.query.size.split(',');
+            query = {
+                ...query,
+                availableSizes: {
+                    $in: parameters
+                }
+            }
+        }
+
         var sortQuery = {};
         if (req.query.sort) {
             const { sort } = req.query;
