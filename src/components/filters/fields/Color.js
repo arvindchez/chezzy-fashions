@@ -38,8 +38,8 @@ const Color = (props) => {
                         filters={props.filters}
                         condition={criteria.COLOR} />
                 </h6>
-                <div className="form-check pl-0 mb-3">
-                    <CirclePicker
+                <div className="pl-0 mb-3">
+                    <CirclePicker className="color-picker"
                         color={background}
                         colors={props.products ? props.products.colors : []}
                         circleSize={22} p
