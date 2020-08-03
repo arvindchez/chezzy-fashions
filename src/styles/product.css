@@ -98,7 +98,6 @@ button.button {
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-weight: bold;
 }
 
 .product-name a {
@@ -279,7 +278,6 @@ h2.product-name {
 @media only screen and (max-width: 1280px) and (min-width: 980px) {
     .add-to-links {
         height: auto;
-        padding: 10px 0;
         font-size: 11px;
     }
 }
