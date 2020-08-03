@@ -53,7 +53,7 @@ const FilterTop = (props) => {
                 </div>
                 <div className="item-count align-text-bottom">
                     <span
-                        class="badge badge-pill justify-content-center align-text-bottom badge-info text-capitalize ">
+                        className="badge badge-pill justify-content-center align-text-bottom badge-info text-capitalize ">
                         {itemsCount && itemsCount > 1 ?
                             " items" : " item"}  {itemsCount ? itemsCount : "0"}</span>
                 </div>

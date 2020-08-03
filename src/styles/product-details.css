@@ -1,0 +1,39 @@
+/* Product details modal start*/
+
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-height: 75vh;
+    top: 5rem;
+}
+
+.product-details img {
+    max-height: 100vh;
+    max-width: 46rem;
+    margin: 0 auto;
+}
+
+.product-details label {
+    max-height: 100vh;
+    max-width: 46rem;
+    margin: 0 auto;
+}
+
+.product-details-description {
+    flex: 1 1;
+    margin: 1rem;
+}
+
+.close-modal {
+    position: absolute;
+    right: 0;
+    top: 2rem;
+    z-index: 1000;
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 2.1rem;
+    background-color: white !important;
+}
+
+/* Product details modal end*/

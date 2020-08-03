@@ -73,22 +73,18 @@ class Product extends Component {
         const imagePath = `/images/${process.env.REACT_APP_NAME}/${category}/`;
 
         return (
-            <div>
-                <Fade bottom cascade>
-                    <article className="product">
-                        <div className="img-container" >
-                            <a
-                                href={"#" + _id}
-                                onClick={() => this.openModal(product)}
-                            >
-                                <img data-for='productitem' data-tip src={imagePath + image || defaultImg} alt={title}></img>
-                            </a>
-                            <div className="price-top">
-                                <h6>{formatCurrency(price)}</h6>
-                            </div>
-                            <p className="product-info">{title}</p>
-                            <div className="price-top-right">
-                                <button className="btn btn-sm" onClick={() => {
+            <Fade bottom cascade>
+                <div className="regular">
+                    <a className="product-image"
+                        href={"#" + _id}
+                        onClick={() => this.openModal(product)}>
+                        <img
+                            src={imagePath + image || defaultImg} alt={title}></img>
+                    </a>
+                    <div className="product-info" >
+                        <div className="button-container">
+                            <p>
+                                <button type="button" onClick={() => {
                                     if (availableColours.length > 0) {
                                         product.selectedColor = availableColours[0]
                                     }
@@ -98,86 +94,80 @@ class Product extends Component {
                                     }
 
                                     this.props.addToCart(product)
-                                }}><FaShoppingBasket /></button>
-                            </div>
+                                }}
+                                    title="Add to Cart"
+                                    className="button btn-cart show-options">
+                                    <span>
+                                        <span>
+                                            <i className="fa fa-shopping-basket"></i>
+                                        </span>
+                                    </span>
+                                </button>
+                            </p>
                         </div>
-                    </article>
-                </Fade>
-                {product &&
-                    <Modal style={{ overlay: { zIndex: 3 } }}
-                        isOpen={this.state.modalIsOpen}
-                        onRequestClose={this.closeModal}>
-                        <Zoom>
-                            <button className="close-modal" onClick={this.closeModal}>x</button>
-                            <div className="product-details">
-                                <img src={imagePath + product.image || defaultImg} alt={product.title}></img>
-                                <div className="product-details-description">
-                                    <p>
-                                        <strong>{product.title}</strong>
-                                    </p>
-                                    <p>{product.description}</p>
-                                    <p>
-                                        <label>Available Sizes:{" "}</label>
-                                        {product.availableSizes.map((x, index) => (
-                                            <span key={index}>
-                                                {" "}
-                                                {
-                                                    <button key={index}
-                                                        className={this.state.isSizeSet && this.state.setSize === x ?
-                                                            "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
-                                                        onClick={() => { this.addSelectedSize(x); }}
-                                                    > {x}
-                                                    </button>
-                                                }
-                                            </span>
-                                        ))}
-                                    </p>
-                                    <p>
-                                        <label>Available Colours:{" "}</label>
-                                        {product.availableColours.map((x, index) => (
-                                            <span key={index}>
-                                                {" "}
-                                                {<button key={index}
-                                                    className={this.state.isColorSet && this.state.setColor === x ?
-                                                        "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
-                                                    onClick={() => { this.addSelectedColor(x); }}
-                                                > {x} </button>
-                                                }
-                                            </span>
-                                        ))}
-                                    </p>
-                                    <div>
-                                        <label>Price: {formatCurrency(product.price)}</label>
-                                        {" "}<button className="btn btn-success btn-sm"
-                                            onClick={() => {
+                        <h2 className="product-name">
+                            <a href={"#" + _id}
+                                title={title}>{title}</a>
+                        </h2>
+                        <div className="price-box">
+                            <span className="regular-price">
+                                <span className="price">{formatCurrency(price)}</span>
+                            </span>
+                        </div>
+                    </div>
 
-                                                let { product } = this.state;
-                                                let temp = { ...product }
-
-                                                if ((!this.state.isColorSet && !this.state.setColor) && product.availableColours.length > 0) {
-                                                    temp.selectedColor = product.availableColours[0]
-
-                                                }
-
-                                                if ((!this.state.isSizeSet && !this.state.setSize) && product.availableSizes.length > 0) {
-                                                    temp.selectedSize = product.availableSizes[0]
-                                                }
-
-                                                this.props.addToCart(temp);
-                                                this.closeModal();
-
-                                            }}>Add To Cart</button>
-                                    </div>
-                                </div>
+                    <div className="hover">
+                        <a href={"#" + _id}
+                            title={title} className="product-image">
+                            <img
+                                src={imagePath + image || defaultImg}
+                                alt={title} />
+                        </a>
+                        <h2 className="product-name"><a
+                            href={"#" + _id}
+                            title={title}>{title}</a></h2>
+                        <div className="ratings">
+                            <div className="rating-box">
+                                <div className="rating" ></div>
                             </div>
-                        </Zoom>
-                    </Modal>
-                }
-            </div >
+                            <p className="rating-links">
+                                <a href={"#" + _id}>1 Review(s)</a>
+                            </p>
+                        </div>
+                        <div className="button-container">
+                            <p>
+                                <button type="button" onClick={() => {
+                                    if (availableColours.length > 0) {
+                                        product.selectedColor = availableColours[0]
+                                    }
+
+                                    if (availableSizes.length > 0) {
+                                        product.selectedSize = availableSizes[0]
+                                    }
+
+                                    this.props.addToCart(product)
+                                }}
+                                    title="Add to Cart"
+                                    className="button btn-cart show-options">
+                                    <span>
+                                        <span>
+                                            <i className="fa fa-shopping-basket"></i>
+                                        </span>
+                                    </span>
+                                </button>
+                            </p>
+                        </div>
+                        <ul className="add-to-links">
+                            <li><a href={"#" + _id}
+                                className="link-wishlist" ><span>+</span>Add to Wishlist</a></li>
+                            <li><a href={"#" + _id} className="link-compare"><span>+</span>Add to Compare</a></li>
+                        </ul>
+                    </div>
+                </div >
+            </Fade>
         );
     }
 }
-
 
 export default connect(
     (state) => ({}),

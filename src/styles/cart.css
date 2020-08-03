@@ -1,0 +1,151 @@
+.cartitem-addremove:active {
+    background-color: none !important;
+}
+
+.clear-cart {
+    margin-bottom: 5px;
+}
+
+.cartitem-count p {
+    margin-bottom: 0 !important;
+    font-weight: bold;
+}
+
+.cartitem-counter {
+    color: black;
+}
+
+.cartitem-count {
+    display: flex;
+}
+
+.cartitem-remove {
+    float: right;
+}
+
+.cartitem-remove .clear-background {
+    background-color: transparent !important;
+}
+
+.empty-cart {
+    height: 20rem;
+    width: 20rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.empty-cart-smile {
+    height: 1rem;
+    width: 1rem;
+}
+
+.empty-cart-container {
+    text-align: center;
+}
+
+@media screen and (max-width: 430px) {
+    .empty-cart {
+        height: 10rem;
+        width: 10rem;
+    }
+}
+
+/* Cart Details start */
+
+.cartlist-container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template: "header header header" 60px "main main side" minmax(300px, 1fr);
+    font-family: var(--roboto);
+}
+
+.cartlist-item {
+    padding: 5px;
+}
+
+.summary {
+    grid-area: header;
+    text-align: center;
+    font-weight: bold;
+    background-color: #f1f1d1;
+}
+
+.details {
+    grid-area: main;
+}
+
+.total {
+    grid-area: side;
+}
+
+.total a {
+    background-color: #45ccb8;
+    border: 1px solid #660000;
+    border-radius: 5px;
+    color: #fff;
+    margin-right: 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+.small-basket {
+    bottom: 0px;
+    text-align: center;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.cart-items {
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+}
+
+.cart-items img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.cart-items li {
+    display: flex;
+    background-color: beige;
+    border-radius: 10px;
+    margin: 0 0 3px 0;
+    font-size: 0.9rem;
+}
+
+.cart-items li div {
+    padding: 0.5rem;
+}
+
+.cart-items li div:last-child {
+    flex: 1;
+}
+
+@media screen and (max-width: 430px) {
+    .cartlist-container {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: start;
+    }
+}
+
+@media screen and (min-width: 776px) {
+    .cartlist-container {
+        width: 90vw;
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .cartlist-container {
+        width: 95vw;
+        max-width: 1170px;
+    }
+}
+
+/* end*/

@@ -1,0 +1,240 @@
+/*filter side*/
+
+.side-filter-container {
+    display: flex;
+    flex-direction: column;
+    column-gap: 5px;
+    row-gap: 15px;
+}
+
+.price-filter {
+    flex: 2;
+    order: 1;
+}
+
+.category-filter {
+    flex: 8;
+    order: 2;
+}
+
+.side-filter-category-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+}
+
+.filter-block {
+    background: #fff;
+    border: none;
+    border-top: 6px solid var(--primary-color);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
+}
+
+.badge-info {
+    font-size: .9rem;
+    font-weight: normal !important;
+}
+
+.color-filter {
+    flex: 1;
+    order: 1;
+    margin: 5px;
+}
+
+.size-filter {
+    flex: 1;
+    order: 2;
+}
+
+.size-filter-content {
+    display: grid;
+    justify-content: left;
+    text-transform: uppercase;
+}
+
+.size-filter-content>* {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: var(--roboto);
+    font-size: .8rem;
+}
+
+.color-filter .pl-0, .color-filter .px-0 {
+    padding-left: 2px !important;
+}
+
+.card span>div {
+    border: .5px thin;
+    border-radius: 50%;
+}
+
+.badgebox {
+    opacity: 0;
+}
+
+.badgebox+.badge {
+    text-indent: -999999px;
+    width: 27px;
+}
+
+.badge {
+    background-color: var(--primary-color) !important;
+}
+
+.badgebox:focus+.badge {
+    box-shadow: inset 0px 0px 5px;
+}
+
+.badgebox:checked+.badge {
+    text-indent: 0;
+}
+
+.filter-icon {
+    vertical-align: middle;
+    float: right;
+    background-color: transparent !important;
+    outline: none !important;
+    border: none !important;
+}
+
+.filter-icon:focus {
+    outline: none !important;
+}
+
+.color-picker {
+    width: 100% !important;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 80%;
+    border: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 90%;
+    height: 6px;
+    cursor: pointer;
+    background: gray;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 30px;
+    width: 6px;
+    border-radius: 3px;
+    background: var(--primary-color);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -14px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: gray;
+}
+
+input[type=range]::-moz-range-track {
+    width: 90%;
+    height: 6px;
+    cursor: pointer;
+    background: gray;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 30px;
+    width: 6px;
+    border-radius: 3px;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 90%;
+    height: 6px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: gray;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: gray;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    height: 34px;
+    width: 6px;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: gray;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: gray;
+}
+
+/*filter top*/
+
+.filter-top-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+    padding: 5px;
+    column-gap: 5px;
+    row-gap: 15px;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 430px) {
+    .filter-top-container {
+        justify-content: center;
+    }
+}
+
+.sortby-filter {
+    flex: 0 1 200px;
+    order: 1;
+    font-size: .9rem;
+    font-family: var(--roboto);
+}
+
+.item-count {
+    flex: 0 1 200px;
+    order: 2;
+    font-size: .6rem;
+    font-family: var(--roboto);
+}
+
+.arrow-closed, .arrow-open {
+    border: solid #999;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    position: absolute;
+    right: 10px;
+}
+
+.arrow-closed {
+    top: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.arrow-open {
+    top: 14px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
