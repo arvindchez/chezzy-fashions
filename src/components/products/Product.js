@@ -11,7 +11,6 @@ class Product extends Component {
             product: null,
             isColorSet: false,
             isSizeSet: false,
-            modalIsOpen: false,
             setSize: "",
             setColor: ""
         };

@@ -8,6 +8,8 @@
 
 html, body {
   height: 100%;
+  background: #fafafa;
+  overflow-x: hidden;
 }
 
 :root {
@@ -254,95 +256,6 @@ body {
   padding: 1rem;
   letter-spacing: var(--mainSpacing);
 }
-
-/* product start */
-
-.product {
-  box-shadow: var(--lightShadow);
-  transition: var(--mainTransition);
-}
-
-.product:hover {
-  box-shadow: var(--darkShadow);
-}
-
-.img-container {
-  position: relative;
-}
-
-.img-container img {
-  width: 100%;
-  display: block;
-  transition: var(--mainTransition);
-}
-
-.img-container:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.img-container:hover img {
-  opacity: 0.6;
-}
-
-.img-container:hover .price-top {
-  opacity: 0;
-}
-
-.img-container:hover .price-top-right {
-  opacity: 1;
-}
-
-.img-container:hover .room-link {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.price-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(72, 72, 73, 0.8);
-  color: var(--mainWhite);
-  padding: 0.3rem 0.6rem 0.5rem;
-  border-bottom-right-radius: 1rem;
-  font-size: 0.5rem;
-  font-weight: bold;
-  text-align: center;
-  transition: var(--mainTransition);
-}
-
-.featured-center .price-top {
-  position: absolute;
-  top: 0;
-  left: 3px;
-  background: rgba(72, 72, 73, 0.8);
-  color: var(--mainWhite);
-  padding: 0.3rem 0.6rem 0.5rem;
-  border-bottom-right-radius: 1rem;
-  font-size: 0.5rem;
-  font-weight: bold;
-  text-align: center;
-  transition: var(--mainTransition);
-}
-
-.price-top h6 {
-  margin-bottom: 0;
-  font-size: 0.7rem;
-  color: white;
-}
-
-.price-top-right {
-  position: absolute;
-  top: 0;
-  right: 3px;
-  border-bottom-left-radius: 1rem;
-  font-size: 0.5rem;
-  font-weight: bold;
-  text-align: center;
-  transition: var(--mainTransition);
-  opacity: 0;
-}
-
-/* end of product  */
 
 /* Checkout form */
 

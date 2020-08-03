@@ -1,4 +1,4 @@
-.regular {
+.regular, .featured {
     position: relative;
     background: #fff;
     border: 9px solid #fff;
@@ -156,18 +156,6 @@ h2.product-name {
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     grid-row-gap: 1rem;
     grid-column-gap: 20px;
-}
-
-.productslist-center .price-top-right {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    border-bottom-left-radius: 1rem;
-    font-size: 0.5rem;
-    font-weight: bold;
-    text-align: center;
-    transition: var(--mainTransition);
-    opacity: 0;
 }
 
 @media screen and (min-width: 776px) {

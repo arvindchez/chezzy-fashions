@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { formatCurrency } from "../../helper/utils";
 import Fade from "react-reveal/Fade";
-import Modal from "react-modal";
-import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { addToCart } from "../../actions/cart";
-import { FaShoppingBasket } from "react-icons/fa";
-
-Modal.setAppElement('#root');
+import StarRatingComponent from 'react-star-rating-component';
 
 class FeaturedProduct extends Component {
     constructor(props) {
@@ -16,80 +12,30 @@ class FeaturedProduct extends Component {
             product: null,
             isColorSet: false,
             isSizeSet: false,
-            modalIsOpen: false,
             setSize: "",
             setColor: ""
         };
     }
 
-    openModal = (product) => {
-        this.setState({
-            product: product,
-            modalIsOpen: true,
-            isColorSet: false,
-            isSizeSet: false,
-            setSize: "",
-            setColor: ""
-        });
-    };
-
-    closeModal = () => {
-        this.setState({
-            product: null,
-            modalIsOpen: false,
-            isColorSet: false,
-            isSizeSet: false,
-            setSize: "",
-            setColor: ""
-        });
-    };
-
-    addSelectedColor = (color) => {
-        let { product } = this.state;
-        let temp = { ...product }
-        temp.selectedColor = color;
-        this.setState({
-            product: temp,
-            isColorSet: true,
-            setColor: color
-        })
-    };
-
-    addSelectedSize = (size) => {
-        let { product } = this.state;
-        let temp = { ...product }
-        temp.selectedSize = size;
-        this.setState({
-            product: temp,
-            isSizeSet: true,
-            setSize: size
-        })
-    };
-
     render() {
         const { product } = this.props;
-        const { _id, title, availableColours, category, availableSizes, image, price } = product;
+        const { _id, title, availableColours, category, availableSizes, rating, image, price } = product;
         const defaultImg = "/images/common/no-product-image.png";
         const imagePath = `/images/${process.env.REACT_APP_NAME}/${category}/`;
 
         return (
-
-            <div>
-                <Fade bottom cascade>
-                    <article className="product">
-                        <div className="img-container">
-                            <a
-                                href={"#" + _id}
-                                onClick={() => this.openModal(product)}
-                            >
-                                <img src={imagePath + image || defaultImg} alt={title}></img>
-                            </a>
-                            <div className="price-top">
-                                <h6>{formatCurrency(price)}</h6>
-                            </div>
-                            <p className="product-info">{title}</p>
-                            <div className="price-top-right">
-                                <button className="btn btn-sm" onClick={() => {
+            <Fade bottom cascade>
+                <div className="featured">
+                    <a className="product-image"
+                        href={"#" + _id}
+                        onClick={() => this.openModal(product)}>
+                        <img
+                            src={imagePath + image || defaultImg} alt={title}></img>
+                    </a>
+                    <div className="product-info" >
+                        <div className="button-container">
+                            <p>
+                                <button type="button" onClick={() => {
                                     if (availableColours.length > 0) {
                                         product.selectedColor = availableColours[0]
                                     }
@@ -99,84 +45,39 @@ class FeaturedProduct extends Component {
                                     }
 
                                     this.props.addToCart(product)
-                                }}><FaShoppingBasket /></button>
-                            </div>
+                                }}
+                                    title="Add to Cart"
+                                    className="button btn-cart show-options">
+                                    <span>
+                                        <span>
+                                            <i className="fa fa-shopping-basket"></i>
+                                        </span>
+                                    </span>
+                                </button>
+                            </p>
                         </div>
-
-                    </article>
-                </Fade>
-                {
-                    product &&
-                    <Modal style={{ overlay: { zIndex: 3 } }} isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
-                        <Zoom>
-                            <button className="close-modal" onClick={this.closeModal}>x</button>
-                            <div className="product-details">
-                                <img src={imagePath + product.image || defaultImg} alt={product.title}></img>
-                                <div className="product-details-description">
-                                    <p>
-                                        <strong>{product.title}</strong>
-                                    </p>
-                                    <p>{product.description}</p>
-                                    <p>
-                                        <label>Available Sizes:{" "}</label>
-                                        {product.availableSizes.map((x, index) => (
-                                            <span key={index}>
-                                                {" "}
-                                                {
-                                                    <button key={index}
-                                                        className={this.state.isSizeSet && this.state.setSize === x ?
-                                                            "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
-                                                        onClick={() => { this.addSelectedSize(x); }}
-                                                    > {x}
-                                                    </button>
-                                                }
-                                            </span>
-                                        ))}
-                                    </p>
-                                    <p>
-                                        <label>Available Colours:{" "}</label>
-                                        {product.availableColours.map((x, index) => (
-                                            <span key={index}>
-                                                {" "}
-                                                {<button key={index}
-                                                    className={this.state.isColorSet && this.state.setColor === x ?
-                                                        "btn btn-sm option-button-selected" : "btn btn-sm option-button"}
-                                                    onClick={() => { this.addSelectedColor(x); }}
-                                                > {x} </button>
-                                                }
-                                            </span>
-                                        ))}
-                                    </p>
-                                    <div>
-                                        <label>Price: {formatCurrency(product.price)}</label>
-                                        {" "}
-                                        <button className="btn btn-success btn-sm"
-                                            onClick={() => {
-
-                                                let { product } = this.state;
-                                                let temp = { ...product }
-
-                                                if ((!this.state.isColorSet && !this.state.setColor) && product.availableColours.length > 0) {
-                                                    temp.selectedColor = product.availableColours[0]
-
-                                                }
-
-                                                if ((!this.state.isSizeSet && !this.state.setSize) && product.availableSizes.length > 0) {
-                                                    temp.selectedSize = product.availableSizes[0]
-                                                }
-
-                                                this.props.addToCart(temp);
-                                                this.closeModal();
-
-                                            }}><FaShoppingBasket /></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Zoom>
-                    </Modal>
-
-                }
-            </div >
+                        <h2 className="product-name">
+                            <a href={"#" + _id}
+                                title={title}>{title}</a>
+                        </h2>
+                        <div className="price-box">
+                            <span className="regular-price">
+                                <span className="price">{formatCurrency(price)}</span>
+                            </span>
+                        </div>
+                        <div className="ratings">
+                            <p className="rating-links">
+                                <StarRatingComponent
+                                    name="rating"
+                                    editing={false}
+                                    starCount={process.env.REACT_APP_RATING_MAX}
+                                    value={rating}
+                                />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </Fade>
         );
     }
 }

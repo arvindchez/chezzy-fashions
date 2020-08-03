@@ -20,8 +20,6 @@ header .site-title {
 }
 
 main {
-    margin-top: 10px;
-    margin-bottom: 10px;
     min-height: 100vh;
 }
 
@@ -113,3 +111,34 @@ main {
 }
 
 /* Navbar end*/
+
+.products-container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .products-container {
+        width: 460px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .products-container {
+        width: 320px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width:980px) and (max-width:1280px) {
+    .products-container {
+        width: 960px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    .products-container {
+        width: 750px;
+    }
+}
