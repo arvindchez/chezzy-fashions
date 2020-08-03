@@ -42,7 +42,7 @@ const Color = (props) => {
                     <CirclePicker className="color-picker"
                         color={background}
                         colors={props.products ? props.products.colors : []}
-                        circleSize={22} p
+                        circleSize={22}
                         onChangeComplete={handleChangeComplete}
                         onChange={(color, event) => {
                             props.searchProducts(

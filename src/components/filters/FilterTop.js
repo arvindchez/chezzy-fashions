@@ -1,48 +1,64 @@
 import React from 'react';
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { searchProducts } from "../../actions/product";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 
 const FilterTop = (props) => {
+
+    const itemsCount = useSelector(state =>
+        state.products &&
+        state.products.products &&
+        state.products.products.count);
+
+    const onChangeSelected = (option) => {
+        props.searchProducts(
+            props.filters ? ({
+                ...props.filters,
+                sort: option.label,
+                page: process.env.REACT_APP_PAGE_START_INDEX
+            }) : (
+                    {
+                        sort: option.label,
+                        page: process.env.REACT_APP_PAGE_START_INDEX
+                    }
+                ))
+    }
+
+    const arrowClosed = (
+        <span className="arrow-closed" />
+    )
+    const arrowOpen = (
+        <span className="arrow-open" />
+    )
+
     return (
         <section>
-            <section className="mb-3">
-                <div className="row d-flex align-items-left">
-                    <div className="col-12 col-md-5">
-                        <div className="d-flex flex-wrap">
-                            <div className="select-outline position-relative w-100">
-                                <label className="mb-1">
-                                    <h6 className="mb-1 text-uppercase">Sort by</h6></label>{" "}
-                                <select className="mdb-select text-capitalize border border-info"
-                                    value={
-                                        props.filters && props.filters.sort ?
-                                            props.filters.sort.toLowerCase() : process.env.REACT_APP_DEFAULT_SORT
-                                    }
-                                    onChange={(e) =>
-                                        props.searchProducts(
-                                            props.filters ? ({
-                                                ...props.filters,
-                                                sort: e.target.value,
-                                                page: process.env.REACT_APP_PAGE_START_INDEX
-                                            }) : (
-                                                    {
-                                                        sort: e.target.value,
-                                                        page: process.env.REACT_APP_PAGE_START_INDEX
-                                                    }
-                                                ))
-                                    }
-                                >
-                                    {
-                                        props.products && (props.products.sort.map((item, index) => {
-                                            return <option key={index} value={item}>{item}</option>
-                                        }))
-                                    }
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+            <div className="filter-top-container">
+                <div className="sortby-filter align-items-left">
+                    <label className="mb-1 text-uppercase">
+                        Sort by</label>{" "}
+                    <Dropdown options={props.products ? props.products.sort : []}
+                        value={props.filters && props.filters.sort ?
+                            props.filters.sort.toLowerCase() : process.env.REACT_APP_DEFAULT_SORT
+                        }
+
+                        placeholder="Select an option"
+                        className="text-capitalize filter-block"
+                        onChange={onChangeSelected}
+                        arrowClosed={arrowClosed}
+                        arrowOpen={arrowOpen}
+                    />
                 </div>
-            </section>
-        </section >
+                <div className="item-count align-text-bottom">
+                    <span
+                        class="badge badge-pill justify-content-center align-text-bottom badge-info text-capitalize ">
+                        {itemsCount && itemsCount > 1 ?
+                            " items" : " item"}  {itemsCount ? itemsCount : "0"}</span>
+                </div>
+            </div>
+        </section>
     )
 }
 
