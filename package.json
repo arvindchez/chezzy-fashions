@@ -41,6 +41,7 @@
     "react-slick": "^0.27.1",
     "react-spring": "^8.0.27",
     "react-star-rating-component": "^1.4.1",
+    "react-toastify": "^6.0.8",
     "react-tooltip": "^4.2.7",
     "react-topbar-progress-indicator": "^4.1.0",
     "redux": "^4.0.5",

@@ -49,7 +49,7 @@
 
 .button-container p {
     display: block;
-    margin-block-end: 1em;
+    margin-bottom: 0;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }

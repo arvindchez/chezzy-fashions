@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-script-url */
 import React, { useState, useEffect } from 'react'
 import { formatCurrency, inStock } from "../../helper/utils"
 import { useLocation } from 'react-router-dom';
@@ -8,21 +10,77 @@ import { CirclePicker } from 'react-color';
 import { connect } from "react-redux";
 import { GiLargeDress, } from "react-icons/gi";
 import ReactTooltip from 'react-tooltip';
+import { addToCart } from "../../actions/cart";
+import { useDispatch } from 'react-redux';
+import { alertActions } from '../../actions/alert';
+
+var namer = require('color-namer');
 
 const ProductDetails = (props) => {
 
     let location = useLocation();
-    const productId = location.state.id;
-    const [product, setProduct] = useState(undefined)
+    const productId = location.state && location.state.id;
+    const [product, setProduct] = useState(undefined);
+    const [count, setCount] = useState(1);
+    const [colorSelected, setBackground] = useState(undefined);
+    const [sizeSelected, setSizeSelected] = useState(undefined);
+
+    const dispatch = useDispatch();
+
+    const incrementItem = () => {
+        setCount(count + 1);
+    }
+
+    const decreaseItem = () => {
+        if (count > 1) {
+            setCount(count - 1);
+        }
+    }
+
+    const handleColorComplete = (color) => {
+        setBackground(color.hex);
+    };
+
+    const handleSizeSelected = (size) => {
+        setSizeSelected(size);
+    }
+
     useEffect(() => {
         render();
     }, [props.products]);
 
     const render = () => {
-        if (props.products) {
+        if (props.products && productId) {
             const cProduct = props.products.data.find(item => item._id === productId)
             setProduct(cProduct)
         }
+    }
+
+    const handleAddToCart = () => {
+
+        if (!colorSelected && !sizeSelected) {
+            dispatch(alertActions.error('Please select color and size'));
+            return;
+        }
+
+        if (!sizeSelected) {
+            dispatch(alertActions.error('Please select size'));
+            return;
+        }
+        if (!colorSelected) {
+            dispatch(alertActions.error('Please select color'));
+            return;
+        }
+
+        if (!sizeSelected) {
+            dispatch(alertActions.error('Please select size'));
+            return;
+        }
+
+        product.selectedColor = colorSelected;
+        product.selectedSize = sizeSelected;
+        product.count = count;
+        props.addToCart(product);
     }
 
     if (!props.products) {
@@ -45,7 +103,7 @@ const ProductDetails = (props) => {
                 {
                     sizes.map((item, index) => {
                         return (
-                            <i key={index} class="fas"
+                            <i key={index} className="fas" onClick={() => { handleSizeSelected(item) }}
                                 style={{
                                     fontSize: `${index + 1}em`,
                                     margin: `0 auto`
@@ -70,20 +128,22 @@ const ProductDetails = (props) => {
                             </div>
                             <div className="product-category-info">
                                 <div className="products-info-content">
-                                    <div className="image-details">
-                                        <ReactImageMagnify {...{
-                                            smallImage: {
-                                                alt: 'Wristwatch by Ted Baker London',
-                                                width: 450,
-                                                height: 550,
-                                                src: `/images/${process.env.REACT_APP_NAME}/${product.category}/${product.image}`
-                                            },
-                                            largeImage: {
-                                                src: `/images/${process.env.REACT_APP_NAME}/${product.category}/${product.image}`,
-                                                width: 800,
-                                                height: 1100
-                                            }
-                                        }} />
+                                    <div className="product-img-box">
+                                        <div className="product-image">
+                                            <ReactImageMagnify {...{
+                                                smallImage: {
+                                                    alt: 'Wristwatch by Ted Baker London',
+                                                    width: 450,
+                                                    height: 550,
+                                                    src: `/images/${process.env.REACT_APP_NAME}/${product.category}/${product.image}`
+                                                },
+                                                largeImage: {
+                                                    src: `/images/${process.env.REACT_APP_NAME}/${product.category}/${product.image}`,
+                                                    width: 800,
+                                                    height: 1100
+                                                }
+                                            }} />
+                                        </div>
                                     </div>
                                     <div className="product-information">
                                         <div className="product-shop">
@@ -104,9 +164,9 @@ const ProductDetails = (props) => {
                                                                 <a href="#:0" >Be the first to review this product</a>
                                                             )
                                                     }
-                                                    <p class="rating-links">
+                                                    <p className="rating-links">
                                                         <a href="#:0">1 Review(s)</a>
-                                                        <span class="separator">|</span>
+                                                        <span className="separator">|</span>
                                                         <a href="#:0">Add Your Review</a>
                                                     </p>
                                                 </div>
@@ -124,38 +184,42 @@ const ProductDetails = (props) => {
                                                     <p className="std">{product.description}</p>
                                                 </div>
                                                 <div className="colors-available border-bottom">
-                                                    <p className="choices"><span className="required-field">*</span>Colours: <span></span></p>
+                                                    <p className="choices"><span className="required-field">*</span>Colours: {
+                                                        colorSelected && namer(colorSelected).basic[0].name}<span></span></p>
                                                     <CirclePicker className="color-picker"
                                                         colors={product.availableColours ?
                                                             product.availableColours : []}
                                                         circleSize={22}
+                                                        onChangeComplete={handleColorComplete}
                                                     />
                                                 </div>
                                                 <div className="sizes-available border-bottom">
-                                                    <p className="choices">
-                                                        <span className="required-field">*</span>Sizes: <span></span>
+                                                    <p className="choices-size">
+                                                        <span className="required-field">*</span>Sizes: {sizeSelected}<span></span>
                                                     </p>
                                                     {renderSizes(product.availableSizes)}
                                                 </div>
                                                 <p className="required">* Required Fields</p>
-                                                <div class="add-to-box-wrap">
-                                                    <div class="qty-container">
-                                                        <label for="qty">Quantity:</label>
-                                                        <div class="qty-wrap">
-                                                            <input type="text" name="qty" id="qty" maxlength="12"
-                                                                value="1" title="Quantity" class="input-text qty" />
-                                                            <div class="qty-elements">
-                                                                <a class="increment_qty" href="javascript:void(0)">
-                                                                    <i class="fa fa-plus fa-xs"></i>
+                                                <div className="add-to-box-wrap">
+                                                    <div className="qty-container">
+                                                        <label htmlFor="qty">Quantity:</label>
+                                                        <div className="qty-wrap">
+                                                            <input type="text" name="qty" id="qty" readOnly
+                                                                value={count} title="Quantity" className="input-text qty" />
+                                                            <div className="qty-elements">
+                                                                <a className="increment_qty" href="javascript:void(0)"
+                                                                    onClick={incrementItem}>
+                                                                    <i className="fa fa-plus fa-xs"></i>
                                                                 </a>
-                                                                <a class="decrement_qty" href="javascript:void(0)">
-                                                                    <i class="fa fa-minus fa-xs"></i>
+                                                                <a className="decrement_qty" href="javascript:void(0)"
+                                                                    onClick={decreaseItem}>
+                                                                    <i className="fa fa-minus fa-xs"></i>
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="add-to-box">
-                                                        <a class="btn" href="#">
+                                                    <div className="add-to-box">
+                                                        <a className="btn" href="#" onClick={handleAddToCart}>
                                                             <i className="fa fa-shopping-basket"></i>
                                                             {" "}Add to Cart</a>
                                                     </div>
@@ -167,7 +231,7 @@ const ProductDetails = (props) => {
                                                                 title="Add to Wishlist"
                                                                 className="button btn-cart show-options">
                                                                 <span className="icon">
-                                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                    <i className="fa fa-heart" aria-hidden="true"></i>
                                                                 </span>
                                                             </button>
                                                             <a href="#:0" className="link-wishlist" data-id="192">Add to Wishlist</a></li>
@@ -176,7 +240,7 @@ const ProductDetails = (props) => {
                                                                 title="Add to Compare"
                                                                 className="button btn-cart show-options">
                                                                 <span className="icon">
-                                                                    <i class="fa fa-clone" aria-hidden="true"></i>
+                                                                    <i className="fa fa-clone" aria-hidden="true"></i>
                                                                 </span>
                                                             </button>
                                                             <a href="#:0" className="link-compare" data-id="192">Add to Compare</a>
@@ -186,7 +250,7 @@ const ProductDetails = (props) => {
                                                                 title="Email to a Friend"
                                                                 className="button btn-cart show-options">
                                                                 <span className="icon">
-                                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                                    <i className="fa fa-envelope" aria-hidden="true"></i>
                                                                 </span>
                                                             </button>
                                                             <a href="#:0">Email to a Friend</a>
@@ -216,5 +280,5 @@ const ProductDetails = (props) => {
 export default connect(
     (state) => ({
         products: state.products.products
-    }),
+    }), { addToCart }
 )(ProductDetails);
