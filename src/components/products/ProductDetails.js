@@ -143,7 +143,7 @@ const ProductDetails = (props) => {
                                                                 title="Add to Compare"
                                                                 className="button btn-cart show-options">
                                                                 <span className="icon">
-                                                                    <i className="fa fa-shopping-basket"></i>
+                                                                    <i class="fa fa-clone" aria-hidden="true"></i>
                                                                 </span>
                                                             </button>
                                                             <a href="#:0" className="link-compare" data-id="192">Add to Compare</a>
