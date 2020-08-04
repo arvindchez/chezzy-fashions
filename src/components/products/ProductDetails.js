@@ -98,6 +98,11 @@ const ProductDetails = (props) => {
                                                                 <a href="#:0" >Be the first to review this product</a>
                                                             )
                                                     }
+                                                    <p class="rating-links">
+                                                        <a href="#:0">1 Review(s)</a>
+                                                        <span class="separator">|</span>
+                                                        <a href="#:0">Add Your Review</a>
+                                                    </p>
                                                 </div>
                                                 <div className="price-box">
                                                     <span className="regular-price" >
