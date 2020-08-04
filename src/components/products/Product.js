@@ -3,6 +3,7 @@ import { formatCurrency } from "../../helper/utils";
 import { connect } from "react-redux";
 import { addToCart } from "../../actions/cart";
 import StarRatingComponent from 'react-star-rating-component';
+import { Link } from "react-router-dom";
 
 class Product extends Component {
     constructor(props) {
@@ -24,12 +25,14 @@ class Product extends Component {
 
         return (
             <div className="regular">
-                <a className="product-image"
-                    href={"#" + _id}
-                    onClick={() => this.openModal(product)}>
+                <Link className="product-image"
+                    to={{
+                        pathname: `/details/${_id}`,
+                        state: { id: _id }
+                    }} >
                     <img
                         src={imagePath + image || defaultImg} alt={title}></img>
-                </a>
+                </Link>
                 <div className="product-info" >
                     <div className="button-container">
                         <p>
@@ -66,24 +69,27 @@ class Product extends Component {
                 </div>
 
                 <div className="hover">
-                    <a href={"#" + _id}
-                        title={title} className="product-image">
+                    <Link className="product-image"
+                        to={{
+                            pathname: `/details/${_id}`,
+                            state: { id: _id }
+                        }} >
                         <img
                             src={imagePath + image || defaultImg}
                             alt={title} />
-                    </a>
+                    </Link>
                     <h2 className="product-name"><a
                         href={"#" + _id}
                         title={title}>{title}</a></h2>
                     <div className="ratings">
-                        <p className="rating-links">
-                            <StarRatingComponent
-                                name="rating"
-                                editing={false}
-                                starCount={process.env.REACT_APP_RATING_MAX}
-                                value={rating}
-                            />
-                        </p>
+                        <p className="rating-links"></p>
+                        <StarRatingComponent
+                            name="rating"
+                            editing={false}
+                            starCount={parseInt(process.env.REACT_APP_RATING_MAX)}
+                            value={rating}
+                        />
+
                     </div>
                     <div className="button-container">
                         <p>

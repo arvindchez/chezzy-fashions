@@ -36,6 +36,14 @@ const productSchema = new mongoose.Schema(
                 }
             }
         },
+        sku: {
+            type: String,
+            required: true,
+        },
+        quantity: {
+            type: Number,
+            default: 0,
+        },
         featured: {
             type: Boolean,
             default: false,

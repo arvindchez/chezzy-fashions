@@ -16,6 +16,7 @@ import Processing from "./screens/Processing"
 import Fade from "react-reveal/Fade";
 import OrderDetails from "./screens/OrderDetails";
 import Footer from "./components/footer/Footer";
+import ProductDetails from "./components/products/ProductDetails";
 
 class App extends React.Component {
   state = {
@@ -47,6 +48,7 @@ class App extends React.Component {
               <PrivateRoute exact path="/myorders" component={OrderDetails} />
               <PrivateRoute exact path="/processing" component={Processing} />
               <Route exact path="/contactus" component={ContactUs} />
+              <Route exact path="/details/:id" component={ProductDetails} />
               <Route exact path="/cart" component={BigCart} />
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/register" component={RegisterPage} />

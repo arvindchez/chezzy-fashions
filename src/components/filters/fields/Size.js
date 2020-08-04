@@ -13,6 +13,9 @@ const Size = (props) => {
         if (props.filters && props.filters.sizes && props.filters.sizes.length === 0) {
             setCheckedItems(new Map());
         }
+        else if (!checkedItems) {
+            setCheckedItems([...props.filters.sizes]);
+        }
     }, [props.filters])
 
     const handleChecked = (event) => {

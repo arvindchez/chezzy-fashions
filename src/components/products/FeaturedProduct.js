@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import { addToCart } from "../../actions/cart";
 import StarRatingComponent from 'react-star-rating-component';
+import { Link } from "react-router-dom";
 
 class FeaturedProduct extends Component {
     constructor(props) {
@@ -26,12 +27,14 @@ class FeaturedProduct extends Component {
         return (
             <Fade bottom cascade>
                 <div className="featured">
-                    <a className="product-image"
-                        href={"#" + _id}
-                        onClick={() => this.openModal(product)}>
+                    <Link className="product-image"
+                        to={{
+                            pathname: `/details/${_id}`,
+                            state: { id: _id }
+                        }} >
                         <img
                             src={imagePath + image || defaultImg} alt={title}></img>
-                    </a>
+                    </Link>
                     <div className="product-info" >
                         <div className="button-container">
                             <p>
@@ -57,8 +60,12 @@ class FeaturedProduct extends Component {
                             </p>
                         </div>
                         <h2 className="product-name">
-                            <a href={"#" + _id}
-                                title={title}>{title}</a>
+                            <Link className="product-image"
+                                to={{
+                                    pathname: `/details/${_id}`,
+                                    state: { id: _id }
+                                }} />
+
                         </h2>
                         <div className="price-box">
                             <span className="regular-price">
@@ -66,18 +73,16 @@ class FeaturedProduct extends Component {
                             </span>
                         </div>
                         <div className="ratings">
-                            <p className="rating-links">
-                                <StarRatingComponent
-                                    name="rating"
-                                    editing={false}
-                                    starCount={process.env.REACT_APP_RATING_MAX}
-                                    value={rating}
-                                />
-                            </p>
+                            <p className="rating-links" />
+                            <StarRatingComponent
+                                name="rating"
+                                editing={false}
+                                starCount={parseInt(process.env.REACT_APP_RATING_MAX)}
+                                value={rating} />
                         </div>
                     </div>
                 </div>
-            </Fade>
+            </Fade >
         );
     }
 }

@@ -35,7 +35,9 @@ const Footer = () => {
                     <div className="col-md-3 subscribe">
                         <h4>Subscribe Our News Letter</h4>
                         <input type="text" name="subscribe" placeholder="Enter your email" />
-                        <button className="btn btn-success btn-sm">Subscribe</button>
+                        <span className="next position-top right-0 slick-arrow">
+                            <i className="fas fa-chevron-right fa-2x"></i>
+                        </span>
                     </div>
                 </div>
                 <div className="footer-bottom">

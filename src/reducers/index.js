@@ -11,12 +11,12 @@ import { authentication } from "../reducers/authentication";
 import { users } from "../reducers/users";
 import { carousel } from "../reducers/carousel";
 import { category } from "../reducers/category";
-import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 const persistConfig = {
     key: 'root',
     storage,
-    stateReconciler: hardSet,
+    stateReconciler: autoMergeLevel2,
     whitelist: [
         'products',
         'cart',

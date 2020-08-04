@@ -86,10 +86,13 @@ main {
 }
 
 .subscribe input {
-    height: 1rem;
-    font-size: 0.9rem;
     border: 1px solid var(--primary-color);
     border-radius: 0;
+}
+
+.subscribe .position-top {
+    position: relative;
+    margin: 10px;
 }
 
 /*Footer end*/

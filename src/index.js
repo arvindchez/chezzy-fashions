@@ -18,7 +18,8 @@ import Loading from "./components/Loading/Loading";
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <PersistGate loading={<Loading />} persistor={persistor}></PersistGate>
+      <PersistGate
+        loading={<Loading />} persistor={persistor} />
       <App />
     </Router></Provider>,
   document.getElementById("root")

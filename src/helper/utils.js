@@ -25,4 +25,8 @@ export const getUnique = (items, value) => {
     return ['All', ...type]
 }
 
+export const inStock = (count) => {
+    return count > 0 ? "in stock" : "out of stock";
+}
+
 export const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
