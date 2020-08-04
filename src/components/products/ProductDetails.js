@@ -3,7 +3,7 @@ import { formatCurrency, inStock } from "../../helper/utils"
 import { useLocation } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
 import Loading from '../Loading/Loading';
-import ReactImageZoom from 'react-image-zoom';
+import ReactImageMagnify from 'react-image-magnify';
 import { CirclePicker } from 'react-color';
 import { connect } from "react-redux";
 import { GiLargeDress, } from "react-icons/gi";
@@ -63,7 +63,6 @@ const ProductDetails = (props) => {
         <>
             {
                 product && (
-
                     <div className="products-details-container" >
                         <div className="col-main-wrap">
                             <div className="product-category-title">
@@ -72,12 +71,19 @@ const ProductDetails = (props) => {
                             <div className="product-category-info">
                                 <div className="products-info-content">
                                     <div className="image-details">
-                                        <ReactImageZoom
-                                            img={`/images/${process.env.REACT_APP_NAME}/${product.category}/${product.image}`}
-                                            width="400"
-                                            height="500"
-                                            zoomWidth="500"
-                                        />
+                                        <ReactImageMagnify {...{
+                                            smallImage: {
+                                                alt: 'Wristwatch by Ted Baker London',
+                                                width: 450,
+                                                height: 550,
+                                                src: `/images/${process.env.REACT_APP_NAME}/${product.category}/${product.image}`
+                                            },
+                                            largeImage: {
+                                                src: `/images/${process.env.REACT_APP_NAME}/${product.category}/${product.image}`,
+                                                width: 800,
+                                                height: 1100
+                                            }
+                                        }} />
                                     </div>
                                     <div className="product-information">
                                         <div className="product-shop">

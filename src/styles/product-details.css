@@ -58,6 +58,7 @@
 .image-details {
     display: flex;
     flex-direction: column;
+    z-index: 10;
 }
 
 .products-info-content {
@@ -160,10 +161,8 @@
 .social-links {
     margin: 10px 0 20px;
     padding: 17px 0;
-    border: 1px solid;
+    border-bottom: 1px solid;
     border-color: rgba(227, 227, 227, 0.61);
-    border-left: none;
-    border-right: none;
     color: rgba(0, 0, 0, 0.67);
     line-height: 1.6;
     float: left;
