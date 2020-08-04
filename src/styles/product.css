@@ -277,7 +277,8 @@ h2.product-name {
     }
 }
 
-.add-to-links a {
+.hover .add-to-links a {
     font-weight: .5rem;
     white-space: nowrap;
+    right: 15px;
 }
