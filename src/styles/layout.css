@@ -85,6 +85,11 @@ main {
     white-space: nowrap;
 }
 
+.subscribe .fas {
+    position: relative;
+    top: 6px;
+}
+
 .subscribe input {
     border: 1px solid var(--primary-color);
     border-radius: 0;

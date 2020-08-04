@@ -7,7 +7,6 @@ import ReactImageZoom from 'react-image-zoom';
 import { CirclePicker } from 'react-color';
 import { connect } from "react-redux";
 import { GiLargeDress, } from "react-icons/gi";
-import { MdEmail } from "react-icons/md";
 import ReactTooltip from 'react-tooltip';
 
 const ProductDetails = (props) => {
@@ -51,7 +50,8 @@ const ProductDetails = (props) => {
                                     fontSize: `${index + 1}em`,
                                     margin: `0 auto`
                                 }}
-                            ><GiLargeDress data-tip={item} /> <ReactTooltip /></i>
+                            ><GiLargeDress data-tip={item} />
+                                <ReactTooltip className="size-popup" /></i>
                         )
                     })
                 }
@@ -127,6 +127,28 @@ const ProductDetails = (props) => {
                                                     {renderSizes(product.availableSizes)}
                                                 </div>
                                                 <p className="required">* Required Fields</p>
+                                                <div class="add-to-box-wrap">
+                                                    <div class="qty-container">
+                                                        <label for="qty">Quantity:</label>
+                                                        <div class="qty-wrap">
+                                                            <input type="text" name="qty" id="qty" maxlength="12"
+                                                                value="1" title="Quantity" class="input-text qty" />
+                                                            <div class="qty-elements">
+                                                                <a class="increment_qty" href="javascript:void(0)">
+                                                                    <i class="fa fa-plus fa-xs"></i>
+                                                                </a>
+                                                                <a class="decrement_qty" href="javascript:void(0)">
+                                                                    <i class="fa fa-minus fa-xs"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-to-box">
+                                                        <a class="btn" href="#">
+                                                            <i className="fa fa-shopping-basket"></i>
+                                                            {" "}Add to Cart</a>
+                                                    </div>
+                                                </div>
                                                 <div>
                                                     <ul className="add-to-links">
                                                         <li className="wishlist">
@@ -159,6 +181,14 @@ const ProductDetails = (props) => {
                                                             <a href="#:0">Email to a Friend</a>
                                                         </li>
                                                     </ul>
+                                                </div>
+                                                <div className="social-links">
+                                                    <a href="https://www.facebook.com">
+                                                        <i className="fab fa-facebook"></i></a>
+                                                    <a href="#"><i className="fab fa-twitter"></i></a>
+                                                    <a href="https://www.instagram.com"><i className="fab fa-instagram"></i></a>
+                                                    <a href="#"><i className="fab fa-google-plus-g"></i></a>
+                                                    <a href="#"><i className="fab fa-youtube"></i></a>
                                                 </div>
                                             </div>
                                         </div>

@@ -20,6 +20,14 @@
     border-color: rgba(227, 227, 227, 0.61);
 }
 
+.colors-available {
+    width: 100%;
+}
+
+.sizes-available {
+    width: 100%;
+}
+
 .products-details-container {
     display: flex;
     justify-content: space-between;
@@ -81,6 +89,7 @@
 
 .product-shop-info .product-name {
     margin: -4px 0 10px -1px;
+    width: 100%;
 }
 
 .product-shop-info h1 {
@@ -98,6 +107,7 @@
 
 .price-box {
     display: table;
+    width: 100%;
 }
 
 .product-shop .price-box .regular-price {
@@ -144,6 +154,28 @@
     color: rgba(0, 0, 0, 0.67);
     line-height: 1.6;
     float: left;
+    width: 100%;
+}
+
+.social-links {
+    margin: 10px 0 20px;
+    padding: 17px 0;
+    border: 1px solid;
+    border-color: rgba(227, 227, 227, 0.61);
+    border-left: none;
+    border-right: none;
+    color: rgba(0, 0, 0, 0.67);
+    line-height: 1.6;
+    float: left;
+    width: 100%;
+}
+
+.social-links a {
+    margin: 5px;
+}
+
+a:hover {
+    color: black;
 }
 
 .product-shop .product-options {
@@ -164,6 +196,7 @@ p.required {
 .ratings {
     border-bottom: 1px solid;
     border-color: rgba(227, 227, 227, 0.61);
+    width: 100%;
 }
 
 .border-bottom {
@@ -198,19 +231,80 @@ p.required {
     display: inline-block;
     vertical-align: middle;
     margin-right: 20px;
-    float: left;
     margin-top: 11px;
 }
 
 .add-to-box {
     display: inline-block;
     vertical-align: middle;
-    float: left;
     width: 170px;
-    /* margin-left: 20px; */
 }
 
-button.button {
+.qty-container label {
+    float: left;
+    margin-right: 10px;
+    line-height: 30px;
+    color: #000;
+    color: rgba(0, 0, 0, 0.67);
+}
+
+.qty-wrap {
+    width: 58px;
+    float: left;
+}
+
+.qty-wrap input {
+    float: left;
+    width: 40px;
+}
+
+input.qty {
+    padding: 4px 9px;
+    height: 29px;
+    border: 1px solid #e0e0e0;
+    box-shadow: inset 0px 0px 5px 0px #eaeaea;
+    border-radius: 3px;
+    line-height: 19px;
+    box-sizing: border-box;
+}
+
+.qty-elements {
+    float: left;
+}
+
+a.increment_qty {
+    background-position: 0 -18px;
+    margin-top: 0;
+    margin-bottom: 1px;
+    color: white;
+}
+
+.qty-elements a {
+    display: block;
+    background-color: var(--primary-color);
+    width: 16px;
+    height: 14px;
+    margin-left: 2px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #828282;
+    text-decoration: none;
+    outline: none
+}
+
+a.decrement_qty {
+    background-position: 17px -18px;
+}
+
+.qty-elements .fa {
+    position: relative;
+    left: 4px;
+    bottom: 4px;
+    color: white;
+}
+
+.add-to-cart button.button {
     float: left;
     margin-bottom: 5px;
     overflow: visible;
@@ -218,13 +312,14 @@ button.button {
     border: 0;
     padding: 0;
     margin: 0;
-    background: transparent;
+    background: var(--primary-color);
+    line-height: normal;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: sans-serif;
+    color: #222;
+    font: 12px Arial, Helvetica, sans-serif;
     cursor: pointer;
-}
-
-.add-to-cart {
-    margin: 0;
-    float: left;
 }
 
 .qty-container label {
@@ -255,7 +350,6 @@ button.button {
 .add-to-links {
     margin: 20px 0 0;
     padding: 0;
-    clear: both;
 }
 
 .add-to-links li {
@@ -268,11 +362,22 @@ button.button {
 .add-to-links a {
     font-size: .5r7;
     font-weight: 400;
+    position: relative;
+    bottom: 20px;
 }
 
 .add-to-links li .fa {
     margin: 7px;
     color: white;
+}
+
+.addthis_toolbox {
+    padding: 17px 0;
+}
+
+.size-popup {
+    text-transform: uppercase;
+    font-size: .8rem;
 }
 
 .add-to-links li span.icon {
@@ -286,6 +391,11 @@ button.button {
     background-color: black;
     background-position: -39px -90px;
     border-radius: 100% !important;
+}
+
+.add-to-box .btn {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
