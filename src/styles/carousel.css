@@ -223,3 +223,17 @@
 .fas {
     color: var(--primary-color) !important;
 }
+
+.featured .product-image img {
+    position: relative;
+    z-index: 0;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    border: 0;
+    vertical-align: middle;
+}
+
+.slick-slide img {
+    display: inline-block !important;
+}

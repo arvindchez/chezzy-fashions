@@ -134,10 +134,6 @@ h2.product-name {
     color: var(--primary-color);
 }
 
-.price-box {
-    margin: 5px 0;
-}
-
 .product-name a {
     color: #828282;
 }

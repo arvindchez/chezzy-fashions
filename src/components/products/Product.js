@@ -61,6 +61,14 @@ class Product extends Component {
                         <a href={"#" + _id}
                             title={title}>{title}</a>
                     </h2>
+                    <div>
+                        <StarRatingComponent
+                            name="rating"
+                            editing={false}
+                            starCount={parseInt(process.env.REACT_APP_RATING_MAX)}
+                            value={rating}
+                        />
+                    </div>
                     <div className="price-box">
                         <span className="regular-price">
                             <span className="price">{formatCurrency(price)}</span>

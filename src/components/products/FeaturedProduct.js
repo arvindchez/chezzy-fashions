@@ -60,28 +60,24 @@ class FeaturedProduct extends Component {
                             </p>
                         </div>
                         <h2 className="product-name">
-                            <Link className="product-image"
-                                to={{
-                                    pathname: `/details/${_id}`,
-                                    state: { id: _id }
-                                }} />
-
+                            <a href={"#" + _id}
+                                title={title}>{title}</a>
                         </h2>
+                        <div>
+                            <StarRatingComponent
+                                name="rating"
+                                editing={false}
+                                starCount={parseInt(process.env.REACT_APP_RATING_MAX)}
+                                value={rating}
+                            />
+                        </div>
                         <div className="price-box">
                             <span className="regular-price">
                                 <span className="price">{formatCurrency(price)}</span>
                             </span>
                         </div>
-                        <div className="ratings">
-                            <p className="rating-links" />
-                            <StarRatingComponent
-                                name="rating"
-                                editing={false}
-                                starCount={parseInt(process.env.REACT_APP_RATING_MAX)}
-                                value={rating} />
-                        </div>
                     </div>
-                </div>
+                </div >
             </Fade >
         );
     }
