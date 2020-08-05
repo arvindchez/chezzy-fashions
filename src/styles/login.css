@@ -124,6 +124,7 @@ form {
     color: #505050;
     font-weight: 300;
     padding: 0;
+    font-size: 12px;
 }
 
 .form-list label {
@@ -375,6 +376,14 @@ button.button span span {
     color: #322c29 !important;
 }
 
+.account-login .slider-btn .register {
+    position: absolute;
+    left: -5%;
+    width: 110%;
+    font-size: .7rem;
+    color: #322c29 !important;
+}
+
 .account-login .slider-btn .next:hover {
     color: var(--primary-color) !important;
     cursor: pointer;
@@ -382,7 +391,6 @@ button.button span span {
 
 .account-login .slider-btn .prev {
     position: absolute;
-    top: 65%;
     left: 38%;
     font-size: .7rem;
     color: #322c29 !important;
@@ -399,4 +407,150 @@ button.button span span {
 
 button.invert span:hover {
     background-color: var(--primary-color) !important;
+}
+
+.customer-account-create h2.first {
+    margin: 0;
+    padding-top: 0;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.customer-account-create h2.legend {
+    margin: 25px 0 0;
+    padding-top: 15px;
+}
+
+.block .block-content li:last-child, .block .block-content li.item:last-child {
+    border: 0;
+}
+
+.customer-account-create .form-list>li:first-child {
+    margin-top: 17px;
+}
+
+.customer-account-create .form-list .field {
+    float: none;
+    width: auto;
+}
+
+@media only screen and (max-width: 1280px) {
+    customer-account-create .form-list .field, .customer-account-create .form-list .field input.input-text {
+        width: 100%;
+    }
+}
+
+.customer-account-create .form-list .field, .customer-account-create .form-list .field input.input-text {
+    width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    form-list .field {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width: 979px) {
+    .form-list .field, .form-list .field input.input-text {
+        width: 100% !important;
+        margin-right: 0;
+    }
+}
+
+.form-list .field {
+    float: left;
+    width: 49%;
+    margin-right: 2%;
+}
+
+.form-list label.required em {
+    float: right;
+    font-style: normal;
+    color: #eb340a;
+    position: absolute;
+    top: 0;
+    right: -8px;
+}
+
+.customer-account-create h2.legend {
+    margin: 25px 0 0;
+    padding-top: 15px;
+}
+
+h2 {
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.customer-account-create .buttons-set {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.buttons-set {
+    clear: both;
+    padding: 5px;
+}
+
+.customer-account-create p.required {
+    text-align: center;
+}
+
+.block .block-content p {
+    padding: 0 0 10px;
+}
+
+.buttons-set p.required {
+    margin: 5px 0 10px;
+}
+
+p.required {
+    font-size: 12px;
+    color: #f00;
+}
+
+.form-list li.control input.radio, .form-list li.control input.checkbox {
+    vertical-align: middle;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    vertical-align: middle;
+}
+
+input.checkbox {
+    margin-right: 3px;
+}
+
+.block .block-content li:last-child, .block .block-content li.item:last-child {
+    border: 0;
+}
+
+.block-login .block-content li {
+    margin: 0;
+    padding: 0;
+    background: none;
+    text-align: center;
+}
+
+.block .block-content li, .block .block-content li.item {
+    line-height: 20px;
+}
+
+.account-login .position-top {
+    position: absolute;
+    top: 100%;
+}
+
+.position-top-forgot-pwd {
+    top: 90%;
 }
