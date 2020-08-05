@@ -8,6 +8,7 @@ import "./styles/product.css";
 import "./styles/filter.css";
 import "./styles/controls.css";
 import "./styles/cart.css";
+import "./styles/login.css";
 import "./styles/product-details.css";
 import App from "./App";
 import { store, persistor } from "./store/store";
