@@ -27,6 +27,7 @@
     position: relative;
     left: 0;
     right: 0;
+    bottom: 10px;
     padding: 23px 20px;
     background: #fff;
     border: none;
@@ -378,8 +379,8 @@ button.button span span {
 
 .account-login .slider-btn .register {
     position: absolute;
-    left: -5%;
-    width: 110%;
+    left: -7%;
+    width: 114%;
     font-size: .7rem;
     color: #322c29 !important;
 }

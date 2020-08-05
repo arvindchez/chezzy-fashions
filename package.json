@@ -49,8 +49,10 @@
     "redux-thunk": "^2.3.0",
     "sharp": "^0.25.4",
     "shortid": "^2.2.15",
+    "simple-react-validator": "^1.5.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
+    "use-force-update": "^1.0.7",
     "validator": "^13.1.1"
   },
   "scripts": {

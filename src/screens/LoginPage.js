@@ -1,63 +1,108 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../actions/user';
 import Slider from 'react-slick';
-import { alertActions } from '../actions/alert';
+import SimpleReactValidator from 'simple-react-validator';
+import useForceUpdate from 'use-force-update';
 
-function LoginPage(props) {
+const LoginPage = (props) => {
     const [inputs, setInputs] = useState({
+        firstName: '',
+        middleName: '',
+        lastName: '',
         email: '',
-        password: ''
+        password: '',
+        confirmPassword: '',
+        lEmail: '',
+        lPassword: '',
+        fEmail: '',
+        news: false
     });
 
     let registerSlider = useRef();
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
+    const forceUpdate = useForceUpdate();
+    const [validator, setValidator] = useState(new SimpleReactValidator());
     const loggingIn = useSelector(state => state.authentication.loggingIn);
-    const { email, password } = inputs;
+    const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
 
-    function handleChange(e) {
-        const { name, value } = e.target;
+    const {
+        firstName,
+        middleName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+        lEmail,
+        lPassword,
+        fEmail,
+        news
+    } = inputs;
+
+    const handleChange = (e) => {
+        let { name, value, checked } = e.target;
+        if (e.target.type === 'checkbox') {
+            value = checked ? true : false;
+        }
+
         setInputs(inputs => ({ ...inputs, [name]: value }));
+    }
+
+    const clearInputs = () => {
+        setInputs({
+            firstName: '',
+            middleName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            lEmail: '',
+            lPassword: '',
+            fEmail: '',
+            news: false
+        });
+    }
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        if (validator.fieldValid('First Name') &&
+            validator.fieldValid('Last Name') &&
+            validator.fieldValid('Middle Name/Initial') &&
+            validator.fieldValid('Email') &&
+            validator.fieldValid('Password') &&
+            validator.fieldValid('Confirm Password')) {
+
+            console.log(inputs)
+            dispatch(userActions.register(inputs));
+        } else {
+            validator.showMessages();
+            forceUpdate();
+        }
     }
 
     const handleForgotPasswordSubmit = (e) => {
         e.preventDefault();
 
-        if (!email && !password) {
-            dispatch(alertActions.error('Please provide email and password'));
-            return;
+        if (validator.fieldValid('email')) {
+            dispatch(userActions.forgotPassword(fEmail));
+        } else {
+            validator.showMessages();
+            forceUpdate();
         }
     }
 
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (!email && !password) {
-            dispatch(alertActions.error('Please provide email and password'));
-            return;
-        }
-
-        if (!email) {
-            dispatch(alertActions.error('Please provide email'));
-            return;
-        }
-        if (!password) {
-            dispatch(alertActions.error('Please provice password'));
-            return;
-        }
-
-        if (email && password) {
+        if (validator.fieldValid('Login Email') && validator.fieldValid('Login Password')) {
             dispatch(
                 userActions.login(
-                    email,
-                    password,
+                    lEmail,
+                    lPassword,
                     props.location.state ?
                         props.location.state.from.pathname : undefined));
+        } else {
+            validator.showMessages();
+            forceUpdate();
         }
     }
 
@@ -76,10 +121,12 @@ function LoginPage(props) {
     };
 
     const gotoRegister = () => {
+        clearInputs();
         registerSlider.current.slickPrev();
     }
 
     const gotoSignIn = () => {
+        clearInputs();
         registerSlider.current.slickNext();
     }
 
@@ -130,77 +177,92 @@ function LoginPage(props) {
                                 <Slider ref={registerSlider}  {...settings}>
                                     <li >
                                         <div className="customer-account-create">
-                                            <div class="block-title">
+                                            <div className="block-title">
                                                 <strong><span>Register</span></strong>
                                             </div>
                                             <div className="block-content">
-                                                <ul class="form-list">
-                                                    <li>
-                                                        <label for="firstname" class="required"><em>*</em>First Name</label>
-                                                        <div class="input-box">
-                                                            <input type="text" id="firstname" name="firstname" value="" title="First Name" maxlength="255" class="input-text required-entry" />
-                                                        </div>
-
-                                                        <label for="middlename">Middle Name/Initial</label>
-                                                        <div class="input-box">
-                                                            <input type="text" id="middlename" name="middlename" value="" title="Middle Name/Initial" class="input-text" />
-                                                        </div>
-
-                                                        <label for="lastname" class="required"><em>*</em>Last Name</label>
-                                                        <div class="input-box">
-                                                            <input type="text" id="lastname" name="lastname" value="" title="Last Name" maxlength="255"
-                                                                class="input-text required-entry" />
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <label for="email_address" class="required"><em>*</em>Email Address</label>
-                                                        <div class="input-box">
-                                                            <input type="text" name="email" id="email_address" value=""
-                                                                title="Email Address" class="input-text validate-email required-entry" />
-                                                        </div>
-                                                    </li>
-                                                    <li class="control">
-                                                        <div class="input-box">
-                                                            <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter"
-                                                                value="1" id="is_subscribed" class="checkbox" />
-                                                        </div>
-                                                        <label for="is_subscribed">Sign Up for Newsletter</label>
-                                                    </li>
-                                                </ul>
-                                                <h2 class="legend">Login Information</h2>
-                                                <ul class="form-list">
-                                                    <li class="fields">
-                                                        <div class="field">
-                                                            <label for="password" class="required"><em>*</em>Password                                </label>
-
-                                                            <div class="input-box">
-                                                                <input type="password" name="password" id="password"
-                                                                    title="Password"
-                                                                    class="input-text required-entry validate-password" />
+                                                <form onSubmit={handleRegister} method="post" id="register-form">
+                                                    <ul className="form-list">
+                                                        <li>
+                                                            <label htmlFor="firstname" className="required"><em>*</em>First Name</label>
+                                                            <div className="input-box">
+                                                                <input type="text" name="firstName" value={firstName} onChange={handleChange}
+                                                                    title="First Name" className="input-text" />
+                                                                {validator.message('First Name', firstName, 'required|alpha|max:50', { className: 'text-danger' })}
                                                             </div>
-                                                        </div>
-                                                        <div class="field">
-                                                            <label for="confirmation" class="required"><em>*</em>Confirm Password</label>
 
-                                                            <div class="input-box">
-                                                                <input type="password" name="confirmation"
-                                                                    title="Confirm Password" id="confirmation"
-                                                                    class="input-text required-entry validate-cpassword" />
+                                                            <label htmlFor="middlename">Middle Name/Initial</label>
+                                                            <div className="input-box">
+                                                                <input type="text" onChange={handleChange} name="middleName" value={middleName}
+                                                                    title="Middle Name/Initial" className="input-text" />
+                                                                {validator.message('Middle Name/Initial', middleName, 'alpha|max:50', { className: 'text-danger' })}
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                <div class="buttons-set">
-                                                    <p class="required">* Required Fields</p>
-                                                    <button
-                                                        onClick={gotoSignIn}
-                                                        type="button" title="Back" class="button invert">
-                                                        <span><span>← Back</span></span>
-                                                    </button>
-                                                    <button type="submit" title="Submit" class="button">
-                                                        <span><span>Submit</span></span>
-                                                    </button>
-                                                </div>
+
+                                                            <label htmlFor="lastname" className="required"><em>*</em>Last Name</label>
+                                                            <div className="input-box">
+                                                                <input type="text" name="lastName"
+                                                                    onChange={handleChange} value={lastName} title="Last Name"
+                                                                    className="input-text" />
+                                                                {validator.message('Last Name', lastName, 'required|alpha|max:50', { className: 'text-danger' })}
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label htmlFor="email" className="required"><em>*</em>Email Address</label>
+                                                            <div className="input-box">
+                                                                <input type="email" name="email" value={email} onChange={handleChange}
+                                                                    title="Email Address" className="input-text" />
+                                                                {validator.message('Email', email, 'required|email', { className: 'text-danger' })}
+                                                            </div>
+                                                        </li>
+                                                        <li className="control">
+                                                            <div className="input-box">
+                                                                <input type="checkbox" name="news" title="Sign Up for Newsletter"
+                                                                    checked={news}
+                                                                    onChange={handleChange}
+                                                                    id="news" className="checkbox" />
+                                                                <label htmlFor="news">Sign Up for Newsletter</label>
+                                                            </div>
+
+                                                        </li>
+                                                    </ul>
+                                                    <h2 className="legend">Login Information</h2>
+                                                    <ul className="form-list">
+                                                        <li className="fields">
+                                                            <div className="field">
+                                                                <label htmlFor="password" className="required"><em>*</em>Password</label>
+                                                                <div className="input-box">
+                                                                    <input type="password" name="password" onChange={handleChange}
+                                                                        title="Password" value={password}
+                                                                        className="input-text" />
+                                                                    {validator.message('Password', password, 'required',
+                                                                        { className: 'text-danger' })}
+                                                                </div>
+                                                            </div>
+                                                            <div className="field">
+                                                                <label htmlFor="confirmation" className="required"><em>*</em>Confirm Password</label>
+                                                                <div className="input-box">
+                                                                    <input type="password" name="confirmPassword" onChange={handleChange}
+                                                                        title="Confirm Password" value={confirmPassword}
+                                                                        className="input-text" />
+                                                                    {validator.message('Confirm Password', confirmPassword, 'required',
+                                                                        { className: 'text-danger' })}
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <div className="buttons-set">
+                                                        <p className="required">* Required Fields</p>
+                                                        <button
+                                                            onClick={gotoSignIn}
+                                                            type="button" title="Back" className="button invert">
+                                                            <span><span>← Back</span></span>
+                                                        </button>
+                                                        <button type="submit" title="Submit" className="button">
+                                                            {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                                                            <span><span>Submit</span></span>
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </li>
@@ -212,20 +274,23 @@ function LoginPage(props) {
                                             <form onSubmit={handleSubmit} method="post" id="login-form">
                                                 <ul className="form-list">
                                                     <li>
-                                                        <label htmlFor="email" className="required">Email Address</label>
+                                                        <label htmlFor="lEmail" className="required">Email Address</label>
                                                         <div className="input-box">
-                                                            <input type="text" name="email" onChange={handleChange}
-                                                                id="email" value={email}
-                                                                className="input-text required-entry validate-email"
+                                                            <input type="email" name="lEmail" onChange={handleChange}
+                                                                id="lEmail" value={lEmail}
+                                                                className="input-text"
                                                                 title="Email Address" />
+                                                            {validator.message('Login Email', lEmail, 'required|email', { className: 'text-danger' })}
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <label htmlFor="pass" className="required">Password</label>
+                                                        <label htmlFor="lPassword" className="required">Password</label>
                                                         <div className="input-box">
-                                                            <input type="password" name="password" onChange={handleChange}
-                                                                value={password} className="input-text required-entry validate-password"
-                                                                id="pass" title="Password" />
+                                                            <input type="password" name="lPassword" onChange={handleChange}
+                                                                value={lPassword} className="input-text"
+                                                                id="lPassword" title="Password" />
+                                                            {validator.message('Login Password', lPassword, 'required',
+                                                                { className: 'text-danger' })}
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -245,12 +310,12 @@ function LoginPage(props) {
                                                 method="post" id="form-validate">
                                                 <ul className="form-list">
                                                     <li>
-                                                        <label htmlFor="email" className="required">Email Address</label>
+                                                        <label htmlFor="fEmail" className="required">Email Address</label>
                                                         <div className="input-box">
-                                                            <input type="text" name="email" alt="email"
-                                                                id="email_address" value={email} onChange={handleChange}
-                                                                className="input-text required-entry validate-email"
-                                                            />
+                                                            <input type="email" name="fEmail" alt="fEmail"
+                                                                id="fEmail" value={fEmail} onChange={handleChange}
+                                                                className="input-text" />
+                                                            {validator.message('email', fEmail, 'required|email', { className: 'text-danger' })}
                                                         </div>
                                                     </li>
                                                 </ul>
